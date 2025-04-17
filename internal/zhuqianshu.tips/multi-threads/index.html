@@ -1,0 +1,1065 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="我们知道，在linux服务器中，如果想将任务提交到后台，以便">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/multi-threads/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/multi-threads/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/multi-threads/">
+  <meta property="og:title" content="控制并发线程数 | JiangLab">
+  <meta property="og:description" content="我们知道，在linux服务器中，如果想将任务提交到后台，以便"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-08-02T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-08-02T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>控制并发线程数 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/internal/zhuqianshu.tips/">首页</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/rpkmsummary/">一个使用multiBamSummary计算区域rpkm的脚本</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/shell-test/">对比 test、[、[[ 判断用法</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/sort-body/">保持标题行在顶部后排序</a>
+      </li>
+      
+      <li class="active">
+        <a href="/internal/zhuqianshu.tips/multi-threads/">控制并发线程数</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/shell-intercept-string/">Shell 字符串截取方法</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/trash-cli/">回收站功能</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/translation/">翻译软件</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/regex/">linux shell 正则表达式</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/cron-filesystem-size/">定时检查磁盘空间使用情况</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/crontab-initiation/">定时任务的使用</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/gz-unzip/">tar解压 gz解压 bz2等各种解压文件使用方法</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">在本页</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#实现方法">实现方法：</a></li>
+        <li><a href="#不写bash文件直接在xshell上简便的运行方法">不写bash文件，直接在xshell上简便的运行方法：</a></li>
+        <li><a href="#下面这种更好更简洁">下面这种更好更简洁</a></li>
+        <li><a href="#我已将第一句设为function写在profile中">我已将第一句设为function写在profile中：</a></li>
+      </ul>
+    </li>
+    <li><a href="#因此只需要执行">因此只需要执行：</a></li>
+    <li><a href="#mult-4"><code>mult 4</code></a></li>
+    <li><a href="#for-i-in-do-read--u-9-xxxecho9done"><code>for i in *;do read -u 9;{ xxx;echo&gt;&amp;9;}&amp;done</code></a></li>
+    <li><a href="#放后台不挂起即使关闭shell仍然运行的写法">放后台不挂起(即使关闭shell仍然运行)的写法：</a></li>
+    <li><a href="#mult-4-1"><code>mult 4</code></a></li>
+    <li><a href="#nohup-bash--c-for-i-in-do-read--u-9-xxxecho9donerunlog"><code>nohup bash -c 'for i in *;do read -u 9;{ xxx;echo&gt;&amp;9;}&amp;done'&gt;run.log&amp;</code></a>
+      <ul>
+        <li><a href="#如果在运行时想增加一个运行数只需加一个空行echo9即可">如果在运行时想增加一个运行数，只需加一个空行<code>echo&gt;&amp;9</code>，即可</a></li>
+        <li><a href="#如果在运行时想减少一个运行数需要去除一个空行read--u-9但需要等待正在执行的任务其中之一完成">如果在运行时想减少一个运行数，需要去除一个空行<code>read -u 9</code>，但需要等待正在执行的任务其中之一完成</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>控制并发线程数</h1>
+
+          <div class="article-style">
+            <p>我们知道，在linux服务器中，如果想将任务提交到后台，以便可以继续使用当前shell做别的事，或者通过循环一次运行多个任务，对于那些需要很长时间的程序是很有用的
+如：</p>
+<pre><code>for i in *R1.fastq.gz; do 
+nohup bowtie2 -x mm10 -1 $i -2 ${i/R1/R2} ... -p 4 &gt; log/${i%.R1*}.log &amp;
+done
+</code></pre>
+<blockquote>
+<p>其中nohup表示不在shell上显示日志，而是将日志写到log/${i%.R1*}.log中</p>
+</blockquote>
+<p>但如果数据很多的时候，一口气全讲任务提交到后台同时运行，服务器可能会被卡死，因此我们希望根据需要控制在后台同时运行的任务数量。</p>
+<p>例如有10个数据，先运行4个，当其中某个运行完成，自动再运行一个……直到所有数据运行完成。</p>
+<p>最后我在网上找到了一种非常巧妙的</p>
+<h3 id="实现方法">实现方法：</h3>
+<pre><code>#!/bin/sh
+#多进程并发数控制
+
+THREAD=4  #并行进程数
+tempfifo=$$.fifo  # $$表示当前执行文件的PID,作为临时文件名
+
+#如果接收到Ctrl+C中断命令，则关闭文件描述符1000的读写
+trap &quot;exec 1000&gt;&amp;-;exec 1000&lt;&amp;-;exit 0&quot; 2  
+mkfifo $tempfifo    #创建一个管道文件
+#将文件描述符1000与管道文件链接，以便可以同时存在读写
+exec 1000&lt;&gt;$tempfifo    
+
+
+#往管道中写入THREAD行空行
+for((i=0;i&lt;$THREAD;i++))
+do
+    echo &gt;&amp; 1000
+done
+
+#程序任务需要：循环读取符合的文件
+for i in *R1*;   
+do
+    read -u 1000   #读取管道文件的一行，每次读取管道就会减少一个空行
+    {
+    	###############################程序任务
+    	o=${i##*/};o=${o%%.*};
+    	nohup hisat2 --dta-cufflinks --no-discordant --no-mixed -p 32 --no-unal -x /home/share/hisat2_index/new_index/hg19_tran -1 $i -2 ${i/R1/R2} -S /home/qszhu/workspace/3.epidermal/1.align/$o.hisat2.sam &gt; /home/qszhu/workspace/3.epidermal/1.align/logs/$o.hisat2.log
+    	###############################
+    
+    	echo &gt;&amp;1000 #跑完一个任务，就往管道文件中写入一个空行
+    	echo $o&quot; done&quot;
+    }&amp;    #放入后台执行，若管道中还有空行则可继续执行下个任务，若没有则停滞
+done
+
+wait
+echo &quot;All threads done.&quot;
+rm -rf $tempfifo
+</code></pre>
+<blockquote>
+<p>简单来说，我们在一个文件中写入了4行，每次运行一个任务，会读取一行，当4行全用掉就会锁住，而当其中某个任务完成后，就会往管道文件中写入一空行，因此下一个任务又可以开始加入后台执行，这样一直都会有4个任务在后台运行！
+$$是本shell的id，防止与其他shell进程冲突
+mkfifo创建管道文件
+1000是一个文件描述符，可以是大于3的正整数。可以在/dev/fd中查看文件描述符定位的文件</p>
+</blockquote>
+<h3 id="不写bash文件直接在xshell上简便的运行方法">不写bash文件，直接在xshell上简便的运行方法：</h3>
+<pre><code>mkfifo /tmp/$$.fifo;exec 1000&lt;&gt;/tmp/$$.fifo;for((i=0;i&lt;4;i++));do echo&gt;&amp;1000;done 
+for i in $ddir/*sorted.bam; 
+do read -u 1000;{ 
+
+echo&gt;&amp;1000; }&amp; done;wait;rm /tmp/$$.fifo;
+
+</code></pre>
+<ul>
+<li>第一行中的4可修改，表示同时运行的程序数量。每当运行完一个文件，将立即读取下一个，一直保持同时运行8个</li>
+<li>第二行是循环头部，可根据需要修改为循环读取所有输入文件，for、while任何循环都可以</li>
+<li>在第四行处编写命令，可根据需要多行多个程序顺序执行，可nohup保留日志，但不要在命令后加“&amp;”放后台！</li>
+<li>其他不用修改</li>
+</ul>
+<h3 id="下面这种更好更简洁">下面这种更好更简洁</h3>
+<pre><code>del -f /tmp/$$.fifo;mkfifo /tmp/$$.fifo&amp;&amp;exec 9&lt;&gt;/tmp/$$.fifo&amp;&amp;for((i=0;i&lt;4;i++));do echo&gt;&amp;9;done;
+for k in *bam;do read -u 9;{ 
+
+echo&gt;&amp;9;}&amp;done&amp;&amp;wait&amp;&amp;del /tmp/$$.fifo;
+</code></pre>
+<h3 id="我已将第一句设为function写在profile中">我已将第一句设为function写在profile中：</h3>
+<p><code>function mult(){ /bin/rm -f /tmp/$$.fifo&amp;&amp;/usr/bin/mkfifo /tmp/$$.fifo&amp;&amp;exec 9&lt;&gt;/tmp/$$.fifo&amp;&amp;for((i=0;i&lt;$1;i++));do /usr/bin/echo&gt;&amp;9;done&amp;&amp;/bin/rm -f /tmp/$$.fifo||echo &quot;error&quot;; }</code></p>
+<h2 id="因此只需要执行">因此只需要执行：</h2>
+<h2 id="mult-4"><code>mult 4</code></h2>
+<h2 id="for-i-in-do-read--u-9-xxxecho9done"><code>for i in *;do read -u 9;{ xxx;echo&gt;&amp;9;}&amp;done</code></h2>
+<h2 id="放后台不挂起即使关闭shell仍然运行的写法">放后台不挂起(即使关闭shell仍然运行)的写法：</h2>
+<h2 id="mult-4-1"><code>mult 4</code></h2>
+<h2 id="nohup-bash--c-for-i-in-do-read--u-9-xxxecho9donerunlog"><code>nohup bash -c 'for i in *;do read -u 9;{ xxx;echo&gt;&amp;9;}&amp;done'&gt;run.log&amp;</code></h2>
+<h3 id="如果在运行时想增加一个运行数只需加一个空行echo9即可">如果在运行时想增加一个运行数，只需加一个空行<code>echo&gt;&amp;9</code>，即可</h3>
+<h3 id="如果在运行时想减少一个运行数需要去除一个空行read--u-9但需要等待正在执行的任务其中之一完成">如果在运行时想减少一个运行数，需要去除一个空行<code>read -u 9</code>，但需要等待正在执行的任务其中之一完成</h3>
+<p>
+<a href="/resource/codes/threads.sh">模板sh文件</a>: <em>/home/share/codes/threads.sh</em></p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/internal/zhuqianshu.tips/sort-body/" rel="next">保持标题行在顶部后排序</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/internal/zhuqianshu.tips/shell-intercept-string/" rel="prev">Shell脚本8种字符串截取方法总结</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>最近更新于 Aug 2, 2020</p>
+
+          
+
+
+
+          
+
+
+          
+
+
+  
+  
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

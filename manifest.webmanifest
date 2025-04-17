@@ -1,0 +1,18 @@
+{
+  "name": "JiangLab",
+  "short_name": "JiangLab",
+  "lang": "zh-Hans",
+  "theme_color": "#795548",
+  "background_color": "#795548",
+  "icons": [{
+    "src": "/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png",
+    "sizes": "192x192",
+    "type": "image/png"
+    }, {
+    "src": "/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_512x512_fill_lanczos_center_3.png",
+    "sizes": "512x512",
+    "type": "image/png"
+     }],
+  "display": "standalone",
+  "start_url": "/?utm_source=web_app_manifest"
+}

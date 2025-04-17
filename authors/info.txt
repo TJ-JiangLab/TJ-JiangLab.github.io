@@ -1,0 +1,20 @@
+服务器ID	姓名	年级	邮箱	爱好	研究(课题、方向或感兴趣的领域)	其他（可自行添加，如 偶像：xxx；心愿：xxx；座右铭：xxx等）	group	github	google-scholar	researchgate	ID
+qszhu	朱乾书	2015级硕士，2017级转博	zhuqianshu@tongji.edu.cn	羽毛球；游泳	SCNT,Hi-C,haESCs	年度愿望：毕业	博士生	Qianshu_Zhu	YtdNWvYAAAAJ		Zhu-Qianshu
+gyang	杨光	2017级直博生	yg942464@gmail.com	羽毛球；历史；经济	Epigenetic reprogramming		博士生	PhrenoVermouth	numQn1QAAAAJ		Yang-Guang
+sjshen	沈仕君	2016级直博生	xiaoshen19930901@163.com	二次元；斯诺克；推理	cancer,stem cell,epigenetic,development,malaria		博士生	xiaoshen19930901	srlZcnMAAAAJ		Shen-Shijun
+zhliang	梁泽航	2018级硕士	393404316@qq.com	音乐；搏击	epigenetic,immune		硕士生				Liang-Zehang
+jsun	孙津	2011级拔尖班本科，2015级直博生	sunjin@tongji.edu.cn	游泳；乒乓球	placenta development		博士生				Sun-Jin
+lpwang	王莉萍	2017级直博生	wanglp13@gmail.com	吃饭,睡觉,打豆豆	epigenetic,iPSC,Dorsoventral Patterning of Human Forebrain		博士生				Wang-Liping
+luwang	王璐	2018级硕士	1831548@tongji.edu.cn	运动，旅游	epigenetic		硕士生				Wang-Lu
+mliu	刘孟	2017级直博生	2863726367@qq.com	相声	epigenetic	偶像:孟鹤堂、周九良	博士生				Liu-Meng
+wjliu	刘文举	2017级硕士，2019级转博	1910979@tongji.edu.cn	推理小说，音乐剧	development;immunity		博士生				Liu-Wenju
+xycui	崔昕宇	2018级直博生	1810992@tongji.edu.cn	相声	epigenetic，HSC		博士生				Cui-Xinyu
+jxiao	肖菁	2019级硕士	h_su_h@126.com	羽毛球；跑步；后摇	epigenetic		硕士生				Xiao-Jin
+jche	何金灿	2019级直博生	hejincan@tongji.edu.cn	羽毛球；乒乓球	malaria;immunity		博士生				He-Jincan
+yyyu	俞媛媛	2020级硕士	18368924812@163.com	音乐；画画	cancer,stem cell,epigenetic		硕士生				Yu-Yuanyuan
+lgu	顾靓	2015级博士	guliang@tongji.edu.cn	摄影；游泳；相声	epigenetic		博士生			Liang_Gu5	GU-Liang
+wszheng	郑炜圣	2012级硕士，2014级转博	wszheng1010@gmail.com	篮球、摄影	stem cells, epigenetics		博士生			Weisheng_Zheng	Zheng-Weisheng
+zhzhang	张子豪	2019级硕士	1004923690@qq.com	看电视	epigenetics		硕士生				Zhang-Zihao
+ssyi	易珊珊	2020级直博生	392911250@qq.com	看剧、音乐、摄影、健身	epigenetics		博士生				YI-shanshan
+czjiang	江赐忠	博士生导师；PI	czjiang@tongji.edu.cn	乒乓球	Bioinformatic, epigenetic, genomic		导师			Cizhong_Jiang	Jiang-Cizhong
+xbzhang	张小白	硕士生导师	zhangxb@tongji.edu.cn		Bioinformatic, epigenetic		导师			Xiaobai_Zhang2	Zhang-Xiaobai

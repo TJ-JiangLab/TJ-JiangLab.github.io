@@ -1,0 +1,60 @@
+---
+title: "Journal Club"
+summary: "JC所有PPT以及相关视频、资料汇总。**本学期每周五晚7点自动更新……**"
+linktitle: "Journal Club 2024"
+toc: true
+type: docs
+date: "2024-11-12"
+lastmod: "2024-11-12"
+draft: false
+menu:
+  jc:
+    parent: Overview
+    weight: 1
+
+weight: 1
+---
+
+
+|演讲人|日期|关键词|附件|
+|:-:|:-:|:-:|:-:|
+| **XiaoJing** | **2024年11月06日** | **human STB heterogeneity** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_XiaoJing_20241106_human_STB_heterogeneity.pptx)|
+| **ZhaoJia** | **2024年10月30日** | **Astrocyte** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ZhaoJia_20241030_Astrocyte.pptx)|
+| **ChenJuan** | **2024年10月23日** | **DNA methylation controls stemness** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ChenJuan_20241023_DNA_methylation_controls_stemness.pptx)|
+| **HeJinCan** | **2024年10月16日** | **HFSC** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_HeJinCan_20241016_HFSC.pptx)|
+| **ChenWenXia** | **2024年10月09日** | **Evolutionary trajectories of SCLC** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ChenWenXia_20241009_Evolutionary_trajectories_of_SCLC.pptx)|
+| **CuiXinYu** | **2024年09月25日** | **hHSC** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_CuiXinYu_20240925_hHSC.pptx)|
+| **YuYuanYuan** | **2024年09月18日** | **PRC1 perturbation initiate tumours** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_YuYuanYuan_20240918_PRC1_perturbation_initiate_tumours.pptx)|
+| **WangLiPing** | **2024年09月04日** | **PA lung scRNA seq** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_WangLiPing_20240904_PA_lung_scRNA-seq.pptx)|
+| **YJH** | **2024年08月28日** | **TNBC ICB spatial prediction** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_YJH_20240828_TNBC%20ICB%20spatial%20prediction.pptx)|
+| **Chenjuan** | **2024年07月22日** | **CSC state** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_Chenjuan_20240722_CSC_state.pptx)|
+| **ZhuQianshu** | **2024年07月09日** | **scRNA aneuploid blastocysts** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ZhuQianshu_20240709_scRNA-aneuploid-blastocysts.pptx)|
+| **LiWei** | **2024年07月01日** | **Microbiome** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_LiWei_20240701_Microbiome.pptx)|
+| **ZhangZihao** | **2024年06月24日** | **CHEXSeq** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ZhangZihao_20240624_CHEXSeq.pptx)|
+| **YiShanshan** | **2024年06月17日** | **scATAC prostate cancer** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_YiShanshan_20240617_scATAC_prostate_cancer.pptx)|
+| **HeJinCan** | **2024年06月03日** | **Zfp281** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_HeJinCan_20240603_Zfp281.pptx)|
+| **NiangXiTing** | **2024年05月27日** | **TAM** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_NiangXiTing_20240527_TAM.pptx)|
+| **XiaoJing** | **2024年05月20日** | **hPSC β ceramide homeostasis TH34** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_XiaoJing_20240520_hPSC-β_ceramide%20homeostasis_TH34.pptx)|
+| **LiuYuWei** | **2024年05月13日** | **breast cancer fibroblasts** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_LiuYuWei_20240513_breast-cancer-fibroblasts.pptx)|
+| **LiuWenJu** | **2024年05月06日** | **SETD2 PDAC** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_LiuWenJu_20240506_SETD2-PDAC.pptx)|
+| **ChenWenXia** | **2024年04月29日** | **Single cell multi omics profiling of human preimplantation embryos identifies cytoskeletal defects during embryonic arrest** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ChenWenXia_20240429_Single-cell%20multi-omics%20profiling%20of%20human%20preimplantation%20embryos%20identifies%20cytoskeletal%20defects%20during%20embryonic%20arrest.pptx)|
+| **CuiXinYu** | **2024年04月22日** | **Il17** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_CuiXinYu_20240422_Il17.pptx)|
+| **ZhaoJia** | **2024年04月15日** | **BCBM Microglia** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ZhaoJia_20240415_BCBM-Microglia.pptx)|
+| **YuYuanYuan** | **2024年04月08日** | **Nr5a2 pluripotency** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_YuYuanYuan_20240408_Nr5a2_pluripotency.pptx)|
+| **WangLiPing** | **2024年04月01日** | **SARS CoV 2 maternal fetal Immune** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_WangLiPing_20240401_SARS-CoV-2_maternal-fetal_Immune.pptx)|
+| **ShenShiJun** | **2024年03月25日** | **XIST** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ShenShiJun_20240325_XIST.pptx)|
+| **YangGuang** | **2024年03月18日** | **NKmemory** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_YangGuang_20240318_NKmemory.pptx)|
+| **YangGuang** | **2024年03月11日** | **Tailloss** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_YangGuang_20240311_Tailloss.pptx)|
+| **YinJiaHui** | **2024年03月04日** | **neutrophils reprogramming** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_YinJiaHui_20240304_neutrophils%20reprogramming.pptx)|
+| **YinJiaHui** | **2024年02月26日** | **immunity hubs in NSCLC ICB** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_YinJiaHui_20240226_immunity-hubs-in-NSCLC-ICB.pptx)|
+| **Chenjuan** | **2024年01月26日** | **GBM** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_Chenjuan_20240126_GBM.pptx)|
+| **ZhuQianshu** | **2024年01月12日** | **USP7 RYBP SOX2 mESC** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ZhuQianshu_20240112_USP7-RYBP-SOX2-mESC.pptx)|
+| **LiWei** | **2024年01月05日** | **LIRSA** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_LiWei_20240105_LIRSA.pptx)|
+| **HuangLinghui** | **2024年40月71日** | **BreastCancer LungMetastasis v4** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_HuangLinghui_240715_BreastCancer_LungMetastasis_v4.pptx)|
+| **HuangLinghui** | **2024年40月11日** | **PDAC+scRNA v1** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_HuangLinghui_240119_PDAC+scRNA_v1.pptx)|
+| **ShenShiJun** | **2024** | **09 11 TERT** | [**pptx**](/resource/Lab-Meeting-JC/journal_club/2024/JC_ShenShiJun_2024_09_11_TERT.pptx)|
+
+<br/>
+<br/>
+*所有文件可在任意服务器的/home/share/Lab-Meeting-JC/journal_club中下载*
+<img decoding="async" src="jc-time.2024-1.png" width="50%"> <img decoding="async" src="jc-time.2024-2.png" width="50%">

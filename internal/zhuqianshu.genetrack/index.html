@@ -1,0 +1,1407 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="简单总结以下从比对到Genetrack-1.0.3预测获得核小体的分析过程">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/">
+  <meta property="og:title" content="Genetrack-运行流程 | JiangLab">
+  <meta property="og:description" content="简单总结以下从比对到Genetrack-1.0.3预测获得核小体的分析过程"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-08-27T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-08-27T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/"
+  },
+  "headline": "Genetrack-运行流程",
+  
+  "datePublished": "2020-08-27T00:00:00Z",
+  "dateModified": "2020-08-27T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "朱乾书"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "JiangLab",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_192x192_fit_lanczos_3.png"
+    }
+  },
+  "description": "简单总结以下从比对到Genetrack-1.0.3预测获得核小体的分析过程"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Genetrack-运行流程 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Genetrack-运行流程</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span >朱乾书</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Aug 27, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 分钟阅读时长
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/%E6%B5%81%E7%A8%8B/">流程</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h3 id="1比对">1.比对</h3>
+<p>比对我使用的是BWA，用bowtie2也一样，
+但不建议在比对中对fragment length筛选，
+可能需要比对完后对fragment length质检</p>
+<pre><code>ddir1=~/data/1.haESCs/early/nucl
+ddir2=~/data/1.haESCs/ChIP_data_2017-10-11/Project_s226c30025_20170929_2samples
+ddir3=~/data/1.haESCs/ChIP_data_2017-10-11/haESCs_project_nucl_K27ac_data_20171117
+wdir=~/workspace/1.haESCs/n.BWA-nucleosome/0.data
+mkd $wdir
+
+for i in R1 R2;do 
+ln -s $ddir2/Sample_R17011045LD01/R17011045LD01_combined_$i.fastq.gz $wdir/Late-Diploid_A129.$i.fastq.gz
+ln -s $ddir2/Sample_R17011044LD01/R17011044LD01_combined_$i.fastq.gz $wdir/Late-Haploid_A129.$i.fastq.gz
+ln -s $ddir1/A129-2_E-2n_nucl_$i.fastq.gz $wdir/Early-Diploid_A129.$i.fastq.gz
+ln -s $ddir1/A129-2_E-n_nucl_$i.fastq.gz $wdir/Early-Haploid_A129.$i.fastq.gz
+
+ln -s $ddir3/Sample_R17016394LD01/R17016394LD01_combined_$i.fastq.gz $wdir/Late-Diploid_AOS.$i.fastq.gz
+ln -s $ddir3/Sample_R17016393LD01/R17016393LD01_combined_$i.fastq.gz $wdir/Late-Haploid_AOS.$i.fastq.gz
+ln -s $ddir1/AOS-14_E-2n_nucl_$i.fastq.gz $wdir/Early-Diploid_AOS.$i.fastq.gz
+ln -s $ddir1/AOS-14_E-n_nucl_$i.fastq.gz $wdir/Early-Haploid_AOS.$i.fastq.gz
+done
+
+wdir=~/workspace/1.haESCs/n.BWA-nucleosome/2.ChIP
+ddir=~/workspace/1.haESCs/n.BWA-nucleosome/0.data
+mkd $wdir $wdir/../1.qc
+nohup fastqc -o $wdir/../1.qc $ddir/*gz -t 36 &amp;
+#cutadapt
+</code></pre>
+<blockquote>
+<p>QC<br>
+bwa不需要cutadapt</p>
+</blockquote>
+<pre><code>#bash ~/workspace/1.haESCs/h.BWA/thread_bwa.sh -w $wdir -d $ddir -t 8 -p 8 &amp;
+thread=16
+for name in $ddir/*R1.fastq.gz; do 
+k=$(basename $name .R1.fastq.gz)
+bwa mem -t $thread $BWA_INDEXES/mm10.fa ${name} ${name/R1/R2} &gt; $wdir/$k.sam 2&gt;$wdir/logs/$k.log
+samtools flagstat -@ $thread $wdir/$k.sam &gt; $wdir/logs/$k.flag.txt.1
+samtools sort -@ $thread $wdir/$k.sam -o $wdir/a.raw/$k.bam
+samtools flagstat -@ $thread $wdir/a.raw/$k.bam &gt; $wdir/logs/$k.flag.txt.2
+#samtools view -@ $thread -F 4 -q 20 $wdir/a.raw/$k.bam -o $wdir/b.filtered/$k.sorted.bam
+#samtools index -@ $thread $wdir/b.filtered/$k.sorted.bam
+#samtools flagstat -@ $thread $wdir/b.filtered/$k.sorted.bam &gt; $wdir/b.filtered/logs/$k.txt
+done
+
+
+echo -e &quot;Sample\tTotal_reads\tSupplementary\tPaired_reads\tDuplicates\tValid_reads\tValid_pairs&quot; &gt; merge.stat.tab
+for i in *.txt; do
+awk -v name=${i/.txt} '/in total/{total=$1/1e6}
+/duplicates/{dup=$1/1e6}
+/properly paired/{paired=$1/1e6}
+/supplementary/{sup=$1/1e6}
+END{print name,total,sup,paired,dup,total-dup,paired-dup}
+' ${i} &gt;&gt; merge.stat.tab
+done
+
+</code></pre>
+<blockquote>
+<p>如果需要，可以对bam文件过滤low quality</p>
+</blockquote>
+<h3 id="2-genetrack-index">2. genetrack index</h3>
+<p>获得genetrack index<br>
+我在这一步筛选了fragment length，其他的筛选条件可以自行斟酌添加</p>
+<pre><code>min=100
+max=300
+
+ddir=~/workspace/1.haESCs/n.BWA-nucleosome/2.ChIP/a.raw
+wdir=~/workspace/1.haESCs/2.genetrack_index/a.bwa-20200827
+statdir=$wdir/stats
+
+
+mkdir -p $statdir
+
+cd $wdir
+for in_file in $ddir/*.bam; do
+	(
+	keyword=${in_file##*/}
+	keyword=${keyword%.*}
+
+	samtools view -f 67 -S $in_file | awk -F &quot;\t&quot; -v keyword=$keyword -v min1=$min -v max1=$max '$7==&quot;=&quot;&amp;&amp;match($3,/^chr[^M]/){
+	mid=int(($4+$8+length($10))/2);
+	len=($9&gt;0)?$9:-$9;
+	if(len&gt;=min1&amp;&amp;len&lt;=max1){
+	if($2==83){print $3&quot;\t&quot;mid &gt; keyword&quot;_reverse_chr_pos.txt&quot;}; 
+	if($2==99){print $3&quot;\t&quot;mid &gt; keyword&quot;_forward_chr_pos.txt&quot;}
+	}}'
+	echo &quot;split to reverse &amp; forward done.&quot;
+
+	sort -k1b,1 -k2n,2 ${keyword}_reverse_chr_pos.txt | uniq -c | awk 'BEGIN{OFS=&quot;\t&quot;}{print $2,$3,0,$1}' &gt; ${keyword}_reverse.txt
+	echo &quot;reverse reads count done.&quot;
+	sort -k1b,1 -k2n,2 ${keyword}_forward_chr_pos.txt | uniq -c | awk 'BEGIN{OFS=&quot;\t&quot;}{print $2,$3,$1,0}' &gt; ${keyword}_forward.txt
+	echo &quot;forward reads done.&quot;
+
+	rm ${keyword}_reverse_chr_pos.txt ${keyword}_forward_chr_pos.txt
+
+	###########cat and merge
+	cat ${keyword}_forward.txt ${keyword}_reverse.txt | sort -k1b,1 -k2n,2 | awk 'BEGIN{FS=OFS=&quot;\t&quot;;a=&quot;chrom&quot;;b=&quot;index&quot;;c=&quot;forward&quot;;d=&quot;reverse&quot;}{if(a!=0){if($2!=b){print a,b,c,d;a=$1;b=$2;c=$3;d=$4}else{print a,b,c+$3,d+$4;a=0}}else{a=$1;b=$2;c=$3;d=$4}}END{if(a!=0){print a,b,c,d}}' &gt; ${keyword}_uniq.txt
+	echo &quot;unique done.&quot;
+
+	rm ${keyword}_forward.txt ${keyword}_reverse.txt
+	##############stats pcr duplicate
+	awk '(NR&gt;1){print $3;print $4;total+=$3+$4}END{print total}' ${keyword}_uniq.txt | sort -nr | uniq -c | awk 'NR==1{total=$2;print &quot;total reads:&quot;total} NR&gt;1{accumulation+=$1*$2; print $2&quot;\t&quot;$1&quot;\t&quot;accumulation/total*100}' &gt; $statdir/${keyword}_stat.txt
+	
+	sed '1d' $statdir/${keyword}_stat.txt | sort -k1n,1 &gt;$statdir/${keyword}_temp1.txt
+	head -1 $statdir/${keyword}_stat.txt &gt; $statdir/${keyword}_temp2.txt
+	cat $statdir/${keyword}_temp2.txt $statdir/${keyword}_temp1.txt &gt; $statdir/${keyword}_stat.txt
+	rm $statdir/${keyword}_temp1.txt $statdir/${keyword}_temp2.txt
+	)&amp;
+done
+
+
+
+</code></pre>
+<blockquote>
+<p>stat.txt中记录了duplicates所占的比例，第二列表示的是同一位置大于第一列所示的重复数的index比例</p>
+</blockquote>
+<pre><code>for i in *_uniq.txt; do
+(awk -v fdr=8 'BEGIN{OFS=&quot;\t&quot;} NR==1{print} NR&gt;1{if($3&gt;fdr){$3=fdr};if($4&gt;fdr){$4=fdr};print $0}' $i &gt; ${i/uniq/undup8})&amp;
+done
+</code></pre>
+<blockquote>
+<p>根据数据，确定需要保留的最高duplicates数，这里fdr=8</p>
+</blockquote>
+<h3 id="3-genetrack">3. Genetrack</h3>
+<pre><code>genetrack=/home/share/GeneTrack-1.0.3
+#genetrack=/home/qszhu/software/GeneTrack-1.0.3
+wdir=~/workspace/1.haESCs/5.nucleosome/3.genetrack_20171025
+ddir=~/workspace/1.haESCs/2.genetrack_index/6.undup8
+
+for i in $ddir/*_undup.txt; do key=${i##*/};key=${key%%.*}
+cp -r $genetrack/library/template $wdir/$key
+sed &quot;/keyword/ s/keyword/$key/&quot; $wdir/$key/template.py &gt; $wdir/$key/$key.py
+rm  $wdir/$key/template.py
+ln -s $i $wdir/$key/data/$key.txt
+ln -s $wdir/$key $genetrack/library/$key
+done
+
+mkdir $wdir/logs
+for i in $ddir/*_undup.txt; do key=${i##*/};key=${key%%.*}
+nohup python $genetrack/run.py execute $key.$key &gt; $wdir/logs/$key.log &amp;
+done
+
+for i in results/*_undup*; do o=${i##*/};o=${o%%_*};awk '$3==&quot;A&quot;||NR==1{print}' $i &gt; a.nucleosome_All/$o.txt; done
+
+for i in $wdir/a.nucleosome_All/*txt; do o=${i##*/};o=${o/txt/bed};
+awk 'NR&gt;1{print $2,$4,$5,$1,$6,&quot;.&quot;}' $i &gt; $wdir/c.nucleosome_All_bed/$o
+done 
+</code></pre>
+<blockquote>
+<p>这里$genetrack是Genetrack的安装目录<br>
+我做了一个template配置文件，通过sed批量修改配置文件<br>
+在使用配置运行Genetrack
+最后获得所有核小体</p>
+</blockquote>
+<h4 id="templatepy精简版">template.py精简版:</h4>
+<pre><code>from settings import *
+from atlas import join_paths
+LOADER_ENABLED    = True
+FITTER_ENABLED    = True
+PREDICTOR_ENABLED = True
+EXPORTER_ENABLED  = True
+expname = 'keyword'
+expdir = get_experiment_dir (expname)
+dbdir = join_paths(expdir, 'db')
+HDF_DATABASE = get_hdf_file( path=dbdir, name=expname)
+SQL_URI      = get_sqlite_uri(path=dbdir, name=expname)
+DATA_FILE =  join_paths( expdir, &quot;data&quot;, &quot;keyword.txt&quot; )
+SIGMA = 20
+WIDTH = SIGMA * 5
+DATA_LABEL = &quot;nucleosome&quot;
+FIT_LABEL  = get_fit_label(label=DATA_LABEL, sigma=SIGMA)
+PEAK_LABEL = get_pred_label(label=DATA_LABEL, sigma=SIGMA)
+EXCLUSION_ZONE = 147
+LEFT_SHIFT  = EXCLUSION_ZONE/2
+RIGHT_SHIFT = EXCLUSION_ZONE/2
+EXPORT_LABELS  = [ PEAK_LABEL ]
+EXPORT_DIR     = DOWNLOAD_DIR
+from mod454.loader import loader as LOADER
+from mod454.fitter import fitter as FITTER
+from mod454.predictor import predictor as PREDICTOR
+from atlas.commands import exporter as EXPORTER
+</code></pre>
+<h3 id="35-新版genetrack">3.5 新版Genetrack</h3>
+<p>Genetrack-1.0.3需要python2.6，不支持Python2.7以上，依赖的库也比较难安装<br>
+可以使用新版的Genetrack，整合在chipexo中</p>
+<pre><code>wdir=~/workspace/1.haESCs/5.nucleosome/6.chipexo
+ddir=~/workspace/1.haESCs/2.genetrack_index/a.bwa-20200827
+
+for i in $ddir/*undup8.txt; do key=$(basename $i _undup8.txt)
+nohup python ~/software/chipexo-master/genetrack/genetrack.py -e 147 -s 20 -o txt $i &gt; $key.nucl.txt &amp;
+done
+</code></pre>
+<h3 id="4计算核小体的rc-fuzziness-rpkm">4.计算核小体的rc fuzziness rpkm</h3>
+<p>重新使用Genetrack index计算核小体上的read count，fuzziness，rpkm</p>
+<pre><code>for i in $ddir/*7_undup.txt; do key=${i##*/};key=${key%%_*}
+nohup python /home/share/codes/qszhu/nucl_rc_fuzziness_rpkm.py -t $i -n $wdir/a.nucleosome_All/$key.txt -o $wdir/b.rc_fuzz/$key.txt &gt; $wdir/b.rc_fuzz/$key.log &amp;
+done
+</code></pre>
+<h3 id="5用rpkm筛选核小体">5.用rpkm筛选核小体</h3>
+<pre><code>for i in $wdir/b.rc_fuzz/*txt; do o=${i##*/};o=${o/txt/bed};
+awk 'NR&gt;1&amp;&amp;$7&gt;=0.15{print &quot;chr&quot;$2,$3,$4,$1,$7,&quot;.&quot;}' $i &gt; $wdir/d.nucleosome_filted_0.15_bed/$o &amp;
+done 
+</code></pre>
+<blockquote>
+<p>去掉小于15%的核小体</p>
+</blockquote>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/nucleosome/">Nucleosome</a>
+  
+  <a class="badge badge-light" href="/tag/genetrack/">Genetrack</a>
+  
+  <a class="badge badge-light" href="/tag/%E6%95%B0%E6%8D%AE/">数据</a>
+  
+  <a class="badge badge-light" href="/tag/%E5%88%86%E6%9E%90/">分析</a>
+  
+  <a class="badge badge-light" href="/tag/pipeline/">pipeline</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/&amp;text=Genetrack-%e8%bf%90%e8%a1%8c%e6%b5%81%e7%a8%8b" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/&amp;t=Genetrack-%e8%bf%90%e8%a1%8c%e6%b5%81%e7%a8%8b" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Genetrack-%e8%bf%90%e8%a1%8c%e6%b5%81%e7%a8%8b&amp;body=https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/&amp;title=Genetrack-%e8%bf%90%e8%a1%8c%e6%b5%81%e7%a8%8b" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Genetrack-%e8%bf%90%e8%a1%8c%e6%b5%81%e7%a8%8b%20https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/&amp;title=Genetrack-%e8%bf%90%e8%a1%8c%e6%b5%81%e7%a8%8b" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/%E6%9C%B1%E4%B9%BE%E4%B9%A6/avatar_hue0c0e125ed41d05dff48b99dcb6e3408_155081_270x270_fill_q90_lanczos_center.jpg" alt="朱乾书">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="/author/%E6%9C%B1%E4%B9%BE%E4%B9%A6/">朱乾书</a></h5>
+        <h6 class="card-subtitle">2015级硕士，2017年秋转博，2021年8月毕业，2021年9月入站博士后，2024年8月出站，现为重庆市妇幼保健院副研究员</h6>
+        
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:zhuqianshu@tongji.edu.cn" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/rysterzhu" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=YtdNWvYAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.researchgate.net/profile/Qianshu_Zhu" target="_blank" rel="noopener">
+        <i class="ai ai-researchgate"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+  
+
+
+
+
+
+
+
+
+<div class="article-widget">
+  
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/internal/zhengweisheng.genetrack-install/" rel="next">Genetrack-安装流程</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/internal/chenmo.cutrun.protocol/" rel="prev">裂核版 Cut&amp;Run protocol</a>
+  </div>
+  
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>相关</h3>
+    <ul>
+      
+      <li><a href="/internal/zhuqianshu.hicpro/">HiC-Pro分析流程</a></li>
+      
+      <li><a href="/internal/zhengweisheng.genetrack-install/">Genetrack-安装流程</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

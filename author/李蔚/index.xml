@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>李蔚 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/%E6%9D%8E%E8%94%9A/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/%E6%9D%8E%E8%94%9A/index.xml" rel="self" type="application/rss+xml" />
+    <description>李蔚</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sun, 23 Aug 1970 17:02:02 +0800</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>李蔚</title>
+      <link>https://wukong.tongji.edu.cn/author/%E6%9D%8E%E8%94%9A/</link>
+    </image>
+    
+    <item>
+      <title>Guide Positioning Sequencing identifies aberrant DNA methylation patterns that alter cell identity and tumor-immune surveillance networks</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.genome_research.li_jin/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.genome_research.li_jin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>H3K27me3 Signal in the Cis Regulatory Elements Reveals the Differentiation Potential of Progenitors During Drosophila Neuroglial Development</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

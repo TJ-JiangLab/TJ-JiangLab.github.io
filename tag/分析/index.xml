@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>分析 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/tag/%E5%88%86%E6%9E%90/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/tag/%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+    <description>分析</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Thu, 27 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>分析</title>
+      <link>https://wukong.tongji.edu.cn/tag/%E5%88%86%E6%9E%90/</link>
+    </image>
+    
+    <item>
+      <title>Genetrack-运行流程</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/</guid>
+      <description>&lt;h3 id=&#34;1比对&#34;&gt;1.比对&lt;/h3&gt;
+&lt;p&gt;比对我使用的是BWA，用bowtie2也一样，
+但不建议在比对中对fragment length筛选，
+可能需要比对完后对fragment length质检&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ddir1=~/data/1.haESCs/early/nucl
+ddir2=~/data/1.haESCs/ChIP_data_2017-10-11/Project_s226c30025_20170929_2samples
+ddir3=~/data/1.haESCs/ChIP_data_2017-10-11/haESCs_project_nucl_K27ac_data_20171117
+wdir=~/workspace/1.haESCs/n.BWA-nucleosome/0.data
+mkd $wdir
+
+for i in R1 R2;do 
+ln -s $ddir2/Sample_R17011045LD01/R17011045LD01_combined_$i.fastq.gz $wdir/Late-Diploid_A129.$i.fastq.gz
+ln -s $ddir2/Sample_R17011044LD01/R17011044LD01_combined_$i.fastq.gz $wdir/Late-Haploid_A129.$i.fastq.gz
+ln -s $ddir1/A129-2_E-2n_nucl_$i.fastq.gz $wdir/Early-Diploid_A129.$i.fastq.gz
+ln -s $ddir1/A129-2_E-n_nucl_$i.fastq.gz $wdir/Early-Haploid_A129.$i.fastq.gz
+
+ln -s $ddir3/Sample_R17016394LD01/R17016394LD01_combined_$i.fastq.gz $wdir/Late-Diploid_AOS.$i.fastq.gz
+ln -s $ddir3/Sample_R17016393LD01/R17016393LD01_combined_$i.fastq.gz $wdir/Late-Haploid_AOS.$i.fastq.gz
+ln -s $ddir1/AOS-14_E-2n_nucl_$i.fastq.gz $wdir/Early-Diploid_AOS.$i.fastq.gz
+ln -s $ddir1/AOS-14_E-n_nucl_$i.fastq.gz $wdir/Early-Haploid_AOS.$i.fastq.gz
+done
+
+wdir=~/workspace/1.haESCs/n.BWA-nucleosome/2.ChIP
+ddir=~/workspace/1.haESCs/n.BWA-nucleosome/0.data
+mkd $wdir $wdir/../1.qc
+nohup fastqc -o $wdir/../1.qc $ddir/*gz -t 36 &amp;amp;
+#cutadapt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;QC&lt;br&gt;
+bwa不需要cutadapt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;#bash ~/workspace/1.haESCs/h.BWA/thread_bwa.sh -w $wdir -d $ddir -t 8 -p 8 &amp;amp;
+thread=16
+for name in $ddir/*R1.fastq.gz; do 
+k=$(basename $name .R1.fastq.gz)
+bwa mem -t $thread $BWA_INDEXES/mm10.fa ${name} ${name/R1/R2} &amp;gt; $wdir/$k.sam 2&amp;gt;$wdir/logs/$k.log
+samtools flagstat -@ $thread $wdir/$k.sam &amp;gt; $wdir/logs/$k.flag.txt.1
+samtools sort -@ $thread $wdir/$k.sam -o $wdir/a.raw/$k.bam
+samtools flagstat -@ $thread $wdir/a.raw/$k.bam &amp;gt; $wdir/logs/$k.flag.txt.2
+#samtools view -@ $thread -F 4 -q 20 $wdir/a.raw/$k.bam -o $wdir/b.filtered/$k.sorted.bam
+#samtools index -@ $thread $wdir/b.filtered/$k.sorted.bam
+#samtools flagstat -@ $thread $wdir/b.filtered/$k.sorted.bam &amp;gt; $wdir/b.filtered/logs/$k.txt
+done
+
+
+echo -e &amp;quot;Sample\tTotal_reads\tSupplementary\tPaired_reads\tDuplicates\tValid_reads\tValid_pairs&amp;quot; &amp;gt; merge.stat.tab
+for i in *.txt; do
+awk -v name=${i/.txt} &#39;/in total/{total=$1/1e6}
+/duplicates/{dup=$1/1e6}
+/properly paired/{paired=$1/1e6}
+/supplementary/{sup=$1/1e6}
+END{print name,total,sup,paired,dup,total-dup,paired-dup}
+&#39; ${i} &amp;gt;&amp;gt; merge.stat.tab
+done
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果需要，可以对bam文件过滤low quality&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;2-genetrack-index&#34;&gt;2. genetrack index&lt;/h3&gt;
+&lt;p&gt;获得genetrack index&lt;br&gt;
+我在这一步筛选了fragment length，其他的筛选条件可以自行斟酌添加&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;min=100
+max=300
+
+ddir=~/workspace/1.haESCs/n.BWA-nucleosome/2.ChIP/a.raw
+wdir=~/workspace/1.haESCs/2.genetrack_index/a.bwa-20200827
+statdir=$wdir/stats
+
+
+mkdir -p $statdir
+
+cd $wdir
+for in_file in $ddir/*.bam; do
+	(
+	keyword=${in_file##*/}
+	keyword=${keyword%.*}
+
+	samtools view -f 67 -S $in_file | awk -F &amp;quot;\t&amp;quot; -v keyword=$keyword -v min1=$min -v max1=$max &#39;$7==&amp;quot;=&amp;quot;&amp;amp;&amp;amp;match($3,/^chr[^M]/){
+	mid=int(($4+$8+length($10))/2);
+	len=($9&amp;gt;0)?$9:-$9;
+	if(len&amp;gt;=min1&amp;amp;&amp;amp;len&amp;lt;=max1){
+	if($2==83){print $3&amp;quot;\t&amp;quot;mid &amp;gt; keyword&amp;quot;_reverse_chr_pos.txt&amp;quot;}; 
+	if($2==99){print $3&amp;quot;\t&amp;quot;mid &amp;gt; keyword&amp;quot;_forward_chr_pos.txt&amp;quot;}
+	}}&#39;
+	echo &amp;quot;split to reverse &amp;amp; forward done.&amp;quot;
+
+	sort -k1b,1 -k2n,2 ${keyword}_reverse_chr_pos.txt | uniq -c | awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;}{print $2,$3,0,$1}&#39; &amp;gt; ${keyword}_reverse.txt
+	echo &amp;quot;reverse reads count done.&amp;quot;
+	sort -k1b,1 -k2n,2 ${keyword}_forward_chr_pos.txt | uniq -c | awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;}{print $2,$3,$1,0}&#39; &amp;gt; ${keyword}_forward.txt
+	echo &amp;quot;forward reads done.&amp;quot;
+
+	rm ${keyword}_reverse_chr_pos.txt ${keyword}_forward_chr_pos.txt
+
+	###########cat and merge
+	cat ${keyword}_forward.txt ${keyword}_reverse.txt | sort -k1b,1 -k2n,2 | awk &#39;BEGIN{FS=OFS=&amp;quot;\t&amp;quot;;a=&amp;quot;chrom&amp;quot;;b=&amp;quot;index&amp;quot;;c=&amp;quot;forward&amp;quot;;d=&amp;quot;reverse&amp;quot;}{if(a!=0){if($2!=b){print a,b,c,d;a=$1;b=$2;c=$3;d=$4}else{print a,b,c+$3,d+$4;a=0}}else{a=$1;b=$2;c=$3;d=$4}}END{if(a!=0){print a,b,c,d}}&#39; &amp;gt; ${keyword}_uniq.txt
+	echo &amp;quot;unique done.&amp;quot;
+
+	rm ${keyword}_forward.txt ${keyword}_reverse.txt
+	##############stats pcr duplicate
+	awk &#39;(NR&amp;gt;1){print $3;print $4;total+=$3+$4}END{print total}&#39; ${keyword}_uniq.txt | sort -nr | uniq -c | awk &#39;NR==1{total=$2;print &amp;quot;total reads:&amp;quot;total} NR&amp;gt;1{accumulation+=$1*$2; print $2&amp;quot;\t&amp;quot;$1&amp;quot;\t&amp;quot;accumulation/total*100}&#39; &amp;gt; $statdir/${keyword}_stat.txt
+	
+	sed &#39;1d&#39; $statdir/${keyword}_stat.txt | sort -k1n,1 &amp;gt;$statdir/${keyword}_temp1.txt
+	head -1 $statdir/${keyword}_stat.txt &amp;gt; $statdir/${keyword}_temp2.txt
+	cat $statdir/${keyword}_temp2.txt $statdir/${keyword}_temp1.txt &amp;gt; $statdir/${keyword}_stat.txt
+	rm $statdir/${keyword}_temp1.txt $statdir/${keyword}_temp2.txt
+	)&amp;amp;
+done
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;stat.txt中记录了duplicates所占的比例，第二列表示的是同一位置大于第一列所示的重复数的index比例&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;for i in *_uniq.txt; do
+(awk -v fdr=8 &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;} NR==1{print} NR&amp;gt;1{if($3&amp;gt;fdr){$3=fdr};if($4&amp;gt;fdr){$4=fdr};print $0}&#39; $i &amp;gt; ${i/uniq/undup8})&amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;根据数据，确定需要保留的最高duplicates数，这里fdr=8&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3-genetrack&#34;&gt;3. Genetrack&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;genetrack=/home/share/GeneTrack-1.0.3
+#genetrack=/home/qszhu/software/GeneTrack-1.0.3
+wdir=~/workspace/1.haESCs/5.nucleosome/3.genetrack_20171025
+ddir=~/workspace/1.haESCs/2.genetrack_index/6.undup8
+
+for i in $ddir/*_undup.txt; do key=${i##*/};key=${key%%.*}
+cp -r $genetrack/library/template $wdir/$key
+sed &amp;quot;/keyword/ s/keyword/$key/&amp;quot; $wdir/$key/template.py &amp;gt; $wdir/$key/$key.py
+rm  $wdir/$key/template.py
+ln -s $i $wdir/$key/data/$key.txt
+ln -s $wdir/$key $genetrack/library/$key
+done
+
+mkdir $wdir/logs
+for i in $ddir/*_undup.txt; do key=${i##*/};key=${key%%.*}
+nohup python $genetrack/run.py execute $key.$key &amp;gt; $wdir/logs/$key.log &amp;amp;
+done
+
+for i in results/*_undup*; do o=${i##*/};o=${o%%_*};awk &#39;$3==&amp;quot;A&amp;quot;||NR==1{print}&#39; $i &amp;gt; a.nucleosome_All/$o.txt; done
+
+for i in $wdir/a.nucleosome_All/*txt; do o=${i##*/};o=${o/txt/bed};
+awk &#39;NR&amp;gt;1{print $2,$4,$5,$1,$6,&amp;quot;.&amp;quot;}&#39; $i &amp;gt; $wdir/c.nucleosome_All_bed/$o
+done 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里$genetrack是Genetrack的安装目录&lt;br&gt;
+我做了一个template配置文件，通过sed批量修改配置文件&lt;br&gt;
+在使用配置运行Genetrack
+最后获得所有核小体&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;templatepy精简版&#34;&gt;template.py精简版:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;from settings import *
+from atlas import join_paths
+LOADER_ENABLED    = True
+FITTER_ENABLED    = True
+PREDICTOR_ENABLED = True
+EXPORTER_ENABLED  = True
+expname = &#39;keyword&#39;
+expdir = get_experiment_dir (expname)
+dbdir = join_paths(expdir, &#39;db&#39;)
+HDF_DATABASE = get_hdf_file( path=dbdir, name=expname)
+SQL_URI      = get_sqlite_uri(path=dbdir, name=expname)
+DATA_FILE =  join_paths( expdir, &amp;quot;data&amp;quot;, &amp;quot;keyword.txt&amp;quot; )
+SIGMA = 20
+WIDTH = SIGMA * 5
+DATA_LABEL = &amp;quot;nucleosome&amp;quot;
+FIT_LABEL  = get_fit_label(label=DATA_LABEL, sigma=SIGMA)
+PEAK_LABEL = get_pred_label(label=DATA_LABEL, sigma=SIGMA)
+EXCLUSION_ZONE = 147
+LEFT_SHIFT  = EXCLUSION_ZONE/2
+RIGHT_SHIFT = EXCLUSION_ZONE/2
+EXPORT_LABELS  = [ PEAK_LABEL ]
+EXPORT_DIR     = DOWNLOAD_DIR
+from mod454.loader import loader as LOADER
+from mod454.fitter import fitter as FITTER
+from mod454.predictor import predictor as PREDICTOR
+from atlas.commands import exporter as EXPORTER
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;35-新版genetrack&#34;&gt;3.5 新版Genetrack&lt;/h3&gt;
+&lt;p&gt;Genetrack-1.0.3需要python2.6，不支持Python2.7以上，依赖的库也比较难安装&lt;br&gt;
+可以使用新版的Genetrack，整合在chipexo中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wdir=~/workspace/1.haESCs/5.nucleosome/6.chipexo
+ddir=~/workspace/1.haESCs/2.genetrack_index/a.bwa-20200827
+
+for i in $ddir/*undup8.txt; do key=$(basename $i _undup8.txt)
+nohup python ~/software/chipexo-master/genetrack/genetrack.py -e 147 -s 20 -o txt $i &amp;gt; $key.nucl.txt &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;4计算核小体的rc-fuzziness-rpkm&#34;&gt;4.计算核小体的rc fuzziness rpkm&lt;/h3&gt;
+&lt;p&gt;重新使用Genetrack index计算核小体上的read count，fuzziness，rpkm&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for i in $ddir/*7_undup.txt; do key=${i##*/};key=${key%%_*}
+nohup python /home/share/codes/qszhu/nucl_rc_fuzziness_rpkm.py -t $i -n $wdir/a.nucleosome_All/$key.txt -o $wdir/b.rc_fuzz/$key.txt &amp;gt; $wdir/b.rc_fuzz/$key.log &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;5用rpkm筛选核小体&#34;&gt;5.用rpkm筛选核小体&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;for i in $wdir/b.rc_fuzz/*txt; do o=${i##*/};o=${o/txt/bed};
+awk &#39;NR&amp;gt;1&amp;amp;&amp;amp;$7&amp;gt;=0.15{print &amp;quot;chr&amp;quot;$2,$3,$4,$1,$7,&amp;quot;.&amp;quot;}&#39; $i &amp;gt; $wdir/d.nucleosome_filted_0.15_bed/$o &amp;amp;
+done 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;去掉小于15%的核小体&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HiC-Pro分析流程</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/</guid>
+      <description>&lt;h3 id=&#34;1hi-c的原理参考文献review&#34;&gt;1.Hi-C的原理，参考文献，review&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Hi-C是通过高通量测序检测基因组不同位置可能存在的空间互作（contacts），研究全基因组范围内整个染色质DNA在空间位置上的关系的方法。由Job Dekker实验室从3C技术延伸开发。&lt;/li&gt;
+&lt;li&gt;具体的实验流程方法原理建议从Job Dekker的几篇文章和综述开始了解:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;2数据质检与预处理与chip-seq相似&#34;&gt;2.数据质检与预处理（与ChIP-seq相似）&lt;/h3&gt;
+&lt;p&gt;1). 根据Hi-C实验原理，Hi-C测序数据必定为双端测序。与ChIP-seq类似，同样使用fastqc检查测序质量和建库质量，用cutadapt去除接头（如有必要&lt;br&gt;
+2). 示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nohup fastqc -o $wdir/1.qc $wdir/0.raw/*gz -t 20 &amp;amp;
+py35
+for i in $wdir/0.raw/*R1.fastq.gz; do o=$wdir/2.cutadapt/${i##*/};
+nohup cutadapt -j 8 --trim-n -q 25,25 -m 75 -a AGATCGGAAGAGC -A AGATCGGAAGAGC -o $o -p ${o/R1/R2} $i ${i/R1/R2} &amp;gt; ${o/R1.fastq.gz/log} &amp;amp;
+done
+nohup fastqc -o $wdir/3.cutadapt_qc $wdir/2.cutadapt/*gz -t 10 &amp;amp;
+data：
+es.R1.fastq.gz es.R2.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3-比对与contact-pairs处理hic-pro简单流程分步流程&#34;&gt;3. 比对与contact pairs处理（HiC-Pro，简单流程，分步流程）&lt;/h3&gt;
+&lt;h4 id=&#34;1-原理&#34;&gt;(1). 原理&lt;/h4&gt;
+&lt;p&gt;使用HiC-Pro对双端测序数据进行比对和处理，具体的流程、原理和软件使用配置请参考文献和manual：&lt;br&gt;
+
+&lt;a href=&#34;https://github.com/nservant/HiC-Pro&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HiC-Pro Github&lt;/a&gt;&lt;br&gt;
+Servant N., et al. HiC-Pro: An optimized and flexible pipeline for Hi-C processing. Genome Biology 2015, 16:259 doi:10.1186/s13059-015-0831-x&lt;/p&gt;
+&lt;h4 id=&#34;2-示例&#34;&gt;(2) 示例：&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;nohup HiC-Pro -i $wdir/0.input -o $wdir/1.output -c $ConfigHP/config-hicpro.txt &amp;gt; $wdir/hicpro.log &amp;amp;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;3数据&#34;&gt;(3)数据：&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;$wdir/0.input/es/es.clean.R1.fastq.gz $wdir/0.input/es/es.clean.R2.fastq.gz&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;4-configuration&#34;&gt;(4) Configuration:&lt;/h4&gt;
+&lt;p&gt;HiC-Pro的所有参数都配置在config-hicpro.txt中，具体各参数的含义请参照示例文件；&lt;/p&gt;
+&lt;h4 id=&#34;5-结果&#34;&gt;(5) 结果：&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;bowtie_results/bwt2/ bwt2_global/ bwt2_local/ hic_results/data/ matrix/ pic/&lt;/code&gt;&lt;br&gt;
+HiC-Pro总流程运行的结果按分步骤放在不同文件夹中，建议运行一次后一个个查看，重要的结果文件有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;validPairs: 每组双端测序数据得到的contact pairs&lt;/li&gt;
+&lt;li&gt;allValidPairs: 每sample合并所有生物学或技术重复后，并去除PCR duplicates后的contact pairs&lt;/li&gt;
+&lt;li&gt;matrix: 根据给定的resolution得到的长格式的矩阵文件&lt;/li&gt;
+&lt;li&gt;iced.matrix: 对raw matrix做ICE normalize&lt;/li&gt;
+&lt;li&gt;abs.bed: 特定resolution下，每个bin的index（只与resolution和chromosome size有关）&lt;/li&gt;
+&lt;li&gt;其他一些stats文件：统计了比对率、contact数量、PCR duplicates数量等统计日志&lt;/li&gt;
+&lt;li&gt;Mapping结果bam文件非常庞大，建议删除&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;6-分步流程&#34;&gt;(6) 分步流程：&lt;/h4&gt;
+&lt;p&gt;HiC-Pro是一整套包括mapping, filtering, quality checks, merge and remove duplicates, build matrix 和 ICE normalize的处理流程，&lt;br&gt;
+其中各个步骤可以单独运行，使用HiC-Pro -s ANALYSIS_STEP -i 上一步所得结果 运行。
+比如合并多次测序的contact pairs，可将多次测序的validPairs放在同一文件夹，运行-s merge_persample merge_persample merge_persample&lt;/p&gt;
+&lt;h4 id=&#34;7-其他&#34;&gt;(7) 其他&lt;/h4&gt;
+&lt;p&gt;HiC-Pro分步运行仍使用configuration文件配置参数。不过每一步运行的脚本和代码都记录在run.log中，因此在处理一些复杂情况时，可参照run.log中的脚本运行需要的步骤。建议仔细查看此日志。&lt;/p&gt;
+&lt;h3 id=&#34;4-matrix与normalization&#34;&gt;4. Matrix与normalization&lt;/h3&gt;
+&lt;p&gt;(1) 因为远端互作一般很少，在一个正方形的互作热图上很多是空白，因此HiC-Pro使用长格式的稀疏矩阵记录基因组上各个bin之间的互作数。即第一、二列分别表示两个位置，第三列表示这两个位置的互作数。在一个bed文件中记录了在这种分辨率下每个位置表示的哪条染色体的哪个区域。可以通过脚本或R语言将这种格式与正方形matrix之间转换。&lt;/p&gt;
+&lt;p&gt;(2) Hi-C数据的normalization方法有很多种，并且一直有新的研究发表。建议通过综述了解。&lt;/p&gt;
+&lt;p&gt;(3) HiC-Pro运行了ICE normalization，结果的数据格式与raw matrix相同，但互作数经过了校正。&lt;/p&gt;
+&lt;p&gt;(4) 但没有对文库大小进行校正，最好的建议是在处理和分析前对互相比较的样本间数据量downsample到一致的水平。&lt;/p&gt;
+&lt;p&gt;(5) 其他R包，如Binless和multiHiCcompare也推荐尝试。&lt;/p&gt;
+&lt;h3 id=&#34;5-probability&#34;&gt;5. Probability&lt;/h3&gt;
+&lt;p&gt;(1) 多种Hi-C分析软件可获得Probability~distance曲线结果，如Fit-HiC，pairsqc等。&lt;/p&gt;
+&lt;p&gt;(2) 也可根据文章methods对Probability的定义，自编简单脚本统计Probability。&lt;/p&gt;
+&lt;p&gt;(3)&lt;/p&gt;
+&lt;h3 id=&#34;6-compartment&#34;&gt;6. Compartment&lt;/h3&gt;
+&lt;p&gt;(1) 在一条染色体中，对各个位置与其他位置之间的互作数做相关性分析，可得到每两个位置之间的相关性，相关性为正和为负的区域一般会分隔成几Mb以上大小的区室。&lt;/p&gt;
+&lt;p&gt;(2) 同理在一条染色体中，对各个位置与其他位置之间的互作数做PCA分析，可得到每个位置的第一主成分PC1，研究发现PC1值正负符号可将染色质分为active和inactive两类，与染色质marker较好的对应。因此将通过其他活性或抑制性marker将它们分为compartment A和compartment。&lt;/p&gt;
+&lt;p&gt;(3) 根据以上原理，可用计算PCA的方法自编脚本计算PC1。或推荐使用Homer软件计算。&lt;/p&gt;
+&lt;p&gt;(4) 需要注意的是，某些物种比如human染色体长短臂间互作少，可能计算得到的PC1以长短臂区分符号，因此可使用PC2的符号鉴别compartment&lt;/p&gt;
+&lt;p&gt;(5)&lt;/p&gt;
+&lt;h3 id=&#34;7-call-tad&#34;&gt;7. Call TAD&lt;/h3&gt;
+&lt;p&gt;(1) 拓扑相关结构域（Topologically associating domains，简称TAD），是已被显微成像技术确认的染色质结构，在Hi-C数据的heatmap上表现为一个个几百Kb到几Mb范围的三角。&lt;/p&gt;
+&lt;p&gt;(2) 鉴定TAD的算法有很多并且不断更新中，这里推荐两种比较常用的。&lt;/p&gt;
+&lt;p&gt;(3) Directionality index(DI) 通过计算具有方向性的系数，表示上下游一定区域的互作数变化大小，来区分TAD内部和边界，并通过隐马可夫模型鉴定TAD。&lt;/p&gt;
+&lt;p&gt;(4) Insulation score是计算每个位置的绝缘系数，在局部区域中绝缘分数最大的即为TAD的边界boundary，人为设定阈值，定义boundary之间为TAD。&lt;/p&gt;
+&lt;p&gt;(5) 需要注意算法中涉及很多参数，脚本中是默认参数，可根据需要进行调整。&lt;/p&gt;
+&lt;h3 id=&#34;8-call-loops&#34;&gt;8. Call loops&lt;/h3&gt;
+&lt;p&gt;(1) 染色质环（contact loops）是层级最低的染色质结构，需要很高的实验质量和数据量以得到较高的分辨率，一般需要10kb以下。Loops类似于ChIP-seq的peaks，定义为Hi-C图谱中互作频率比周围相邻区域都高的格子区域。&lt;/p&gt;
+&lt;p&gt;(2) 同样鉴定loops的算法也有很多并且不断更新中，较常用的比如HiCCUPS，Fit-Hi-C。&lt;/p&gt;
+&lt;p&gt;(3)&lt;/p&gt;
+&lt;h3 id=&#34;9-3d-model&#34;&gt;9. 3D model&lt;/h3&gt;
+&lt;h3 id=&#34;10-其他常用的脚本&#34;&gt;10. 其他常用的脚本&lt;/h3&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

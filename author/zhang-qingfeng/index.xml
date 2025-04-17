@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zhang, Qingfeng | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/zhang-qingfeng/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/zhang-qingfeng/index.xml" rel="self" type="application/rss+xml" />
+    <description>Zhang, Qingfeng</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>Zhang, Qingfeng</title>
+      <link>https://wukong.tongji.edu.cn/author/zhang-qingfeng/</link>
+    </image>
+    
+    <item>
+      <title>5-methylcytosine modification by Plasmodium NSUN2 stabilizes mRNA and mediates the development of gametocytes</title>
+      <link>https://wukong.tongji.edu.cn/publication/2022.proceedings_of_the_national_academy_of_sciences_of_the_united_states_of_america.liu_meng/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2022.proceedings_of_the_national_academy_of_sciences_of_the_united_states_of_america.liu_meng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A cascade of transcriptional repression determines sexual commitment and development in Plasmodium falciparum</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.nucleic_acids_research.shang_xiaomin/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.nucleic_acids_research.shang_xiaomin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Optimization of CRISPR/Cas System for Improving Genome Editing Efficiency in Plasmodium falciparum</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.frontiers_in_microbiology.zhao_yuemeng/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.frontiers_in_microbiology.zhao_yuemeng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Architectural Factor HMGB1 Is Involved in Genome Organization in the Human Malaria Parasite Plasmodium falciparum.</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.mbio.lu_binbin/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.mbio.lu_binbin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rrp6 Regulates Heterochromatic Gene Silencing via ncRNA RUF6 Decay in Malaria Parasites</title>
+      <link>https://wukong.tongji.edu.cn/publication/2020.mbio.fan_yanting/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2020.mbio.fan_yanting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TRIBE Uncovers the Role of Dis3 in Shaping the Dynamic Transcriptome in Malaria Parasites</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_cell_and_developmental_biology.liu_meng/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_cell_and_developmental_biology.liu_meng/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

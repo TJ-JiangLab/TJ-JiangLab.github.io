@@ -1,0 +1,1089 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="整理我使用的一些命令成一个bash脚本，还没有测试： 脚本位置">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/rpkmsummary/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/rpkmsummary/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/rpkmsummary/">
+  <meta property="og:title" content="一个使用multiBamSummary计算区域rpkm的脚本 | JiangLab">
+  <meta property="og:description" content="整理我使用的一些命令成一个bash脚本，还没有测试： 脚本位置"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2021-06-22T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2021-06-22T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>一个使用multiBamSummary计算区域rpkm的脚本 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/internal/zhuqianshu.tips/">首页</a>
+    <ul class="nav docs-sidenav">
+      
+      <li class="active">
+        <a href="/internal/zhuqianshu.tips/rpkmsummary/">一个使用multiBamSummary计算区域rpkm的脚本</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/shell-test/">对比 test、[、[[ 判断用法</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/sort-body/">保持标题行在顶部后排序</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/multi-threads/">控制并发线程数</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/shell-intercept-string/">Shell 字符串截取方法</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/trash-cli/">回收站功能</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/translation/">翻译软件</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/regex/">linux shell 正则表达式</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/cron-filesystem-size/">定时检查磁盘空间使用情况</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/crontab-initiation/">定时任务的使用</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/gz-unzip/">tar解压 gz解压 bz2等各种解压文件使用方法</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">在本页</a></li>
+      </ul>
+
+      <nav id="TableOfContents"></nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>一个使用multiBamSummary计算区域rpkm的脚本</h1>
+
+          <div class="article-style">
+            <p>整理我使用的一些命令成一个bash脚本，还没有测试：<br>
+脚本位置：/home/share/codes/qszhu/rpkmSummary.sh</p>
+<pre><code>#!/bin/bash
+set -e
+help()
+{ cat &lt;&lt; HELP
+    This is a shell script calculate the 
+	本程序使用Bam文件计算特定区域（bed文件）内的rpkm，以及与input的比较
+	使用范例：
+		rpkmSummary -b genes.bed -t treatment.bam -c input.bam -o $odir/$key ...
+	必须参数：
+		-b 输入的需要计算的区域，bed文件 【必须提前建立index】
+		-t 输入的ChIP-seq比对，Bam文件
+		-o 输出文件的前缀，可带输出路径
+		
+	可选参数：
+		-c 输入的input或IgG比对的，bam文件
+		-g 输入的参考基因组染色体长度，chromSizes文件，或genome ID [默认：mm10,即/home/share/chrom_sizes/mm10.chrom.sizes]
+		--id 提供bed文件的区域的ID列，将在输出文件中第5列记录区域ID [应大于3，默认0，不输出ID]
+		--tmp 中间结果temp文件存放目录 [默认：/tmp]
+		-p 使用线程数 [默认：8]
+		-v verbose模式，保留temp文件 [默认删除temp]
+		
+	-c input.bam使用的可选参数：
+		--operation {ratio,logXratio,reciprocal_ratio,subtract,logXsubtract} [default: log2ratio]
+			ratio: (treatment rpkm + pseudocount)/(input rpkm + pseudocount)
+			logXratio: log((treatment rpkm + pseudocount)/(input rpkm + pseudocount))
+			reciprocal_ratio: as ratio, the reciprocal ratio returns the the negative of the inverse of the ratio if the ratio is less than 0
+			subtract: (treatment rpkm) - (input rpkm)
+			logXsubtract: log((treatment rpkm) - (input rpkm) + pseudocount), if treatment less then input, result is log(pseudocount)
+		--pseudocount PSEUDOCOUNT [default: log2ratio]
+			A small number to avoid x/0 or log(0)
+		--logx {2,10...} [default: 2]
+			可自定义log ratio或log subtract的对数底数，默认为log2
+			若--operation的参数为log2ratio 或 log10ratio等，该参数无用
+		
+	multiBamSummary的已默认设置参数：
+		--ignoreDuplicates --samFlagInclude 2 --samFlagExclude 1024 --maxFragmentLength 1000 --centerReads
+		可使用任意参数覆盖
+HELP
+exit 0
+}
+
+p=8
+multiBamSummary=&quot;--ignoreDuplicates --samFlagInclude 2 --samFlagExclude 1024 --maxFragmentLength 1000 --centerReads&quot;
+declare -A multiBamSummary_operations
+#multiBamSummary_operations=([&quot;--ignoreDuplicates&quot;]=&quot;&quot; [&quot;--samFlagInclude&quot;]=&quot;2&quot; [&quot;--samFlagExclude&quot;]=&quot;1024&quot; [&quot;--maxFragmentLength&quot;]=&quot;1000&quot; [&quot;--centerReads&quot;]=&quot;&quot;)
+chromsize=mm10
+operation=logXratio
+pseudocount=1
+logx=2
+tmpdir=/tmp
+hasid=0
+while [ -n &quot;$1&quot; ]; do
+case &quot;$1&quot; in
+    -t) in_file=$2; shift 2;;
+	-c) input_file=$2; shift 2;;
+	-b) BED=$2; shift 2;;
+	-o) outprex=$2; shift 2;;
+	--operation) operation=$2; shift 2;;
+	--pseudocount) pseudocount=$2; shift 2;;
+	--logx) logx=$2; shift 2;;
+	--id) hasid=$2; shift 2;;
+	--deeptools) multiBamSummary_operations=$2; shift 2;;
+    -p) p=$2; shift 2;;
+	-g) chromsize=$2; shift 2;;
+	--tmp) tmpdir=$2; shift 2;;
+	-v) verbose=T; shift 1;;
+	-h) help; exit 1;;
+    -*) break;;
+     *) break;;
+esac
+done
+#####################initiation
+if [ -z &quot;$in_file&quot; ] || [ -z &quot;$BED&quot; ] || [ -z &quot;$outprex&quot; ]; then 
+echo &quot;error: 缺少参数 -b -t or -o. -h for help&quot;;exit 1;
+fi
+
+key=$(basename &quot;$outprex&quot;)
+mkdir -p $tmpdir 
+if test -n &quot;${outprex/$key}&quot;; then mkdir -p ${outprex/$key}; fi
+
+input_rpkm=&quot;$outprex.input.rpkm.bg&quot;
+treatment_rpkm=&quot;$outprex.rpkm.bg&quot;
+treatment_operated=&quot;$outprex.$operation.bg&quot;
+
+if test -r &quot;/home/share/chrom_sizes/$chromsize.chrom.sizes&quot;; then chromsize=/home/share/chrom_sizes/$chromsize.chrom.sizes
+elif test -r &quot;$chromsize&quot;; then  chromsize=$chromsize
+else echo &quot;error: -g mission file. -h for help&quot;; exit 1;
+fi
+awk -v OFS=&quot;\t&quot; '{print $1,0,$2}' $chromsize &gt; $tmpdir/$key.chrom.bed
+
+#####################treatment rpkm
+nohup multiBamSummary BED-file --BED &quot;$BED&quot; -b &quot;$in_file&quot; -o $tmpdir/$key.gz -p $p $multiBamSummary --outRawCounts $tmpdir/$key.tab #&gt; $tmpdir/$key.log 
+
+nohup multiBamSummary BED-file --BED $tmpdir/$key.chrom.bed -b &quot;$in_file&quot; -o $tmpdir/$key.chrom.gz -p $p $multiBamSummary --outRawCounts $tmpdir/$key.chrom.tab #&gt; $tmpdir/$key.chrom.log 
+
+awk -v OFS=&quot;\t&quot; -v hasid=$hasid 'ARGIND==1{if(hasid&gt;0){id[$1&quot;\t&quot;$2&quot;\t&quot;$3]=$hasid}} 
+ARGIND==2&amp;&amp;FNR&gt;1{total+=$4} 
+ARGIND==3&amp;&amp;FNR==1{if(hasid&gt;0){print &quot;chr\tstart\tend\trpkm\tid&quot;}else{print &quot;chr\tstart\tend\trpkm&quot;}}
+ARGIND==3&amp;&amp;FNR&gt;1{if(hasid&gt;0){print $1,$2,$3,($4*1e9)/(($3-$2)*total,id[$1&quot;\t&quot;$2&quot;\t&quot;$3]}else{print $1,$2,$3,($4*1e9)/(($3-$2)*total}}' &quot;$BED&quot; $tmpdir/$key.chrom.tab $tmpdir/$key.tab &gt; &quot;$treatment_rpkm&quot;
+
+#####################input rpkm
+if test -n &quot;$input_file&quot;; then
+nohup multiBamSummary BED-file --BED &quot;$BED&quot; -b &quot;$input_file&quot; -o $tmpdir/$key.input.gz -p $p $multiBamSummary --outRawCounts $tmpdir/$key.input.tab #&gt; $tmpdir/$key.input.log 
+
+nohup multiBamSummary BED-file --BED $tmpdir/$key.chrom.bed -b &quot;$input_file&quot; -o $tmpdir/$key.input.chrom.gz -p $p $multiBamSummary --outRawCounts $tmpdir/$key.input.chrom.tab #&gt; $tmpdir/$key.input.chrom.log 
+
+awk -v OFS=&quot;\t&quot; -v hasid=$hasid 'ARGIND==1{if(hasid&gt;0){id[$1&quot;\t&quot;$2&quot;\t&quot;$3]=$hasid}} 
+ARGIND==2&amp;&amp;FNR&gt;1{total+=$4} 
+ARGIND==3&amp;&amp;FNR==1{if(hasid&gt;0){print &quot;chr\tstart\tend\trpkm\tid&quot;}else{print &quot;chr\tstart\tend\trpkm&quot;}}
+ARGIND==3&amp;&amp;FNR&gt;1{if(hasid&gt;0){print $1,$2,$3,($4*1e9)/(($3-$2)*total,id[$1&quot;\t&quot;$2&quot;\t&quot;$3]}else{print $1,$2,$3,($4*1e9)/(($3-$2)*total}}' &quot;$BED&quot; $tmpdir/$key.input.chrom.tab $tmpdir/$key.input.tab &gt; &quot;$input_rpkm&quot;
+fi
+
+#####################operation
+if [ -r &quot;$input_rpkm&quot; ] &amp;&amp; [ -r &quot;$treatment_rpkm&quot; ]; then
+if [[ &quot;$operation&quot; = &quot;log2ratio&quot; ]]; then operation=&quot;logXratio&quot;; logx=2
+elif [ &quot;$operation&quot; = &quot;log10ratio&quot; ]; then operation=&quot;logXratio&quot;; logx=10
+elif [ &quot;$operation&quot; = &quot;log2subtract&quot; ]; then operation=&quot;logXsubtract&quot;; logx=2
+elif [ &quot;$operation&quot; = &quot;log10rsubtract&quot; ]; then operation=&quot;logXsubtract&quot;; logx=10
+fi
+
+if [ &quot;$operation&quot; = &quot;logXratio&quot; ]; then
+	awk -v OFS=&quot;\t&quot; -v m=$pseudocount -v logx=$logx 'NR==1{print $0;next} NR==FNR{a[$1&quot;\t&quot;$2&quot;\t&quot;$3]=$4+m} NR&gt;FNR{$4=log(($4+m)/a[$1&quot;\t&quot;$2&quot;\t&quot;$3])/log(logx);print $0}' &quot;$input_rpkm&quot; &quot;$treatment_rpkm&quot; &gt; $treatment_operated
+elif [ &quot;$operation&quot; = &quot;ratio&quot; ]; then
+	awk -v OFS=&quot;\t&quot; -v m=$pseudocount 'NR==1{print $0;next} NR==FNR{a[$1&quot;\t&quot;$2&quot;\t&quot;$3]=$4+m} NR&gt;FNR{$4=($4+m)/a[$1&quot;\t&quot;$2&quot;\t&quot;$3];print $0}' &quot;$input_rpkm&quot; &quot;$treatment_rpkm&quot; &gt; $treatment_operated
+elif [ &quot;$operation&quot; = &quot;reciprocal_ratio&quot; ]; then
+	awk -v OFS=&quot;\t&quot; -v m=$pseudocount 'NR==1{print $0;next} NR==FNR{a[$1&quot;\t&quot;$2&quot;\t&quot;$3]=$4+m} NR&gt;FNR{$4=($4+m)/a[$1&quot;\t&quot;$2&quot;\t&quot;$3];if($4&lt;1)$4=-1/$4;print $0}' &quot;$input_rpkm&quot; &quot;$treatment_rpkm&quot; &gt; $treatment_operated
+elif [ &quot;$operation&quot; = &quot;subtract&quot; ]; then
+	awk -v OFS=&quot;\t&quot; 'NR==1{print $0;next} NR==FNR{a[$1&quot;\t&quot;$2&quot;\t&quot;$3]=$4} NR&gt;FNR{$4=$4-a[$1&quot;\t&quot;$2&quot;\t&quot;$3];print $0}' &quot;$input_rpkm&quot; &quot;$treatment_rpkm&quot; &gt; $treatment_operated
+elif [ &quot;$operation&quot; = &quot;logXsubtract&quot; ]; then
+	awk -v OFS=&quot;\t&quot; -v m=$pseudocount -v logx=$logx 'NR==1{print $0;next} NR==FNR{a[$1&quot;\t&quot;$2&quot;\t&quot;$3]=$4} NR&gt;FNR{if($4&lt;a[$1&quot;\t&quot;$2&quot;\t&quot;$3]){$4=log(m)/log(logx)}else{$4=log($4-a[$1&quot;\t&quot;$2&quot;\t&quot;$3]+m)/log(logx)};print $0}' &quot;$input_rpkm&quot; &quot;$treatment_rpkm&quot; &gt; $treatment_operated
+fi
+fi
+
+#####################remove temp files
+if [ -z &quot;$verbose&quot; ]; then rm $tmpdir/$key*;fi
+
+
+
+
+</code></pre>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/internal/zhuqianshu.tips/shell-test/" rel="prev">shell编程的if test</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>最近更新于 Jun 22, 2021</p>
+
+          
+
+
+
+          
+
+
+          
+
+
+  
+  
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

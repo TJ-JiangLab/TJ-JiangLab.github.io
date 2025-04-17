@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Du, Yanhua | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/du-yanhua/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/du-yanhua/index.xml" rel="self" type="application/rss+xml" />
+    <description>Du, Yanhua</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_2.png</url>
+      <title>Du, Yanhua</title>
+      <link>https://wukong.tongji.edu.cn/author/du-yanhua/</link>
+    </image>
+    
+    <item>
+      <title>Nucleosome eviction along with H3K9ac deposition enhances Sox2 binding during human neuroectodermal commitment</title>
+      <link>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.du_yanhua/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.du_yanhua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Profiling Analysis of Histone Modifications and Gene Expression in Lewis Lung Carcinoma Murine Cells Resistant to Anti-VEGF Treatment</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.plos_one.li_dong/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.plos_one.li_dong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Targeted Differentiation of Regional Ventral Neuroprogenitors and Related Neuronal Subtypes from Human Pluripotent Stem Cells</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.stem_cell_reports.chi_liankai/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.stem_cell_reports.chi_liankai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PEpiD: A Prostate Epigenetic Database in Mammals</title>
+      <link>https://wukong.tongji.edu.cn/publication/2013.plos_one.shi_jiejun/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2013.plos_one.shi_jiejun/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

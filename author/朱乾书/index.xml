@@ -1,0 +1,1860 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>朱乾书 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/%E6%9C%B1%E4%B9%BE%E4%B9%A6/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/%E6%9C%B1%E4%B9%BE%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
+    <description>朱乾书</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sun, 23 Aug 1970 06:08:28 +0800</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>朱乾书</title>
+      <link>https://wukong.tongji.edu.cn/author/%E6%9C%B1%E4%B9%BE%E4%B9%A6/</link>
+    </image>
+    
+    <item>
+      <title>疟疾传播的核心调控因子</title>
+      <link>https://wukong.tongji.edu.cn/post/2021.nar.sjshen/</link>
+      <pubDate>Mon, 29 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2021.nar.sjshen/</guid>
+      <description>&lt;p&gt;  疟疾（malaria）是由疟原虫感染人体引起的、通过蚊媒传播的寄生虫病。世界卫生组织于2021年6月30日正式宣布我国消除疟疾，但目前全球仍有近90个国家有疟疾流行，每年2亿多人感染，导致约40万死亡，是全球最严重的公共卫生问题之一。而且，我国目前仍有大量的境外输入病例，如何防止输入再传播是巩固我国无疟状态的关键。疟原虫的生活史需要经历人和按蚊两个宿主，只有成熟的配子体才能通过按蚊传播。因此，疟原虫的配子生殖（gametocytogenesis）过程，即在人体内红细胞寄生阶段的无性体（asexual forms）向配子体（gametocytes）的性转换和发育（sexual commitment and development）是疟原虫感染按蚊的关键，也是疟疾传播的决定性环节。迄今为止，人们已经陆续发现了一些参与疟原虫配子生殖的重要调控因子如AP2-G, GDV1,等等（Kafsack et al. 2014. Nature; Poran et al. 2017. Nature; Filarsky et al. 2018. Science），但是对于该过程的核心调控网络仍所知甚少。&lt;/p&gt;
+&lt;p&gt;  2021年8月8日，同济大学医学院/附属东方医院张青锋团队联合生命科学院江赐忠团队及江苏省寄生虫病防治研究所曹俊团队在Nucleic Acids Research杂志在线发表了题为&lt;b&gt;&lt;font color=&#34;#006666&#34;&gt;A cascade of transcriptional repression determines sexual commitment and development in Plasmodium falciparum&lt;/font&gt;&lt;/b&gt; 的研究性论著，&lt;b&gt;&lt;font color=&#34;#660000&#34;&gt;首次揭示了恶性疟原虫配子生殖的多重表观遗传调控网络，发现了核心调控因子PfAP2-G5并阐明其作用机制，为疟疾传播阻断新措施的研发提供了关键靶点。&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;  在本研究中，作者首先利用CRISPR-Cas9基因编辑技术对恶性疟原虫ApiAp2转录调控因子家族开展了系统的基因敲除和配子体生成能力的筛选。发现在恶性疟原虫的27个ApiAP2成员中，有6个与配子生殖有关。令人惊奇的是，其中一个成员PfAP2-G5的敲除虽然能显著促进疟原虫无性体向配子体的性转换，但是不能产生成熟的配子体，提示该蛋白在配子生殖的不同阶段具有双重调控作用。于是，作者利用染色质免疫共沉淀（ChIP-seq）和差异转录组（RNA-seq）分析，并结合基因突变和生化实验，在全基因组水平上鉴定了PfAP2-G5的靶基因及调控机制。结果表明：PfAP2-G5是一个转录抑制因子，能够通过直接结合靶基因的上游调控区域，例如疟原虫性转换关键基因pfap2-g，抑制靶基因启动子的转录活性；同时，该蛋白也是异染色质（Heterochromatin）结构的相关因子，能够参与靶基因位点处的局部异染色质形成，抑制靶基因的表达。因此，PfAP2-G5可以抑制pfap2-g等基因的表达，从而阻止疟原虫性转换的开启，在没有合适的传播机会时，继续滞留在人体内进行无性繁殖。&lt;/p&gt;
+&lt;p&gt;  为进一步探索PfAP2-G5在配子生殖过程中的下游调控机制，作者首先利用配子体产生和成熟过程中的动态转录组分析和虫体发育过程（G0-GV）分析，揭示了该蛋白对于早期配子体（GI）的发育具有不可或缺的作用。染色质免疫共沉淀和差异转录组分析表明：在疟原虫性转换阶段，PfAP2-G能够上调PfAP2-G5以及其他靶基因，促进早期配子体G0的发育；但是，当疟原虫发育到GI阶段时，PfAP2-G5能够联合PfAP2-G2，迅速抑制PfAP2-G及其靶基因，而这些早期配子体发育相关基因的快速关闭是配子体成熟的关键。因此，这些ApiAP2蛋白组成的表观遗传调控网络决定了配子体的发生和发育成熟（见以下模式图）。&lt;/p&gt;
+&lt;img src=&#34;fig1.png&#34;/&gt;  
+&lt;p&gt;  综上所述，&lt;b&gt;&lt;font color=&#34;#660000&#34;&gt;PfAP2-G5介导的转录调控网络是疟原虫配子生殖过程的决定因素，决定着疟原虫生活史中两种生理状态的抉择：滞留在人体内进行无性循环繁殖，或进入性转换发育成配子体，从而感染按蚊继续传播。该蛋白的鉴定将为阻断疟疾阻断的新药或疫苗研制提供一个关键的靶点。&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;  同济大学医学院博士研究生尚晓敏、生科院博士研究生沈仕君、江苏省寄生虫病防治研究所唐建霞副研究员为本文的共同第一作者。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>新型体细胞核移植挽救方法的建立及表观重编程机制对比研究</title>
+      <link>https://wukong.tongji.edu.cn/post/2020.cellstemcell.gyang/</link>
+      <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2020.cellstemcell.gyang/</guid>
+      <description>&lt;p&gt;  2020年10月12日，同济大学生命科学与技术学院高绍荣团队与江赐忠团队在《Cell Stem Cell》 杂志在线发表了题为“Parallel analysis of H3K9ac reveals Dux-dependent 2-cell genome activation deficiency in somatic cell nuclear transfer embryos”的研究成果。他们首先通过对于早期正常受精小鼠，核移植小鼠，以及TSA挽救处理后的核移植小鼠的H3K9ac组蛋白修饰的平行分析，鉴定出一系列以H3K9ac标记的重编程异常区域(aberrantly acetylated regions, AARs)，并首次揭示出TSA挽救的原有表观环境依赖性（歧视性挽救）特性。接着，作者通过TF footprint分析，利用已建立的H3K9ac图谱推断出潜在的转录因子挽救靶点Dux，成功进行了核移植胚胎挽救并进行了后续深入的机制论证。。&lt;/p&gt;
+&lt;p&gt;  体细胞核移植（SCNT）技术是将已经分化的体细胞移入去核卵母细胞内，使体细胞的染色质发生重编程，继而启动胚胎发育到完整个体的技术。虽然SCNT是目前为止唯一一种可以使体细胞获得完整全能性的手段，但是由于在重编程过程中出现了各种表观遗传水平修饰的异常，使得SCNT胚胎的发育能力处于较低水平，也极大程度地限制了该项技术的应用前景。既往针对SCNT胚胎的挽救措施主要以表观修饰酶干预为主，意图使早期核移植胚胎的染色质得以更加开放，具体包括过表达Kdm4 mRNA，敲降Dnmt, 使用HDACi(TSA,SCR)等[1,2,3]。这些措施可以相当程度促进SCNT胚胎的发育，从而提高最终的克隆率。&lt;/p&gt;
+&lt;p&gt;  通过对于组蛋白H3K9ac图谱的绘制，作者首先确定一系列SCNT胚胎中的异常乙酰化区(AARs)，并观察到预期中的由母源基因介导的表观重编程现象。接着，当TSA处理SCNT胚胎后，由于HDAC作用被抑制，整体乙酰化水平得以提高，从测序上能够观察到全局AARs差异的收敛。然而，当作者在部分区域进行修复情况的检查，发现这种乙酰化水平的上升是不平衡的。作者因此寻找引起这种挽救效果差异的原因，并发现供体基因组染色质的环境对于TSA效果起到直接影响—在供体基因组不开放的染色质区域，TSA很难起到激活作用。这一结论暗示现有的基于表观修饰酶的SCNT挽救方法均可能存在的类似“歧视性挽救”的问题。（图1）。&lt;/p&gt;
+&lt;img src=&#34;fig1.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;图1. AAR的鉴定&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;img src=&#34;fig2.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;图2. TSA的局限性&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;  作者进一步尝试寻找不存在上述缺陷的挽救方法。通过前期图谱的对比研究，作者利用TF footprint推断出可能的在SCNT胚胎中作用发生缺失的TF，包括Gata3和Dux。通过转录组水平观察，由于Gata3是一个母源基因，SCNT胚胎与作为参照的IVF胚胎有着相似的表达水平。最终Dux成为最为可疑的靶点。进一步的早期表观修饰图谱亦观察到Dux基因座在SCNT胚胎的K9me3封印现象。&lt;/p&gt;
+&lt;img src=&#34;fig2-2.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;图3. Dux在SCNT中的缺失&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;  作者后续通过对于SCNT胚胎的Dux mRNA注射，成功实现了SCNT胚胎的挽救。然而，Dux的浓度直接决定了挽救的效果，过高或过低剂量的Dux注入均不能改善SCNT胚胎的发育，这一点印证了Dux在正常胚胎中的一系列研究结果。进一步观察发现，Dux的过表达能够显著修复靶基因的低乙酰化状态并促进相关基因/重复序列的表达。&lt;/p&gt;
+&lt;img src=&#34;fig3.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;图4. 利用Dux OE挽救SCNT胚胎发育&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;  作者进一步通过对Dux基因片段的操纵，建立三种不同长度C端敲除的缺陷型Dux。通过对比三种缺陷型Dux的回补挽救效果，作者意外发现敲除长度最短与次短的Dux∆C2，∆C3都能在相当程度上挽救SCNT胚胎的发育，并提高Zscan4的表达。而敲除长度最长的Dux∆C1则没有挽救功能，并且彻底丧失提升乙酰化的效果。因此，可以确定小鼠Dux的C端功能区域应该在Dux∆C1之后。&lt;/p&gt;
+&lt;p&gt;  最后，作者通过组学数据梳理了Dux，Kdm4，TSA三种挽救方法的关联性。Dux和后两者挽救的基因表达具有一定程度的重叠，但相对TSA而言没有“歧视性挽救”的缺陷。以Dux-KO的体细胞作为donor cell来进行SCNT实验，令人惊讶的是，Kdm4和TSA的挽救效果在这一情境下受到极大的限制。这直接说明这两种挽救方法相当程度依赖Dux cluster基因座的激活。由于TSA并非直接激活Dux表达，作者猜想，这种限制可能来自邻近非H3K9me3封印的Gm4981的敲除。&lt;/p&gt;
+&lt;img src=&#34;fig4.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;图5.Dux与TSA, Kdm4的依赖性讨论&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;img src=&#34;summary.jpg&#34;/&gt;
+&lt;p&gt;  综上，本文系统比较研究了SCNT各类挽救方法，首次发现了既往基于表观修饰酶(enzyme-based)挽救方法的特异性缺陷，并首次提出了基于转录因子的(TF-based)精确挽救方法，填补了该领域的一大空白。
+同济大学生命科学与技术学院直博生杨光、张林凤博士和刘文强副研究员为本文共同第一作者，高绍荣教授、江赐忠教授和陈嘉瑜副教授为本文共同通讯作者。该研究得到了科技部、基金委和上海市科委项目的支持。&lt;/p&gt;
+&lt;img src=&#34;featured.png&#34;/&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Genetrack-安装流程</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhengweisheng.genetrack-install/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhengweisheng.genetrack-install/</guid>
+      <description>&lt;p&gt;#################################################&lt;/p&gt;
+&lt;h2 id=&#34;genetrack-ubuntu-linux-x86_64安装-简易版-丁桂涛&#34;&gt;GeneTrack Ubuntu Linux x86_64安装 简易版 丁桂涛&lt;/h2&gt;
+&lt;p&gt;#################################################
+下载 GeneTrack-1.0.3_all.zip并解压&lt;br&gt;
+切换到解压之后到GeneTrack目录&lt;br&gt;
+安装python-virtualenv&lt;br&gt;
+sudo apt-get install python-virtualenv&lt;br&gt;
+virtualenv -p ./required/python2.5/bin/python &amp;ndash;system-site-packages .&lt;br&gt;
+每次使用GeneTrack之前先输入&lt;br&gt;
+source PATH_TO_GENETRACK/bin/activate&lt;br&gt;
+export LD_LIBRARY_PATH=PATH_TO_GENETRACK/required/hdf5/lib(注：可以将这条加到~/.bashrc文件中，以后就不用每次输了)&lt;br&gt;
+测试GeneTrack&lt;/p&gt;
+&lt;p&gt;以上步骤在Ubuntu 12.04 x86_64上测试成功，如果这样安装不行，建议全新安装，参考下面安装步骤的完整版&lt;/p&gt;
+&lt;p&gt;#####################################################################&lt;/p&gt;
+&lt;h2 id=&#34;install-genetrack-on-ubuntu-1204-x86_64-gnulinux---by-ding-guitao&#34;&gt;install Genetrack on Ubuntu 12.04 x86_64 GNU/Linux   by Ding Guitao&lt;/h2&gt;
+&lt;p&gt;#####################################################################&lt;/p&gt;
+&lt;h3 id=&#34;01-download-genetrack&#34;&gt;01. download Genetrack&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;cd ~/install/
+wget http://genetrack.googlecode.com/files/GeneTrack-1.0.3.zip
+unzip GeneTrack-1.0.3.zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;02-install-sqlite3&#34;&gt;02. install sqlite3&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://www.sqlite.org/sqlite-amalgamation-3.6.20.tar.gz
+tar zxvf sqlite-amalgamation-3.6.20.tar.gz 
+cd sqlite-3.6.20/
+./configure --prefix=/home/dgt/install/sqlite3
+make
+make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;03-install-zlib-dev&#34;&gt;03. install zlib-dev&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://fossies.org/unix/misc/zlib-1.2.6.tar.gz
+tar zxvf zlib-1.2.6.tar.gz
+cd zlib-1.2.6/
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;04-install-python25&#34;&gt;04. install python2.5&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://python.org/ftp/python/2.5.1/Python-2.5.1.tar.bz2
+tar xjvf Python-2.5.1.tar.bz2
+cd Python-2.5.1/
+vim setup.py
+    sqlite_inc_paths = [ &#39;/usr/include&#39;,
+                             &#39;/usr/include/sqlite&#39;,
+                             &#39;/usr/include/sqlite3&#39;,
+                             &#39;/usr/local/include&#39;,
+                             &#39;/usr/local/include/sqlite&#39;,
+                             &#39;/usr/local/include/sqlite3&#39;,
+                             &#39;/home/dgt/install/sqlite-3.6.20/include&#39;,
+                             &#39;/home/dgt/install/sqlite-3.6.20/include/sqlite3&#39;,
+                           ]
+      disabled_module_list = [&amp;quot;bsddb185&amp;quot;,&amp;quot;dl&amp;quot;,&amp;quot;imageop&amp;quot;]
+./configure --prefix=/home/dgt/install/python2.5 --with-zlib
+make
+make install 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;05-install-python-virtualenv&#34;&gt;05. install python-virtualenv&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install python-virtualenv
+virtualenv -p /home/dgt/install/python2.5/bin/python2.5 --system-site-packages /home/dgt/install/GeneTrack-1.0.3
+source /home/dgt/install/GeneTrack-1.0.3/bin/activate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;06-install-sqlalchemy&#34;&gt;06. install SQLAlchemy&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://nchc.dl.sourceforge.net/project/sqlalchemy/sqlalchemy/0.7.6/SQLAlchemy-0.7.6.tar.gz
+tar zxvf SQLAlchemy-0.7.6.tar.gz
+cd SQLAlchemy-0.7.6/
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;07-install-cython&#34;&gt;07. install Cython&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://cython.org/release/Cython-0.16.zip
+unzip Cython-0.16.zip
+cd Cython-0.16/
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;08-install-numpy&#34;&gt;08. install numpy&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://nchc.dl.sourceforge.net/project/numpy/NumPy/1.6.1/numpy-1.6.1.tar.gz
+tar zxvf numpy-1.6.1.tar.gz
+cd numpy-1.6.1/
+python setup.py build
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;09-install-numexpr&#34;&gt;09. install numexpr&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget 
+cd numexpr-2.0.1/
+python setup.py build
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;10-install-gc-complier&#34;&gt;10. install gc++ complier&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install build-essential 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;11-install-hdf5&#34;&gt;11. install hdf5&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.8.tar.gz
+tar zxvf hdf5-1.8.8.tar.gz
+cd hdf5-1.8.8
+./configure --prefix=/usr/local/hdf5
+make
+make check
+make install
+make check-install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;12-install-multiprocessing&#34;&gt;12. install multiprocessing&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://pypi.python.org/packages/source/m/multiprocessing/multiprocessing-2.6.2.1.tar.gz
+tar zxvf multiprocessing-2.6.2.1.tar.gz
+cd multiprocessing-2.6.2.1/
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;13-install-pytables&#34;&gt;13. install pytables&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://nchc.dl.sourceforge.net/project/pytables/pytables/2.3.1/tables-2.3.1.tar.gz
+tar zxvf tables-2.3.1.tar.gz
+cd tables-2.3.1/
+export HDF5_DIR=/usr/local/hdf5
+export LD_LIBRARY_PATH=/usr/local/hdf5/lib
+echo &amp;quot;export LD_LIBRARY_PATH=/usr/local/hdf5/lib&amp;quot; &amp;gt;&amp;gt;~/.bashrc
+python setup.py build_ext --inplace
+python
+        &amp;gt;&amp;gt;&amp;gt; import tables
+        &amp;gt;&amp;gt;&amp;gt; tables.test()
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;14-install-chartdirector&#34;&gt;14. install ChartDirector&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://download2.advsofteng.com/chartdir_python_linux_64.tar.gz
+tar zxvf chartdir_python_linux_64.tar.gz
+cd ChartDirector/lib/
+cp -r * /home/dgt/install/python2.5/lib/python2.5/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;15-genetrack-test&#34;&gt;15. GeneTrack test&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;python run.py
+python run.py test
+python run.py execute yeast.yeast_dataconf
+python run.py server yeast.yeast_webconf
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Genetrack-运行流程</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.genetrack/</guid>
+      <description>&lt;h3 id=&#34;1比对&#34;&gt;1.比对&lt;/h3&gt;
+&lt;p&gt;比对我使用的是BWA，用bowtie2也一样，
+但不建议在比对中对fragment length筛选，
+可能需要比对完后对fragment length质检&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ddir1=~/data/1.haESCs/early/nucl
+ddir2=~/data/1.haESCs/ChIP_data_2017-10-11/Project_s226c30025_20170929_2samples
+ddir3=~/data/1.haESCs/ChIP_data_2017-10-11/haESCs_project_nucl_K27ac_data_20171117
+wdir=~/workspace/1.haESCs/n.BWA-nucleosome/0.data
+mkd $wdir
+
+for i in R1 R2;do 
+ln -s $ddir2/Sample_R17011045LD01/R17011045LD01_combined_$i.fastq.gz $wdir/Late-Diploid_A129.$i.fastq.gz
+ln -s $ddir2/Sample_R17011044LD01/R17011044LD01_combined_$i.fastq.gz $wdir/Late-Haploid_A129.$i.fastq.gz
+ln -s $ddir1/A129-2_E-2n_nucl_$i.fastq.gz $wdir/Early-Diploid_A129.$i.fastq.gz
+ln -s $ddir1/A129-2_E-n_nucl_$i.fastq.gz $wdir/Early-Haploid_A129.$i.fastq.gz
+
+ln -s $ddir3/Sample_R17016394LD01/R17016394LD01_combined_$i.fastq.gz $wdir/Late-Diploid_AOS.$i.fastq.gz
+ln -s $ddir3/Sample_R17016393LD01/R17016393LD01_combined_$i.fastq.gz $wdir/Late-Haploid_AOS.$i.fastq.gz
+ln -s $ddir1/AOS-14_E-2n_nucl_$i.fastq.gz $wdir/Early-Diploid_AOS.$i.fastq.gz
+ln -s $ddir1/AOS-14_E-n_nucl_$i.fastq.gz $wdir/Early-Haploid_AOS.$i.fastq.gz
+done
+
+wdir=~/workspace/1.haESCs/n.BWA-nucleosome/2.ChIP
+ddir=~/workspace/1.haESCs/n.BWA-nucleosome/0.data
+mkd $wdir $wdir/../1.qc
+nohup fastqc -o $wdir/../1.qc $ddir/*gz -t 36 &amp;amp;
+#cutadapt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;QC&lt;br&gt;
+bwa不需要cutadapt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;#bash ~/workspace/1.haESCs/h.BWA/thread_bwa.sh -w $wdir -d $ddir -t 8 -p 8 &amp;amp;
+thread=16
+for name in $ddir/*R1.fastq.gz; do 
+k=$(basename $name .R1.fastq.gz)
+bwa mem -t $thread $BWA_INDEXES/mm10.fa ${name} ${name/R1/R2} &amp;gt; $wdir/$k.sam 2&amp;gt;$wdir/logs/$k.log
+samtools flagstat -@ $thread $wdir/$k.sam &amp;gt; $wdir/logs/$k.flag.txt.1
+samtools sort -@ $thread $wdir/$k.sam -o $wdir/a.raw/$k.bam
+samtools flagstat -@ $thread $wdir/a.raw/$k.bam &amp;gt; $wdir/logs/$k.flag.txt.2
+#samtools view -@ $thread -F 4 -q 20 $wdir/a.raw/$k.bam -o $wdir/b.filtered/$k.sorted.bam
+#samtools index -@ $thread $wdir/b.filtered/$k.sorted.bam
+#samtools flagstat -@ $thread $wdir/b.filtered/$k.sorted.bam &amp;gt; $wdir/b.filtered/logs/$k.txt
+done
+
+
+echo -e &amp;quot;Sample\tTotal_reads\tSupplementary\tPaired_reads\tDuplicates\tValid_reads\tValid_pairs&amp;quot; &amp;gt; merge.stat.tab
+for i in *.txt; do
+awk -v name=${i/.txt} &#39;/in total/{total=$1/1e6}
+/duplicates/{dup=$1/1e6}
+/properly paired/{paired=$1/1e6}
+/supplementary/{sup=$1/1e6}
+END{print name,total,sup,paired,dup,total-dup,paired-dup}
+&#39; ${i} &amp;gt;&amp;gt; merge.stat.tab
+done
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果需要，可以对bam文件过滤low quality&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;2-genetrack-index&#34;&gt;2. genetrack index&lt;/h3&gt;
+&lt;p&gt;获得genetrack index&lt;br&gt;
+我在这一步筛选了fragment length，其他的筛选条件可以自行斟酌添加&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;min=100
+max=300
+
+ddir=~/workspace/1.haESCs/n.BWA-nucleosome/2.ChIP/a.raw
+wdir=~/workspace/1.haESCs/2.genetrack_index/a.bwa-20200827
+statdir=$wdir/stats
+
+
+mkdir -p $statdir
+
+cd $wdir
+for in_file in $ddir/*.bam; do
+	(
+	keyword=${in_file##*/}
+	keyword=${keyword%.*}
+
+	samtools view -f 67 -S $in_file | awk -F &amp;quot;\t&amp;quot; -v keyword=$keyword -v min1=$min -v max1=$max &#39;$7==&amp;quot;=&amp;quot;&amp;amp;&amp;amp;match($3,/^chr[^M]/){
+	mid=int(($4+$8+length($10))/2);
+	len=($9&amp;gt;0)?$9:-$9;
+	if(len&amp;gt;=min1&amp;amp;&amp;amp;len&amp;lt;=max1){
+	if($2==83){print $3&amp;quot;\t&amp;quot;mid &amp;gt; keyword&amp;quot;_reverse_chr_pos.txt&amp;quot;}; 
+	if($2==99){print $3&amp;quot;\t&amp;quot;mid &amp;gt; keyword&amp;quot;_forward_chr_pos.txt&amp;quot;}
+	}}&#39;
+	echo &amp;quot;split to reverse &amp;amp; forward done.&amp;quot;
+
+	sort -k1b,1 -k2n,2 ${keyword}_reverse_chr_pos.txt | uniq -c | awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;}{print $2,$3,0,$1}&#39; &amp;gt; ${keyword}_reverse.txt
+	echo &amp;quot;reverse reads count done.&amp;quot;
+	sort -k1b,1 -k2n,2 ${keyword}_forward_chr_pos.txt | uniq -c | awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;}{print $2,$3,$1,0}&#39; &amp;gt; ${keyword}_forward.txt
+	echo &amp;quot;forward reads done.&amp;quot;
+
+	rm ${keyword}_reverse_chr_pos.txt ${keyword}_forward_chr_pos.txt
+
+	###########cat and merge
+	cat ${keyword}_forward.txt ${keyword}_reverse.txt | sort -k1b,1 -k2n,2 | awk &#39;BEGIN{FS=OFS=&amp;quot;\t&amp;quot;;a=&amp;quot;chrom&amp;quot;;b=&amp;quot;index&amp;quot;;c=&amp;quot;forward&amp;quot;;d=&amp;quot;reverse&amp;quot;}{if(a!=0){if($2!=b){print a,b,c,d;a=$1;b=$2;c=$3;d=$4}else{print a,b,c+$3,d+$4;a=0}}else{a=$1;b=$2;c=$3;d=$4}}END{if(a!=0){print a,b,c,d}}&#39; &amp;gt; ${keyword}_uniq.txt
+	echo &amp;quot;unique done.&amp;quot;
+
+	rm ${keyword}_forward.txt ${keyword}_reverse.txt
+	##############stats pcr duplicate
+	awk &#39;(NR&amp;gt;1){print $3;print $4;total+=$3+$4}END{print total}&#39; ${keyword}_uniq.txt | sort -nr | uniq -c | awk &#39;NR==1{total=$2;print &amp;quot;total reads:&amp;quot;total} NR&amp;gt;1{accumulation+=$1*$2; print $2&amp;quot;\t&amp;quot;$1&amp;quot;\t&amp;quot;accumulation/total*100}&#39; &amp;gt; $statdir/${keyword}_stat.txt
+	
+	sed &#39;1d&#39; $statdir/${keyword}_stat.txt | sort -k1n,1 &amp;gt;$statdir/${keyword}_temp1.txt
+	head -1 $statdir/${keyword}_stat.txt &amp;gt; $statdir/${keyword}_temp2.txt
+	cat $statdir/${keyword}_temp2.txt $statdir/${keyword}_temp1.txt &amp;gt; $statdir/${keyword}_stat.txt
+	rm $statdir/${keyword}_temp1.txt $statdir/${keyword}_temp2.txt
+	)&amp;amp;
+done
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;stat.txt中记录了duplicates所占的比例，第二列表示的是同一位置大于第一列所示的重复数的index比例&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;for i in *_uniq.txt; do
+(awk -v fdr=8 &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;} NR==1{print} NR&amp;gt;1{if($3&amp;gt;fdr){$3=fdr};if($4&amp;gt;fdr){$4=fdr};print $0}&#39; $i &amp;gt; ${i/uniq/undup8})&amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;根据数据，确定需要保留的最高duplicates数，这里fdr=8&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3-genetrack&#34;&gt;3. Genetrack&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;genetrack=/home/share/GeneTrack-1.0.3
+#genetrack=/home/qszhu/software/GeneTrack-1.0.3
+wdir=~/workspace/1.haESCs/5.nucleosome/3.genetrack_20171025
+ddir=~/workspace/1.haESCs/2.genetrack_index/6.undup8
+
+for i in $ddir/*_undup.txt; do key=${i##*/};key=${key%%.*}
+cp -r $genetrack/library/template $wdir/$key
+sed &amp;quot;/keyword/ s/keyword/$key/&amp;quot; $wdir/$key/template.py &amp;gt; $wdir/$key/$key.py
+rm  $wdir/$key/template.py
+ln -s $i $wdir/$key/data/$key.txt
+ln -s $wdir/$key $genetrack/library/$key
+done
+
+mkdir $wdir/logs
+for i in $ddir/*_undup.txt; do key=${i##*/};key=${key%%.*}
+nohup python $genetrack/run.py execute $key.$key &amp;gt; $wdir/logs/$key.log &amp;amp;
+done
+
+for i in results/*_undup*; do o=${i##*/};o=${o%%_*};awk &#39;$3==&amp;quot;A&amp;quot;||NR==1{print}&#39; $i &amp;gt; a.nucleosome_All/$o.txt; done
+
+for i in $wdir/a.nucleosome_All/*txt; do o=${i##*/};o=${o/txt/bed};
+awk &#39;NR&amp;gt;1{print $2,$4,$5,$1,$6,&amp;quot;.&amp;quot;}&#39; $i &amp;gt; $wdir/c.nucleosome_All_bed/$o
+done 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里$genetrack是Genetrack的安装目录&lt;br&gt;
+我做了一个template配置文件，通过sed批量修改配置文件&lt;br&gt;
+在使用配置运行Genetrack
+最后获得所有核小体&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;templatepy精简版&#34;&gt;template.py精简版:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;from settings import *
+from atlas import join_paths
+LOADER_ENABLED    = True
+FITTER_ENABLED    = True
+PREDICTOR_ENABLED = True
+EXPORTER_ENABLED  = True
+expname = &#39;keyword&#39;
+expdir = get_experiment_dir (expname)
+dbdir = join_paths(expdir, &#39;db&#39;)
+HDF_DATABASE = get_hdf_file( path=dbdir, name=expname)
+SQL_URI      = get_sqlite_uri(path=dbdir, name=expname)
+DATA_FILE =  join_paths( expdir, &amp;quot;data&amp;quot;, &amp;quot;keyword.txt&amp;quot; )
+SIGMA = 20
+WIDTH = SIGMA * 5
+DATA_LABEL = &amp;quot;nucleosome&amp;quot;
+FIT_LABEL  = get_fit_label(label=DATA_LABEL, sigma=SIGMA)
+PEAK_LABEL = get_pred_label(label=DATA_LABEL, sigma=SIGMA)
+EXCLUSION_ZONE = 147
+LEFT_SHIFT  = EXCLUSION_ZONE/2
+RIGHT_SHIFT = EXCLUSION_ZONE/2
+EXPORT_LABELS  = [ PEAK_LABEL ]
+EXPORT_DIR     = DOWNLOAD_DIR
+from mod454.loader import loader as LOADER
+from mod454.fitter import fitter as FITTER
+from mod454.predictor import predictor as PREDICTOR
+from atlas.commands import exporter as EXPORTER
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;35-新版genetrack&#34;&gt;3.5 新版Genetrack&lt;/h3&gt;
+&lt;p&gt;Genetrack-1.0.3需要python2.6，不支持Python2.7以上，依赖的库也比较难安装&lt;br&gt;
+可以使用新版的Genetrack，整合在chipexo中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wdir=~/workspace/1.haESCs/5.nucleosome/6.chipexo
+ddir=~/workspace/1.haESCs/2.genetrack_index/a.bwa-20200827
+
+for i in $ddir/*undup8.txt; do key=$(basename $i _undup8.txt)
+nohup python ~/software/chipexo-master/genetrack/genetrack.py -e 147 -s 20 -o txt $i &amp;gt; $key.nucl.txt &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;4计算核小体的rc-fuzziness-rpkm&#34;&gt;4.计算核小体的rc fuzziness rpkm&lt;/h3&gt;
+&lt;p&gt;重新使用Genetrack index计算核小体上的read count，fuzziness，rpkm&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for i in $ddir/*7_undup.txt; do key=${i##*/};key=${key%%_*}
+nohup python /home/share/codes/qszhu/nucl_rc_fuzziness_rpkm.py -t $i -n $wdir/a.nucleosome_All/$key.txt -o $wdir/b.rc_fuzz/$key.txt &amp;gt; $wdir/b.rc_fuzz/$key.log &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;5用rpkm筛选核小体&#34;&gt;5.用rpkm筛选核小体&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;for i in $wdir/b.rc_fuzz/*txt; do o=${i##*/};o=${o/txt/bed};
+awk &#39;NR&amp;gt;1&amp;amp;&amp;amp;$7&amp;gt;=0.15{print &amp;quot;chr&amp;quot;$2,$3,$4,$1,$7,&amp;quot;.&amp;quot;}&#39; $i &amp;gt; $wdir/d.nucleosome_filted_0.15_bed/$o &amp;amp;
+done 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;去掉小于15%的核小体&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>裂核版 Cut&amp;Run protocol</title>
+      <link>https://wukong.tongji.edu.cn/internal/chenmo.cutrun.protocol/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/chenmo.cutrun.protocol/</guid>
+      <description>&lt;h2 id=&#34;一试剂&#34;&gt;一、试剂&lt;/h2&gt;
+&lt;h3 id=&#34;15-digitonin65mg粉末13ml-dmso-70&#34;&gt;1、5% Digitonin（65mg粉末+1.3mL DMSO 70℃）&lt;/h3&gt;
+&lt;p&gt;To reconstitute enough digitonin for an experiment, weigh out the powder in a 2 ml microcentrifuge tube, boil water in a small beaker in a microwave oven, and pipette in and out to warm the 1000 μL pipette tip.
+Pipette the hot water into the tube with the digitonin powder to make 5% (w/v), close the cap and quickly vortex on full until the digitonin is completely dissolved.
+If refrigerated, this stock can be used within a week, but will need reheating as the digitonin slowly precipitates.&lt;/p&gt;
+&lt;h3 id=&#34;2-binding-buffer&#34;&gt;2、 Binding Buffer&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;试剂&lt;/th&gt;
+&lt;th&gt;Stock&lt;/th&gt;
+&lt;th&gt;Final&lt;/th&gt;
+&lt;th&gt;推荐体积&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;HEPES-KOH pH 7.9&lt;/td&gt;
+&lt;td&gt;1 M&lt;/td&gt;
+&lt;td&gt;20 mM&lt;/td&gt;
+&lt;td&gt;200 μL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KCl&lt;/td&gt;
+&lt;td&gt;1 M&lt;/td&gt;
+&lt;td&gt;10 mM&lt;/td&gt;
+&lt;td&gt;100 μL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CaCl2&lt;/td&gt;
+&lt;td&gt;1 M&lt;/td&gt;
+&lt;td&gt;1 mM&lt;/td&gt;
+&lt;td&gt;10 μL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MnCl2&lt;/td&gt;
+&lt;td&gt;1 M&lt;/td&gt;
+&lt;td&gt;1 mM&lt;/td&gt;
+&lt;td&gt;10 μL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ddH2O&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;9.68 mL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Total&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;10 mL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Store the buffer at 4℃ for 6 months.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3wash-buffer&#34;&gt;3、Wash Buffer&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;试剂&lt;/th&gt;
+&lt;th&gt;Stock&lt;/th&gt;
+&lt;th&gt;Final&lt;/th&gt;
+&lt;th&gt;推荐体积（样品数 = 6）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;HEPES pH 7.5&lt;/td&gt;
+&lt;td&gt;1 M&lt;/td&gt;
+&lt;td&gt;20 mM&lt;/td&gt;
+&lt;td&gt;1 mL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NaCl&lt;/td&gt;
+&lt;td&gt;5 M&lt;/td&gt;
+&lt;td&gt;150 mM&lt;/td&gt;
+&lt;td&gt;1.5 mL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Spermidine&lt;/td&gt;
+&lt;td&gt;2 M&lt;/td&gt;
+&lt;td&gt;0.5 mM&lt;/td&gt;
+&lt;td&gt;12.5 μL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BSA&lt;/td&gt;
+&lt;td&gt;10 %&lt;/td&gt;
+&lt;td&gt;0.1 %&lt;/td&gt;
+&lt;td&gt;500 μL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PIC&lt;/td&gt;
+&lt;td&gt;50 X&lt;/td&gt;
+&lt;td&gt;1 X&lt;/td&gt;
+&lt;td&gt;1片（EDAT-free）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ddH2O&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;47 ml&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Total&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;50 ml&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Store the buffer at at 4℃ for up to 1 week.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;4blocking-buffer--wash-buffer--edta--dig&#34;&gt;4、Blocking Buffer = Wash Buffer + EDTA + Dig&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;试剂&lt;/th&gt;
+&lt;th&gt;Stock&lt;/th&gt;
+&lt;th&gt;Final&lt;/th&gt;
+&lt;th&gt;推荐体积(N=样品数+1)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;EDTA（250X）&lt;/td&gt;
+&lt;td&gt;500 mM&lt;/td&gt;
+&lt;td&gt;2 mM&lt;/td&gt;
+&lt;td&gt;28 μL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Digitonin（50X）&lt;/td&gt;
+&lt;td&gt;5 %&lt;/td&gt;
+&lt;td&gt;0.1 %&lt;/td&gt;
+&lt;td&gt;140 μL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wash Buffer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;7 mL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现用现配。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;5dig-wash-buffer--wash-buffer--dig&#34;&gt;5、Dig-wash Buffer = Wash Buffer + Dig&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;试剂&lt;/th&gt;
+&lt;th&gt;Stock&lt;/th&gt;
+&lt;th&gt;Final&lt;/th&gt;
+&lt;th&gt;Volume 2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Digitonin（50X）&lt;/td&gt;
+&lt;td&gt;5 %&lt;/td&gt;
+&lt;td&gt;0.1 %&lt;/td&gt;
+&lt;td&gt;200 μL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wash Buffer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;10 mL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现用现配。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;62xstoplow-salt--普通用每个样品准备150-μl体系&#34;&gt;6、2XSTOP（Low Salt）- 普通用（每个样品准备150 μL体系）&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;试剂&lt;/th&gt;
+&lt;th&gt;Stock&lt;/th&gt;
+&lt;th&gt;Final&lt;/th&gt;
+&lt;th&gt;推荐体积（样品数 = 6）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;NaCl&lt;/td&gt;
+&lt;td&gt;5 M&lt;/td&gt;
+&lt;td&gt;200 mM&lt;/td&gt;
+&lt;td&gt;40 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EDTA&lt;/td&gt;
+&lt;td&gt;0.5 M&lt;/td&gt;
+&lt;td&gt;20 mM&lt;/td&gt;
+&lt;td&gt;40 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EGTA&lt;/td&gt;
+&lt;td&gt;0.2 M&lt;/td&gt;
+&lt;td&gt;4 mM&lt;/td&gt;
+&lt;td&gt;20 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Digitonin&lt;/td&gt;
+&lt;td&gt;5 %&lt;/td&gt;
+&lt;td&gt;0.02 %&lt;/td&gt;
+&lt;td&gt;4 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RNase A&lt;/td&gt;
+&lt;td&gt;10 mg/mL&lt;/td&gt;
+&lt;td&gt;50ug/ml&lt;/td&gt;
+&lt;td&gt;5 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;glycogen&lt;/td&gt;
+&lt;td&gt;2 mg/ml&lt;/td&gt;
+&lt;td&gt;40ug/ml&lt;/td&gt;
+&lt;td&gt;20 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;spike-in DNA&lt;/td&gt;
+&lt;td&gt;10pg/ul&lt;/td&gt;
+&lt;td&gt;5 pg/ml&lt;/td&gt;
+&lt;td&gt;0.5 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ddH2O&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;870.5 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Total&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1 ml&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Store the buffer at 4℃ for up to 1 week.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;72xstophigh-salt--裂核用每个样品准备50-μl体系&#34;&gt;7、2XSTOP（High Salt）- 裂核用（每个样品准备50 μL体系）&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;试剂&lt;/th&gt;
+&lt;th&gt;Stock&lt;/th&gt;
+&lt;th&gt;Final&lt;/th&gt;
+&lt;th&gt;推荐体积（样品数 ≤ 20）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;NaCl&lt;/td&gt;
+&lt;td&gt;5 M&lt;/td&gt;
+&lt;td&gt;4 M&lt;/td&gt;
+&lt;td&gt;800 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EDTA&lt;/td&gt;
+&lt;td&gt;0.5 M&lt;/td&gt;
+&lt;td&gt;20 mM&lt;/td&gt;
+&lt;td&gt;40 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EGTA&lt;/td&gt;
+&lt;td&gt;0.2 M&lt;/td&gt;
+&lt;td&gt;4 mM&lt;/td&gt;
+&lt;td&gt;20 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Digitonin&lt;/td&gt;
+&lt;td&gt;5 %&lt;/td&gt;
+&lt;td&gt;0.02 %&lt;/td&gt;
+&lt;td&gt;4 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;glycogen&lt;/td&gt;
+&lt;td&gt;2 mg/ml&lt;/td&gt;
+&lt;td&gt;40 ug/ml&lt;/td&gt;
+&lt;td&gt;20 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;spike-in DNA&lt;/td&gt;
+&lt;td&gt;10 pg/ul&lt;/td&gt;
+&lt;td&gt;5 pg/ml&lt;/td&gt;
+&lt;td&gt;0.5 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ddH2O&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;115.5 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Total&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;1 ml&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Store the buffer at 4℃ for up to 1 week.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;867-μgml-rnase-a---裂核用每个样品准备x-μl体系&#34;&gt;8、67 μg/mL RNase A - 裂核用（每个样品准备X μL体系）&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;试剂&lt;/th&gt;
+&lt;th&gt;Stock&lt;/th&gt;
+&lt;th&gt;Final&lt;/th&gt;
+&lt;th&gt;推荐体积（样品数 ≤ 20）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;RNase A&lt;/td&gt;
+&lt;td&gt;10 mg/mL&lt;/td&gt;
+&lt;td&gt;67 ug/ml&lt;/td&gt;
+&lt;td&gt;20 ul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ddH2O&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;2.98 ml&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Total&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;3 ml&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;二实验流程&#34;&gt;二、实验流程&lt;/h2&gt;
+&lt;h3 id=&#34;1binding-cells-to-beads&#34;&gt;1，Binding cells to beads&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TIMING 30 min&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;CRITICAL STEP:&lt;/strong&gt; All steps prior to the addition of antibody are performed at room temperature to minimize stress on the cells. Because it is crucial that DNA breakage is minimized throughout the protocol, we recommend that cavitation during resuspension and vigorous vortexing be avoided.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Harvest fresh culture(s) at room temperature and count cells. The same protocol can be used for 100 to 250,000 mammalian cells per sample and/or digestion time point.&lt;br&gt;
+PAUSE POINT: If necessary, cells can be cryopreserved in 10% DMSO using a Mr. Frosty isopropyl alcohol chamber. We do not recommend flash freezing, as this can cause background DNA breakage that may impact final data quality.&lt;/li&gt;
+&lt;li&gt;Centrifuge 3 min 600 x g at room temperature and withdraw liquid.&lt;/li&gt;
+&lt;li&gt;Wash cells twice with 1 ml room temperature Wash buffer and centrifuge 3 min 600 x g at room temperature and withdraw liquid.&lt;/li&gt;
+&lt;li&gt;Resuspend in 600ul room temperature Wash buffer by gently pipetting.&lt;br&gt;
+(这一步数细胞的话就用少量wash buffer重悬，在wash buffer里数，另取一个低吸附1.5ml管子加入600ul wash buffer，数好的细胞吹进去)&lt;/li&gt;
+&lt;li&gt;10ul/reaction beads were transferred to a microfuge tube containing 3X volume cold Binding buffer&lt;/li&gt;
+&lt;li&gt;Beads were washed twice in 1mL cold Binding buffer and resuspended in 300μL binding buffer.&lt;/li&gt;
+&lt;li&gt;beads were added to cells with gentle vortexing and incubated for 10 minutes at room temperature.&lt;br&gt;
+（整个实验过程都不要用枪用力吹打，尽量加入buffer后颠倒混匀，以免细胞从beads上掉下来）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;CRITICAL STEP:&lt;/strong&gt; To evaluate success of the procedure without requiring library preparation, include in parallel a positive control antibody (e.g. α-H3K27me3) and a negative control antibody (e.g. α-rabbit). Do not include a no-antibody control, as the lack of tethering may allow any unbound pA-MN to act as a “time-bomb” and digest accessible DNA, resulting in a background of DNA-accessible sites.&lt;/p&gt;
+&lt;h3 id=&#34;2bind-primary-antibodies&#34;&gt;2，Bind (primary) antibodies&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TIMING 15 min–overnight, with longer incubations providing higher yields&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Place on the magnet stand to clear and pull off the liquid.&lt;/li&gt;
+&lt;li&gt;Bead-bound nuclei were blocked with 1mL cold Blocking buffer，incubated for 5 minutes at room temperature.&lt;/li&gt;
+&lt;li&gt;The supernatant was discarded and nuclei/beads were washed in 1mL cold Dig-Wash Buffer and resuspended in 250μL cold Dig-Wash Buffer&lt;/li&gt;
+&lt;li&gt;1ug primary antibody was added with gentle vortexing of bead-bound cell in 250μL cold Dig-Wash buffer.&lt;/li&gt;
+&lt;li&gt;Samples were incubated with rotation at 4°C for 2 hours or overnight.&lt;/li&gt;
+&lt;li&gt;The supernatant was discarded and samples were washed twice in 1mL cold Dig-Wash buffer. The supernatant was discarded and samples were resuspended in 250μL cold Dig-Wash buffer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;3bind-secondary-antibody-as-required目前的抗体不需要这一步&#34;&gt;3，Bind secondary antibody (as required)（目前的抗体不需要这一步）&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TIMING 15 min-1.5 hr&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;CRITICAL STEP:&lt;/strong&gt; The binding efficiency of Protein A to the primary antibody depends on host species and IgG isotype. For example, Protein A binds well to rabbit and guinea pig IgG but poorly to mouse and goat IgG, and so for these latter antibodies a secondary antibody, such as rabbit α-mouse is recommended.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Secondary antibody was added with gentle vortexing of the nuclei in 250μL cold Dig-Wash buffer to a final concentration of 1:100.&lt;/li&gt;
+&lt;li&gt;Samples were incubated with rotation at 4°C for 1 hour.&lt;/li&gt;
+&lt;li&gt;The supernatant was discarded and samples were washed twice in 1mL cold Dig-Wash buffer. The supernatant was discarded and samples were resuspended in 250μL cold Dig-Wash buffer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;4bind-protein-a-mnase-fusion-protein&#34;&gt;4，Bind Protein A-MNase fusion protein&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TIMING 15 min–1.5 hr&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;pA-MN was added with gentle vortexing of the cells in 250μL cold Dig-Wash buffer to a final concentration of 1:500.&lt;/li&gt;
+&lt;li&gt;Samples were incubated with rotation at 4°C for 1 hour.
+3)The supernatant was discarded and samples were washed twice in 1mL cold Dig-Wash buffer. The supernatant was discarded and samples were resuspended in 150μL（裂核时体系改为50μL）cold Dig-Wash buffer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;5targeted-digestion&#34;&gt;5，Targeted digestion&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TIMING 45 min&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Samples were equilibrated to 0°C on ice water for 5-10 minutes&lt;/li&gt;
+&lt;li&gt;To initiate cleavage, 3μL（裂核时改为1μL）100mM CalC2 was added during gentle vortexing, samples were flicked quickly to mix and returned to ice water.&lt;/li&gt;
+&lt;li&gt;After 5 minutes of digestion, reactions were stopped with addition of 150μL 2XSTOP buffer&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;5裂核版targeted-digestion&#34;&gt;5（裂核版），Targeted digestion&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TIMING 45 min&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Samples were equilibrated to 0°C on ice water for 5-10 minutes&lt;/li&gt;
+&lt;li&gt;To initiate cleavage, 3μL 100mM CalC2 was added during gentle vortexing, samples were flicked quickly to mix and returned to ice water.&lt;/li&gt;
+&lt;li&gt;After 5 minutes of digestion, reactions were stopped with addition of 150μL 2XSTOP buffer&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;6target-chromatin-release&#34;&gt;6.Target chromatin release&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TIMING 20 min&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Samples were incubated at 37°C for 20 minutes to digest RNA and release DNA fragments&lt;/li&gt;
+&lt;li&gt;Samples were centrifuged at 16,000g for 5 minutes and supernatants were transferred to a new microfuge tube while pellets and beads were discarded.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;7dna-extraction-preferred-for-quantitative-recovery-of-80-bp-fragments&#34;&gt;7，DNA extraction (preferred for quantitative recovery of ≤80 bp fragments)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;TIMING 1.5 hr&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;To each sample add 3 μL 10% SDS (to 0.1%), and 2.5 μL Proteinase K (20 mg/ml). Mix by inversion and incubate 10 min 70 oC.&lt;/li&gt;
+&lt;li&gt;Add 300 μL PCI and mix by full-speed vortexing ~2 s.&lt;/li&gt;
+&lt;li&gt;Transfer to a phase-lock tube, and centrifuge 5 min room temperature at 16,000 x g.&lt;/li&gt;
+&lt;li&gt;Add 300 μL chloroform and invert ~10x to mix.&lt;/li&gt;
+&lt;li&gt;Remove liquid by pipetting to a fresh tube containing 0.5 μL glycoblue.&lt;/li&gt;
+&lt;li&gt;Add 300 μL isopropanol and mix by vortexing or tube inversion.&lt;/li&gt;
+&lt;li&gt;Put in -80 oC for 20min or overnight&lt;/li&gt;
+&lt;li&gt;centrifuge 15 min at 4 °C 16,000 x g.&lt;/li&gt;
+&lt;li&gt;Wash the pellet twice with 1 ml 80% ethanol and incubate in room temperature for 5 min, then centrifuge 5 min at 4 °C 16,000 x g.&lt;/li&gt;
+&lt;li&gt;Carefully pour off the liquid and drain on a paper towel. Air dry.&lt;/li&gt;
+&lt;li&gt;When the pellet is dry, dissolve in 17μL EB buffer.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;利用KAPA试剂盒建库，最后PCR的过程建议尝试常规方法和快速扩增两种&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;快速扩增：&lt;/strong&gt;
+循环中没有专门的延伸时间&lt;br&gt;
+98℃ 45s&lt;br&gt;
+98℃ 15s&lt;br&gt;
+60℃ 10s，go to step 2 for 14-16 cycle&lt;br&gt;
+72℃ 1min&lt;br&gt;
+4℃ hold&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;建议尝试抗体 OCT4(100cells,500cells,30Kcells)，H3K4me3(20cells,100cells)&lt;br&gt;
+每个做两个重复，扩增时选择不同的扩增方法（常规和快速）&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;./CUT-RUN.version3.docx&#34;&gt;Word下载&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;++version 3.0++&lt;br&gt;
+&lt;em&gt;Gaolab 陈墨撰写&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;朱乾书编辑格式&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pangu服务器说明文档</title>
+      <link>https://wukong.tongji.edu.cn/internal/pangu.manual/</link>
+      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/pangu.manual/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;V 1.3&lt;br&gt;
+create by Qianshu Zhu&lt;br&gt;
+2020-7-1 modified&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;System release: CentOS Linux release 7.4.1708&lt;br&gt;
+CPU: Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz &amp;ndash; total 160 processors&lt;br&gt;
+Disk: /dev/sdb(home)&amp;ndash;46TB, /dev/mapper/mpatha(home1)&amp;ndash;59TB&lt;br&gt;
+MemTotal:   1056 GB&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;ndash;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pangu系统中的所有软件请尽量交由管理员安装，包括python和R的packages等&lt;br&gt;
+本文档不定期完善更新&lt;br&gt;
+因PATH中加入的路径越来越多，某些不常用的工具将可能会出现执行文件重名的情况（目前没有发现），请一定主要用type或which查看调用的是不是预期的软件，并在/etc/profile.d/PATH中查看PATH的顺序&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;已安装的软件&#34;&gt;已安装的软件：&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;软件&lt;/th&gt;
+&lt;th&gt;调用命令&lt;/th&gt;
+&lt;th&gt;版本号&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bamtools&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bamtools&lt;/td&gt;
+&lt;td&gt;2.5.1&lt;/td&gt;
+&lt;td&gt;依赖cmake&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bat&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bat&lt;/td&gt;
+&lt;td&gt;0.11&lt;/td&gt;
+&lt;td&gt;可替代cat，以语法格式高亮显示文件&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bcftools&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bcftools&lt;/td&gt;
+&lt;td&gt;1.9&lt;/td&gt;
+&lt;td&gt;隶属htslib&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bedtools&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bedtools&lt;/td&gt;
+&lt;td&gt;2.28.0&lt;/td&gt;
+&lt;td&gt;toolset for genome arithmetic&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bsmap&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bsmap&lt;/td&gt;
+&lt;td&gt;2.90&lt;/td&gt;
+&lt;td&gt;已停止更新&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bsmapz&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bsmapz&lt;/td&gt;
+&lt;td&gt;1.1.0&lt;/td&gt;
+&lt;td&gt;bsmap适应新版samtools的分支版本&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;BEDOPS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bedops；hotspot&lt;/td&gt;
+&lt;td&gt;2.4.36&lt;/td&gt;
+&lt;td&gt;因bedops依赖的库较多，安装了一个miniconda来装bedops;使用前先使用conda-init激活环境；其存放路径：/opt/miniconda2/bin/bedops&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;blast&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;blastn&lt;/td&gt;
+&lt;td&gt;2.7.1&lt;/td&gt;
+&lt;td&gt;NCBI blast tools&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;BLAT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;blat&lt;/td&gt;
+&lt;td&gt;36x2&lt;/td&gt;
+&lt;td&gt;fast sequence search command line tool&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bismark&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bismark..&lt;/td&gt;
+&lt;td&gt;0.22.1&lt;/td&gt;
+&lt;td&gt;index:/home/share/bismark_index&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bowtie&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bowtie&lt;/td&gt;
+&lt;td&gt;1.2.3&lt;/td&gt;
+&lt;td&gt;已安装多个版本，index已配置在全局变量BOWTIE_INDEXES=/home/share/bowtie_index&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bowtie2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bowtie2&lt;/td&gt;
+&lt;td&gt;2.3.5.1&lt;/td&gt;
+&lt;td&gt;已安装多个版本，index已配置在全局变量BOWTIE2_INDEXES=/home/share/bowtie2_index&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bwa&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bwa&lt;/td&gt;
+&lt;td&gt;0.7.17&lt;/td&gt;
+&lt;td&gt;index：/home/share/bwa_index&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;cellranger&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;cellranger&lt;/td&gt;
+&lt;td&gt;3.1.0&lt;/td&gt;
+&lt;td&gt;10Xgenomics工具集；注释文件/home/share/cellranger&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;cufflinks&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;cufflinks; cuffdiff..&lt;/td&gt;
+&lt;td&gt;2.2.1&lt;/td&gt;
+&lt;td&gt;软件下包含多个工具，可通过which查看&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;cutadapt&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;cutadapt&lt;/td&gt;
+&lt;td&gt;2.5&lt;/td&gt;
+&lt;td&gt;python3版本，可多线程使用；pip3安装&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;deepTools&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;deeptools..&lt;/td&gt;
+&lt;td&gt;3.3.0&lt;/td&gt;
+&lt;td&gt;多工具集；pip安装&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;datamash&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;datamash&lt;/td&gt;
+&lt;td&gt;1.4&lt;/td&gt;
+&lt;td&gt;shell下的表格处理脚本&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;fastp&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;fastp&lt;/td&gt;
+&lt;td&gt;0.12.0&lt;/td&gt;
+&lt;td&gt;cutadapt和fastq的多线程改进版本&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;fithic&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;fithic2/fithic&lt;/td&gt;
+&lt;td&gt;2.0.7/1.1.1&lt;/td&gt;
+&lt;td&gt;fithic2是python3版本，pip3安装；fithic是python2&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;flash&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;flash&lt;/td&gt;
+&lt;td&gt;1.2.11&lt;/td&gt;
+&lt;td&gt;Fast Length Adjustment of SHort reads&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;GeneTrack&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;python run.py&lt;/td&gt;
+&lt;td&gt;1.0.3&lt;/td&gt;
+&lt;td&gt;/usr/local/software/GeneTrack-1.0.3，使用方法较复杂&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;GATK&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;gatk&lt;/td&gt;
+&lt;td&gt;4.1.3.0&lt;/td&gt;
+&lt;td&gt;多工具集；注释：/home/share/gatk_resource&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;GSEA&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;gsea&lt;/td&gt;
+&lt;td&gt;3.0&lt;/td&gt;
+&lt;td&gt;java图形界面运行&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;htslib&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;htslib&lt;/td&gt;
+&lt;td&gt;1.9&lt;/td&gt;
+&lt;td&gt;隶属htslib&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;HiC-Pro&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;HiC-Pro&lt;/td&gt;
+&lt;td&gt;2.11.1&lt;/td&gt;
+&lt;td&gt;HiC比对pipeline，注释文件：$ConfigHP&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;HiCExplorer&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;hicexplorer&lt;/td&gt;
+&lt;td&gt;2.2.1.1&lt;/td&gt;
+&lt;td&gt;python3版本；pip3安装&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;hisat2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;hisat2&lt;/td&gt;
+&lt;td&gt;2.1.0&lt;/td&gt;
+&lt;td&gt;推荐使用的index: /home/share/hisat2_index/new_index&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;homer&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;homer&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;一套多软件工具集&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;IGV&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;igv&lt;/td&gt;
+&lt;td&gt;2.6.3&lt;/td&gt;
+&lt;td&gt;高dpi版：igv_hidpi；包含IGVtools：igvtools&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;igblast&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;igblastn&lt;/td&gt;
+&lt;td&gt;1.9.0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;linuxnd&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;linuxnd&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;下载诺禾数据的工具&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;picard&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;picard&lt;/td&gt;
+&lt;td&gt;2.20.7&lt;/td&gt;
+&lt;td&gt;多种工具集&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;R&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;R; Rscript&lt;/td&gt;
+&lt;td&gt;3.6.0&lt;/td&gt;
+&lt;td&gt;默认使用的R，yum安装; 3.5.3已安装&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;rstudio-server&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ip:8787&lt;/td&gt;
+&lt;td&gt;1.2.1335&lt;/td&gt;
+&lt;td&gt;通过浏览器打开10.11.41.109:8787使用；默认使用R-3.6.0，若需要其他版本可另开启一个端口；&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;STAR&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;STAR&lt;/td&gt;
+&lt;td&gt;2.7.2b&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sra-tools&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;fastq-dump..&lt;/td&gt;
+&lt;td&gt;2.10.0&lt;/td&gt;
+&lt;td&gt;ncbi工具集&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MACS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;macs14&lt;/td&gt;
+&lt;td&gt;1.4.3&lt;/td&gt;
+&lt;td&gt;python2版本，pip安装&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MACS2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;macs2&lt;/td&gt;
+&lt;td&gt;2.1.2&lt;/td&gt;
+&lt;td&gt;python2版本，pip安装&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;moabs&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;moabs&lt;/td&gt;
+&lt;td&gt;1.3.3&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;meme&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;meme&lt;/td&gt;
+&lt;td&gt;5.0.5&lt;/td&gt;
+&lt;td&gt;motif相关工具&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ChromHMM&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ChromHMM&lt;/td&gt;
+&lt;td&gt;1.19&lt;/td&gt;
+&lt;td&gt;java -jar ChromHMM.jar&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;stringtie&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;stringtie&lt;/td&gt;
+&lt;td&gt;2.0.3&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;3DChromatin_ReplicateQC&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;四种HiC的QC工具包；包括：HiCRep,HiC-Spector,QuASAR-Rep,genomedisco&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Domaincaller&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;matlab、perl脚本，需要分多步骤执行，/usr/local/software/Domaincaller&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;samtools&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;samtools&lt;/td&gt;
+&lt;td&gt;1.9&lt;/td&gt;
+&lt;td&gt;隶属htslib&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sambamba&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;sambamba&lt;/td&gt;
+&lt;td&gt;0.7.0&lt;/td&gt;
+&lt;td&gt;依赖ldc，高效的sam bam处理工具&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;python2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;python&lt;/td&gt;
+&lt;td&gt;2.7.16&lt;/td&gt;
+&lt;td&gt;默认使用的python，调用命令python或python2，附带pip&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;python3&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;python3&lt;/td&gt;
+&lt;td&gt;3.7.4&lt;/td&gt;
+&lt;td&gt;调用命令python3，附pip3&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;subread&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;featureCounts..&lt;/td&gt;
+&lt;td&gt;2.0.0&lt;/td&gt;
+&lt;td&gt;多工具集，常用featureCounts&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;matlab&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;matlab&lt;/td&gt;
+&lt;td&gt;R2019a&lt;/td&gt;
+&lt;td&gt;因版权问题，只能一个用户使用&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Juicebox&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Juicebox&lt;/td&gt;
+&lt;td&gt;1.11.08&lt;/td&gt;
+&lt;td&gt;类似igv的HiC浏览器&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;jupyter-IGV&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;ip:port&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;类似于rstudio-server的igv，可通过浏览器在服务器上使用IGV，但需要每人申请一个端口号；&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;trash-cli&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;trash..&lt;/td&gt;
+&lt;td&gt;0.17.1.14&lt;/td&gt;
+&lt;td&gt;回收站机制，可替代rm防止误删除；以trash开头的多个命令；pip安装&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;translation&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;trans; etc; cte..&lt;/td&gt;
+&lt;td&gt;0.9.6.11&lt;/td&gt;
+&lt;td&gt;一个调用网络词典的翻译脚本；i.e. etc:英译中；cte:中译英&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;motd&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;motd&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;motto of the day; 一个随机获取随机motto，并在login时展示的脚本&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;wechat&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;wechat; wait-m; wait-n&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;一个给微信发提醒消息的脚本；需要先加入本实验室的企业微信；i.e. 在后台运行程序后运行wait-m，可在程序运行结束后及时收到提醒&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;xsel&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;xsel&lt;/td&gt;
+&lt;td&gt;1.2.0&lt;/td&gt;
+&lt;td&gt;shell下的剪切板功能；配合多种脚本使用；i.e. cwd;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;安装路径：/usr/local/software&lt;br&gt;
+部分单一的程序脚本在/usr/local/bin中&lt;br&gt;
+部分软件调用链接到/usr/local/LINKS，其他添加在PATH中&lt;br&gt;
+软件安装根据大家需求不定期更新&lt;br&gt;
+默认使用最新版本，需要老版本软件的可通过绝对路径访问&lt;br&gt;
+indexes、codes和annotation都放在/home/share中&lt;br&gt;
+/home/share/hisat2_index是原有的index；&lt;br&gt;
+/home/share/hisat2_index/new_index是自己制作的index&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;babraham-projects&#34;&gt;Babraham projects:&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(Babraham所有的工具包，路径/usr/local/software/Babraham-Projects，某些不常用的自行查看文档使用)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;软件&lt;/th&gt;
+&lt;th&gt;调用命令&lt;/th&gt;
+&lt;th&gt;版本号&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ASAP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;0.1.2&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bareback&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;bismark&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;bismark&lt;/td&gt;
+&lt;td&gt;0.22.1&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;fastq_screen&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;fastq_screen&lt;/td&gt;
+&lt;td&gt;0.14.0&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;hicup&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;hicup&lt;/td&gt;
+&lt;td&gt;0.7.2&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;seqmonk&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;seqmonk&lt;/td&gt;
+&lt;td&gt;1.45.4&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sierra&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;sierra&lt;/td&gt;
+&lt;td&gt;0.3&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SNPsplit&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;SNPsplit&lt;/td&gt;
+&lt;td&gt;0.3.2&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;fastqc&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;fastqc&lt;/td&gt;
+&lt;td&gt;0.11.8&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Sherman&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Sherman&lt;/td&gt;
+&lt;td&gt;0.1.8&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;redotable&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;redotable&lt;/td&gt;
+&lt;td&gt;1.1&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;chipmonk&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;1.2.3&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;java -classpath . uk.ac.bbsrc.babraham.ChipMonk.ChipMonkApplication&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;focalpoint&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;0.6&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;fretsaw&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;mzViewer&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;0.4&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;sparkspotter&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;1.1&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;stackmeasure&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;ucsc-tools&#34;&gt;UCSC-tools&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;a href=&#34;http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/&lt;/a&gt;&lt;br&gt;
+路径：/usr/local/software/UCSC-tools，已加到环境变量PATH中&lt;br&gt;
+工具较多，主要有：bigWigToBedGraph, faToFastq, fetchChromSizes等等&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;已安装的r-library&#34;&gt;已安装的R library&lt;/h2&gt;
+&lt;p&gt;BiocManager&lt;br&gt;
+devtools&lt;/p&gt;
+&lt;h4 id=&#34;cran-packages&#34;&gt;CRAN packages:&lt;/h4&gt;
+&lt;p&gt;(&amp;ldquo;magrittr&amp;rdquo;,&amp;ldquo;ggplot2&amp;rdquo;,&amp;ldquo;data.table&amp;rdquo;,&amp;ldquo;reshape2&amp;rdquo;,&amp;ldquo;pheatmap&amp;rdquo;,&amp;ldquo;stringr&amp;rdquo;,&amp;ldquo;RColorBrewer&amp;rdquo;)&lt;br&gt;
+(&amp;ldquo;ggrepel&amp;rdquo;,&amp;ldquo;gplots&amp;rdquo;,&amp;ldquo;stringi&amp;rdquo;,&amp;ldquo;stringr&amp;rdquo;,&amp;ldquo;Rcpp&amp;rdquo;,&amp;ldquo;rlang&amp;rdquo;,&amp;ldquo;tidyr&amp;rdquo;,&amp;ldquo;dplyr&amp;rdquo;,&amp;ldquo;ggsignif&amp;rdquo;,&amp;ldquo;ggforce&amp;rdquo;)&lt;br&gt;
+install.packages(&amp;ldquo;bigmemory&amp;rdquo;)&lt;br&gt;
+imager,bigmemory #FIND依赖&lt;/p&gt;
+&lt;h4 id=&#34;bioconductor&#34;&gt;bioconductor:&lt;/h4&gt;
+&lt;p&gt;(&amp;ldquo;DESeq2&amp;rdquo;,&amp;ldquo;clusterProfiler&amp;rdquo;,&amp;ldquo;GSEABase&amp;rdquo;,&amp;ldquo;edgeR&amp;rdquo;,&amp;ldquo;fgsea&amp;rdquo;,&amp;ldquo;biomaRt&amp;rdquo;,&amp;ldquo;Seurat&amp;rdquo;,&amp;ldquo;GEOquery&amp;rdquo;,&amp;ldquo;ggtree&amp;rdquo;,&amp;ldquo;GSEABase&amp;rdquo;,&amp;ldquo;limma&amp;rdquo;,&amp;ldquo;enrichplot&amp;rdquo;)&lt;br&gt;
+hicrep, FitHiC&lt;br&gt;
+BiocManager::install(&amp;ldquo;multiHiCcompare&amp;rdquo;)&lt;br&gt;
+BiocManager::install(&amp;ldquo;diffLoop&amp;rdquo;)&lt;br&gt;
+BiocManager::install(&amp;ldquo;HiTC&amp;rdquo;)&lt;br&gt;
+BiocManager::install(&amp;ldquo;DiffBind&amp;rdquo;)&lt;br&gt;
+&amp;ldquo;Seurat2&amp;rdquo;&lt;/p&gt;
+&lt;h4 id=&#34;github&#34;&gt;github:&lt;/h4&gt;
+&lt;p&gt;devtools::install_github(&amp;ldquo;kassambara/easyGgplot2&amp;rdquo;)&lt;br&gt;
+devtools::install_github(&amp;ldquo;3DGenomes/binless&amp;rdquo;,subdir=&amp;ldquo;binless&amp;rdquo;) #依赖gsl-devel&lt;/p&gt;
+&lt;h4 id=&#34;source&#34;&gt;source&lt;/h4&gt;
+&lt;p&gt;wget 
+&lt;a href=&#34;https://bitbucket.org/nadhir/find/downloads/FIND_1.0.0.tar.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://bitbucket.org/nadhir/find/downloads/FIND_1.0.0.tar.gz&lt;/a&gt;&lt;br&gt;
+R CMD INSTALL FIND_1.0.0.tar.gz&lt;/p&gt;
+&lt;h4 id=&#34;已安装r包可查看usrlib64rlibrary和usrsharerlibrary&#34;&gt;已安装R包，可查看/usr/lib64/R/library和/usr/share/R/library&lt;/h4&gt;
+&lt;h2 id=&#34;已安装的python-packages包括pip和源码安装&#34;&gt;已安装的python packages（包括pip和源码安装）：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;bx-python #for HiC-Pro&lt;/li&gt;
+&lt;li&gt;trash-cli&lt;/li&gt;
+&lt;li&gt;deepTools&lt;/li&gt;
+&lt;li&gt;MACS2&lt;/li&gt;
+&lt;li&gt;MACS&lt;/li&gt;
+&lt;li&gt;scipy&lt;/li&gt;
+&lt;li&gt;biopython&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###python3下安装:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;fithic&lt;/li&gt;
+&lt;li&gt;cutadapt&lt;/li&gt;
+&lt;li&gt;HiCExplorer&lt;/li&gt;
+&lt;li&gt;multiqc&lt;/li&gt;
+&lt;li&gt;idr 2.0.2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;yum安装的软件&#34;&gt;yum安装的软件&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;vim-X11&lt;/li&gt;
+&lt;li&gt;xsel&lt;/li&gt;
+&lt;li&gt;jq&lt;/li&gt;
+&lt;li&gt;R-3.6.0&lt;/li&gt;
+&lt;li&gt;rstudio-server-rhel-1.2.1335&lt;/li&gt;
+&lt;li&gt;iptables-service&lt;/li&gt;
+&lt;li&gt;ccache&lt;/li&gt;
+&lt;li&gt;docker&lt;/li&gt;
+&lt;li&gt;gsl-devel&lt;/li&gt;
+&lt;li&gt;gdal&lt;/li&gt;
+&lt;li&gt;proj-4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;某些重要文件的存放路径&#34;&gt;某些重要文件的存放路径&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;所有软件、packages和library的安装，以及系统配置记录：/root/git/LinuxSet&lt;/li&gt;
+&lt;li&gt;软件安装目录：/usr/local/software&lt;/li&gt;
+&lt;li&gt;软件软连接目录：/usr/local/LINKS&lt;/li&gt;
+&lt;li&gt;环境路径PATH存放位置：/etc/profile.d/PATH&lt;/li&gt;
+&lt;li&gt;R-3.6.0 库library存放位置：/usr/lib64/R/library /usr/share/R/library&lt;/li&gt;
+&lt;li&gt;bowtie2 index：/home/share/bowtie2_index&lt;/li&gt;
+&lt;li&gt;bowtie index：/home/share/bowtie_index&lt;/li&gt;
+&lt;li&gt;bismark index：/home/share/bismark_index&lt;/li&gt;
+&lt;li&gt;baw index：/home/share/bwa_index&lt;/li&gt;
+&lt;li&gt;hisat2 index：/home/share/hisat2_index/new_index (上一级上hisat2自带的index)&lt;/li&gt;
+&lt;li&gt;STAR index：/home/share/STAR_index&lt;/li&gt;
+&lt;li&gt;各课题原始数据：/home/share/DATA/clean_reads&lt;/li&gt;
+&lt;li&gt;gene annotation：/home/share/ann&lt;/li&gt;
+&lt;li&gt;从UCSC上下载的annotation：/home/share/ann/useful_annotation/download_FTP&lt;/li&gt;
+&lt;li&gt;共享的脚本代码：/home/share/codes&lt;/li&gt;
+&lt;li&gt;从Illumina下载的annotation等：/home/share/Illumina_iGenome&lt;/li&gt;
+&lt;li&gt;课程以及其他共享资源：/home/share/resource&lt;/li&gt;
+&lt;li&gt;JC, lab meeting的PPT和视频资料等: /home/share/Lab-Meeting-JC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其他资源和来源情况请查看/home/share下的数据结构和log、README文件&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>实验室活动相册汇总</title>
+      <link>https://wukong.tongji.edu.cn/internal/album.all/</link>
+      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/album.all/</guid>
+      <description>&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2020%e5%ae%9e%e9%aa%8c%e5%ae%a4%e5%90%88%e7%85%a7/index.html&#34;&gt;2020实验室合照&lt;/a&gt;
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2019%e5%ae%9e%e9%aa%8c%e5%ae%a4%e5%90%88%e7%85%a7/index.html&#34;&gt;2019实验室合照&lt;/a&gt;
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2018%e5%ae%9e%e9%aa%8c%e5%ae%a4%e5%90%88%e7%85%a7/index.html&#34;&gt;2018实验室合照&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2019.10thAniversary/photos/%e8%8c%b6%e8%af%9d%e4%bc%9a/index.html&#34;&gt;2019.10thAniversary/photos/茶话会&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2019.10thAniversary/photos/index.html&#34;&gt;2019.10thAniversary/photos&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2019.10thAniversary/photos3/index.html&#34;&gt;2019.10thAniversary/photos3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2019.10thAniversary/photos2/index.html&#34;&gt;2019.10thAniversary/photos2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2017.%e6%af%95%e4%b8%9a%e7%ad%94%e8%be%a9/index.html&#34;&gt;2017.毕业答辩&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2017.doubility/index.html&#34;&gt;2017.doubility&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2017.973%e5%b9%b4%e5%ba%a6%e6%80%bb%e7%bb%93/index.html&#34;&gt;2017.973年度总结&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2016%e6%af%95%e4%b8%9a%e5%ad%a3/index.html&#34;&gt;2016毕业季&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2015%e5%b9%b47%e6%9c%88%e9%9d%92%e6%b5%b7%e6%b9%96%e5%b0%8f%e5%88%86%e9%98%9f/index.html&#34;&gt;2015年7月青海湖小分队&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2014%e7%be%bd%e6%af%9b%e7%90%83%e8%b5%9b-01/index.html&#34;&gt;2014羽毛球赛-01&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2014%e7%a7%8b%e9%9b%86%e4%bd%93%e7%85%a7/index.html&#34;&gt;2014秋集体照&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2014%e6%af%95%e4%b8%9a%e7%85%a7/index.html&#34;&gt;2014毕业照&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2014.01.01%e5%85%83%e6%97%a6%e9%a3%9f%e5%a0%82/index.html&#34;&gt;2014.01.01元旦食堂&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2013%e5%b9%b4%e7%be%bd%e6%af%9b%e7%90%83%e8%b5%9b/1001%e5%b0%8f%e5%88%86%e9%98%9f---%e5%b4%87%e6%98%8e%e9%aa%91%e8%a1%8c20141025-26/index.html&#34;&gt;2013年羽毛球赛/1001小分队&amp;mdash;崇明骑行20141025-26&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2013%e5%b9%b4%e5%b9%b4%e5%a4%9c%e9%a5%ad-01/index.html&#34;&gt;2013年年夜饭-01&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2013%e5%b9%b4%e5%85%83%e6%97%a6%e5%8c%85%e9%a5%ba%e5%ad%90/index.html&#34;&gt;2013年元旦包饺子&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2013-Spring-Outing/index.html&#34;&gt;2013-Spring-Outing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2012%e5%b9%b4%e7%be%bd%e6%af%9b%e7%90%83%e8%b5%9b/index.html&#34;&gt;2012年羽毛球赛&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2012-Spring-Outing/index.html&#34;&gt;2012-Spring-Outing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2011-Spring-Outing/index.html&#34;&gt;2011-Spring-Outing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/albums/2010%e7%ba%a7%e7%a1%95%e5%a3%ab%e7%a0%94%e7%a9%b6%e7%94%9f%e6%af%95%e4%b8%9a%e7%85%a7/index.html&#34;&gt;2010级硕士研究生毕业照&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>服务器上的工作链接</title>
+      <link>https://wukong.tongji.edu.cn/tools/work.tools/</link>
+      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/tools/work.tools/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&#34;http://10.11.41.109:8787/auth-sign-in&#34;&gt;Pangu Rstudio (R 3.6)&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&#34;http://10.11.41.110:8787/auth-sign-in&#34;&gt;Guru Rstudio (R 3.5)&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&#34;http://10.11.41.110:8788/auth-sign-in&#34;&gt;Guru Rstudio (R 3.6)&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&#34;http://10.11.41.110:8788/auth-sign-in&#34;&gt;Guru Rstudio (R 3.6)&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&#34;http://10.11.41.109:10005/tree?&#34;&gt;Pangu IGV&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>生信分析常用工具软件收藏</title>
+      <link>https://wukong.tongji.edu.cn/tools/common.tools/</link>
+      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/tools/common.tools/</guid>
+      <description>&lt;table width=&#34;1000&#34; border=&#34;0&#34; &gt;
+&lt;tr&gt;
+&lt;td width=&#34;500&#34;&gt;
+&lt;div class=&#34;col&#34;&gt;
+&lt;H1&gt;Bookmarks&lt;/H1&gt;
+&lt;H3 ADD_DATE=&#34;1580383563&#34; LAST_MODIFIED=&#34;1580383563&#34;&gt;编程Study
+&lt;/H3&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html&#34; ADD_DATE=&#34;1428639122&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACh0lEQVQ4jX2TT2hUVxTGf+fe95LMmLwBI7UxKqWKtmkXSR6TPKOjiBtX1q2CqKhUcZ3SRXddS8GVi7ZQiigtzbr1H4jBSRhHAkEXMhv1hU7EJtFJHJ3Mu8eFbyTa6Le899zv/r5zOMJHVIiGTovYY4BR1Uu3JiZ+er/GrvLOAFqIou/Emu/V6XngjjFmdFNv77pHcXwDkFaxrGJAX19fZ3cu94Bm89CtUukmQD7f35+xHVeXa7XtxXv35lb+9j/lcrkcAv8tLZVTSlsqTU2r8IIg+OJ9XBuGob/ysFgsVkW1ujYIfgASINk9PDwKqHXuxPDWrUGr1gvDsLPD9/cBYytiJc7pKWvNX4WRaKcgTp1uEHWXjeedle7uc1Qq9wEx5XL5mYU9I/l8/0qK8cnJ8lxtcQDhN9T98WR+ftCJ2eZ5XqdC2ErgATh4YjzvDPBtSqCATE9PzwM/AxSGhg6KyDfOuUSMjAC/A2oAXJJcEfRAGIbr3vhBauIBRNHgl8azF6wxRlWtqubT/jkDcLtUuouoZn3/SHrRlpo0C2E02Gbar3u+t345af7qXFKy1n5VGBjobk3BAAlO/gZOpwSNfD7/6a4o+tG2mxsiMld/2Tg0Xpw8kaj7xYjpcG1tW2ghpn340/fs8cKOoVEV0y7wtaosJXCytvTi2tTU1AIgSb3xT5K1iRj9HJiwaVY2wox0de0VMUdRdgLtItRwurbD97f0bt6gjx/PxHG1urB5U+9+g1QfxjPjbwmKcVwnjveEYbimq15PapmMzTQaRoOgOTs726hUKq/SuKrKReCzdyK0mlYul5/xYTmA+sLzsUwQHAZktW0UPrBkLf379OniJz09c9lstvYaxI/3vPRLsl0AAAAASUVORK5CYII=&#34;&gt;linux awk命令详解 - ggjucheng - 博客园&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.blogjava.net/jasmine214--love/archive/2011/01/25/343478.html&#34; ADD_DATE=&#34;1430991785&#34;&gt;见过最好的AWK手册 - jasmine214--love - BlogJava&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://sebug.net/paper/books/awk/&#34; ADD_DATE=&#34;1428714422&#34;&gt;Awk学习笔记&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html&#34; ADD_DATE=&#34;1428976857&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACh0lEQVQ4jX2TT2hUVxTGf+fe95LMmLwBI7UxKqWKtmkXSR6TPKOjiBtX1q2CqKhUcZ3SRXddS8GVi7ZQiigtzbr1H4jBSRhHAkEXMhv1hU7EJtFJHJ3Mu8eFbyTa6Le899zv/r5zOMJHVIiGTovYY4BR1Uu3JiZ+er/GrvLOAFqIou/Emu/V6XngjjFmdFNv77pHcXwDkFaxrGJAX19fZ3cu94Bm89CtUukmQD7f35+xHVeXa7XtxXv35lb+9j/lcrkcAv8tLZVTSlsqTU2r8IIg+OJ9XBuGob/ysFgsVkW1ujYIfgASINk9PDwKqHXuxPDWrUGr1gvDsLPD9/cBYytiJc7pKWvNX4WRaKcgTp1uEHWXjeedle7uc1Qq9wEx5XL5mYU9I/l8/0qK8cnJ8lxtcQDhN9T98WR+ftCJ2eZ5XqdC2ErgATh4YjzvDPBtSqCATE9PzwM/AxSGhg6KyDfOuUSMjAC/A2oAXJJcEfRAGIbr3vhBauIBRNHgl8azF6wxRlWtqubT/jkDcLtUuouoZn3/SHrRlpo0C2E02Gbar3u+t345af7qXFKy1n5VGBjobk3BAAlO/gZOpwSNfD7/6a4o+tG2mxsiMld/2Tg0Xpw8kaj7xYjpcG1tW2ghpn340/fs8cKOoVEV0y7wtaosJXCytvTi2tTU1AIgSb3xT5K1iRj9HJiwaVY2wox0de0VMUdRdgLtItRwurbD97f0bt6gjx/PxHG1urB5U+9+g1QfxjPjbwmKcVwnjveEYbimq15PapmMzTQaRoOgOTs726hUKq/SuKrKReCzdyK0mlYul5/xYTmA+sLzsUwQHAZktW0UPrBkLf379OniJz09c9lstvYaxI/3vPRLsl0AAAAASUVORK5CYII=&#34;&gt;linux awk 内置函数详细介绍（实例） - 程默 - 博客园&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&amp;nbsp; &lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://python.usyiyi.cn/&#34; ADD_DATE=&#34;1428993829&#34;&gt;Python 官方文档中文站&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://python3-cookbook.readthedocs.org/zh_CN/latest/&#34; ADD_DATE=&#34;1429887514&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACHElEQVQ4jWWSwUuUQRjGn3fm3e+bXV3dDcPqGkiQ5SFJkLpZ0aXIyjpHh/6FqKwwIoigSxAUQaeiOnWJqGsURlK5eujQsXRTc9kld/ebed8OoyvRnF4Yhvf3PPOjwyfOBu+9zwACAChzzlhuNOqiCgAAEamqS1PnHHvv+/q3be3fEUIAYK2tLvyorfyaODmepomIEsH74NL0a2WuMj/P3md9/dv37Btp1OsAunuKn6ff138vnTk1ztb64IkMs93S2/3g8ZOPMzNMIAnSqNffvnwGYOz4hIRARIvV6o1bt1drtWKxODV5yRjTbK4ZY0yk/H+w1sZIcbbWxisGQVWYeezYaQDMrKoi4py7d/eOhACiVqslQWIrDAURicj3b/MABnYPERERee9fvX7zZ23NpenBA6NkKG6LD0wI4cv0OwA7dw0SkTGm3W7ff/hoeWW5VCqP7B82xmw8IKiKtXbv8GjEjUhJklw4fy5uSJJEpINEUFVjzMDgUAytqqrKzEePHOpkUNF/Mqhqq9kEkC8UiGCNbTabF69cW62tFos9N69PlsulTaT4+bE1oijIerPW2I1+1w8DiNAiAkBEVCEqzDx19XLwnoxha7PMiygAVlXL7PKFKJrLFywzoKVSqdjdFUIgoqydlXu7nHMiwsy5pcWfs58+eJ8BYM4tVxdE6enzFznmKJ+qutTNVubyzlFH70ivuqm36obyQEfvvzv/FV/NMrVSAAAAAElFTkSuQmCC&#34;&gt;Python Cookbook 3rd Edition Documentation! — python3-cookbook 1.0.0 文档&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://biojava.org/wiki/Main_Page&#34; ADD_DATE=&#34;1430623950&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADaElEQVQ4jU3TS0xcVRzH8d//nHvOzHBnLu8qBctQW0uhpXSQR1IhdqcQCkYhLjSmxlhiotG4bSImPuIrNhqVumnSTVO6sCW6MLFpw0YTMC2lMdqKDUgAgXkC87jn3vt3ZWT33XyWXwIATI5IjF7xAaD+/KmTYDHEQCJgflQLQUte8T78ndvRUMXV7TNTN3Yb+i/inw9XmAjGGXhVRHUEDMD4YAaKiuCCEcmbooY8vxW472Zf+yGNyRFJAIAvup06XXdRRkNDXPLAxjcEsE2WvJf/HV+2ve0fffgx+vDWRfWj9xeOuVVX59Q/p3H6ZkYAQK996L1QLDzkbRcZxncBKAa0RSQR5KWSUodUSMHzXeQK7MfUcG3JGQcAwlvoRX3D9SqnQzksTYF9JUEwzKgSCn+YDE5E9qIhXMmXs/epTigXSmoyfjEg7hefPjXx/MePn1UigJ8KPFlOCgAQIQFNEjCbeLLmCAab+uiYcnjVy+vqwHKFHQpryGHrpZ7nOmqcaiSzGXx07zPy7G40ygh8MOYLi4CIYLR9AG37WrCUXaG5udeRs55BGYUBcLtsG+x6f6u0Y6e2Ujhst9K2m6O7me+QRBQv1p7AwJ4OKEhs5pJI7qRx0E4gU8phPntdJI2rCec61kDFh3rsRHC8vJGaK+M4Xt9KG9tJ/LJ8B8v5dVxK3QbcFfRUdHHCaaL9Tr3/xMFOubC2uCIeCe9brHYOYdak+ZvFC9hxC9Tb3IMDe5rwydIULqXuIGrFUFXWjD/dHH29eAGZ0pbf3ZTA00dPLsiawdb2qNZd9ax5DQqpQpZiJcL0gxlMJ39GS1kcNkmESKBCaGwIBwv5Vd/L5+Tdpd+uUu3EqT5m+immlEob12QCo4Zj+7HspjFb3MAB5SAXeBAEeMyoFNrdlJ5OZ+cLSC4MiI2xqWmLMFEWCSHjbqgXKg+bd3rHgjdbnmWYdQRg1kQsQIGG8HJsVHkkjI7y7m/xAW5YAOC67lmdD+IIFwabyveq9vgRP0DACIpkmCFJsB8ERBZZKqJR2ipeSxYwDgASkyOy8PK1Yv8r/d/fSqWjXimfSGbXrZt/z4qZ0jZVWiHytRCkJcENDJvgq1LUfmP1zJXs/zPt2hnnOvuQnxmF3dkZDzc0uszE4AcE+pURXF4dm5rebf4F0rmQqA/XsvIAAAAASUVORK5CYII=&#34;&gt;BioJava&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://biopython.org/wiki/Biopython&#34; ADD_DATE=&#34;1430623958&#34;&gt;Biopython - Biopython&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://pypi.python.org/pypi?%3Aaction=search&amp;term=pip&amp;submit=search&#34; ADD_DATE=&#34;1456815041&#34;&gt;Index of Packages Matching &amp;#39;pip&amp;#39; : Python Package Index&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://pypi.python.org/pypi&#34; ADD_DATE=&#34;1456880960&#34;&gt;PyPI - the Python Package Index : Python Package Index&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://zhengze.51240.com/&#34; ADD_DATE=&#34;1456899621&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC70lEQVQ4jbVRS0wTURS9M2/a6XRKa2kKbUUkoEiwxh+gIBpUIIKKQEQTAsEPERcYjR/UoC5MVGSPMSEiIYpI0CDBaFgoFlAkVBQwQayfYim0INCC9DOdeW4sqdGlntW55957cnMuwP+Eq6Mj3Lwn02Dek2mYetig/9sM4SdjJ0tPe81fd/zWFQS5Z3AgHgCAXh/3CjhuPrBNx+rrKX/hs9tTfDZbEmAMvN3GYIyBZFkOAAAoEe8dGEjAXg8iWBlHymQ+AAA6YlnDwgUYYxkASK2HC2/+MLTnUFrdF3ql/qXrjXEfpQ4ZJhmm1/2ur4gKW/JNW/9gi0SjmQGAOfRrmZyuq4m3l5+tdvcZ05FGO+o8cen4dcXGdS0xacT7tds/r0jZWMV0v8jkx8d0ro7nmwgp08XErholAABs58tyHS1NjdjjRUih4L6fulK5u9N1FBGkWMXS/RNz7jUESTifJAi17LXyMsx5EVIqPVE9/ToSAADJg5zKwkNlSK7wECLx3JmPolw5I7Y8Or01erAyO/l2SXKMiCCnSj8HJaPg4Elp4ua7bFpGBQA4FxKdbW3VD0eHY3PB/l728B1fcXXX3sDE86sMB5Ql9e6R/Lyn1iMHj/h10k/muwzRgDEIjNTn5ngUFszYAw00CnrSzfEUwTA+8fJo0x8GPsf3ZeJVq18b1u+y0hTJtQ9N5AcavDRNZGkVjAXPOkOY3TlDfp369QXppftGssn4LWSo07FBH7boQ7fJVpxa0SaOULHPTOPO1FefJgoqktV3kDfUzsbEWP0GxLHa7vQn/aM3TPbZKKkYcae2RTZfjFNVXu6dLq3rsWSPO1wy7SLGWRS/uP5CXHAt8LwPC4IgVqlMhE43T+jPNTcOWmbyItWsowa9ndE9vhcGPI8ICc1JVq8dEtQaO2mzyt2D/Wuwyy0CAABEQvitu8slSUkmKmvd0qtKRvS1aoO0Td3m1EHGTvgdAkCoBmShmgWFlNACnZg4Av8CPwHuli6qxhqjZgAAAABJRU5ErkJggg==&#34;&gt;正则表达式检测 - 在线正则表达式检测工具 - 在线正则表达式检测 - 正则表达式在线测试&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://enterprise.github.com/features#pricing&#34; ADD_DATE=&#34;1456928098&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACJElEQVQ4jY1TMWsUQRT+5r3d3Cbe7t3u3hEDdoJgIVieGo1YBixsBIsUtvkHNpaCnaJFUMEihSlEbGxFE8XCRrDWIAqJyd3t3JGcuduZeRa5DUtAk6968/i+733zhlE4hHq9foWZbwG4pkRmAECU2gDw1lr7Qmu9WuarUs2NOH7Onrdw2LQMa8xyO8tuA7BlA07TdM0juvA/cQHj3KdOp3MZgGUAaMTxssc8nxuzOsrzm90s2yDmU6TUtoh0BKhut9t3Rnl+1/O8Mz7z7GSlcnqwt/cKURS1pptNmW42JUmSpfGQKoCp0tBqkTZJkqWCH0VRiyaYFw/uZ+2zcbkDYFAy2AEgAOCcWymaE8yLBOZZALDOjQB0jrGCdevccH9zPEsYPxWU2uz1eutHqbXWP6DUbwCAyAwV0QDUANAxEhBE6uNaSICfAMBK1dI0vX6UOo7jeSaKsD/5F5FSa04EW+22dca8jMPw0r/ESRheZKKnxVlE3lFuzOPRMIeIWN3v93u7ux+IaBBFUasgBkFwlYi2/SD4yEQnSwaPSGv9xa/4T6abzYm6789Vq9WFMAw/K6W2CmKlUtmJoqhRTmNFHmRZ9vXgLyRx/J6IzlnnzotIX2utS/ywkaabTDQFANaY1+0su7G/0TG6WTYHpVaY6LvH/A3ATMngRCE2xtwrxADA5ViDweDNZBDsQamG7/vLw+HwDwDUajVfiZx1wMNOt3u/rPkLJe7aBdfH1TYAAAAASUVORK5CYII=&#34;&gt;GitHub Enterprise - The best way to build and ship software&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.w3school.com.cn/&#34; ADD_DATE=&#34;1457069572&#34;&gt;w3school 在线教程&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://cuiqingcai.com/1319.html&#34; ADD_DATE=&#34;1457075930&#34;&gt;Python爬虫入门八之Beautiful Soup的用法 | 静觅&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://scrapy-chs.readthedocs.org/zh_CN/latest/intro/overview.html&#34; ADD_DATE=&#34;1457246468&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACHElEQVQ4jWWSwUuUQRjGn3fm3e+bXV3dDcPqGkiQ5SFJkLpZ0aXIyjpHh/6FqKwwIoigSxAUQaeiOnWJqGsURlK5eujQsXRTc9kld/ebed8OoyvRnF4Yhvf3PPOjwyfOBu+9zwACAChzzlhuNOqiCgAAEamqS1PnHHvv+/q3be3fEUIAYK2tLvyorfyaODmepomIEsH74NL0a2WuMj/P3md9/dv37Btp1OsAunuKn6ff138vnTk1ztb64IkMs93S2/3g8ZOPMzNMIAnSqNffvnwGYOz4hIRARIvV6o1bt1drtWKxODV5yRjTbK4ZY0yk/H+w1sZIcbbWxisGQVWYeezYaQDMrKoi4py7d/eOhACiVqslQWIrDAURicj3b/MABnYPERERee9fvX7zZ23NpenBA6NkKG6LD0wI4cv0OwA7dw0SkTGm3W7ff/hoeWW5VCqP7B82xmw8IKiKtXbv8GjEjUhJklw4fy5uSJJEpINEUFVjzMDgUAytqqrKzEePHOpkUNF/Mqhqq9kEkC8UiGCNbTabF69cW62tFos9N69PlsulTaT4+bE1oijIerPW2I1+1w8DiNAiAkBEVCEqzDx19XLwnoxha7PMiygAVlXL7PKFKJrLFywzoKVSqdjdFUIgoqydlXu7nHMiwsy5pcWfs58+eJ8BYM4tVxdE6enzFznmKJ+qutTNVubyzlFH70ivuqm36obyQEfvvzv/FV/NMrVSAAAAAElFTkSuQmCC&#34;&gt;初窥Scrapy — Scrapy 0.24.1 文档&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://www.ibm.com/developerworks/cn/opensource/os-cn-pythonre/&#34; ADD_DATE=&#34;1499844938&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA50lEQVQ4jd3STyuEURQG8N8bXpSIspixsmczCysp61koPoCVfKFZjEyTBXuKfABWsqMmZWFjIZHyJ8rCYo56u/O+H4CnTvfc5zz3OafO5c9jqIJfxg2mIz/FOe5S4XCFwThGMYkx5HEOICvh6sHnWIr8Al9Rvy8zGsE6jvGOOezgMKKDGl5xgo1oIMMadjEbZvtoxYMiHrCNzbg/YivDE2YKwpWYZjUxuMQezgrcc2pwjUXMYyoxeMMtrrDwawBN9KJDIwoHeEniKGqN0PbQLNsC/fVOlEzwXaEfQI42PvCJrv7f+I/4AQehLHq2KP0GAAAAAElFTkSuQmCC&#34;&gt;使用 Python 模块 re 实现解析小工具&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.cnblogs.com/dong008259/archive/2011/12/07/2279897.html&#34; ADD_DATE=&#34;1508162397&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACh0lEQVQ4jX2TT2hUVxTGf+fe95LMmLwBI7UxKqWKtmkXSR6TPKOjiBtX1q2CqKhUcZ3SRXddS8GVi7ZQiigtzbr1H4jBSRhHAkEXMhv1hU7EJtFJHJ3Mu8eFbyTa6Le899zv/r5zOMJHVIiGTovYY4BR1Uu3JiZ+er/GrvLOAFqIou/Emu/V6XngjjFmdFNv77pHcXwDkFaxrGJAX19fZ3cu94Bm89CtUukmQD7f35+xHVeXa7XtxXv35lb+9j/lcrkcAv8tLZVTSlsqTU2r8IIg+OJ9XBuGob/ysFgsVkW1ujYIfgASINk9PDwKqHXuxPDWrUGr1gvDsLPD9/cBYytiJc7pKWvNX4WRaKcgTp1uEHWXjeedle7uc1Qq9wEx5XL5mYU9I/l8/0qK8cnJ8lxtcQDhN9T98WR+ftCJ2eZ5XqdC2ErgATh4YjzvDPBtSqCATE9PzwM/AxSGhg6KyDfOuUSMjAC/A2oAXJJcEfRAGIbr3vhBauIBRNHgl8azF6wxRlWtqubT/jkDcLtUuouoZn3/SHrRlpo0C2E02Gbar3u+t345af7qXFKy1n5VGBjobk3BAAlO/gZOpwSNfD7/6a4o+tG2mxsiMld/2Tg0Xpw8kaj7xYjpcG1tW2ghpn340/fs8cKOoVEV0y7wtaosJXCytvTi2tTU1AIgSb3xT5K1iRj9HJiwaVY2wox0de0VMUdRdgLtItRwurbD97f0bt6gjx/PxHG1urB5U+9+g1QfxjPjbwmKcVwnjveEYbimq15PapmMzTQaRoOgOTs726hUKq/SuKrKReCzdyK0mlYul5/xYTmA+sLzsUwQHAZktW0UPrBkLf379OniJz09c9lstvYaxI/3vPRLsl0AAAAASUVORK5CYII=&#34;&gt;linux之sed用法 - 东方雨中漫步者 - 博客&lt;/A&gt;
+&lt;/dt&gt;
+&lt;H3 ADD_DATE=&#34;1574993860&#34; LAST_MODIFIED=&#34;1592654529&#34;&gt;search
+&lt;/H3&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.ncbi.nlm.nih.gov/pubmed/?term=&#34; ADD_DATE=&#34;1452336978&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABy0lEQVQ4jaWSS0hUcRjFf/dhN2usOzmXXhSBMo6TOOPQg+kBUfaCFi4UXISLBAmJFiEtWohISIqLiBZteuwikiKiXIVUMqVMlk4W0kVRcXHRMmuwuaNz/y1iNmH1h872fOcHh+/Af0rZG9/fHgqFLyqKYvxuZl3XefrkUehrcbSGSO1tMt8mGLxVy5w9lL/Rqo+e6F0pDKDpuk/T9bXT7553sjlajS9QiX9HjPEXNwEBoP4pnFdpabDZsqxKUvfPgcixbtNugofP5H31nx0VRYvvO3CN2U8jTCVvAFB2sgPTNKUAABuKrYPl5TtPk3zYytKiQ0GhRcmpNmkAQFVsV5dpqh4fey8BsH1PM/5tFdKAVYaxMVwRbcPuu6MszLxCUQuI1F+VBgAsL2fTgCo0Yw0AOTctDchkMtODrxNXCB5rwheI4OV+MHLvgjQg+WaghaKi1YSOXwZg4mU3C864FODz3GyfPTbWQ7iuA93w436fZLinCyS+IIRY6h9InCdQFmNr7NeAUo9bgDSA7gnhqn9Zo23b1+cd5wNHGvsBjS+Tz5hKPMj76vvUcKsnhLtSOOu6zmjqbTslhxpYvyXO4vwoQ3fPAp5MdSn9BEYclw4vPzbxAAAAAElFTkSuQmCC&#34;&gt;PubMed - NCBI&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://www.ncbi.nlm.nih.gov/geo/&#34; ADD_DATE=&#34;1526798383&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABiUlEQVQ4jX2SLWwCMRTHHwsCMYGYqJg4UVGBqECcQJyYOEEWJFkQCMSJCQRyWU6jEIgTCLIgkAjECbKcQFSQpQJRceIEWSoQF1JRcSETJceFj/3zRN9X3+svLWXHDArSSkebbbLbW89PrlOHK5XzE+NJMFswLoxrU/JfQzALR9OFqbMpAQDHpuYWilHlsXLZwLhAqBoGfjEHADa1potIK91tOSb1YBLtZuN6ulG35Tg2dT1fyhQAIDtmxna/+97neP0T55Hc1EE13gaD4SQ7ZqULSjkrHksA4FvB44RxoZUeffRcp14u1oXRJtpswzXXShfjBFte+8VAOzWIWHr+6LQlgAFFMKIEU4IRql5SGs0WUqb9bsuxKcHoHoAzJYotgi2v415XS5l6fhBGm5Ofoxh/LQfDiTqom5Rqr+/Lb5Yds/OjvY4rZTpfMWJZNrWKxOYrppVOdnsAuI0VAIJZyLhIlRZxAgAIVQO/TzAq36wGAMaF+Yg2Je1mw6nXzNe4O0HEMlW6uJvRH6vf7C05C85nAAAAAElFTkSuQmCC&#34;&gt;Home - GEO - NCBI&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://www.ncbi.nlm.nih.gov/gene/&#34; ADD_DATE=&#34;1477035578&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABiUlEQVQ4jX2SLWwCMRTHHwsCMYGYqJg4UVGBqECcQJyYOEEWJFkQCMSJCQRyWU6jEIgTCLIgkAjECbKcQFSQpQJRceIEWSoQF1JRcSETJceFj/3zRN9X3+svLWXHDArSSkebbbLbW89PrlOHK5XzE+NJMFswLoxrU/JfQzALR9OFqbMpAQDHpuYWilHlsXLZwLhAqBoGfjEHADa1potIK91tOSb1YBLtZuN6ulG35Tg2dT1fyhQAIDtmxna/+97neP0T55Hc1EE13gaD4SQ7ZqULSjkrHksA4FvB44RxoZUeffRcp14u1oXRJtpswzXXShfjBFte+8VAOzWIWHr+6LQlgAFFMKIEU4IRql5SGs0WUqb9bsuxKcHoHoAzJYotgi2v415XS5l6fhBGm5Ofoxh/LQfDiTqom5Rqr+/Lb5Yds/OjvY4rZTpfMWJZNrWKxOYrppVOdnsAuI0VAIJZyLhIlRZxAgAIVQO/TzAq36wGAMaF+Yg2Je1mw6nXzNe4O0HEMlW6uJvRH6vf7C05C85nAAAAAElFTkSuQmCC&#34;&gt;Gene - NCBI&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.medsci.cn/sci/&#34; ADD_DATE=&#34;1524630656&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACnElEQVQ4jT2SS0uUYRzFz/95nvf1ndGZvKaGyURlUQjdDI2giKCihVFEQYui1i1atG2T0CfoExTUxoiIwIURlFGiaSllVqOO423GmXHGubyX59JisrM6i3M4v8Uh33OFJYgYAABSSmyJiAAYgDNe9QDIKH96sfBzpRC2heB0Yl+LYzFj/hWMgRDsSzy7lC0LTr7UAoyN/skMDH7zpPIC/eTuyQuHOzw/4IwMwBj8QN9/OjYRz9Q61u62CHPd4PaZroHrhwRntTX8xWgCQHVfa8OYGI+vL6SK9bX24Vjj8INzVXRDBC9QjsVHZlK/lvO2xXUVC3g1lix60hiAwAmsSpvMlLs7G2LbI6sb5TeTSwBX2tgWT+VLQ1+X2xtCRMgWPTdQjBEBSGYrvXubLxzaoTVejyeLFU8wAtjgp4TS5t7Fg16g/UDnSn41r1P5yraw3d/T2RSp+ZHcePd9zbJsqeST9/FrJ2J9XS2cU9mXhbLPiAhaz6WKEYfvao0e3d1U9OTL0QSAt9Orqbx750yXxSkaskquzBZ9JhitFbxUweWMAbh8vNOx+MfZ9HK2+Hxk7tSB1tb6kGPxbWF70w1yJY8RZzNL+cymV+cIAGe72/e0RfNl/+Hgt8n53K3TewFEw3bYFlKZXClgAB+LZ71ABgoAmqPO2e52AK/GFve0RU7ub5EyCNdY9XU2gMymxybi6Wcf4k11zuDnhUS6AFB/z86IYxFwtS9GxLRBZrPi+kpwGv2d5qmO879WC81RZ3alsLBevnSso70xPPR1OVDm0Y0jtkDZVzcfj0wlck11TmK9RPOrG55UAAEmZIu2hpAl+PDUykbJv9Ibk1IaYHG9orRhBAOQ0QG2rmsMlNLGGM4FESkliYgAxsX/z/8F/F5KbpKVhS8AAAAASUVORK5CYII=&#34;&gt;期刊影响因子查询&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://viziometrics.org/?keywords=mycn&amp;art_view=false&#34; ADD_DATE=&#34;1495506591&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACfElEQVQ4jZWSz29MURzFz/e+Z8bUKBWRYkVroQsLQtIFYZgmLCQSwdqiTVO/wh/QtyCaWE+kiUQkUlZYVMtUh/g5lHaaKiJNFTO0NR3zq2N03rvHYmZkEL8+q5vzvfeec26ubLo+9WDvKk8j5mxNQEEEJEWJ0CEFAAwRalJEhEICgJZ5proykXuKhssTOyNp2+Z/Mpp17HWX3u0GADQ/TvaSZNv96blTQzM6nrd1R2RGb++J6R09MX1qMFHUhhK65e50gSRbn6T6AEARkK7B+JnhVIH76haqJW6T+/o+Sm2VyReJvIzM5GWl1+T+W5NS7TJ4oM4rz1M2uoZmzhAQBcuSbGt9KPAy17+ldr7hUnBuT32ldiB1i9xcVe0iSAlN5qmEztYVHiPw+sudVMvqPliWKEE7CMilSPx0JGPrtTVu5TEUswVHDBGaSjFT0OIxhA01LjWSsdkVmeogAEE7FCzRsCjZ1vrQuVe5/sZlbmPjUpdO2qTXFKkyIJkCuX6Jy9lc6zHOvf5yJ928JgjLEliiAQCwqADAPDvmG87aTn8sZ/u6Y87VN2leG0/T3xNzbkRn7dFZW7sD400EpHzmO7QsBUDawskgSfp7P8wdfjitjz36pH3d0QJJHh1IhwBIaS8AwCwvBAAByEC842CDd/vJDTVqW/cHagC3di2XkazDwGC81P03lG9uC38OkuTOG7GCvydWcv8cAqAq3X+lPDw75nuWcnQwOmv3vs/awxlHm53jTUUX/jbADykOhRM3y9/2yOPEL93/kKL4uvM7o9ueJW0OpzUXnH/rr5z9FaLodHwgde/E02S4Uvs3Sj0XXxjbs+ji+N5K7We+AVmcpBh6vCXkAAAAAElFTkSuQmCC&#34;&gt;VizioMetrics&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.gopubmed.com/web/gopubmed/&#34; ADD_DATE=&#34;1495506594&#34;&gt;GoPubMed&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://omictools.com/&#34; ADD_DATE=&#34;1504062149&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACtUlEQVQ4jXWTXWiTdxSHn3P+Sdq0SZ2oxBYdMiWRWDU4W0Gl3lW8mDpBGIpeDHYz7YUywRu1t8pAXI0KgiCioF4oabWiggpqQRErE/Gjuimx8Wtla9OatO/7Hi9KykD9XZ2L8zxwDvyE/2f9eje9lGh1Yq0mksYsAzhBHhr8KRLciI66zr7ujnIFkcowc/XWBp/gF5CfgW+BAKgsRgAHfMA4pWId+dyhvgnBOMzvYD8BRSCHcMfM8mIaIMEM0AVgPwJTgS4N3PZ81x/PHO3tGiuMbAfbCjwzY6cwtq8/d+TmNwuW/+0NR/56c/HAreSKzKWhoj4VJAW0GBadtHD5VTdj0rxVBrsBQWRHIZc9GZ+7tLFublObeUGbhr0N8VRTplgMDRVy2ct1qcV5kBaE7wm8ly6eatoC0gqc7B+ctre+cV5Ghf0Gm4AkMBtYCiyqTS5+XOg8fCWebJ6F0GLokBoyHwCTXq63e6psMmwFnyejopvH/ybXgBHBlkjDD1v+QXCqsjYSHr1fKocvAMu+IAB47lRXmjdWClSvgcxRBAEC86w8Sq0Dol+BAao98SPlQH0QHxAFewjUmUg6f3b/AMi9r9EGPbUl9yLiNA0kBF4o6APAiVgjACJngKef41JQ43hfd0fZhBZgskGPiyWba1QlbRCLpZY8KuQO3oynmp8AMeA7QIHLIHv6O7Nd09e0pQXbCOZAToQK1W/PzywnekZNqqoC/1+A/lz2SsOaXx9jksSoD7BdbzqzdwFqIuXXw6XItlBYx6IfeT/RhUTrb7WEhxMAauqjTBHlBFBv2AYJQo98CVxYAjcy5t4NdHcMAoQmLnTlGlW3DrGNwJSKFwgJegz1PQeDPnKu2slRYBDGGwZAse/OSDyV6TXcf6IATAPigA8MALcNOx2t8o6+On/oXYX7BO3vB9HIkzyxAAAAAElFTkSuQmCC&#34;&gt;OMICtools&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://openi.nlm.nih.gov/&#34; ADD_DATE=&#34;1495506984&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADK0lEQVQ4jV2TzWtcZRTGf/e9dz6TTDqJ+WiSShuTVEItbZJGW0pFrIrd6M4PxFjXLkRXii5F/wERXFipuOhC7ULELoqNQsSklmJKWmOcxsTGTBMzmbkzd+7H+77HRaxWHzhw4Hk4B36H4/A/9dw3ccBani22ZB4u5L09AH6gV7ca0bRy5Fy59OP83XnnTjM6OpreilreGewtvHJyvCvb2+ny9ayPCDw+0cZGVXPx8kb467r/fkem8ebCwkIM4AIMDQ1ltpO2c08eGXj5rdN93kMHPD65UGUzM0aS7aeyvsKrzxQ4cajDq/mpY/PL0cHeew5+sbW1ZBSAbzvePTU58PTrz3fiuYpmqDAGrBW0MYgIQdPBcxWvPdfJqaP9T/l24z0At2dw/IHh/vYzb5/uV8YqtBZcpRgeyFBaWqFAmakndpHNumgNVhwmR3PMLYRHrNt1XjmOevHkeLebzYDWguMI5YrlWimmryNFd7ui2pB/iBkDaU94bKLLTRx5SRWyqUcPj+RItAMOeK7DtVLEZ5fW+OpKncuVET6+4BPFBuWAICRacWgkx6586oRqy6f3FAsKEUAgMfDIWI4P3xjk+P40qXQO3AyJtjsnkx02xTaH1nyqRwniIIIxFiuCWCGKLWIFIx5R2KA9E1Fsc0mMYOXfAhyvEepbtzejzp6iIjF/rxBo+IZyTYGTsLtoiZuaMNhhkfJgswKNZnJbVYNo+urPASaMCPyIwI/RYczizYC6bcUzPvu6oLK14wX1GN2MuLrYoNaIZ5Qj6uy3P1WkWo2ImzHNxs6A67+FxF6BvK3S3WLwazHNICYKYup+wvT8NlbkrFuv3FqL090DUeSN3d9tCUOL0ZqZJSFqHaI1vMnkvYYwtOjEklaG87MxP5SqH62X5j5wAXK7h79ZXq8di6LU3r1FiyeaKysgxf34tRo3ShVa0w7tacOXVzUXr29PJ25qKvhzNXYBgo3lONu17/PljWbP8oZz2BqXzpyhvLYCJiEKm4SxcGlRM7daP9OCmvr9l+/9/3zjHfUNPnhcHHmhI586mnVtrxXQ4pS3IzOjRT79Y3H2u7vzfwHpfbM97MnLqgAAAABJRU5ErkJggg==&#34;&gt;Open-i Biomedical Image Search Engine- Open-i&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://apps.webofknowledge.com/UA_GeneralSearch_input.do?product=UA&amp;search_mode=GeneralSearch&amp;SID=3Fw7nqVy6hRcU85JumP&amp;preferencesSaved=&#34; ADD_DATE=&#34;1443101530&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACUUlEQVQ4jW2TT0iUURTFf/d7b2a0mU3hv5ly0cIo0pVB1EqDgtpI5fRnE0EFJghDuGkR2KJlmxYWtKhFq5lKbBFBIZYhZS4qMnKVlIgOJBJI43zz3m0x39CQPnjvXS6Hc8+95z1h01IB0cGktvkkL0X4IkphtMgYiNZjAILNBDcFwCW5EQ/oFDin8GSwhTeDzdpfxYiOoAGAbFX9apN2xyyzFQWnlAUCK1gRCD3jpTK5h2uyABrUFBwDJiCYAJ5Orw/3eOVBRf13I8StYEMlLDvCmNCXjDN1pUUPg/iagjvAUJ2UTmAuy8/GptZdRwVyovR6wEPJCg2q/HbCqZqCfYCL9jfomc+SNwXa/9xdkWejK3LEwQURfhmhwSmhh3jgWAOIAXOAVgvwqn4qWdTU4kvbtXOg1X8dzqgOtOqtWj4JLNYRFDY784/oItoxkNJHWTQFiI2cMHXYcnRLRApAIS9wRiX/Q9ZTa6wXDbAftUAIrAFtEba55ml0BoAiuKYp2RNbtI9tm3RllnR1icr1IKpYjAaoQJoshnykSvAImpkxZ+MJMykJ7XLLGqrRXPotB2o23gcu17WxF5jnOYl0k+1FdUgMJ9QBFS1JQhrU8dsjJ2u9G2A3wjLwOXke21Kw/SnPbTHkJE6HLxHi8UFKEjgWXej6iof8VP1TFnowTFJJv6M72GZmdQN8WUNBRBqxEoBuMOZX3bXl4ywwstVfipLpaXNv5yermVmj6RnjM+/tVPqDOf0/TjYzVO3b8Zr2RMK+QPSjQGHpoBuvc0aQavwXSLnqtP4uSiEAAAAASUVORK5CYII=&#34;&gt;Web of Science&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://anaconda.org/&#34; ADD_DATE=&#34;1482735705&#34;&gt;Anaconda&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://www.encodeproject.org/matrix/?type=Experiment&amp;replicates.library.biosample.donor.organism.scientific_name=Mus+musculus&amp;assay_title=ChIP-seq&#34; ADD_DATE=&#34;1539269223&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAC4klEQVQ4jQXB22/TVhwA4N85dhw7jl07aW60yXDc0oayVhrqilYNqSoSmlQhDQlp2/tgfxRC4gXEC5cXNqQNbd1DK+jWdmNNsyxkWaFJc3GIHcf3c/Z9KIoijPGb7WrzRUNNK1EUrX33GS/FPNeN8zwAAKGACQRWFFMwDRGl9Je3r2jDtw9MUUkEw2i6KC1eKwmZfOB7ewenzrCRmyalaSoVNMpdwF3buP/bU5/3pIXkUByKxeSb7/fd1s9RGP5dHzx8tP308ZOffnhmtI+s6gMamMzS1+uu53y5dI1VYofHh5tfbI6QM5/frraYH3cIJv/KUwzLq5XLW9vP7y2WCT56V9+qbGSUDBtnXcdRcvLsVZ3NLJ4dPBAFqmvi2voVKVWSCpURt8q4Vaz6ibXiSmfYdU1HlVO+5/ujccvfUsP9G5/bopIpa1oiDpF9dnnzDsQ0XE6eYzFj2daUNFWcLRFKzc7Z891efv5ijr7Q5y4Vcll9Tv/z8Pd8IT8M53FxKu+Hvm2N1XQqkUzyfLzRaZ10qunlbybvfz1fytoTTyvrg6HNkWFnPI1jhMUIdXt9AHBdFwKoe71PVwtCboPBcYk5aZ70pGRCn9MFQeibBHeNrjfxjf7AtExJlqrdBlMQ15cXCCMioYTtPyYuAUKCICIUGYMz3G6fhjRynInneRe08st/dlcWKnk5GxHCpD6hvVcpRcYYW5bFsKzRb+Nw5CdlkWLgOV5Jq/VWfa3wMQBgACa74ZzuqjLL8fzFSpmPc6bpYnvPHhvjbD7Lsuz++78qGb0o5PwgwAAgzQdszjFqhEAQQLM5GFkCc126Ls3IkixSFt2tPb595SsxkQAABJTiWIT4VvMt4bTXr2tHxx8Q8Gjn7o5pWIk4Z53333304duVWxEhGCFKKQWgod083juoCQgTRU3Pzqi4cnMJXDBro167f1VbjQihlCKEEMKIUpaTMjNL/7X6qqquLJ9bXMj+D4O3bgHuxfxoAAAAAElFTkSuQmCC&#34;&gt;Experiment– ENCODE&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://cistrome.org/db/#/&#34; ADD_DATE=&#34;1553492800&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACvUlEQVQ4jXWTT2hUVxjFf/fe915mTDJDOjEaS4LYZGE00GbQBhKNTbUbXbjogBVRA9F0JyJN6O4p4kJsqRuFQpWAoAwEtdBNSaQQav/QQJ2F4x+SKGImqMHEmDjkzbufi8QhDvFbHg7nnHs5R7HyaUBKMLWESSnxPZL4vhbfZxlZBJB0WonvqyWh91RLHQzQDnQA65bwN8AdYBB48oHUADTtbmm5uTuZfAWIWkpQn0jID11d0tncnAW6U4smy2IvujRtrqvLTP5ySeT6DdnTkgyAQCsVDJw4UZDBW5L96bxURiJ54Pt36TUgPclk1GjtN9aua14TjwPQ2thoAOM5jmmqr9eFyZz9pLo6WFtVVaaV6otHyjuLn/jzyMim0NqvhrN3bebReDg9OysD//4DQD4I+G1kBKe2Vv81Nuo8fv48sCLxmfxcqviGk6nU2QPbtllgoaq83JaXRSxgY9GofFRRIbFo1O7ZutUmKiutgsKhHTvsmf37x6sikXoH0Pva2jtdz+PK8LCanp/nyM6dfLO9gw2JhLjGMDU3x1DmDo8mckzNzqpzBw/Z6pqa9f8/HGs1gGxYvabu2u0/O+5PPA1/7e3Tx79OqfXxOKs8T60qK1NrYzFaNzWrw19+wd/37slwNqsnnr243//H0Kl3PUgAg/va2j69+l0vMy9fimMMWmsQwYqoQhhKvKKC/8ZGwy19fRroBi5rQIvvz3jGnF4ICq8RIeq6gYgI1goiosAarUK0VjPz847nODc+b2gYAFSxiQLKM6brwtGeH7t37YojAmEoYq1SWoPrMj6Z49uLF2/+nsn0iMgzpZSsVOXPevfuPda+cWNnTSxW62qjp/P5ufFcLnPp1lD/7QcP+oGFlbawXARgtQsfR13XexUEU8AYICKi1GLw0rUWT0s6bcT3i0sVUJJOm9INALwFVFsangr8zdcAAAAASUVORK5CYII=&#34;&gt;Cistrome DB&lt;/A&gt;&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3&#34; ADD_DATE=&#34;1522118590&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAClUlEQVQ4jY2RX0hTYRjG3+/rNHSnub+u9DC1dF0EMmOEVk5UJimCsS5MZmV3QzLHhJUQlnRV7KaQkAi8KprVjRPnhaGCVPQHcpgT52ScBZs7x83VNqfuzK+LLfGii57Ll+fH+z7PC4SQ+fl5s9m8urpK/kMYADY3N71er8Vi8fl88FeEwD+FCCHZbLajoyMUCrW3t98ZGn72gZ1YjrBb6UIKnyuT9Z4va6xUHgAUADidzlAopNPpbty2N41+/hlPY4Q0soLfO8KcPzrnj/ZdrLjfUpXfIAhCW1tbLBZzvn130x328akr1SeGW6pgO07Txz6GdwYmvHxq78nlM+azpQBALS0t8TxvMBi+xkU+PmXUqh42HH/+1MFxHELIaDS+vtZ06cWXR7PrV2tKjiCEc0H1ev37tSgA9Bsq3oyPcxwHAISQmZmZgkS4sVK5kdhd3kgCAE4kEgCgUCi45C4hUKUUsyx7uBaWZU8pxQAQSewCAKZpGgDi8biSFiEE7FaaYZjDAMMwwa00AKhoEQBgrVYLAIuLi02VCgAY/RTs7OyUyWQ5d319PVVcPuuPqmhRdYkEACidTieXyxcWFm5ZbeXyQtdyRCk+Ojh4L86FJRLJ+jbV9fJ7Jrs/0HCSwij/uLGxsZGRkdra2r4Hj7teebjkXgGFtcX0rx0hd8x1PTPcqNnfz0qlUkQIyWQyPT09Kysrzc3N/XeHRr9FJn5E+NQehVFNaVHvhbLTOGaz2TDGbrcbEUIAgOd5i8USCATUanV3d7fB0FCkUmOSDfjXpqamXC6XIAhms9lut+cBAEgmkw6HY3Jy8mBCCEEIAYBUKrVarSaTKZ/hcInBYHB6etrj8fA8T1GURqOpq6trbW0Vi8U5wx/cB04FMsDVTQAAAABJRU5ErkJggg==&#34;&gt;ColorBrewer: Color Advice for Maps&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://ggplot2.tidyverse.org/reference/index.html&#34; ADD_DATE=&#34;1488021468&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC+klEQVQ4jYWTT2ibdRzGn9+bN0tS1/jOmNpBM3sxG5Qxi2mCFqYoVCjxpDl4KEiTgae2t14Ga6WsDEbRS0fxKjvozYFFmN1c2UErIsqSUlcZdClZYPn7vr+8yfv7vY+HrlDrYN/b9/B54OHhAxy5XC4XICmevaP5fP5OPp+/A+BNACApcrlcAM854wg4kM1mr67euFF7/LjMcrnM1dXV2uTk5FUAA0eZ4yGBdDpdWFpaelgsluhrRa/nqk6no7RWLBZLXFhYeDg+Pl4g3zP/Q46Ojr07MzNz7+7dn9lxu1RKeU9rDb9crbPVarJWq/uk75HkrVs/MHk2c+/8+dGLh3x4fn6+KKUkfeV1ZUtTOVz89i9mFrb8drvtS+nw73/2/G+++1H/8utv3pdf3eSlS58/ABAyABivDQ6qSCTMSsMV9/cM4/c/d5g67XPqAoRsNUQkFMT67fu4fP2mEYvFxOzMpxgZOacAGCYAUmuAWjzYa4ivSxbn3xoUkxcsSNtB/tr3SCcH8MmHafHxR+8zejIiPM+D5ykAoAlA1L0T4o/dKmK6iusfRMXLoZNotFwI4wSGhwbxeuI0EkNDkK4nlFI0DAOGIQQAYQJAw/URsgbwxplTIASUJkzzYO4vPruIgBmEdD3Ytg3TPBiAJADABMAzL/V4LhbAo0d7aDQaNE1TaK3h+z5qtTri8VfRbrfR19dHrTVTqRR4kHBQIRg0IYRAuVzmzs6O0d/fz2azCcuyRLPZhOPY7HQ6iMfjIhqNQgiBYDCIwwp+pfLE8DwPw8PDtG3bj0QiIhQKiWQyScuy4DiOCIfDrNfrfiKRYLfbRaVSEQB8AMDY2Ng7c3NzP21sbLDb7bLX63mtVks7jkPbtiml1CQ9ktzc3OTs7OztdDr99v+EyGQyU8vLy6Xt7W1qrSmlVK7rKiklt7a2uLi4WEqlUlMvkumVbDZ7ZW1trbq/v8/d3V2urKxUJyYmrgA49WwB8TyZjus8UigU1qenp9cBjByCx3X+Fx08qVJw1lvhAAAAAElFTkSuQmCC&#34;&gt;Index. ggplot2 2.1.0&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://color.adobe.com/zh/&#34; ADD_DATE=&#34;1522218849&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABL0lEQVQ4jcWQMU/CQBzF311CSAhpe18A+wVI+AAM7CwdBRK4uGiI0a+ik27iII5gAq7GuBsTp8aBNIbARlvqIEbOQW3652wZfckt/3f/3717wH+LuUyozeHO4z3ylTKZhb0+5nuHGoBvDvKVsrYMAIZsImeXtgPE0X5qXKPdyAZwy0TRqacD5BaA2WmAW2YqIGeXYHQohACs4wNiRsMxFidnNEUaoFCraiVFN7fwT8/JrFCrkpJjgNHeJRfXfoBoOMaH94r3p2fiJYvm8d9kU4u/DkIAQHh5TbyiU4+74t+v6+0GiaWg1ycet0yYv124TKjVxFNJrSaecpkgZzkY/XkHU6elsjSTXeUyoWayq3lTp6XwdveQCVgORnGKz4Wvecjc/tGLsJXLhAourjTvCw4YFasTd6ZYAAAAAElFTkSuQmCC&#34;&gt;Adobe Color CC&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.cellyse.com/how_to_use_gggplot2_part1/&#34; ADD_DATE=&#34;1483069920&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAADEklEQVQ4jQXBa2hTVxwA8PM/59x7c5MsJk3slqSvhc5uSRTtOrZ16tS2Pvql22Ag7AXCPuz1QRQUlSGyD4MxofuwgQz84Jidc1KV+poPKLWpIxVJX6ltNhKb2iata296c5/nHn8/KJ5KcmY6CABxAYOITIYIA2FVUa7Qbuyt3V4+1xh0G4xjxBERKTN1wk0vBd3mioUyaihE1lr8GjP1qm0grFc1wwXEsB3mOJg4WCCgqMatnIUJnV2ysy1fDamNHrvicbmWVScx1/d6nTT634ppmBRjhyNsq6sPhTb+Ud/dWX178P/KyG+apt8rigN5yTb1bVGezq2kXj3eryTtagUhTg3DLkmB1mi0kPzgzPCfnV983RhvNc1qROf4dv+Fv6+X6ncLlqEuFp0YAcZg7khTrlTJKVjac6ylfa+jK81N0UAwhBB/9kwZz80PD5zfMtWbiHhNEAFTbKpriXVsl6+8nHvU3BD+NzuRL8w5jFWU5SuX/gJjZUNDeL0MIgHBUoFzett8DXSLqaXknk8su9oYT8ReiWFCqeTe0d1FEFkzeeqCEAafxqV3XijT6IffhhuaRlND23a++8cPp8evXxvatTUQrl/M56vTj2Px5P5jh2bSh/9Z46JWbnl6hpbvX8z2L9pTd9JtrcbY2HsNL4+MTpQqqVqXOx4MPRmfKD5dCkg8cvNkIOQJhPx00/RZDzcLLjQ7luEv1d4YHN7X01OwLMkwpjKZJc7aZcniRPU3ExmYvkBl2TNpRia96w90dJbeeHvd5tbgpnhdKMjVyq+9K21dHQ4jM6Ppup5TM9Mj9dmf4MH76G784Dffnb5z8fxU349v7f8ysqW9piaoA3ZJMmb2zwc6uqvphygUkPhmnwa5T+WbT0DpPFoYvHRQfHRuwfPm9wOrk6nZq2eJ37f75O8jR7v2innkosyybcFDPk/QDbImTdxr85ZlGcD/IiT3ZS//8jFk5OX5nKd+42cnBq8NxIiiOwCAMYCggRSLumtkwQAxgYq8t3srPDZ83pqAqEym5hfKgtcNmGIqAhGeAwrufG/UBuYhAAAAAElFTkSuQmCC&#34;&gt;ggplot2入门与进阶&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://plot.ly/organize/home&#34; ADD_DATE=&#34;1483600690&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB6UlEQVQ4jW3SsW8cZRAF8N/M7oWcYxIHHEUgmQ4JCYkmUmo6FAkhK0DLf+YaKUXSUvAPpI6UGmFQEMhJEdk+391+Q/HtYRdss7Pz5r15M7Nx/6R+F46qNCGU8D9PFNWRQgkZ5XSUjkxECJP4j96Q13ENXUQJw4wPjrJa71kl6o6q7J3qzvzOHscsUnvKNGs1lQVTB66einZI7bP+gVrSPmH1PVVMn7P5VlSq3SxxcFKlut32gHxLNS4PWf5DjNQB+TfbJZv9nqc7TPSxi7zs5FuNxxcsGjURK7Y43PLVBdNMDmTpRW4zHXP+MY/u8+uPfHmXy4fEMe8bP33BL0+5lbTWR8iAAStWz5nesHebD4K9Jds/uHqBNXsL7i0Y+tK7g5iXMeD4Lh+NrFsvWDcejHz3YZ95KqYZi/ncCeuJo32ePeHrT7nY9oLzLd98xs9POFyybb37zV8t6YqL7B3G7I5a9fyQveuYPTft7rcT2ImFrj5EJ+Ucj/M3fXmL7O5qFhmLGgbxbq1enYk3F7y74vVbzlb8ec6rMy63/Pael3+xLpUpUHFwUi2IViwGtZn6hItk07qz8UacqaYmMigqI0VVBzZTBzI6IaPb3cXQmshUVUSK1JxKqlTG9Xry5qbj+nQRqkpFojn9FynH6RNC0kXjAAAAAElFTkSuQmCC&#34;&gt;Plotly | Make charts and dashboards online&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.r-graph-gallery.com/all-graphs/&#34; ADD_DATE=&#34;1498658374&#34;&gt;All graphs – The R graph Gallery&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://bioinfogp.cnb.csic.es/tools/venny/index.html&#34; ADD_DATE=&#34;1489472530&#34;&gt;Venny 2.1.0&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://www.originlab.com/www/products/graphgallery.aspx&#34; ADD_DATE=&#34;1498658456&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADX0lEQVQ4jV2STWgcZRyHf//3fWd3dmc/spvMbtLdbZKNhaIEIqFpQcUehXqp1A8IXoqggmD1qCI5FBF6k1gViYJ6it4Eaz2UtDFUm0A0tpUmrVkN23xs0t2dbDYzOzPv34Ppxd/tOTzP6UcAMMEsJoj0xR9vffLE4+VXPd8Pd/Y6KmkaUGGAerONlBUBM+C4PuykGbZCKc9f/PojBQCYmRHMzJ8vbqE/pchf22Bz8wEymQQiORtGvBulpILudFBr+RiwLdQ9Ab/V7FUAMHHypJ4g4pn3LmTF8CAbpKk/nUZYqyCYd5CJpVEbPY4gnYGz6+K+IbHrCzAoVMxMd4mM5AvPTeWeOXYm7C9pLaVEPAG4bWjPw+bNCsxvpqCfPQORL0IyQxABAAQRcfLF01P518+O+302+yu3hf/7PBmVZYjbi2j+sYTPVjvIHT+K/PdfwXTq6MkmkLEiEEQk1k4cG889PTbu1Td83lgXFDUpGo/xuzPrqAUSzVDgrZEMUrkeJEaHYS3ModLoYLPRRsgayny0/Daxq/mvO4KUSWpzjRt7Lo2aj+Dq4n3809J4c6yF9t+rkAYhH8mh5TpopbKQAFTExHCnWiH4HYJdYFm9R5U6YWwkD393GapJiDQC7K9XwAKIFExEGjtQ2RygGQp7bSOQPogZoWEienQE3oYPy7aRjQYoe/vodJcgyhoAQEYS9Z0Gtns8aGYWvhcEgeOzJxNsRYArKw3MVj10CQ+Oswdn+wF0y+FgZZm9G78i2K7pvmIuKKSjWghiFXb3LKVMOeJ3pfjqriU37SSfGgoozBVgCAVq7zJleokGypCJLabDQ6KWLUZdDWgh46pupSftjPlFGDP9a9V98cpT/dSXS8ATJgwrztp1CV6HqTSorUNF+eXPv/358U9rc2nJ8crS9VkCIFc/fOfbgXLhNCISfsYOw66MUFYMHITQTpP19o6OuW21sHCzceqDyZe2gMs4mGBAv39l4eWVZvsH2H0wenul2ZsnVSyRUShQ9FBBxEpFdaNa23ntu0vntoDL09Msn59mCfDBHw9ilybPvzF4ZOhs9+DhIyqdMoK2qzfu3tueu/bL3LkLn066rjvLABHAD6WHAeL/gAEknjwx+hjFRCJoebg+v7QO4A6A8P8yAPwLM7OOILTiZpwAAAAASUVORK5CYII=&#34;&gt;Originlab GraphGallery&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;http://nipponcolors.com/&#34; ADD_DATE=&#34;1522219170&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAwUlEQVQ4jc2TQQqDMBBF3ySeRijoCboQXPcI9QYexRvUI7gWusgJKgiexphujIgNpXHVvxzy3iRDRgikJ82E5LavOeauZBqOZ+UIanTj4BoSCxiLrfeiTfDkcnfwCIEBUVUwtpugJ80U+vUL7LNg85JpUAAa3cTAe0bOdN/fQh2nHRMhuamzsM8fCBxzdxZ2zJ0qmQYBEwsLmO0fWGwdK/CMAlhvUUV0r/w+bEMsGNsFm397joBZsLnfg7X2mZh1fgOUfUJvZNeMvwAAAABJRU5ErkJggg==&#34;&gt;日本の伝統色&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://zhuanlan.zhihu.com/EasyCharts-R&#34; ADD_DATE=&#34;1523327680&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jWPkantxhIWJ2ZqBDPDn39+jTMianSVZSDKAhYnZmgnGUedlYlgXJ8AQIM9KmiEwRrQOO8O/f/8ZFoTzwSUZGRkZJLrfMLwoFcHQyN/5Bs0AI06GvA2fGdbe+8XwvEQEroAT6kaxbgifjYmB4UkxwkC4AV6LPjC8+P6P4fc/CJ+VkYHh93+EjT//EfDCzc+oKpA1I4N/aOJwA04lCDCoiyNi4WM5xJkSUKczMUI0/8XlArMFH1A0o4cBLoAhXaDPzsDAwMCQq8uOIs6MwwsYBjR68DKsu/idocWLlyFZkx1dGr8LAhVYGf7++8+QuOMrQ+DCDwx9frxwud//IV6DhQ0MoKTdBeH8DAtOfWdgYGBg2PfiD0P6mk8M3/8xMAh2vUEJF2TAyNfx+j8DAwPDKj9ehnVXfzKsuPsLu1MZMf2PYgC5gOnPv79HydX859/fowD6kXNStdV4NAAAAABJRU5ErkJggg==&#34;&gt;R语言数据分析与可视化&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://github.com/ropensci/plotly&#34; ADD_DATE=&#34;1525315482&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACJElEQVQ4jY1TMWsUQRT+5r3d3Cbe7t3u3hEDdoJgIVieGo1YBixsBIsUtvkHNpaCnaJFUMEihSlEbGxFE8XCRrDWIAqJyd3t3JGcuduZeRa5DUtAk6968/i+733zhlE4hHq9foWZbwG4pkRmAECU2gDw1lr7Qmu9WuarUs2NOH7Onrdw2LQMa8xyO8tuA7BlA07TdM0juvA/cQHj3KdOp3MZgGUAaMTxssc8nxuzOsrzm90s2yDmU6TUtoh0BKhut9t3Rnl+1/O8Mz7z7GSlcnqwt/cKURS1pptNmW42JUmSpfGQKoCp0tBqkTZJkqWCH0VRiyaYFw/uZ+2zcbkDYFAy2AEgAOCcWymaE8yLBOZZALDOjQB0jrGCdevccH9zPEsYPxWU2uz1eutHqbXWP6DUbwCAyAwV0QDUANAxEhBE6uNaSICfAMBK1dI0vX6UOo7jeSaKsD/5F5FSa04EW+22dca8jMPw0r/ESRheZKKnxVlE3lFuzOPRMIeIWN3v93u7ux+IaBBFUasgBkFwlYi2/SD4yEQnSwaPSGv9xa/4T6abzYm6789Vq9WFMAw/K6W2CmKlUtmJoqhRTmNFHmRZ9vXgLyRx/J6IzlnnzotIX2utS/ywkaabTDQFANaY1+0su7G/0TG6WTYHpVaY6LvH/A3ATMngRCE2xtwrxADA5ViDweDNZBDsQamG7/vLw+HwDwDUajVfiZx1wMNOt3u/rPkLJe7aBdfH1TYAAAAASUVORK5CYII=&#34;&gt;ropensci/plotly: An interactive graphing library for R&lt;/A&gt;
+&lt;/dt&gt;
+&lt;dt&gt;&lt;A HREF=&#34;https://magrittr.tidyverse.org/&#34; ADD_DATE=&#34;1536319355&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADIklEQVQ4jX2TW2wUdRTGv/OfmZ3ZSxdaEivdtKW1SaHYGltiaagN14Q30LhBlCYSlIA+kIiGF6SJGvGBhAR8lvpmysOaEKvhZiGNvXhraZdu4zZh2wDbCwvTKTOz25n/8QFLlkj83s7D9518OecHFCkOKMxM/44bO/e8/tOBve29ABoAgJkpDih4jkSRsXT7a3Vd508fm8umr3I2fYW/OX1sdkdr3SkApStBAMR/UjZURTu7jr8zMfHbReZ8knlpxOOlEY/dJN8e7uFTH797u6EqeqDYQwDQWF3WtqW95Yu39+/d0dHRBiIBx3ElwIKEAAFSN3QBANev3kTPxUvXbvQPfpbKWAMAYHx69M3xQm6Qlx8OLTvzg74zPyD58Qiz9Sfbc7/K/INBduYHZG66z2fnFtvz/fzJkTfGABgCgKitrWRr0fIvfPs9jY0lhVESoss//8KTqTSCkTAFNA1//D6KROJHcfdOxg+uKUOs4gUGQAIAe8s+bMdRfJ9pMpXm+3ezCIUM6u7uwaVEL1zXhed7ZNs23xpLwTEXIVkCAKsAyPclRcJhLDzIYXrGodbNzWjfvQu1NZX48KOTME0LTU0bkP47Q2Cinbs6AAgCQCoAeL6HUNlqtLQ0YmbmHqzFJQxd60Mi0YtDh/Zh29Y22LaL1tZX4bouLNOCqj65ogqApZQc0ANofLkejuNyLPYiTaamcPDgPtQ3NcBbeoxIJIL6+lqenV1AtDQKz/P4aYVgMIj8I9PP5Uxs29om8vkC17xUBd/zKTWShK7rLAQhHA5RZVWFVBWFNUXBSgXO3p9TiUipro55zCwNwyBRKJASFLxqVQmIBDEz67omIyURlssFymZzKgBWAHiWOZucvnOvLlZRvq6mbh0ZukaaprFh6BQIBCgQ0DgcDlFkdZTGRyfE2XMX+i9fv3E8u2BPFX+lumn92sNnut6fyownmJ2/2H805Elz2JPmMI/2f8dfnuic2rxx7Qd4DlDFMJXv2f7K193nTzzMZa5wZvwHPvv5kdzuLeu/AlD+vzDF48/g3Hx4/86+997q6APQvGKMx5/d/g9Mb4X7WjAAgQAAAABJRU5ErkJggg==&#34;&gt;A Forward-Pipe Operator for R • magrittr&lt;/A&gt;
+&lt;p&gt;&amp;nbsp; &lt;/p&gt;
+&lt;/dt&gt;
+&lt;DL&gt;
+&lt;DT&gt;&lt;H3 ADD_DATE=&#34;1574993860&#34; LAST_MODIFIED=&#34;1589873830&#34;&gt;Manual &lt;/H3&gt;
+&lt;/DL&gt;
+&lt;DT&gt;&lt;A HREF=&#34;http://ggplot2.tidyverse.org/reference/index.html&#34; ADD_DATE=&#34;1488021468&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC+klEQVQ4jYWTT2ibdRzGn9+bN0tS1/jOmNpBM3sxG5Qxi2mCFqYoVCjxpDl4KEiTgae2t14Ga6WsDEbRS0fxKjvozYFFmN1c2UErIsqSUlcZdClZYPn7vr+8yfv7vY+HrlDrYN/b9/B54OHhAxy5XC4XICmevaP5fP5OPp+/A+BNACApcrlcAM854wg4kM1mr67euFF7/LjMcrnM1dXV2uTk5FUAA0eZ4yGBdDpdWFpaelgsluhrRa/nqk6no7RWLBZLXFhYeDg+Pl4g3zP/Q46Ojr07MzNz7+7dn9lxu1RKeU9rDb9crbPVarJWq/uk75HkrVs/MHk2c+/8+dGLh3x4fn6+KKUkfeV1ZUtTOVz89i9mFrb8drvtS+nw73/2/G+++1H/8utv3pdf3eSlS58/ABAyABivDQ6qSCTMSsMV9/cM4/c/d5g67XPqAoRsNUQkFMT67fu4fP2mEYvFxOzMpxgZOacAGCYAUmuAWjzYa4ivSxbn3xoUkxcsSNtB/tr3SCcH8MmHafHxR+8zejIiPM+D5ykAoAlA1L0T4o/dKmK6iusfRMXLoZNotFwI4wSGhwbxeuI0EkNDkK4nlFI0DAOGIQQAYQJAw/URsgbwxplTIASUJkzzYO4vPruIgBmEdD3Ytg3TPBiAJADABMAzL/V4LhbAo0d7aDQaNE1TaK3h+z5qtTri8VfRbrfR19dHrTVTqRR4kHBQIRg0IYRAuVzmzs6O0d/fz2azCcuyRLPZhOPY7HQ6iMfjIhqNQgiBYDCIwwp+pfLE8DwPw8PDtG3bj0QiIhQKiWQyScuy4DiOCIfDrNfrfiKRYLfbRaVSEQB8AMDY2Ng7c3NzP21sbLDb7bLX63mtVks7jkPbtiml1CQ9ktzc3OTs7OztdDr99v+EyGQyU8vLy6Xt7W1qrSmlVK7rKiklt7a2uLi4WEqlUlMvkumVbDZ7ZW1trbq/v8/d3V2urKxUJyYmrgA49WwB8TyZjus8UigU1qenp9cBjByCx3X+Fx08qVJw1lvhAAAAAElFTkSuQmCC&#34;&gt;ggplot2&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;http://bedtools.readthedocs.io/en/latest/content/bedtools-suite.html&#34; ADD_DATE=&#34;1482374295&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACoElEQVQ4jaWRvWtkVRjGf8+55557Z+5MMiHJxnUxJqxsQBBBRFgtRFJbCWKpWFn4F4igpWy1lVip3VYrbGMpIpY2NmKxbtawO2TzaSaZmftxzmsxKex9yof363l/MhA/fVswmxgAvaG4aBxHIbFx5V10jl4ljkICYGNi9IbinY9qfX7n7oPDaXNLqANkBrN5Ta9XkEkIMW1rmjYy7PXADIQlM79WFX/5k2n77v4/c0iJzY01Xt68zkubN/jj4R7nlzOcE+sryxxPpvz6+5+E4BGiTYZ3bsebpalLscyds70nY00nE/tg97bu/fCAp5M5ZSjoF4HPPn6frbVl++7Hn7U8GFpMCeti55BcAiEkSZZ5nU9nqmOSZUEulHp4cKK/D8/0+s626ssL4SQwgZzHTDKRTAKEGU7S6mgJ1UbwOW/tvkkg8uXX31P2K1myxbuU5JFAJmGmqxkAg7Jk3s0pglBsODw+Ia+WyG2OmWFmAuFYgMIWfYvrgMfjAx49O2X/6Jz7v/zG4WXNV59+yLDIaGOH3KLOITAzZKLtIrO6IcaEAZKQhPc5T4/PGA0rChIxduhqkccMScSUWBlW7Lz4PKNhxfaN6wymHUXIeeXmJu+9/Qbf3LvP3sExa9eeo4kRYeiTL+7M9s+mhUi2sTLSahVsPq9lABICsizj8ZMx49NzW1+/JidZm4wXlvrRCSPFiJPj0fgZp9OGvD9AeYkveuAL8IGt7S1uv/YqAF2MpGTgDN91SUVZxH7IyTOvkAdLZooGdd1ShhzkaLqOru0s+FxF4W1eR4sxyvfLEFdCVvRyjw2MaMblrCaaseB9RQlIBqOlil6RM2sifZrW39oY7p5cNDdj23aSRAbERW4yiDHyX2VkdF1jWeX8arm8x//VvyWZRCAqsewdAAAAAElFTkSuQmCC&#34;&gt;bedtools&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;http://deeptools.readthedocs.io/en/latest/content/list_of_tools.html&#34; ADD_DATE=&#34;1520472829&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACHElEQVQ4jWWSwUuUQRjGn3fm3e+bXV3dDcPqGkiQ5SFJkLpZ0aXIyjpHh/6FqKwwIoigSxAUQaeiOnWJqGsURlK5eujQsXRTc9kld/ebed8OoyvRnF4Yhvf3PPOjwyfOBu+9zwACAChzzlhuNOqiCgAAEamqS1PnHHvv+/q3be3fEUIAYK2tLvyorfyaODmepomIEsH74NL0a2WuMj/P3md9/dv37Btp1OsAunuKn6ff138vnTk1ztb64IkMs93S2/3g8ZOPMzNMIAnSqNffvnwGYOz4hIRARIvV6o1bt1drtWKxODV5yRjTbK4ZY0yk/H+w1sZIcbbWxisGQVWYeezYaQDMrKoi4py7d/eOhACiVqslQWIrDAURicj3b/MABnYPERERee9fvX7zZ23NpenBA6NkKG6LD0wI4cv0OwA7dw0SkTGm3W7ff/hoeWW5VCqP7B82xmw8IKiKtXbv8GjEjUhJklw4fy5uSJJEpINEUFVjzMDgUAytqqrKzEePHOpkUNF/Mqhqq9kEkC8UiGCNbTabF69cW62tFos9N69PlsulTaT4+bE1oijIerPW2I1+1w8DiNAiAkBEVCEqzDx19XLwnoxha7PMiygAVlXL7PKFKJrLFywzoKVSqdjdFUIgoqydlXu7nHMiwsy5pcWfs58+eJ8BYM4tVxdE6enzFznmKJ+qutTNVubyzlFH70ivuqm36obyQEfvvzv/FV/NMrVSAAAAAElFTkSuQmCC&#34;&gt;deeptools&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;http://homer.salk.edu/homer/ngs/peaks.html&#34; ADD_DATE=&#34;1475936363&#34;&gt;Homer&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;http://compbio.med.harvard.edu/Supplements/ChIP-seq/tutorial.html&#34; ADD_DATE=&#34;1487650175&#34;&gt;SPP&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;https://github.com/taoliu/MACS/&#34; ADD_DATE=&#34;1498030195&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACrElEQVQ4jW2SzWucVRTGf+fe9847SW2n+WioIdZkJkzGWLMsQvBjpRv1H1BcqSB166aUbgQXLkpEEGnF7ty5Edw0orULtS5DjNOZ5qvEKkMzEUuS6bz33tPFvCNj6LM653LO8/A85wpHUJmbW0QKbwMvAU8BCHpXkZshhK+2mmu3BudloC5UagsfI7wvIsOooqoKID2gqvuqfLFeX7kAdPsEBmZdea74beLcKxoj+R4iPf7BXozBZ9n1jdudN+BOZgEtV5/8pJAW3/JZ90ZU/UiF0yAnVbWpUVvAMLASo7+oUYuFQvrqiRFT2NttLctUtXouleIN62whZNm19dur7wLFiZmzpdbmahvQyWr15L2Dg312dg5n5s5+6lzhvPfZQ59lLyapce+IkSGNkSjaASzQaW2udvrh3Gs07ud2LUqmMVhrzLA4+55RNS+IqsYYO91u+AwIvVz+F3C/DkEffh5i3FdFwSwaEaYUBKT950Z9Ox+MgA4QaL+/22xuCWzl708bwGkv6mMj5XLxiPJRCJOTRYXx3pw6A9wRVRUjpZIZej5Xso+xkAB65lhp0YhM5H9k3ajqrxgD8MAm5sp0tVrLczhqwZ+ZfXbeJckSoGJEUH42MYQvUZXgw5Kq3nRu+I/KMwvLM9X5c/3tqXLtuUpt4WuXyC+CzANRo4audq/Yf9r3d0pjp0atTT7M/OGbxpg9VE5nofPNv+32HsDQ+MgTqXVXRSRV5dAmNo3eL2036tekf7JKbeEngbEY/QcKDzYba7/9Z2B6ulhJj2+LkQljLD5k1zfq8XVY8yY/WVivr7wcNf5oE/e9Mcmt0dnZE/398TR1COMi4n3wlzfqq6/BWheIdiCouLfb+u742KllVP/+q+l/gHYAONgdkdHRxIbgL202fr+aiwLwCG7VPT6fvRxuAAAAAElFTkSuQmCC&#34;&gt;MACS&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;https://rawgit.com/FelixKrueger/Bismark/master/Docs/Bismark_User_Guide.html#v-running-bismark-summary&#34; ADD_DATE=&#34;1500554953&#34;&gt;Bismark&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;http://bioconductor.org/packages/release/bioc/vignettes/methylKit/inst/doc/methylKit.html#2_basics&#34; ADD_DATE=&#34;1500555561&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABQ0lEQVQ4jV2SsU5cMRREj3eNghSQoItSUdBQpSFSoEBLt2U+hUj0JF+w/AI9DUJIoQp8AiVboG3SRaLftWdS+Nnv7VrWk/3u3Lkz9zpwfYcNxsMtUpp83r86+3J+85sYsZGw4hqo/xoJZTDKKKASUuxxWk9TxsYgddtCimhAvHFu15wLGq8lqNVFRUkGkzPQVbBiLe36qx56SZlAx1slDXHVQFqRq2looVphKDevDna2vx8d7n3YwlVS39Zqv4ul5Wx6cjE5BoCn+QJlQmiMEeVeTFrOpt8auicOufbDsWtZCaTVxeQrG8tCobV76EGktAF+ni825lMkuc1liH56ffv58EwcI0FJYMzptA5L2C+Lv592Py7+vf+6//Pj9pHRGNMNCmMCl7O+S84koYQNgWBMwWGXssVDexQmwGhU3y+NuK3/KYGTCdBZaVQAAAAASUVORK5CYII=&#34;&gt;methylKit&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;http://dldcc-web.brc.bcm.edu/lilab/deqiangs/moabs/moabs.html&#34; ADD_DATE=&#34;1504512487&#34;&gt;MOABS&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;https://conda.io/docs/index.html&#34; ADD_DATE=&#34;1504930568&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACHElEQVQ4jWWSwUuUQRjGn3fm3e+bXV3dDcPqGkiQ5SFJkLpZ0aXIyjpHh/6FqKwwIoigSxAUQaeiOnWJqGsURlK5eujQsXRTc9kld/ebed8OoyvRnF4Yhvf3PPOjwyfOBu+9zwACAChzzlhuNOqiCgAAEamqS1PnHHvv+/q3be3fEUIAYK2tLvyorfyaODmepomIEsH74NL0a2WuMj/P3md9/dv37Btp1OsAunuKn6ff138vnTk1ztb64IkMs93S2/3g8ZOPMzNMIAnSqNffvnwGYOz4hIRARIvV6o1bt1drtWKxODV5yRjTbK4ZY0yk/H+w1sZIcbbWxisGQVWYeezYaQDMrKoi4py7d/eOhACiVqslQWIrDAURicj3b/MABnYPERERee9fvX7zZ23NpenBA6NkKG6LD0wI4cv0OwA7dw0SkTGm3W7ff/hoeWW5VCqP7B82xmw8IKiKtXbv8GjEjUhJklw4fy5uSJJEpINEUFVjzMDgUAytqqrKzEePHOpkUNF/Mqhqq9kEkC8UiGCNbTabF69cW62tFos9N69PlsulTaT4+bE1oijIerPW2I1+1w8DiNAiAkBEVCEqzDx19XLwnoxha7PMiygAVlXL7PKFKJrLFywzoKVSqdjdFUIgoqydlXu7nHMiwsy5pcWfs58+eJ8BYM4tVxdE6enzFznmKJ+qutTNVubyzlFH70ivuqm36obyQEfvvzv/FV/NMrVSAAAAAElFTkSuQmCC&#34;&gt;Conda&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;http://www.bioinformatics.babraham.ac.uk/projects/fastqc/&#34; ADD_DATE=&#34;1430795394&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABeElEQVQ4jWP4/+8fBIUt3g9n40EMcNU8jALP//8nqIFl+v5zB559Xj/nAYuAh8T//wwEAav9fB5GAU7BCE7BiP///h199CyDgSGDgQGXDYz///2D6CxvnsrAwPDk1gm+pUsZGBjq///HbiGybh5Ggajo6Cdv3sNFWO3nY/c0sp6dc+ZAfH/00TNOwYijj54hK2BCs3Dnw2t7n36/f/w4AwPDxvlrcwusrWQkkBWga7CSkXCW5pwydequefOcpTnh4uFLD75gZGRgYGDB9BWvllaOlpaipaXE//+8J05Ex8au3/YXIrUy2h7hh3Pf/7Pazy9rnBwVHQ1395M376Oio///+zdt7xl0P3x//Zzl0s4HSjoyahZfdm2DCJbl58Q7OjIwMGQ6GkFEEPHwgpERHvDRsbEMDAwyahYQbmdt9vmfjCeOnc10NMIeo6z2848dOwZhQyIekhqwxANENadgBDwh7pwzJ4OBYeecORBvYLchbPF+5PhGRgAFvrQKcw6X+wAAAABJRU5ErkJggg==&#34;&gt;FastQC&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;http://corybrunson.github.io/ggalluvial/reference/index.html&#34; ADD_DATE=&#34;1524214317&#34;&gt;ggalluvial&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;https://github.com/igvteam/igv.js/wiki/&#34; ADD_DATE=&#34;1594017198&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACrElEQVQ4jW2SzWucVRTGf+fe9847SW2n+WioIdZkJkzGWLMsQvBjpRv1H1BcqSB166aUbgQXLkpEEGnF7ty5Edw0orULtS5DjNOZ5qvEKkMzEUuS6bz33tPFvCNj6LM653LO8/A85wpHUJmbW0QKbwMvAU8BCHpXkZshhK+2mmu3BudloC5UagsfI7wvIsOooqoKID2gqvuqfLFeX7kAdPsEBmZdea74beLcKxoj+R4iPf7BXozBZ9n1jdudN+BOZgEtV5/8pJAW3/JZ90ZU/UiF0yAnVbWpUVvAMLASo7+oUYuFQvrqiRFT2NttLctUtXouleIN62whZNm19dur7wLFiZmzpdbmahvQyWr15L2Dg312dg5n5s5+6lzhvPfZQ59lLyapce+IkSGNkSjaASzQaW2udvrh3Gs07ud2LUqmMVhrzLA4+55RNS+IqsYYO91u+AwIvVz+F3C/DkEffh5i3FdFwSwaEaYUBKT950Z9Ox+MgA4QaL+/22xuCWzl708bwGkv6mMj5XLxiPJRCJOTRYXx3pw6A9wRVRUjpZIZej5Xso+xkAB65lhp0YhM5H9k3ajqrxgD8MAm5sp0tVrLczhqwZ+ZfXbeJckSoGJEUH42MYQvUZXgw5Kq3nRu+I/KMwvLM9X5c/3tqXLtuUpt4WuXyC+CzANRo4audq/Yf9r3d0pjp0atTT7M/OGbxpg9VE5nofPNv+32HsDQ+MgTqXVXRSRV5dAmNo3eL2036tekf7JKbeEngbEY/QcKDzYba7/9Z2B6ulhJj2+LkQljLD5k1zfq8XVY8yY/WVivr7wcNf5oE/e9Mcmt0dnZE/398TR1COMi4n3wlzfqq6/BWheIdiCouLfb+u742KllVP/+q+l/gHYAONgdkdHRxIbgL202fr+aiwLwCG7VPT6fvRxuAAAAAElFTkSuQmCC&#34;&gt;igv.js Wiki&lt;/A&gt;
+&lt;DT&gt;&lt;A HREF=&#34;https://zhuanlan.zhihu.com/p/59770889&#34; ADD_DATE=&#34;1594437542&#34; ICON=&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jWPkantxhIWJ2ZqBDPDn39+jTMianSVZSDKAhYnZmgnGUedlYlgXJ8AQIM9KmiEwRrQOO8O/f/8ZFoTzwSUZGRkZJLrfMLwoFcHQyN/5Bs0AI06GvA2fGdbe+8XwvEQEroAT6kaxbgifjYmB4UkxwkC4AV6LPjC8+P6P4fc/CJ+VkYHh93+EjT//EfDCzc+oKpA1I4N/aOJwA04lCDCoiyNi4WM5xJkSUKczMUI0/8XlArMFH1A0o4cBLoAhXaDPzsDAwMCQq8uOIs6MwwsYBjR68DKsu/idocWLlyFZkx1dGr8LAhVYGf7++8+QuOMrQ+DCDwx9frxwud//IV6DhQ0MoKTdBeH8DAtOfWdgYGBg2PfiD0P6mk8M3/8xMAh2vUEJF2TAyNfx+j8DAwPDKj9ehnVXfzKsuPsLu1MZMf2PYgC5gOnPv79HydX859/fowD6kXNStdV4NAAAAABJRU5ErkJggg==&#34;&gt;R中的管道符-magritter - 知乎&lt;/A&gt;            
+&lt;/DL&gt;
+&lt;/DL&gt;  
+&lt;/DL&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HiC-Pro分析流程</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/</link>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/</guid>
+      <description>&lt;h3 id=&#34;1hi-c的原理参考文献review&#34;&gt;1.Hi-C的原理，参考文献，review&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Hi-C是通过高通量测序检测基因组不同位置可能存在的空间互作（contacts），研究全基因组范围内整个染色质DNA在空间位置上的关系的方法。由Job Dekker实验室从3C技术延伸开发。&lt;/li&gt;
+&lt;li&gt;具体的实验流程方法原理建议从Job Dekker的几篇文章和综述开始了解:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;2数据质检与预处理与chip-seq相似&#34;&gt;2.数据质检与预处理（与ChIP-seq相似）&lt;/h3&gt;
+&lt;p&gt;1). 根据Hi-C实验原理，Hi-C测序数据必定为双端测序。与ChIP-seq类似，同样使用fastqc检查测序质量和建库质量，用cutadapt去除接头（如有必要&lt;br&gt;
+2). 示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nohup fastqc -o $wdir/1.qc $wdir/0.raw/*gz -t 20 &amp;amp;
+py35
+for i in $wdir/0.raw/*R1.fastq.gz; do o=$wdir/2.cutadapt/${i##*/};
+nohup cutadapt -j 8 --trim-n -q 25,25 -m 75 -a AGATCGGAAGAGC -A AGATCGGAAGAGC -o $o -p ${o/R1/R2} $i ${i/R1/R2} &amp;gt; ${o/R1.fastq.gz/log} &amp;amp;
+done
+nohup fastqc -o $wdir/3.cutadapt_qc $wdir/2.cutadapt/*gz -t 10 &amp;amp;
+data：
+es.R1.fastq.gz es.R2.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3-比对与contact-pairs处理hic-pro简单流程分步流程&#34;&gt;3. 比对与contact pairs处理（HiC-Pro，简单流程，分步流程）&lt;/h3&gt;
+&lt;h4 id=&#34;1-原理&#34;&gt;(1). 原理&lt;/h4&gt;
+&lt;p&gt;使用HiC-Pro对双端测序数据进行比对和处理，具体的流程、原理和软件使用配置请参考文献和manual：&lt;br&gt;
+
+&lt;a href=&#34;https://github.com/nservant/HiC-Pro&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HiC-Pro Github&lt;/a&gt;&lt;br&gt;
+Servant N., et al. HiC-Pro: An optimized and flexible pipeline for Hi-C processing. Genome Biology 2015, 16:259 doi:10.1186/s13059-015-0831-x&lt;/p&gt;
+&lt;h4 id=&#34;2-示例&#34;&gt;(2) 示例：&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;nohup HiC-Pro -i $wdir/0.input -o $wdir/1.output -c $ConfigHP/config-hicpro.txt &amp;gt; $wdir/hicpro.log &amp;amp;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;3数据&#34;&gt;(3)数据：&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;$wdir/0.input/es/es.clean.R1.fastq.gz $wdir/0.input/es/es.clean.R2.fastq.gz&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;4-configuration&#34;&gt;(4) Configuration:&lt;/h4&gt;
+&lt;p&gt;HiC-Pro的所有参数都配置在config-hicpro.txt中，具体各参数的含义请参照示例文件；&lt;/p&gt;
+&lt;h4 id=&#34;5-结果&#34;&gt;(5) 结果：&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;bowtie_results/bwt2/ bwt2_global/ bwt2_local/ hic_results/data/ matrix/ pic/&lt;/code&gt;&lt;br&gt;
+HiC-Pro总流程运行的结果按分步骤放在不同文件夹中，建议运行一次后一个个查看，重要的结果文件有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;validPairs: 每组双端测序数据得到的contact pairs&lt;/li&gt;
+&lt;li&gt;allValidPairs: 每sample合并所有生物学或技术重复后，并去除PCR duplicates后的contact pairs&lt;/li&gt;
+&lt;li&gt;matrix: 根据给定的resolution得到的长格式的矩阵文件&lt;/li&gt;
+&lt;li&gt;iced.matrix: 对raw matrix做ICE normalize&lt;/li&gt;
+&lt;li&gt;abs.bed: 特定resolution下，每个bin的index（只与resolution和chromosome size有关）&lt;/li&gt;
+&lt;li&gt;其他一些stats文件：统计了比对率、contact数量、PCR duplicates数量等统计日志&lt;/li&gt;
+&lt;li&gt;Mapping结果bam文件非常庞大，建议删除&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;6-分步流程&#34;&gt;(6) 分步流程：&lt;/h4&gt;
+&lt;p&gt;HiC-Pro是一整套包括mapping, filtering, quality checks, merge and remove duplicates, build matrix 和 ICE normalize的处理流程，&lt;br&gt;
+其中各个步骤可以单独运行，使用HiC-Pro -s ANALYSIS_STEP -i 上一步所得结果 运行。
+比如合并多次测序的contact pairs，可将多次测序的validPairs放在同一文件夹，运行-s merge_persample merge_persample merge_persample&lt;/p&gt;
+&lt;h4 id=&#34;7-其他&#34;&gt;(7) 其他&lt;/h4&gt;
+&lt;p&gt;HiC-Pro分步运行仍使用configuration文件配置参数。不过每一步运行的脚本和代码都记录在run.log中，因此在处理一些复杂情况时，可参照run.log中的脚本运行需要的步骤。建议仔细查看此日志。&lt;/p&gt;
+&lt;h3 id=&#34;4-matrix与normalization&#34;&gt;4. Matrix与normalization&lt;/h3&gt;
+&lt;p&gt;(1) 因为远端互作一般很少，在一个正方形的互作热图上很多是空白，因此HiC-Pro使用长格式的稀疏矩阵记录基因组上各个bin之间的互作数。即第一、二列分别表示两个位置，第三列表示这两个位置的互作数。在一个bed文件中记录了在这种分辨率下每个位置表示的哪条染色体的哪个区域。可以通过脚本或R语言将这种格式与正方形matrix之间转换。&lt;/p&gt;
+&lt;p&gt;(2) Hi-C数据的normalization方法有很多种，并且一直有新的研究发表。建议通过综述了解。&lt;/p&gt;
+&lt;p&gt;(3) HiC-Pro运行了ICE normalization，结果的数据格式与raw matrix相同，但互作数经过了校正。&lt;/p&gt;
+&lt;p&gt;(4) 但没有对文库大小进行校正，最好的建议是在处理和分析前对互相比较的样本间数据量downsample到一致的水平。&lt;/p&gt;
+&lt;p&gt;(5) 其他R包，如Binless和multiHiCcompare也推荐尝试。&lt;/p&gt;
+&lt;h3 id=&#34;5-probability&#34;&gt;5. Probability&lt;/h3&gt;
+&lt;p&gt;(1) 多种Hi-C分析软件可获得Probability~distance曲线结果，如Fit-HiC，pairsqc等。&lt;/p&gt;
+&lt;p&gt;(2) 也可根据文章methods对Probability的定义，自编简单脚本统计Probability。&lt;/p&gt;
+&lt;p&gt;(3)&lt;/p&gt;
+&lt;h3 id=&#34;6-compartment&#34;&gt;6. Compartment&lt;/h3&gt;
+&lt;p&gt;(1) 在一条染色体中，对各个位置与其他位置之间的互作数做相关性分析，可得到每两个位置之间的相关性，相关性为正和为负的区域一般会分隔成几Mb以上大小的区室。&lt;/p&gt;
+&lt;p&gt;(2) 同理在一条染色体中，对各个位置与其他位置之间的互作数做PCA分析，可得到每个位置的第一主成分PC1，研究发现PC1值正负符号可将染色质分为active和inactive两类，与染色质marker较好的对应。因此将通过其他活性或抑制性marker将它们分为compartment A和compartment。&lt;/p&gt;
+&lt;p&gt;(3) 根据以上原理，可用计算PCA的方法自编脚本计算PC1。或推荐使用Homer软件计算。&lt;/p&gt;
+&lt;p&gt;(4) 需要注意的是，某些物种比如human染色体长短臂间互作少，可能计算得到的PC1以长短臂区分符号，因此可使用PC2的符号鉴别compartment&lt;/p&gt;
+&lt;p&gt;(5)&lt;/p&gt;
+&lt;h3 id=&#34;7-call-tad&#34;&gt;7. Call TAD&lt;/h3&gt;
+&lt;p&gt;(1) 拓扑相关结构域（Topologically associating domains，简称TAD），是已被显微成像技术确认的染色质结构，在Hi-C数据的heatmap上表现为一个个几百Kb到几Mb范围的三角。&lt;/p&gt;
+&lt;p&gt;(2) 鉴定TAD的算法有很多并且不断更新中，这里推荐两种比较常用的。&lt;/p&gt;
+&lt;p&gt;(3) Directionality index(DI) 通过计算具有方向性的系数，表示上下游一定区域的互作数变化大小，来区分TAD内部和边界，并通过隐马可夫模型鉴定TAD。&lt;/p&gt;
+&lt;p&gt;(4) Insulation score是计算每个位置的绝缘系数，在局部区域中绝缘分数最大的即为TAD的边界boundary，人为设定阈值，定义boundary之间为TAD。&lt;/p&gt;
+&lt;p&gt;(5) 需要注意算法中涉及很多参数，脚本中是默认参数，可根据需要进行调整。&lt;/p&gt;
+&lt;h3 id=&#34;8-call-loops&#34;&gt;8. Call loops&lt;/h3&gt;
+&lt;p&gt;(1) 染色质环（contact loops）是层级最低的染色质结构，需要很高的实验质量和数据量以得到较高的分辨率，一般需要10kb以下。Loops类似于ChIP-seq的peaks，定义为Hi-C图谱中互作频率比周围相邻区域都高的格子区域。&lt;/p&gt;
+&lt;p&gt;(2) 同样鉴定loops的算法也有很多并且不断更新中，较常用的比如HiCCUPS，Fit-Hi-C。&lt;/p&gt;
+&lt;p&gt;(3)&lt;/p&gt;
+&lt;h3 id=&#34;9-3d-model&#34;&gt;9. 3D model&lt;/h3&gt;
+&lt;h3 id=&#34;10-其他常用的脚本&#34;&gt;10. 其他常用的脚本&lt;/h3&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>小鼠体细胞核移植过程中染色质高级结构重编程模式及分子机制</title>
+      <link>https://wukong.tongji.edu.cn/post/2020.nature_communications.chen_mo/</link>
+      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2020.nature_communications.chen_mo/</guid>
+      <description>&lt;p&gt;  2020年4月14日，同济大学生命科学与技术学院高绍荣团队与江赐忠团队在《Nature Communications》 杂志在线发表了题为“Chromatin architecture reorganization in murine somatic cell nuclear transfer embryos”的研究成果。他们采用了经过优化的少量细胞全基因组染色质构象捕获技术（sisHi-C），对小鼠SCNT胚胎发育过程进行连续采样，并详细描绘了SCNT植入前胚胎染色质高级结构的动态变化过程。&lt;/p&gt;
+&lt;p&gt;  体细胞核移植（SCNT）技术是将已经分化的体细胞移入去核卵母细胞内，使体细胞的染色质发生重编程，继而重启胚胎发育过程并获得完整个体的技术。虽然SCNT是目前为止唯一一种可以使体细胞获得完整全能性的手段，但是由于在重编程过程中出现了各种表观遗传水平修饰的异常，使得SCNT胚胎的发育能力处于较低水平，也极大程度地限制了该项技术的应用前景。高绍荣教授团队长期致力于小鼠SCNT胚胎发育异常原因的探索。2016年通过对早期克隆胚胎进行卵裂球活检，并结合单细胞RNA测序技术首次建立了植入前核移植胚胎发育命运追踪系统，发现了组蛋白去甲基化酶Kdm4b和Kdm5b分别对克隆胚胎2-细胞和4-细胞时期的发育阻滞起到关键作用。两年后，又通过对不同发育命运体细胞克隆胚胎进行全基因组DNA甲基化高通量测序分析，详细地研究了小鼠克隆胚胎着床前发育过程中DNA甲基化修饰的重编程过程，并揭示了异常的DNA再甲基化（DNA re-methylation）是导致克隆胚胎着床后发育异常的关键因素。在哺乳动物中，染色质三维结构对基因的调控起着非常重要的作用。但是，受制于小鼠SCNT胚胎样本取材困难和Hi-C技术对细胞样本起始量高的限制，小鼠SCNT植入前胚胎发育过程中染色质三维结构的动态变化过程尚未被全面研究过。&lt;/p&gt;
+&lt;p&gt;  在本研究中，研究人员收集了核移植后多个时间点的胚胎并利用优化的微量细胞sisHi-C技术对染色质高级结构进行了检测，通过数据分析发现，在体细胞核被注射到去核的卵细胞后，随着典型三维染色质结构的消解，供核体细胞染色质的近距离相互作用优先解开，并迅速由间期转化为类中期状态。在这期间出现了一个非常有趣的现象，当供体细胞在去核卵母细胞中被人工激活1个小时后，基因组经历了从类有丝分裂中期向类第二次减数分裂中期的转变（图1）。&lt;/p&gt;
+&lt;img src=&#34;fig1.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;图1. SCNT胚胎基因组在短时间内由有丝分裂类中期转变为减数分裂类中期&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;  在SCNT胚胎发育6小时进入类原核期（对应正常受精胚胎PN3时期）后，重新出现了较弱的区室结构和拓扑相关结构域（TADs）信号，这很可能是再次退出中期的结果。随后，TADs信号在一细胞晚期逐渐减弱，直到2细胞早期降到最低值，在2细胞晚期到8细胞卵裂期逐步重新建立，直到囊胚期成熟（图2）。&lt;/p&gt;
+&lt;img src=&#34;fig2.png&#34;/&gt;
+&lt;img src=&#34;fig2-2.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;图2. SCNT胚胎发育各个阶段的TAD强弱变化&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;  随后研究人员将小鼠SCNT与正常受精胚胎发育sisHi-C公共数据集进行比较分析后发现，SCNT胚胎在2细胞期的远距离（&amp;gt;2 Mb）相互作用较正常受精胚胎明显降低。同时，早期（2到8细胞期）受精胚胎与SCNT胚胎的区室结构及TADs也存在着明显的差异。&lt;/p&gt;
+&lt;p&gt;  前期的很多研究表面小鼠SCNT胚胎在合子基因组激活（ZGA）时期有大量的基因未能被正常激活。于是，研究人员想到染色质空间结构的异常是否会导致增强子与启动子之间的相互作用无法成功建立？结果表明，在小鼠正常受精卵的ZGA时期的关键基因Zscan4d的启动子与上游的超级增强子有着强烈的相互作用，而这种互作却无法在SCNT胚胎中被观察到（图3）。这类基因的激活异常很可能就是SCNT胚胎发育能力低下的原因之一。那么，造成染色质高级结构的异常的原因究竟是什么呢？研究人员证实这是由于供体细胞基因组中持续存在的组蛋白H3K9me3修饰无法被正常擦除造成的。通过在SCNT胚胎中过量表达组蛋白去甲基化酶Kdm4d来降低H3K9me3修饰水平， SCNT胚胎的染色质空间构象会趋向正常受精胚胎，且Zscan4d的启动子与超级增强子的互作也得到了部分的修复（图3）。这说明H3K9me3修饰是核移植胚胎中染色质高级结构重编程的重要障碍，也证实了在胚胎基因表达调控过程中组蛋白修饰和染色质高级结构的协同作用。&lt;/p&gt;
+&lt;img src=&#34;fig3.png&#34;/&gt;
+&lt;img src=&#34;fig3-2.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;图3. SE-P互作异常影响ZGA相关基因表达，并能被过量表达Kdm4d部分纠正&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;  综上，这项研究对小鼠SCNT胚胎发育过程中的染色质三维结构重塑进行了系统的研究，这也为今后进一步纠正SCNT胚胎发育过程中的表观遗传屏障提供了新的思路。&lt;/p&gt;
+&lt;img src=&#34;fig4.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;图4.本研究的模式图&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;  同济大学生命科学与技术学院博士研究生陈墨、朱乾书和李翀副研究员为本文共同第一作者，高绍荣教授、江赐忠教授和刘晓雨研究员为本文共同通讯作者。该研究得到了科技部、基金委和上海市科委项目的支持。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chromatin architecture reorganization in murine somatic cell nuclear transfer embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2020.nature_communications.chen_mo/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2020.nature_communications.chen_mo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Increase in DNA Damage by MYCN Knockdown Through Regulating Nucleosome Organization and Chromatin State in Neuroblastoma</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_genetics.hu_xinjie/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_genetics.hu_xinjie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sin3a-Tet1 interaction activates gene transcription and is required for embryonic stem cell pluripotency</title>
+      <link>https://wukong.tongji.edu.cn/publication/2018.nucleic_acids_research.zhu_fugui/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2018.nucleic_acids_research.zhu_fugui/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

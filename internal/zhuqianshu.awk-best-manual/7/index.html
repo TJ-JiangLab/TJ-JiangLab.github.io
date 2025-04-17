@@ -1,0 +1,1379 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="本节将示范一个统计上班到达时间及迟到次数的程序. 这程序每日被">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.awk-best-manual/7/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.awk-best-manual/7/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.awk-best-manual/7/">
+  <meta property="og:title" content="7. awk 程序的应用实例   | JiangLab">
+  <meta property="og:description" content="本节将示范一个统计上班到达时间及迟到次数的程序. 这程序每日被"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-12-21T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-12-21T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>7. awk 程序的应用实例   | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/internal/zhuqianshu.awk-best-manual/">首页</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/1/">1. 前言</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/2/">2. awk概述  </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/3/">3. 如何执行awk</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/4/">4. 选择符合指定条件的记录  </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/5/">5. awk 中数组</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/6/">6. awk 程序中使用 Shell 命令 </a>
+      </li>
+      
+      <li class="active">
+        <a href="/internal/zhuqianshu.awk-best-manual/7/">7. awk 程序的应用实例  </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/8/">8. 处理多行的数据</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/9/">9. 如何读取命令行上的参数 </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/10/">10.编写可与用户交互的 awk 程序 </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/11/">11.使用 awk 编写递归程序</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/12/">12.附录</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">在本页</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#71-在到班资料文件-arrdat-之前增加一行抬头">[7.1] 在到班资料文件 arr.dat 之前增加一行抬头</a></li>
+        <li><a href="#72将-today_rpt1-上的数据按员工代号排序-并加注执行当日日期-产生文件-today_rpt2">[7.2]将 today_rpt1 上的数据按员工代号排序, 并加注执行当日日期; 产生文件 today_rpt2</a></li>
+        <li><a href="#73-将awk程序包含在一个shell-script文件中">[7.3] 将awk程序包含在一个shell script文件中</a></li>
+        <li><a href="#74-于-today_rpt2-每日报表上-迟到者之前加上-并加注当日平均到班时间">[7.4] 于 today_rpt2 每日报表上, 迟到者之前加上&quot;*&quot;, 并加注当日平均到班时间;</a></li>
+        <li><a href="#75-从文件中读取当月迟到次数-并根据当日出勤状况更新迟到累计数">[7.5] 从文件中读取当月迟到次数, 并根据当日出勤状况更新迟到累计数.</a></li>
+        <li><a href="#重定向输出到文件">重定向输出到文件</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#awk-中如何利用系统资源">awk 中如何利用系统资源</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#执行-awk-程序的几种方式">执行 awk 程序的几种方式</a></li>
+        <li><a href="#改变-awk-切割字段的方式--自定义函数">改变 awk 切割字段的方式 &amp; 自定义函数</a></li>
+        <li><a href="#使用-getline-来读取数据">使用 getline 来读取数据</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>7. awk 程序的应用实例  </h1>
+
+          <div class="article-style">
+            <p>本节将示范一个统计上班到达时间及迟到次数的程序.<br>
+这程序每日被执行时将读入二个文件:<br>
+员工当日到班时间的数据文件 ( 如下列之 arr.dat )<br>
+存放员工当月迟到累计次数的文件.<br>
+当程序执行执完毕后将更新第二个文件的数据(迟到次数), 并打印当日的报表.这程序将分成下列数小节逐步完成, 其大纲如下:</p>
+<h3 id="71-在到班资料文件-arrdat-之前增加一行抬头">[7.1] 在到班资料文件 arr.dat 之前增加一行抬头</h3>
+<p>&ldquo;ID Number Arrvial Time&rdquo;, 并产生报表输出到文件today_rpt1 中.<br>
+&lt; 思考: 在awk中如何将数据输出到文件 &gt;</p>
+<h3 id="72将-today_rpt1-上的数据按员工代号排序-并加注执行当日日期-产生文件-today_rpt2">[7.2]将 today_rpt1 上的数据按员工代号排序, 并加注执行当日日期; 产生文件 today_rpt2</h3>
+<p>&lt;思考 awk中如何运用系统资源及awk中Pipe之特性 &gt;</p>
+<h3 id="73-将awk程序包含在一个shell-script文件中">[7.3] 将awk程序包含在一个shell script文件中</h3>
+<h3 id="74-于-today_rpt2-每日报表上-迟到者之前加上-并加注当日平均到班时间">[7.4] 于 today_rpt2 每日报表上, 迟到者之前加上&quot;*&quot;, 并加注当日平均到班时间;</h3>
+<p>产生文件 today_rpt3</p>
+<h3 id="75-从文件中读取当月迟到次数-并根据当日出勤状况更新迟到累计数">[7.5] 从文件中读取当月迟到次数, 并根据当日出勤状况更新迟到累计数.</h3>
+<p>&lt;思考 使用者在awk中如何读取文件数据 &gt;</p>
+<p>某公司其员工到勤时间档如下, 取名为 arr.dat. 文件中第一栏为员工代号, 第二栏为到达时间. 本范例中, 将使用该文件为数据文件.<br>
+1034 7:26<br>
+1025 7:27<br>
+1101 7:32<br>
+1006 7:45<br>
+1012 7:46<br>
+1028 7:49<br>
+1051 7:51<br>
+1029 7:57<br>
+1042 7:59<br>
+1008 8:01<br>
+1052 8:05<br>
+1005 8:12</p>
+<h3 id="重定向输出到文件">重定向输出到文件</h3>
+<p>awk中并未提供如 C 语言中之fopen() 指令, 也未有fprintf() 文件输出这样的指令. 但awk中任何输出函数之后皆可借助使用与UNIX 中类似的 I/O 重定向符, 将输出的数据重定向到指定的文件; 其符号仍为 &gt; (输出到一个新产生的文件) 或 &raquo; ( 添加输出的数据到文件末尾 ).</p>
+<h4 id="例-">[例 :]</h4>
+<h1 id="id-number-arrival-time">在到班数据文件 arr.dat 之前增加一行抬头如下:<br>
+&ldquo;ID Number Arrival Time&rdquo;, 并产生报表输出到文件 today_rpt1中<br>
+建立如下文件并取名为reformat1.awk<br>
+BEGIN { print &quot; ID Number Arrival Time&quot; &gt; &ldquo;today_rpt1&rdquo;<br>
+print &ldquo;===========================&rdquo; &gt; &ldquo;today_rpt1&rdquo;<br>
+}<br>
+{ printf(&quot; %s %s\n&quot;, $1,$2 ) &gt; &ldquo;today_rpt1&rdquo; }<br>
+执行:<br>
+$awk -f reformat1.awk arr.dat<br>
+执行后将产生文件 today_rpt1, 其内容如下 :<br>
+ID Number Arrival Time</h1>
+<p>1034 7:26<br>
+1025 7:27<br>
+1101 7:32<br>
+1006 7:45<br>
+1012 7:46<br>
+1028 7:49<br>
+1051 7:51<br>
+1029 7:57<br>
+1042 7:59<br>
+1008 8:01<br>
+1052 8:05<br>
+1005 8:12</p>
+<h4 id="-说-明---">[ 说 明 :  ]</h4>
+<p>awk程序中, 文件名称 today_rpt1 的前后须以&quot; (双引号)括住, 表示 today_rpt1 为一字符串常量. 若未以&quot;括住, 则 today_rpt1 将被awk解释为一个变量名称.<br>
+在awk中任何变量使用之前, 并不须事先声明. 其初始值为空字符串(Null string) 或 0.因此程序中若未以 &quot; 将 today_rpt1 括住, 则 today_rpt1 将是一变量, 其值将是空字符串, 这会在执行时造成错误(Unix 无法帮您开启一个以空字符串为文件名的文件).<br>
+因此在编辑awk程序时, 须格外留心. 因为若敲错变量名称,awk在编译程序时会认为是一新的变量, 并不会察觉. 因此往往会造成运行时错误.<br>
+BEGIN 为awk的保留字, 是 Pattern 的一种.<br>
+以 BEGIN 为 Pattern 的 Actions 于awk程序刚被执行尚未读取数据文件时被执行一次, 此后便不再被执行.<br>
+读者或许觉得本程序中的I/O重定向符号应使用 &quot; &raquo;&quot; (append)而非 &quot; &gt;&quot;.<br>
+本程序中若使用 &ldquo;&gt;&rdquo; 将数据重导到 today_rpt1, awk 第一次执行该指令时会产生一个新档 today_rpt1, 其后再执行该指令时则把数据追加到today_rpt1文件末, 并非每执行一次就重开一个新文件.<br>
+若采用&quot;&raquo;&ldquo;其差异仅在第一次执行该指令时, 若已存在today_rpt1则 awk 将直接把数据append在原文件之末尾. 这一点, 与UNIX中的用法不同.</p>
+<h3 id="awk-中如何利用系统资源">awk 中如何利用系统资源</h3>
+<p>awk程序中很容易使用系统资源. 这包括在程序中途调用 Shell 命令来处理程序中的部分数据; 或在调用 Shell 命令后将其产生的结果交回 awk 程序(不需将结果暂存于某个文件). 这一过程是借助 awk 所提供的管道 (虽然有些类似 Unix 中的管道, 但特性有些不同),及一个从 awk 中呼叫 Unix 的 Shell 命令的语法来达成的.</p>
+<h4 id="例--1">[例 :]</h4>
+<p>承上题, 将数据按员工ID排序后再输出到文件 today_rpt2 , 并于表头附加执行时的日期.</p>
+<h4 id="-分-析--">[ 分 析 : ]</h4>
+<p>awk 提供与 UNIX 用法近似的 pipe, 其记号亦为 &ldquo;|&rdquo;. 其用法及含意如下 :<br>
+awk程序中可接受下列两种语法:<br>
+[a. 语法] awk output 指令 | &ldquo;Shell 接受的命令&rdquo;<br>
+( 如 : print $1,$2 | &ldquo;sort -k 1&rdquo; )</p>
+<p>[b. 语法] &ldquo;Shell 接受的命令&rdquo; | awk input 指令<br>
+( 如 : &ldquo;ls &quot; | getline)</p>
+<blockquote>
+<p>注 : awk input 指令只有 getline 一个.<br>
+awk output 指令有 print, printf() 二个.</p>
+</blockquote>
+<p>在a 语法中, awk所输出的数据将转送往 Shell , 由 Shell 的命令进行处理.以上例而言, print 所输出的数据将经由 Shell 命令 &ldquo;sort -k 1&rdquo; 排序后再送往屏幕(stdout).<br>
+上列awk程序中, &ldquo;print$1, $2&rdquo; 可能反复执行很多次, 其输出的结果将先暂存于 pipe 中,等到该程序结束时, 才会一并进行 &ldquo;sort -k 1&rdquo;.<br>
+须注意二点 : 不论 print $1, $2 被执行几次, &ldquo;sort -k 1&rdquo; 的执行时间是 &ldquo;awk程序结束时&rdquo;,<br>
+&ldquo;sort -k 1&rdquo; 的执行次数是 &ldquo;一次&rdquo;.</p>
+<p>在 b 语法中, awk将先调用 Shell 命令. 其执行结果将通过 pipe 送入awk程序,以上例而言, awk先让 Shell 执行 &ldquo;ls&rdquo;,Shell 执行后将结果存于 pipe, awk指令 getline再从 pipe 中读取数据.<br>
+使用本语法时应留心: 以上例而言,awk &ldquo;立刻&quot;调用 Shell 来执行 &ldquo;ls&rdquo;, 执行次数是一次.<br>
+getline 则可能执行多次(若pipe中存在多行数据).<br>
+除上列 a, b 二中语法外, awk程序中其它地方如出现像 &ldquo;date&rdquo;, &ldquo;cls&rdquo;, &ldquo;ls&rdquo;&hellip; 这样的字符串, awk只把它当成一般字符串处理.</p>
+<p>建立如下文件并取名为 reformat2.awk<br>
+# 程序 reformat2.awk<br>
+# 这程序用以练习awk中的pipe</p>
+<pre><code>BEGIN {  
+&quot;date&quot; | getline # Shell 执行 &quot;date&quot;. getline 取得结果并以$0记录  
+print &quot; Today is &quot; , $2, $3 &gt;&quot;today_rpt2&quot;  
+print &quot;=========================&quot; &gt; &quot;today_rpt2&quot;  
+print &quot; ID Number Arrival Time&quot; &gt;&quot;today_rpt2&quot;  
+close( &quot;today_rpt2&quot; )  
+}  
+{printf( &quot;%s %s\n&quot;, $1 ,$2 ) | &quot;sort -k 1 &gt;&gt;today_rpt2&quot;}  
+</code></pre>
+<h1 id="today-is--09月-21日">执行如下命令:<br>
+awk -f reformat2.awk arr.dat<br>
+执行后, 系统会自动将 sort 后的数据追加( Append; 因为使用 &quot; &raquo;&quot;) 到文件 today_rpt2末端. today_rpt2 内容如下 :<br>
+Today is  09月 21日</h1>
+<p>ID Number Arrival Time<br>
+1005 8:12<br>
+1006 7:45<br>
+1008 8:01<br>
+1012 7:46<br>
+1025 7:27<br>
+1028 7:49<br>
+1029 7:57<br>
+1034 7:26<br>
+1042 7:59<br>
+1051 7:51<br>
+1052 8:05<br>
+1101 7:32</p>
+<h4 id="-说-明--">[ 说 明 : ]</h4>
+<p>awk程序由三个主要部分构成 :<br>
+[ i.] Pattern { Action} 指令<br>
+[ ii.] 函数主体. 例如 : function double( x ){ return 2*x } (参考第11节 Recursive Program )<br>
+[ iii.] Comment ( 以 # 开头识别之 )<br>
+awk 的输入指令 getline, 每次读取一列数据. 若getline之后<br>
+未接任何变量, 则所读入之资料将以$0 记录, 否则以所指定的变量储存之.</p>
+<h4 id="-以本例而言-">[ 以本例而言] :</h4>
+<p>执行 &ldquo;date&rdquo; | getline 后, $0 之值为 &ldquo;2007年 09月 21日 星期五 14:28:02 CST&rdquo;,当 $0 之值被更新时, awk将自动更新相关的内建变量, 如: $1,$2,..,NF.故 $2 之值将为&quot;09月&rdquo;, $3之值将为&quot;21日&rdquo;.<br>
+(有少数旧版的awk不允许即使用者自行更新(update)$0的值,或者更新$0时,它不会自动更新 $1,$2,..NF. 这情况下, 可改用gawk或nawk. 否则使用者也可自行以awk字符串函数split()来分隔$0上的数据)<br>
+本程序中 printf() 指令会被执行12次( 因为有arr.dat中有12行数据), 但读者不用担心数据被重复sort了12次. 当awk结束该程序时才会 close 这个 pipe , 此时才将这12行数据一次送往系统,并呼叫 &ldquo;sort -k 1 &raquo; today_rpt2&rdquo; 处理之.<br>
+awk提供另一个调用Shell命令的方法, 即使用awk函数system(&ldquo;shell命令&rdquo;)<br>
+例如:<br>
+$ awk '<br>
+BEGIN{<br>
+system(&ldquo;date &gt; date.dat&rdquo;)<br>
+getline &lt; &ldquo;date.dat&rdquo;<br>
+print &ldquo;Today is &ldquo;, $2, $3<br>
+}<br>
+'</p>
+<p>但使用 system( &ldquo;shell 命令&rdquo; ) 时, awk无法直接将执行中的部分数据输出给Shell 命令. 且 Shell 命令执行的结果也无法直接输入到awk中.</p>
+<h3 id="执行-awk-程序的几种方式">执行 awk 程序的几种方式</h3>
+<p>本小节中描述如何将awk程序直接写在 shell script 之中. 此后使用者执行 awk 程序时, 就不需要每次都键入 &quot; awk -f program datafile&rdquo; .<br>
+script 中还可包含其它 Shell 命令, 如此更可增加执行过程的自动化.<br>
+建立一个简单的 awk程序 mydump.awk, 如下:<br>
+{print}<br>
+这个程序执行时会把数据文件的内容 print 到屏幕上( 与cat功用类似 ).<br>
+print 之后未接任何参数时, 表示 &ldquo;print $0&rdquo;.<br>
+若欲执行该awk程序, 来印出文件 today_rpt1 及 today_rpt2 的内容时,<br>
+必须于 UNIX 的命令行上执行下列命令 :<br>
+方式一 awk -f mydump.awk today_rpt1 today_rpt2<br>
+方式二 awk &lsquo;{print}&rsquo; today_rpt1 today_rpt2第二种方式系将awk 程序直接写在 Shell 的命令行上, 这种方式仅适合较短的awk程序.<br>
+方式三 建立如下之 shell script, 并取名为 mydisplay,<br>
+#!/bin/sh</p>
+<p>注意以下的 awk 与 ' 之间须有空白隔开<br>
+awk '<br>
+{print}<br>
+' $*<br>
+注意以上的 ' 与 $* 之间须有空白隔开</p>
+<p>执行 mydisplay 之前, 须先将它改成可执行的文件(此步骤往后不再赘述). 请执行如下命令:<br>
+$ chmod +x mydisplay<br>
+往后使用者就可直接把 mydisplay 当成指令, 来display任何文件.<br>
+例如 :<br>
+$ ./mydisplay today_rpt1 today_rpt2<br>
+[ 说 明 : ]<br>
+在script文件 mydisplay 中, 指令&quot;awk&quot;与第一个 '  之间须有空格(Shell中并无&rdquo; awk' &ldquo;指令).<br>
+第一个 ' 用以通知 Shell 其后为awk程序.<br>
+第二个 ' 则表示 awk 程序结束.<br>
+故awk程序中一律以&quot;括住字符串或字符, 而不使用 ' , 以免Shell混淆.<br>
+$* 为 shell script中的用法, 它可用来代表命令行上 &ldquo;mydisplay之后的所有参数&rdquo;.<br>
+例如执行 :<br>
+$ mydisplay today_rpt1 today_rpt2<br>
+事实上 Shell 已先把该指令转换成 :<br>
+awk '<br>
+{ print}<br>
+' today_rpt1 today_rpt2<br>
+本例中, $* 用以代表 &ldquo;today_rpt1 today_rpt2&rdquo;. 在Shell的语法中, 可用 $1 代表第一个参数, $2 代表第二个参数. 当不确定命令行上的参数个数时, 可使用 $* 表之.<br>
+awk命令行上可同时指定多个数据文件.<br>
+以awk -f dump.awk today_rpt1 today_rpt2hf 为例,awk会先处理today_rpt1, 再处理 today_rpt2. 此时若文件无法打开, 将造成错误.</p>
+<p>例如: 不存在文件&quot;file_no_exist&rdquo;, 则执行 :<br>
+$ awk -f dump.awk file_no_exit<br>
+将产生运行时错误(无法打开文件).<br>
+但某些awk程序 &ldquo;仅&rdquo; 包含以 BEGIN 为Pattern的指令. 执行这种awk程序时, awk并不须开启任何数据文件.此时命令行上若指定一个不存在的数据文件,并不会产生 &ldquo;无法打开文件&quot;的错误.(事实上awk并未打开该文件)</p>
+<p>例如执行:<br>
+$ awk &lsquo;BEGIN {print &ldquo;Hello,World!!&quot;} ' file_no_exist<br>
+该程序中仅包含以 BEGIN 为 Pattern 的 Pattern {actions}, awk 执行时并不会开启任何数据文件; 所以不会因不存在文件file_no_exit而产生 &quot; 无法打开文件&quot;的错误.<br>
+awk会将 Shell 命令行上awk程序(或 -f 程序文件名)之后的所有字符串, 视为将输入awk进行处理的数据文件文件名.</p>
+<p>若执行awk的命令行上 &ldquo;未指定任何数据文件文件名&rdquo;, 则将stdin视为输入之数据来源, 直到输入end of file( Ctrl-D )为止.<br>
+读者可以用下列程序自行测试, 执行如下命令 :<br>
+$ awk -f mydump.awk  #(未接任何数据文件文件名)<br>
+或<br>
+$ ./mydisplay  #(未接任何数据文件文件名)</p>
+<p>将会发现: 此后键入的任何数据将逐行复印一份于屏幕上. 这情况不是机器当机 ! 是因为awk程序正处于执行中. 它正按程序指示, 将读取数据并重新dump一次; 只因执行时未指定数据文件文件名, 故awk 便以stdin(键盘上的输入)为数据来源. 读者可利用这个特点, 设计可与awk即时聊天的程序.</p>
+<h3 id="改变-awk-切割字段的方式--自定义函数">改变 awk 切割字段的方式 &amp; 自定义函数</h3>
+<p>awk不仅能自动分割字段, 也允许使用者改变其字段切割方式以适应各种格式之需要. 使用者也可自定义函数, 若有需要可将该函数单独写成一个文件,以供其它awk程序调用.</p>
+<h4 id="-范例--">[ 范例 : ]</h4>
+<p>承接 6.2 的例子, 若八点为上班时间, 请加注 &ldquo;*&ldquo;于迟到记录之前, 并计算平均上班时间.</p>
+<h4 id="-分-析-">[ 分 析: ]</h4>
+<p>因八点整到达者,不为迟到, 故仅以到达的小时数做判断是不够的; 仍应参考到达时的分钟数. 若 &ldquo;将到达时间转换成以分钟为单位&rdquo;, 不仅易于判断是否迟到, 同时也易于计算到达平均时间.<br>
+到达时间($2)的格式为 dd:dd 或 d:dd; 数字当中含有一个 &ldquo;:&quot;.但文本数字交杂的数据awk无法直接做数学运算. (注: awk中字符串&quot;26&quot;与数字26, 并无差异, 可直接做字符串或数学运算,这是awk重要特色之一. 但awk对文本数字交杂的字符串无法正确进行数学运算).</p>
+<h4 id="解决之方法-">解决之方法 :</h4>
+<h5 id="方法一">[方法一]</h5>
+<p>对到达时间($2) d:dd 或 dd:dd 进行字符串运算,分别取出到达的小时数及分钟数.</p>
+<p>首先判断到达小时数为一位或两位字符,再调用函数分别截取分钟数及小时数.<br>
+此解法需使用下列awk字符串函数:<br>
+length( 字符串 ) : 返回该字符串的长度.<br>
+substr( 字符串,起始位置,长度) :返回从起始位置起, 指定长度之子字符串. 若未指定长度, 则返回从起始位置到字符串末尾的子字符串.<br>
+所以:<br>
+小时数 = substr( $2, 1, length($2) - 3 )<br>
+分钟数 = substr( $2, length($2) - 2 )</p>
+<h5 id="方法二">[方法二]</h5>
+<p>改变输入列字段的切割方式, 使awk切割字段后分别将小时数及分钟数隔开于二个不同的字段.<br>
+字段分隔字符 FS (field seperator) 是awk的内建变量,其默认值是空白及tab. awk每次切割字段时都会先参考FS 的内容. 若把&rdquo;:&ldquo;也当成分隔字符, 则awk 便能自动把小时数及分钟数分隔成不同的字段.故令FS = &ldquo;[ \t:]+&rdquo; (注: [ \t:]+ 为一Regular Expression )<br>
+Regular Expression 中使用中括号 [ &hellip; ] 表示一个字符集合,用以表示任意一个位于两中括号间的字符.故可用&rdquo;[ \t:]&ldquo;表示 一个 空白 , tab 或 &ldquo;:&rdquo;<br>
+Regular Expression中使用 &ldquo;+&rdquo; 形容其前方的字符可出现一次<br>
+或一次以上.<br>
+故 &ldquo;[ \t:]+&rdquo; 表示由一个或多个 &ldquo;空白, tab 或 : &quot; 所组成的字符串.<br>
+设定 FS =&quot;[ \t:]+&rdquo; 后, 数据行如: &ldquo;1034 7:26&rdquo; 将被分割成3个字段<br>
+第一栏 第二栏 第三栏<br>
+$1 $2 $3<br>
+1034 7 26<br>
+明显地, awk程序中使用方法二比方法一更简洁方便. 本例子中采用方法二,也借此示范改变字段切割方式的用途.<br>
+编写awk程序 reformat3, 如下 :</p>
+<pre><code>#!/bin/sh  
+   
+awk '  
+BEGIN {  
+FS= &quot;[ \t:]+&quot; #改变字段切割的方式  
+&quot;date&quot; | getline # Shell 执行 &quot;date&quot;. getline 取得结果以$0记录  
+print &quot; Today is &quot; ,$2, $3 &gt; &quot;today_rpt3&quot;  
+print &quot;=========================&quot;&gt;&quot;today_rpt3&quot;  
+print &quot; ID Number Arrival Time&quot; &gt; &quot;today_rpt3&quot;  
+close( &quot;today_rpt3&quot; )  
+}  
+{  
+#已更改字段切割方式, $2表到达小时数, $3表分钟数  
+arrival = HM_to_M($2, $3)  
+printf(&quot; %s %s:%s %s\n&quot;, $1, $2, $3, arrival &gt; 480 ? &quot;*&quot;: &quot; &quot; ) | &quot;sort -k 1 &gt;&gt; today_rpt3&quot;  
+total += arrival  
+}  
+END {  
+close(&quot;today_rpt3&quot;)  
+close(&quot;sort -k 1 &gt;&gt; today_rpt3&quot;)  
+printf(&quot; Average arrival time : %d:%d\n&quot;,total/NR/60, (total/NR)%60 ) &gt;&gt; &quot;today_rpt3&quot;  
+}  
+function HM_to_M( hour, min ){  
+return hour*60 + min  
+}  
+' $*  
+</code></pre>
+<p>并执行如下指令:<br>
+$ ./reformat3 arr.dat<br>
+执行后,文件 today_rpt3 的内容如下:<br>
+Today is  09月 21日</p>
+<p>=========================<br>
+ID Number Arrival Time<br>
+1005 8:12 *<br>
+1006 7:45<br>
+1008 8:01 *<br>
+1012 7:46<br>
+1025 7:27<br>
+1028 7:49<br>
+1029 7:57<br>
+1034 7:26<br>
+1042 7:59<br>
+1051 7:51<br>
+1052 8:05 *<br>
+1101 7:32<br>
+Average arrival time : 7:49</p>
+<h4 id="-说-明---1">[ 说 明 : ]</h4>
+<p>awk 中亦允许使用者自定函数. 函数定义方式请参考本程序, function 为 awk 的保留字.<br>
+HM_to_M( ) 这函数负责将所传入之小时及分钟数转换成以分钟为单位. 使用者自定函数时, 还有许多细节须留心, 如data scope,.. ( 请参考 第十节 Recursive Program)</p>
+<p>awk中亦提供与 C 语言中相同的 Conditional Operator. 上式printf()中使用arrival &gt;480 ? &ldquo;<em>&rdquo; : &quot; &quot; 即为一例若 arrival 大于 480 则return &ldquo;</em>&rdquo; , 否则return &quot; &ldquo;.</p>
+<p>% 为awk的运算符(operator), 其作用与 C 语言中之 % 相同(取余数).<br>
+NR(Number of Record) 为awk的内建变量. 表示awk执行该程序后所读入的记录笔数.</p>
+<p>awk 中提供的 close( )指令, 语法如下(有二种) :<br>
+close( filename )<br>
+close( 置于pipe之前的command )<br>
+为何本程序使用了两个 close( ) 指令 :<br>
+指令 close( &ldquo;sort -k 1 &raquo; today_rpt3&rdquo; ), 其意思为 close 程序中置于 &ldquo;sort -k 1 &raquo; today_rpt3 &quot; 之前的 Pipe , 并立刻调用 Shell 来执行&quot;sort -k 1 &raquo; today_rpt3&rdquo;. (若未执行这指令, awk必须于结束该程序时才会进行上述动作;则这12笔sort后的数据将被 append 到文件 today_rpt3 中<br>
+&ldquo;Average arrival time : &hellip;&rdquo; 的后方)<br>
+因为 Shell 排序后的数据也要写到 today_rpt3, 所以awk必须先关闭使用中的today_rpt3 以使 Shell 正确将排序后的数据追加到today_rpt3否则2个不同的 process 同时打开一个文件进行输出将会产生不可预期的结果.<br>
+读者应留心上述两点,才可正确控制数据输出到文件中的顺序.<br>
+指令 close(&ldquo;sort -k 1 &raquo; today_rpt3&rdquo;)中字符串 &ldquo;sort -k 1 &raquo; today_rpt3&rdquo; 必须与 pipe | 后方的 Shell Command 名称一字不差, 否则awk将视为二个不同的 pipe.<br>
+读者可于BEGIN{}中先令变量 Sys_call = &ldquo;sort -k 1 &raquo; today_rpt3&rdquo;,<br>
+程序中再一律以 Sys_call 代替该字符串.</p>
+<h3 id="使用-getline-来读取数据">使用 getline 来读取数据</h3>
+<p>[ 范 例 : ] 承上题,从文件中读取当月迟到次数, 并根据当日出勤状况更新迟到累计数.(按不同的月份累计于不同的文件)<br>
+[ 分 析 : ]<br>
+程序中自动抓取系统日期的月份名称, 连接上&quot;late.dat&rdquo;, 形成累计迟到次数的文件名称(如 : 09月late.dat,&hellip;), 并以变量late_file记录该文件名.<br>
+累计迟到次数的文件中的数据格式为: 员工代号(ID) 迟到次数<br>
+例如, 执行本程序前文件 09月late.dat 的内容为 :<br>
+1012 0<br>
+1006 1<br>
+1052 2<br>
+1034 0<br>
+1005 0<br>
+1029 2<br>
+1042 0<br>
+1051 0<br>
+1008 0<br>
+1101 0<br>
+1025 1<br>
+1028 0</p>
+<p>编写程序 reformat4 如下:</p>
+<pre><code>#!/bin/sh  
+   
+awk '  
+BEGIN {  
+Sys_Sort = &quot;sort -k 1 &gt;&gt; today_rpt4&quot;  
+Result = &quot;today_rpt4&quot;  
+# 改变字段切割的方式  
+FS = &quot;[ \t:]+&quot;  
+# 令 Shell执行&quot;date&quot;; getline 读取结果,并以$0记录  
+&quot;date&quot; | getline  
+print &quot; Today is &quot; , $2, $3 &gt;Result  
+print &quot;=========================&quot; &gt; Result  
+print &quot; ID Number Arrival Time&quot; &gt; Result  
+close( Result )  
+# 从文件按中读取迟到数据, 并用数组cnt[ ]记录. 数组cnt[ ]中以  
+# 员工代号为下标, 所对应的值为该员工之迟到次数.  
+late_file = $2&quot;late.dat&quot;  
+while( getline &lt; late_file &gt;0 ) cnt[$1] = $2  
+close( late_file )  
+}  
+{  
+# 已更改字段切割方式, $2表小时数,$3表分钟数  
+arrival = HM_to_M($2, $3)  
+if( arrival &gt; 480 ){  
+mark = &quot;*&quot; # 若当天迟到,应再增加其迟到次数, 且令mark 为&quot;*&quot;.  
+cnt[$1]++ }  
+else mark = &quot; &quot;  
+   
+# message 用以显示该员工的迟到累计数, 若未曾迟到message为空字符串  
+message = cnt[$1] ? cnt[$1] &quot; times&quot; : &quot;&quot;  
+printf(&quot;%s %2d:%2d %5s %s\n&quot;, $1, $2, $3, mark, message ) | Sys_Sort  
+total += arrival  
+}  
+END {  
+close( Result )  
+close( Sys_Sort )  
+printf(&quot; Average arrival time : %d:%d\n&quot;, total/NR/60, (total/NR)%60 ) &gt;&gt; Result  
+#将数组cnt[ ]中新的迟到数据写回文件中  
+for( any in cnt )  
+print any, cnt[any] &gt; late_file  
+}  
+function HM_to_M( hour, min ){  
+return hour*60 + min  
+}  
+' $*  
+</code></pre>
+<p>执行后, today_rpt4 之内容如下 :<br>
+Today is  09月 21日</p>
+<p>=========================<br>
+ID Number Arrival Time<br>
+1005  8:12     * 1 times<br>
+1006  7:45       1 times<br>
+1008  8: 1     * 1 times<br>
+1012  7:46     <br>
+1025  7:27       1 times<br>
+1028  7:49     <br>
+1029  7:57       2 times<br>
+1034  7:26     <br>
+1042  7:59     <br>
+1051  7:51     <br>
+1052  8: 5     * 3 times<br>
+1101  7:32     <br>
+Average arrival time : 7:49<br>
+09月late.dat 文件被修改为如下:<br>
+1005 1<br>
+1012 0<br>
+1006 1<br>
+1008 1<br>
+1101 0<br>
+1025 1<br>
+1034 0<br>
+1042 0<br>
+1028 0<br>
+1029 2<br>
+1051 0<br>
+1052 3</p>
+<h4 id="说-明-">说 明 :</h4>
+<p>late_file 是一变量, 用以记录迟到次数的文件的文件名.<br>
+late_file之值由两部分构成, 前半部是当月月份名称(由调用&quot;date&quot;取得)后半部固定为&quot;late.dat&rdquo; 如: 09月late.dat.<br>
+指令 getline &lt; late_file 表示从late_file所代表的文件中读取一笔记录, 并存放于$0.<br>
+若使用者可自行把数据放入$0, awk会自动对这新置入 $0 的数据进行字段分割. 之后程序中可用$1, $2,..来表示该笔资料的第一栏,第二栏,..,<br>
+(注: 有少数awk版本不容许使用者自行将数据置于 $0, 遇此情况可改用gawk或nawk)<br>
+执行getline指令时, 若成功读取记录,它会返回1. 若遇到文件结束, 它返回0; 无法打开文件则返回-1.<br>
+利用 while( getline &lt; filename &gt;0 ) {&hellip;.}可读入文件中的每一笔数据并予处理. 这是awk中用户自行读取数据文件的一个重要模式.<br>
+数组 cnt[ ] 以员工ID. 当下标(index), 其对应值表示其迟到的次数.<br>
+执行结束后, 利用 for(Variable in array ){&hellip;}的语法<br>
+for( any in cnt ) print any, cnt[any] &gt; late_file<br>
+将更新过的迟到数据重新写回记录迟到次数的文件. 该语法在前面曾有说明.</p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/internal/zhuqianshu.awk-best-manual/6/" rel="next">6. awk 程序中使用 Shell 命令 </a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/internal/zhuqianshu.awk-best-manual/8/" rel="prev">8. 处理多行的数据</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>最近更新于 Dec 21, 2020</p>
+
+          
+
+
+
+          
+
+
+          
+
+
+  
+  
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1655 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="附录 A ── Pattern awk 通过判断 Pattern 之值来决定是否执行其后所对应的Act">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.awk-best-manual/12/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.awk-best-manual/12/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.awk-best-manual/12/">
+  <meta property="og:title" content="12.附录 | JiangLab">
+  <meta property="og:description" content="附录 A ── Pattern awk 通过判断 Pattern 之值来决定是否执行其后所对应的Act"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-12-21T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-12-21T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>12.附录 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/internal/zhuqianshu.awk-best-manual/">首页</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/1/">1. 前言</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/2/">2. awk概述  </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/3/">3. 如何执行awk</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/4/">4. 选择符合指定条件的记录  </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/5/">5. awk 中数组</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/6/">6. awk 程序中使用 Shell 命令 </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/7/">7. awk 程序的应用实例  </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/8/">8. 处理多行的数据</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/9/">9. 如何读取命令行上的参数 </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/10/">10.编写可与用户交互的 awk 程序 </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/11/">11.使用 awk 编写递归程序</a>
+      </li>
+      
+      <li class="active">
+        <a href="/internal/zhuqianshu.awk-best-manual/12/">12.附录</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">在本页</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#附录-a---pattern">附录 A ──  Pattern</a>
+      <ul>
+        <li><a href="#begin">BEGIN</a></li>
+        <li><a href="#end">END</a></li>
+        <li><a href="#关系表达式">关系表达式</a></li>
+        <li><a href="#正则表达式">正则表达式</a></li>
+        <li><a href="#混合-pattern">混合 Pattern</a></li>
+        <li><a href="#pattern1--pattern2">Pattern1 , Pattern2</a></li>
+      </ul>
+    </li>
+    <li><a href="#附录-b--actions">附录 B ── Actions</a>
+      <ul>
+        <li><a href="#流程控制指令">流程控制指令</a></li>
+        <li><a href="#if-指令">if 指令</a></li>
+        <li><a href="#while-指令">while 指令</a></li>
+        <li><a href="#do-while-指令">do-while 指令</a></li>
+        <li><a href="#for-statement-指令一">for Statement 指令(一)</a></li>
+        <li><a href="#for-statement-指令二">for Statement 指令(二)</a></li>
+        <li><a href="#break-指令">break 指令</a></li>
+        <li><a href="#continue-指令">continue 指令</a></li>
+        <li><a href="#next-指令">next 指令</a></li>
+        <li><a href="#exit-指令">exit 指令</a></li>
+        <li><a href="#awk-中的-io-指令">awk 中的 I/O 指令</a></li>
+        <li><a href="#printf-指令">printf 指令</a></li>
+        <li><a href="#print-指令">print 指令</a></li>
+        <li><a href="#getline-指令">getline 指令</a></li>
+        <li><a href="#close--指令">close  指令</a></li>
+        <li><a href="#system-指令">system 指令</a></li>
+        <li><a href="#-pipe指令">&ldquo;|&rdquo; pipe指令</a></li>
+        <li><a href="#awk-释放所占用的记忆体的指令">awk 释放所占用的记忆体的指令</a></li>
+        <li><a href="#awk-中的数学运算符arithmetic-operators">awk 中的数学运算符(Arithmetic Operators)</a></li>
+        <li><a href="#awk-中的赋值运算符assignment-operators">awk 中的赋值运算符(Assignment Operators)</a></li>
+        <li><a href="#awk-中的条件运算符conditional--operator">awk 中的条件运算符(Conditional  Operator)</a></li>
+        <li><a href="#awk-中的逻辑运算符logical-operators">awk 中的逻辑运算符(Logical Operators)</a></li>
+        <li><a href="#awk-中的关系运算符relational-operators">awk 中的关系运算符(Relational Operators)</a></li>
+        <li><a href="#awk-中其它的运算符">awk 中其它的运算符</a></li>
+        <li><a href="#awk-中各运算符的运算级">awk 中各运算符的运算级</a></li>
+      </ul>
+    </li>
+    <li><a href="#附录c--awk-的內建函数built-in-functions">附录C ── awk 的內建函数(Built-in Functions)</a>
+      <ul>
+        <li><a href="#一-字串函数">(一). 字串函数</a></li>
+        <li><a href="#index-原字串-找寻的子字串-">index( 原字串, 找寻的子字串 ):</a></li>
+        <li><a href="#length-字串---返回该字串的长度">length( 字串 ) : 返回该字串的长度.</a></li>
+        <li><a href="#match-原字串-用以找寻比对的正则表达式-">match( 原字串, 用以找寻比对的正则表达式 ):</a></li>
+        <li><a href="#split-原字串-数组名称-分隔字符-">split( 原字串, 数组名称, 分隔字符 ):</a></li>
+        <li><a href="#sprintf格式字符串-项1-项2-">sprintf(格式字符串, 项1, 项2, &hellip;)</a></li>
+        <li><a href="#sub-比对用的正则表达式-将替換的新字串-原字串-">sub( 比对用的正则表达式, 将替換的新字串, 原字串 )</a></li>
+        <li><a href="#gsub-比对用的正则表达式-将替換的新字串-原字串-">gsub( 比对用的正则表达式, 将替換的新字串, 原字串 )</a></li>
+        <li><a href="#substr-字串起始位置-长度-">substr( 字串,起始位置 [,长度] ):</a></li>
+        <li><a href="#二-数学函数">(二). 数学函数</a></li>
+        <li><a href="#intx--返回x的整数部分去掉小数">int(x) : 返回x的整数部分(去掉小数).</a></li>
+        <li><a href="#sqrtx--返回x的平方根">sqrt(x) : 返回x的平方根.</a></li>
+        <li><a href="#expx--将返回e的x次方">exp(x) : 将返回e的x次方.</a></li>
+        <li><a href="#logx--将返回x以e为底的对数值">log(x) : 将返回x以e为底的对数值.</a></li>
+        <li><a href="#sinx--x-须以弧度为单位sinx将返回x的sin函数值">sin(x) : x 须以弧度为单位,sin(x)将返回x的sin函数值.</a></li>
+        <li><a href="#cosx--x-须以弧度为单位cosx将返回x的cos函数值">cos(x) : x 须以弧度为单位,cos(x)将返回x的cos函数值</a></li>
+        <li><a href="#atan2yx--返回-yx-的tan反函数之值返回值系以弧度为单位">atan2(y,x) : 返回 y/x 的tan反函数之值,返回值系以弧度为单位.</a></li>
+        <li><a href="#rand--返回介于-0与1之间的近似随机数值-0--rand1">rand() : 返回介于 0与1之间的(近似)随机数值; 0 &lt; rand()&lt;1.</a></li>
+        <li><a href="#srandx--指定以x为rand-函数起始的种子">srand([x]) : 指定以x为rand( )函数起始的种子.</a></li>
+      </ul>
+    </li>
+    <li><a href="#附录d--awk-的內建变量-built-in-variables">附录D ── awk 的內建变量 Built-in Variables</a>
+      <ul>
+        <li><a href="#argc">ARGC</a></li>
+        <li><a href="#argv">ARGV</a></li>
+        <li><a href="#filename">FILENAME</a></li>
+        <li><a href="#fs">FS</a></li>
+        <li><a href="#0">$0</a></li>
+        <li><a href="#12">$1,$2..</a></li>
+        <li><a href="#nr">NR</a></li>
+        <li><a href="#fnr">FNR</a></li>
+        <li><a href="#nf">NF</a></li>
+        <li><a href="#ofs">OFS</a></li>
+        <li><a href="#ors">ORS</a></li>
+        <li><a href="#ofmt">OFMT</a></li>
+        <li><a href="#rs">RS</a></li>
+        <li><a href="#rstart">RSTART</a></li>
+        <li><a href="#rlength">RLENGTH</a></li>
+        <li><a href="#subsep">SUBSEP</a></li>
+      </ul>
+    </li>
+    <li><a href="#附录e--正则表达式regular-expression-简介">附录E ── 正则表达式(Regular Expression) 简介</a>
+      <ul>
+        <li><a href="#为什么要使用正则表达式">为什么要使用正则表达式</a></li>
+        <li><a href="#什么是正则表达式">什么是正则表达式</a></li>
+        <li><a href="#组成正则表达式的元素">组成正则表达式的元素</a></li>
+        <li><a href="#match是什么">match是什么?</a></li>
+        <li><a href="#awk-中提供二个关系运算符relational-operator见注一----">awk 中提供二个关系运算符(Relational Operator,见注一) ~   !~,</a></li>
+        <li><a href="#应用-regular-expression-解题的简例">应用 Regular Expression 解题的简例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>12.附录</h1>
+
+          <div class="article-style">
+            <h2 id="附录-a---pattern">附录 A ──  Pattern</h2>
+<p>awk 通过判断 Pattern 之值来决定是否执行其后所对应的Actions.这里列出几种常见的Pattern :</p>
+<h3 id="begin">BEGIN</h3>
+<p>BEGIN 为 awk 的保留字, 是一种特殊的 Pattern.<br>
+BEGIN 成立(其值为true)的时机是: &ldquo;awk 程序一开始执行, 尚未读取任何数据之前.&rdquo; 所以在 BEGIN { Actions } 语法中, 其 Actions 部份仅于程序一开始执行时被执行一次. 当 awk 从数据文件读入数据行后, BEGIN 便不再成立, 故不论有多少数据行, 该 Actions 部份仅被执行<br>
+一次.<br>
+一般常把 &ldquo;与数据文件内容无关&rdquo; 与 &ldquo;只需执行ㄧ次&rdquo; 的部分置于该Actions(以 BEGIN 为 Pattern)中.<br>
+例如:<br>
+BEGIN {<br>
+FS = &ldquo;[ \t:]&rdquo; # 于程序一开始时, 改变awk切割字段的方式<br>
+RS = &quot;&quot; # 于程序一开始时, 改变awk分隔数据行的方式<br>
+count = 100 # 设定变量 count 的起始值<br>
+print &quot; This is a title line &quot; # 印出一行 title<br>
+}<br>
+&hellip;&hellip;. # 其它 Pattern { Actions } &hellip;..<br>
+有些awk程序甚至&quot;不需要读入任何数据行&quot;. 遇到这情况可把整个程序置于以 BEGIN 为 Pattern的 Actions 中.<br>
+例如 :<br>
+BEGIN { print &quot; Hello ! the Word ! &quot; }<br>
+注意 :执行该类仅含 BEGIN { Actions } 的程序时, awk 并不会开启任何数据文件进行处理.</p>
+<h3 id="end">END</h3>
+<p>END 为 awk 的保留字, 是另一种特殊的 Pattern.<br>
+END 成立(其值为true)的时机与 BEGIN 恰好相反, 为:&ldquo;awk 处理完所有数据, 即将离开程序时&quot;平常读入数据行时, END并不成立, 故其对应的 Actions 并不被执行; 唯有当awk读完所有数据时, 该 Actions 才会被执行<br>
+注意 : 不管数据行有多少笔, 该 Actions 仅被执行一次.</p>
+<h3 id="关系表达式">关系表达式</h3>
+<p>使用像 &quot; A 关系运算符 B&rdquo; 的表达式当成 Pattern.<br>
+当 A 与 B 存在所指定的关系(Relation)时, 该 Pattern 就算成立(true).<br>
+例如 :<br>
+length($0) &lt;= 80 { print $0 }<br>
+上式中 length($0)&lt;= 80 是一个 Pattern, 当 $0(数据行)之长度小于等于80时该 Pattern 之值为true, 将执行其后的 Action (打印该数据行).</p>
+<p>awk 中提供下列 关系运算符(Relation Operator)<br>
+运算符 含意<br>
+&gt; 大于<br>
+&lt; 小于<br>
+&gt;= 大于或等于<br>
+&lt;= 小于或等于<br>
+== 等于<br>
+!= 不等于<br>
+~ match<br>
+!~ not match<br>
+上列关系运算符除~(match)与!~(not match)外与 C 语言中之含意一致.<br>
+~(match) 与!~(match) 在 awk 之含意简述如下 :<br>
+若 A 为一字符串, B 为一正则表达式.<br>
+A ~B 判断 字符串A 中是否 包含 能匹配(match)B式样的子字符串.<br>
+A !~B 判断 字符串A 中是否 未包含 能匹配(match)B式样的子字符串.<br>
+例如 :<br>
+$0 ~ /program[0-9]+.c/ { print $0 }<br>
+$0 ~ /program[0-9]+.c/ 整个是一个 Pattern, 用来判断$0(数据行)中是否含有可 match /program[0-9]+.c/ 的子字符串, 若$0 中含有该类字符串, 则执行 print (打印该行数据).<br>
+Pattern 中被用来比对的字符串为$0 时(如本例), 可仅以正则表达式部分表示整个Pattern.<br>
+故本例的 Pattern 部分$0 ~/program[0-9]+.c/ 可仅用/program[0-9]+.c/表之(有关匹配及正则表达式请参考 附录 E )</p>
+<h3 id="正则表达式">正则表达式</h3>
+<p>直接使用正则表达式当成 Pattern; 此为 $0 ~ 正则表达式 的简写.<br>
+该 Pattern 用以判断 $0(数据行) 中是否含有匹配该正则表达式的子字符串; 若含有该成立(true) 则执行其对应的 Actions.<br>
+例如 :<br>
+/^[0-9]<em>$/ { print &ldquo;This line is a integer !&rdquo; }<br>
+与 $0 ~/^[0-9]</em>$/ { print &ldquo;This line is a integer !&rdquo; } 相同</p>
+<h3 id="混合-pattern">混合 Pattern</h3>
+<p>之前所介绍的各种 Patterns, 其计算后结果为一逻辑值(True or False).awk 中逻辑值彼此间可通过&amp;&amp;(and), ||(or),  !(not) 结合成一个新的逻辑值.故不同 Patterns 彼此可通过上述结合符号来结合成一个新的 Pattern. 如此可进行复杂的条件判断.<br>
+例 如 :<br>
+FNR &gt;= 23 &amp;&amp; FNR &lt;= 28 { print &quot;     &quot; $0 }<br>
+上式利用&amp;&amp; (and) 将两个 Pattern 求值的结果合并成一个逻辑值.<br>
+该式将数据文件中 第23行 到 28行 向右移5格(先输出5个空白字符)后输出.<br>
+( FNR 为awk的内建变量, 请参考 附录 D )</p>
+<h3 id="pattern1--pattern2">Pattern1 , Pattern2</h3>
+<p>遇到这种 Pattern, awk 会帮您设立一个 switch(或flag).<br>
+当awk读入的数据行使得 Pattern1 成立时, awk 会打开(turn on)这 switch.<br>
+当awk读入的数据行使得 Pattern2 成立时, awk 会关上(turn off)这个 switch.<br>
+该 Pattern 成立的条件是 :<br>
+当这个 switch 被打开(turn on)时 (包括 Pattern1, 或 Pattern2 成立的情况)<br>
+例 如 :<br>
+FNR &gt;= 23 &amp;&amp; FNR &lt;= 28 { print &quot;     &quot; $0 }<br>
+可改写为<br>
+FNR == 23 , FNR == 28 { print &quot;     &quot; $0 }<br>
+说 明 :<br>
+当 FNR &gt;= 23 时, awk 就 turn on 这个 switch; 因为随着数据行的读入, awk不停的累加 FNR. 当 FNR = 28 时, Pattern2 (FNR == 28) 便成立, 这时 awk 会关上这个 switch.<br>
+当 switch 打开的期间, awk 会执行  print &quot;     &quot; $0<br>
+( FNR 为awk的内建变量, 请参考 附录 D )</p>
+<h2 id="附录-b--actions">附录 B ── Actions</h2>
+<p>Actions 是由下列指令(statement)所组成 :</p>
+<ul>
+<li>表达式 ( function calls, assignments..)</li>
+<li>print 表达式列表</li>
+<li>printf( 格式化字符串, 表达式列表)</li>
+<li>if( 表达式 ) 语句 [else 语句]</li>
+<li>while( 表达式 ) 语句</li>
+<li>do 语句 while( 表达式)</li>
+<li>for( 表达式; 表达式; 表达式) 语句</li>
+<li>for( variable in array) 语句</li>
+<li>delete</li>
+<li>break</li>
+<li>continue</li>
+<li>next</li>
+<li>exit [表达式]</li>
+<li>语句</li>
+</ul>
+<p>awk 中大部分指令与 C 语言中的用法一致, 此处仅介绍较为常用或容易混淆的指令的用法.</p>
+<h3 id="流程控制指令">流程控制指令</h3>
+<h3 id="if-指令">if 指令</h3>
+<p>语法<br>
+if (表达式) 语句1 [else 语句2 ]<br>
+范例 :<br>
+if( $1 &gt; 25 )<br>
+print &ldquo;The 1st field is larger than 25&rdquo;<br>
+else print &ldquo;The 1st field is not larger than 25&rdquo;<br>
+(a)与 C 语言中相同, 若 表达式 计算(evaluate)后之值不为 0 或空字符串, 则执行 语句1; 否则执行 语句2.<br>
+(b)进行逻辑判断的表达式所返回的值有两种, 若最后的逻辑值为true, 则返回1, 否则返回0.<br>
+(c)语法中else 语句2 以[ ] 前后括住表示该部分可视需要而予加入或省略.</p>
+<h3 id="while-指令">while 指令</h3>
+<p>语法 :<br>
+while( 表达式 ) 语句<br>
+范例 :<br>
+while( match(buffer,/[0-9]+.c/ ) ){<br>
+print &ldquo;Find :&rdquo; substr( buffer,RSTART, RLENGTH)<br>
+buff = substr( buffer, RSTART + RLENGTH)<br>
+}<br>
+上列范例找出 buffer 中所有能匹配 /[0-9]+.c/(数字之后接上 &ldquo;.c&quot;的所有子字符串).<br>
+范例中 while 以函数 match( )所返回的值做为判断条件. 若buffer 中还含有匹配指定条件的子字符串(match成功), 则 match()函数返回1,while 将持续进行其后的语句.</p>
+<h3 id="do-while-指令">do-while 指令</h3>
+<p>语法 :<br>
+do 语句 while(表达式)<br>
+范例 :<br>
+do{<br>
+print &ldquo;Enter y or n ! &quot;<br>
+getline data<br>
+} while( data !~ /^[YyNn]$/)</p>
+<p>(a) 上例要求用户从键盘上输入一个字符, 若该字符不是Y, y, N, 或 n则会不停执行该循环, 直到读取正确字符为止.<br>
+(b)do-while 指令与 while 指令 最大的差异是 : do-while 指令会先执行statement而后再判断是否应继续执行. 所以, 无论如何其 statement 部分至少会执行一次.</p>
+<h3 id="for-statement-指令一">for Statement 指令(一)</h3>
+<p>语法 :<br>
+for(variable in  array ) statement<br>
+范例 : 执行下列命令<br>
+awk '<br>
+BEGIN{<br>
+X[1]= 50; X[2]= 60; X[&ldquo;last&rdquo;]= 70<br>
+for( any in X )<br>
+printf(&ldquo;X[%s] = %d\n&rdquo;, any, X[any] )<br>
+}'<br>
+结果输出 :<br>
+X[last] = 70<br>
+X[1] = 50<br>
+X[2] = 60<br>
+(a)这个 for 指令, 专用以查找数组中所有的下标值, 并依次使用所指定的变量予以记录. 以本例而言, 变量 any 将逐次代表 &ldquo;last&rdquo;, 1 及2 .<br>
+(b)以这个 for 指令, 所查找出的下标之值彼此间并无任何次续关系.<br>
+(c)第5节中有该指令的使用范例, 及解说.</p>
+<h3 id="for-statement-指令二">for Statement 指令(二)</h3>
+<p>语法 :<br>
+for(expression1; expression2; expression3) statement<br>
+范例 :<br>
+for(ｉ=1; i&lt; =10; i++)  sum = sum + i<br>
+说明 :<br>
+(a)上列范例用以计算 1 加到 10 的总和.<br>
+(b)expression1  常用于设定该 for 循环的起始条件, 如上例中的 i=1<br>
+expression2 用于设定该循环的停止条件, 如上例中的 i &lt;= 10<br>
+expression3 常用于改变 counter 之值, 如上例中的 i++</p>
+<h3 id="break-指令">break 指令</h3>
+<p>break 指令用以强迫中断(跳离) for, while, do-while 等循环.<br>
+范例 :<br>
+while(  getline &lt; &ldquo;datafile&rdquo; &gt; 0 )<br>
+{<br>
+if( $1 == 0 )<br>
+break<br>
+else<br>
+print $2 / $1<br>
+}<br>
+上例中, awk 不断地从文件 datafile 中读取资料, 当$1等于0时,就停止该执行循环.</p>
+<h3 id="continue-指令">continue 指令</h3>
+<p>循环中的 statement 进行到一半时, 执行 continue 指令来略过循环中尚未执行的statement.<br>
+范例 :<br>
+for( index in X_array)<br>
+{<br>
+if( index !~ /[0-9]+/ )  continue<br>
+print &ldquo;There is a digital index&rdquo;, index<br>
+}<br>
+上例中若 index 不为数字则执行 continue, 故将略过(不执行)其后的指令.<br>
+需留心 continue 与 break 的差异 : 执行 continue 只是掠过其后未执行的statement, 但并未跳离开该循环.</p>
+<h3 id="next-指令">next 指令</h3>
+<p>执行 next 指令时, awk 将掠过位于该指令(next)之后的所有指令(包括其后的所有Pattern { Actions }), 接著读取下一笔数据行,继续从第一个 Pattern {Actions} 执行起.<br>
+范例 :<br>
+/^[ \t]<em>$/  {  print &ldquo;This is a blank line! Do nothing here !&rdquo;<br>
+next<br>
+}<br>
+$2 != 0 { print $1, $1/$2 }<br>
+上例中, 当 awk 读入的数据行为空白行时( match /^[ ]</em>$/ ),除打印消息外只执行 next, 故 awk 将略过其后的指令, 继续读取下一笔资料, 从头(第一个 Pattern { Actions })执行起.</p>
+<h3 id="exit-指令">exit 指令</h3>
+<p>执行 exit 指令时, awk将立刻跳离(停止执行)该awk程序.</p>
+<h3 id="awk-中的-io-指令">awk 中的 I/O 指令</h3>
+<h3 id="printf-指令">printf 指令</h3>
+<p>该指令与 C 语言中的用法相同, 可借由该指令控制资料输出时的格式.<br>
+语法 :<br>
+printf(&ldquo;format&rdquo;, item1, item2,.. )<br>
+范 例 :<br>
+id = &ldquo;BE-2647&rdquo;;  ave = 89<br>
+printf(&ldquo;ID# : %s   Ave Score : %d\n&rdquo;, id, ave)<br>
+(a)结果印出 :<br>
+ID# : BE-2647   Ave Score : 89<br>
+(b)format 部分是由 一般的字串(String Constant) 及 格式控制字符(Formatcontrol letter, 其前会加上一个%字符)所构成. 以上式为例&quot;ID# : &quot; 及 &quot;  Ave Score : &quot; 为一般字串. %s 及 %d 为格式控制字符.<br>
+(c)打印时, 一般字串将被原封不动地打印出来. 遇到格式控制字符时,则依序把 format后方之 item 转换成所指定的格式后进行打印.<br>
+(d)有关的细节, 读者可从介绍 C 语言的书籍上得到较完整的介绍.<br>
+(e)print 及 printf 两个指令, 其后可使用 &gt; 或 &raquo; 将输出到stdout 的数据重定向到其它文件, 7.1 节中有完整的</p>
+<h3 id="print-指令">print 指令</h3>
+<p>范 例 :<br>
+id = &ldquo;BE-267&rdquo;;  ave = 89<br>
+print &ldquo;ID# :&rdquo;, id, &ldquo;Ave Score :&ldquo;ave<br>
+(a)结果印出 :<br>
+ID# : BE-267 Ave Score :89<br>
+(b)print 之后可接上字串常数(Constant String)或变量. 它们彼此间可用&rdquo;,&rdquo; 隔开.<br>
+(c)上式中, 字串 &ldquo;ID# :&rdquo; 与变量 id 之间使用&rdquo;,&ldquo;隔开, 打印时两者之间会以自动 OFS(请参考 附录D 內建变量 OFS) 隔开. OFS 之值一般內定为 &ldquo;一个空格&rdquo;<br>
+(d)上式中, 字串 &ldquo;Ave Score :&rdquo; 与变量ave之间并未以&rdquo;,&ldquo;隔开, awk会将这两者先当成字串concate在一起(变成&quot;Ave Score :89&rdquo;)后,再予打印</p>
+<h3 id="getline-指令">getline 指令</h3>
+<p>语法<br>
+语法由何处读取数据数据读入后置于getline var &lt; file所指定的 file变量 var(var省略时,表示置于$0)getline varpipe 变量变量 var(var省略时,表示置于$0)getline var见 注一变量 var(var省略时,表示置于$0)<br>
+getline 一次读取一行资料, 若读取成功则return 1,若读取失败则return -1, 若遇到文件结束(EOF), 则return 0</p>
+<h3 id="close--指令">close  指令</h3>
+<p>该指令用以关闭一个打开的文件, 或 pipe (见下例)<br>
+范 例 :<br>
+BEGIN {  print &ldquo;ID #   Salary&rdquo; &gt; &ldquo;data.rpt&rdquo; } <br>
+{  print $1 , $2 * $3  | &ldquo;sort -k 1 &gt; data.rpt&rdquo; }  <br>
+END{  close( &ldquo;data.rpt&rdquo; )<br>
+close( &ldquo;sort -k 1 &gt; data.rpt&rdquo; )<br>
+print &quot; There are&rdquo;, NR, &ldquo;records processed.&rdquo;<br>
+}<br>
+说 明 :<br>
+(a)上例中, 一开始执行 print &ldquo;ID #   Salary&rdquo; &gt; &ldquo;data.rpt&rdquo; 指令来输出一行抬头. 它使用 I/O Redirection ( &gt; )将数据转输出到data.rpt,故此时文件 data.rpt 是处於 Open 状态.<br>
+(b)指令 print $1, $2 * $3 不停的将输出的资料送往 pipe(|), awk在程序将结束时才会呼叫 shell 使用指令 &ldquo;sort -k 1 &gt; data.rpt&rdquo; 来处理 pipe 中的数据; 并未立即执行, 这点与 Unix中pipe的用法不尽相同.<br>
+(c)最后希望於文件 data.rpt 的末尾处加上一行 &ldquo;There are&hellip;..&quot;.但此时, Shell尚未执行 &ldquo;sort -k 1 &gt; data.rpt&rdquo; 故各数据行排序后的 ID 及 Salary 等数据尚未写入data.rpt. 所以得命令 awk 提前先通知 Shell 执行命令 &ldquo;sort -k 1 &gt; data.rpt&rdquo; 来处理 pipe 中的资料. awk中这个动作称为 close pipe. 是由执行 close ( &ldquo;shell command&rdquo; )来完成. 需留心 close( )指令中的 shell command<br>
+需与&rdquo;|&ldquo;后方的 shell command 完全相同(一字不差), 较佳的方法是先以该字串定义一个简短的变量, 程序中再以此变量代替该shell command <br>
+(d)为什么执行 close(&ldquo;data.rpt&rdquo;) ?  因为 sort 完后的资料也将写到data.rpt,而该文件正为awk所打开使用(write)中, 故awk程式中应先关闭data.rpt. 以免造成因二个 processes 同时打开一个文件进行输出(write)所产生的错误.</p>
+<h3 id="system-指令">system 指令</h3>
+<p>该指令用以执行 Shell上的 command.<br>
+范 例 :<br>
+DataFile = &ldquo;invent.rpt&rdquo;<br>
+system( &ldquo;rm &quot; DataFile )<br>
+说明 :<br>
+(a)system(&ldquo;字符串&rdquo;)指令接受一个字符串当成Shell的命令. 上例中, 使用一个字串常数&quot;rm &quot; 连接(concate)一个变量 DataFile 形成要求 Shell 执行的命令.Shell 实际执行的命令为 &ldquo;rm invent.rpt&rdquo;.</p>
+<h3 id="-pipe指令">&ldquo;|&rdquo; pipe指令</h3>
+<p>&ldquo;|&rdquo; 配合 awk 输出指令, 可把 output 到 stdout 的资料继续转送给Shell 上的某一命令当成input的资料.<br>
+&ldquo;|&rdquo;  配合 awk getline 指令, 可呼叫 Shell 执行某一命令, 再以 awk 的 getline 指令将该命令的所产生的资料读进 awk 程序中.<br>
+范 例 :<br>
+{ print $1, $2 * $3  | &ldquo;sort -k 1 &gt; result&rdquo; }    <br>
+&ldquo;date&rdquo; |  getline  Date_data<br>
+读者请参考7.2 节,其中有完整的范例说明.</p>
+<h3 id="awk-释放所占用的记忆体的指令">awk 释放所占用的记忆体的指令</h3>
+<p>awk 程式中常使用数组(Array)来记忆大量数据, delete 指令便是用来释放数组中的元素所占用的内存空间.<br>
+范 例 :<br>
+for( any in X_arr )<br>
+delete X_arr[any]<br>
+读者请留心, delete 指令一次只能释放数组中的一个元素.</p>
+<h3 id="awk-中的数学运算符arithmetic-operators">awk 中的数学运算符(Arithmetic Operators)</h3>
+<p>+(加), -(減), *(乘), /(除), %(求余数), ^(指数) 与 C 语言中用法相同</p>
+<h3 id="awk-中的赋值运算符assignment-operators">awk 中的赋值运算符(Assignment Operators)</h3>
+<p>=, +=, -=, *= , /=, %=, ^=<br>
+x += 5 的意思为 x = x + 5, 其余类推.</p>
+<h3 id="awk-中的条件运算符conditional--operator">awk 中的条件运算符(Conditional  Operator)</h3>
+<p>语 法 :<br>
+判断条件 ? value1 : value2<br>
+若 判断条件 成立(true) 则返回 value1, 否则返回 value2.</p>
+<h3 id="awk-中的逻辑运算符logical-operators">awk 中的逻辑运算符(Logical Operators)</h3>
+<p>&amp;&amp;( and ), ||(or), !(not)<br>
+Extended Regular Expression 中使用 &ldquo;|&rdquo; 表示 or 请勿混淆.</p>
+<h3 id="awk-中的关系运算符relational-operators">awk 中的关系运算符(Relational Operators)</h3>
+<p>&gt;, &gt;=, &lt;, &lt; =, ==, !=, ~, !~</p>
+<h3 id="awk-中其它的运算符">awk 中其它的运算符</h3>
+<p>+(正号), -(负号),  ++(Increment Operator), - -(Decrement Operator)</p>
+<h3 id="awk-中各运算符的运算级">awk 中各运算符的运算级</h3>
+<p>按优先高低排列:<br>
+$       (栏位运算元, 例如 : i=3; $i表示第3栏)<br>
+^       (指数运算)<br>
++ ,- ,! (正,负号,及逻辑上的 not)<br>
+* ,/ ,% (乘,除,余数)<br>
++ ,-    (加,減)<br>
+&gt;, &gt;  =,&lt; , &lt; =, ==, != (关系运算符)<br>
+~, !~   (match, not match)<br>
+&amp;&amp;      (逻辑上的 and)<br>
+||      (逻辑上的 or )<br>
+? :     (条件运算符)<br>
+= , +=, -=,*=, /=, %=, ^= (赋值运算符)</p>
+<h2 id="附录c--awk-的內建函数built-in-functions">附录C ── awk 的內建函数(Built-in Functions)</h2>
+<h3 id="一-字串函数">(一). 字串函数</h3>
+<h3 id="index-原字串-找寻的子字串-">index( 原字串, 找寻的子字串 ):</h3>
+<p>若原字串中含有欲找寻的子字串,则返回该子字串在原字串中第一次出现的位置,若未曾出现该子字串则返回0.<br>
+例如执行 :<br>
+$ awk  &lsquo;BEGIN{ print index(&ldquo;8-12-94&rdquo;,&quot;-&quot;) }&rsquo;<br>
+结果印出<br>
+2</p>
+<h3 id="length-字串---返回该字串的长度">length( 字串 ) : 返回该字串的长度.</h3>
+<p>例如执行 :　　<br>
+$ awk  &lsquo;BEGIN { print length(&ldquo;John&rdquo;) &lsquo;}<br>
+结果印出<br>
+4</p>
+<h3 id="match-原字串-用以找寻比对的正则表达式-">match( 原字串, 用以找寻比对的正则表达式 ):</h3>
+<p>awk会在原字串中找寻合乎正则表达式的子字串. 若合乎条件的子字串有多个, 则以原字串中最左方的子字串为准.<br>
+awk找到该字串后会依此字串为依据进行下列动作:<br>
+设定awk內建变量 RSTART, RLENGTH :<br>
+RSTART =  合条件的子字串在原字串中的位置.<br>
+=  0 ; 若未找到合条件的子字串.<br>
+RLENGTH = 合条件的子字串长度.<br>
+= -1 ; 若未找到合条件的子字串.<br>
+返回 RSTART 之值.<br>
+例如执行 :<br>
+awk ' BEGIN {<br>
+match( &ldquo;banana&rdquo;, /(an)+/ )<br>
+print RSTART, RLENGTH<br>
+} '    　　　<br>
+执行结果输出<br>
+2 4</p>
+<h3 id="split-原字串-数组名称-分隔字符-">split( 原字串, 数组名称, 分隔字符 ):</h3>
+<p>awk将依所指定的分隔字符(field separator)来分隔原字串成一个个的栏位(field),并以指定的数组记录各个被分隔的栏位.<br>
+例如 :<br>
+ArgLst = &ldquo;5P12p89&rdquo;<br>
+split( ArgLst, Arr, /[Pp]/)<br>
+执行后 : Arr[1]=5,  Arr[2]=12,  Arr[3]=89</p>
+<h3 id="sprintf格式字符串-项1-项2-">sprintf(格式字符串, 项1, 项2, &hellip;)</h3>
+<p>该函数的用法与awk或C的输出函数printf()相同. 所不同的是sprintf()会将要求印出的结果当成一个字串返回. 一般最常使用sprintf()来改变资料格式. 如: x 为一数值资料, 若欲将其变成一个含二位小数的资料,可执行如下指令:<br>
+x = 28<br>
+x = sprintf(&quot;%.2f&rdquo;,x)<br>
+执行后 x = &ldquo;28.00&rdquo;</p>
+<h3 id="sub-比对用的正则表达式-将替換的新字串-原字串-">sub( 比对用的正则表达式, 将替換的新字串, 原字串 )</h3>
+<p>sub( )将原字串中第一个(最左边)合乎所指定的正则表达式的子字串改以新字串取代.<br>
+第二个参数&quot;将替換的新字串&quot;中可用&rdquo;&amp;&ldquo;来代表&quot;合於条件的子字串&rdquo;<br>
+承上例,执行下列指令:<br>
+A = &ldquo;a6b12anan212.45an6a&rdquo;<br>
+sub( /(an)+[0-9]*/, &ldquo;[&amp;]&rdquo;, A)<br>
+print A<br>
+结果输出<br>
+ab12[anan212].45an6a<br>
+sub()不仅可执行替换(replacement)的功用,当第二个参数为空字串(&quot;&quot;)时,sub()所执行的是&quot;去除指定字串&quot;的功用.<br>
+通过 sub() 与 match() 的搭配使用,可逐次取出原字串中合乎指定条件的所有子字串.<br>
+例如执行下列程式:<br>
+awk '<br>
+BEGIN {<br>
+data = &ldquo;p12-P34 P56-p61&rdquo;<br>
+while( match( data ,/[0-9]+/) &gt; 0) {<br>
+print substr(data, RSTART, RLENGTH )<br>
+sub(/[0-9]+/,&quot;&quot;,data)<br>
+}<br>
+}&rsquo;<br>
+结果输出 :<br>
+12<br>
+34<br>
+56<br>
+61<br>
+sub( )中第三个参数(原字串)若未指定,则其预设值为$0.<br>
+可用 sub( /[9-0]+/,&ldquo;digital&rdquo; ) 表示 sub(/[0-9]+/,&ldquo;digital&rdquo;,$0 )</p>
+<h3 id="gsub-比对用的正则表达式-将替換的新字串-原字串-">gsub( 比对用的正则表达式, 将替換的新字串, 原字串 )</h3>
+<p>这个函数与 sub()一样,同样是进行字串取代的函数. 唯一不同点是<br>
+gsub()会取代所有合条件的子字串.<br>
+gsub()会返回被取代的子字串个数.</p>
+<p>请参考 sub().</p>
+<h3 id="substr-字串起始位置-长度-">substr( 字串,起始位置 [,长度] ):</h3>
+<p>返回从起始位置起,指定长度的子字串. 若未指定长度,则返回起始位置到字串末尾的子字串.<br>
+执行下例<br>
+$ awk &lsquo;BEGIN { print substr(&ldquo;User:Wei-Lin Liu&rdquo;, 6)}&rsquo;<br>
+结果印出<br>
+Wei-Lin Liu</p>
+<h3 id="二-数学函数">(二). 数学函数</h3>
+<h3 id="intx--返回x的整数部分去掉小数">int(x) : 返回x的整数部分(去掉小数).</h3>
+<p>例如 :<br>
+int(7.8) 将返回 7<br>
+int(-7.8) 将返回 -7</p>
+<h3 id="sqrtx--返回x的平方根">sqrt(x) : 返回x的平方根.</h3>
+<p>例如 :<br>
+sqrt(9) 将返回 3<br>
+若 x 为负数,则执行 sqrt(x)时将造成 Run Time Error [译者注: 我这里没有发生错误,返回的是&quot;nan&quot;]</p>
+<h3 id="expx--将返回e的x次方">exp(x) : 将返回e的x次方.</h3>
+<p>例如 :<br>
+exp(1) 将返回 2.71828</p>
+<h3 id="logx--将返回x以e为底的对数值">log(x) : 将返回x以e为底的对数值.</h3>
+<p>例如 :<br>
+log(exp(1))  将返回 1<br>
+若 x&lt; 0 ,则执行 sqrt(x)时将造成 Run Time Error. [译者注: 我这里也没有发生错误,返回的是&quot;nan&quot;]</p>
+<h3 id="sinx--x-须以弧度为单位sinx将返回x的sin函数值">sin(x) : x 须以弧度为单位,sin(x)将返回x的sin函数值.</h3>
+<h3 id="cosx--x-须以弧度为单位cosx将返回x的cos函数值">cos(x) : x 须以弧度为单位,cos(x)将返回x的cos函数值</h3>
+<h3 id="atan2yx--返回-yx-的tan反函数之值返回值系以弧度为单位">atan2(y,x) : 返回 y/x 的tan反函数之值,返回值系以弧度为单位.</h3>
+<h3 id="rand--返回介于-0与1之间的近似随机数值-0--rand1">rand() : 返回介于 0与1之间的(近似)随机数值; 0 &lt; rand()&lt;1.</h3>
+<p>除非使用者自行指定rand()函数起始的种子,否则每次执行awk程式时,  rand()函数都将使用同一个內定的种子,来产生随机数.</p>
+<h3 id="srandx--指定以x为rand-函数起始的种子">srand([x]) : 指定以x为rand( )函数起始的种子.</h3>
+<p>若省略了x,则awk会以执行时的日期与时间为rand()函数起始的种子.</p>
+<h2 id="附录d--awk-的內建变量-built-in-variables">附录D ── awk 的內建变量 Built-in Variables</h2>
+<p>因內建变量的个数不多, 此处按其相关性分类说明, 并未按其字母顺序排列.</p>
+<h3 id="argc">ARGC</h3>
+<p>ARGC表示命令行上除了选项 -F, -v, -f 及其所对应的参数之外的所有参数的个数.若将&quot;awk程式&quot;直接写於命令列上, 则 ARGC 亦不将该&quot;程式部分&quot;列入计算.</p>
+<h3 id="argv">ARGV</h3>
+<p>ARGV数组用以记录命令列上的参数.<br>
+例 : 执行下列命令<br>
+$ awk  -F\t -v a=8 -f prg.awk  file1.dat file2.dat<br>
+或<br>
+$ awk  -F\t -v a=8 &lsquo;{ print $1 * a }&rsquo; file1.dat file2.dat<br>
+执行上列任一程式后<br>
+ARGC    =  3<br>
+ARGV[0] = &ldquo;awk&rdquo;<br>
+ARGV[1] = &ldquo;file1.dat&rdquo;<br>
+ARGV[2] = &ldquo;file2.dat&rdquo;<br>
+读者请留心 : 当 ARGC = 3 时, 命令列上仅指定了 2 个文件.<br>
+注 :<br>
+-F\t 表示以 tab 为栏位分隔字符 FS(field seporator).<br>
+-v a=8 是用以初始化程序中的变量 a.</p>
+<h3 id="filename">FILENAME</h3>
+<p>FILENAME用以表示目前正在处理的文件档名.</p>
+<h3 id="fs">FS</h3>
+<p>栏位分隔字符.</p>
+<h3 id="0">$0</h3>
+<p>表示目前awk所读入的数据行.</p>
+<h3 id="12">$1,$2..</h3>
+<p>分別表示所读入的数据行之第一栏, 第二栏,..<br>
+说明:<br>
+当awk读入一笔数据行 &ldquo;A123  8:15&rdquo; 时,会先以$0 记录.<br>
+故 $0 = &ldquo;A123  8:15&rdquo;<br>
+若程序中进一步使用了 $1, $2.. 或 NF 等內建变量时, awk才会自动分割 $0.<br>
+以便取得栏位相关的资料. 切割后各个栏位的资料会分別以$1, $2, $3&hellip;予以记录.<br>
+awk內定(default)的 栏位分隔字符(FS) 为 空白字符(空格及tab).<br>
+以本例而言, 读者若未改变 FS, 则分割后:<br>
+第一栏($1)=&ldquo;A123&rdquo;,  第二栏($2)=&ldquo;8:15&rdquo;.<br>
+使用者可用正则表达式自行定义 FS. awk每次需要分割数据行时, 会参考目前FS的值.<br>
+例如 :<br>
+令 FS = &ldquo;[ :]+&rdquo; 表示任何由 空白&quot; &quot; 或 冒号&quot;:&quot; 所组成的字串都可当成分隔字符, 则分割后 : <br>
+第一栏($1) = &ldquo;A123&rdquo;, 第二栏($2) = &ldquo;8&rdquo;, 第三栏($3) = &ldquo;15&rdquo;</p>
+<h3 id="nr">NR</h3>
+<p>NR 表从 awk 开始执行该程序后所读取的数据行数.</p>
+<h3 id="fnr">FNR</h3>
+<p>FNR 与 NR 功用类似. 不同的是awk每打开一个新的文件,FNR 便从 0 重新累计</p>
+<h3 id="nf">NF</h3>
+<p>NF表目前的数据行所被切分的栏位数.<br>
+awk 每读入一笔资料后, 在程序中可以 NF 来得知该行数据包含的栏位个数.在下一笔资料被读入之前, NF 并不会改变. 但使用者若自行使用$0来记录数据,例如: 使用 getline , 此时 NF将代表新的 $0 上所记载的资料的栏位个数.</p>
+<h3 id="ofs">OFS</h3>
+<p>OFS输出时的栏位分隔字符. 预设值 &quot; &ldquo;(一个空白), 详见下面说明.</p>
+<h3 id="ors">ORS</h3>
+<p>ORS输出时数据行的分隔字符. 预设值 &ldquo;\n&rdquo;(跳行), 见下面说明.</p>
+<h3 id="ofmt">OFMT</h3>
+<p>OFMT数值资料的输出格式. 预设值 &ldquo;%.6g&rdquo;(若须要时最多印出6位小数)<br>
+当使用 print 指令一次印出多项资料时,<br>
+例如 : print $1, $2<br>
+输出时, awk会自动在 $1 与 $2 之间补上一个 OFS 之值<br>
+每次使用 print 输出后, awk会自动补上 ORS 之值.<br>
+使用 print 输出数值数据时, awk将采用 OFMT 之值为输出格式.<br>
+例如 :<br>
+$ awk &lsquo;BEGIN { print 2/3,1; OFS=&quot;:&quot;; OFMT=&quot;%.2g&rdquo;; print 2/3,1 }&rsquo;<br>
+输出:<br>
+0.666667 1<br>
+0.67:1<br>
+程序中通过改变OFS和OFMT的值, 改变了指令 print 的输出格式.</p>
+<h3 id="rs">RS</h3>
+<p>RS( Record Separator) : awk从文件上读取资料时, 将根据 RS 的定义把资料切割成许多Records,而awk一次仅读入一个Record,以进行处理.<br>
+RS 的预设值是 &ldquo;\n&rdquo;. 所以一般 awk一次仅读入一行资料.<br>
+有时一个Record含括了几行资料(Multi-line Record). 这情況下不能再以&quot;\n&quot;<br>
+来分隔相邻的Records, 可改用 空白行 来分隔.<br>
+在awk程式中,令 RS = &quot;&quot; 表示以 空白行 来分隔相邻的Records.</p>
+<h3 id="rstart">RSTART</h3>
+<p>RSTART与使用字串函数 match( )有关的变量,详见下面说明.</p>
+<h3 id="rlength">RLENGTH</h3>
+<p>RLENGTH与使用字串函数match( )有关之变量.<br>
+当使用者使用 match(&hellip;) 函数后, awk会将 match(&hellip;) 执行的结果以RSTART,RLENGTH 记录.<br>
+请参考 附录 C awk的內建函数 match().</p>
+<h3 id="subsep">SUBSEP</h3>
+<p>SUBSEP(Subscript Separator) 数组下标的分隔字符,<br>
+预设值为&quot;\034&quot;实际上, awk中的 数组 只接受 字串 当它的下标,如: Arr[&ldquo;John&rdquo;].<br>
+但使用者在 awk 中仍可使用 数字 当阵列的下标, 甚至可使用多维的数组(Multi-dimenisional Array) 如: Arr[2,79]<br>
+事实上, awk在接受 Arr[2,79] 之前, 就已先把其下标转换成字串&quot;2\03479&quot;, 之后便以Arr[&ldquo;2\03479&rdquo;] 代替 Arr[2,79].<br>
+可参考下例 :<br>
+awk &lsquo;BEGIN {<br>
+Arr[2,79] = 78<br>
+print  Arr[2,79]<br>
+print  Arr[ 2 , 79 ]<br>
+print  Arr[&ldquo;2\03479&rdquo;]<br>
+idx = 2 SUBSEP 79<br>
+print Arr[idx]<br>
+}<br>
+' $*<br>
+执行结果输出:<br>
+78<br>
+78<br>
+78<br>
+78</p>
+<h2 id="附录e--正则表达式regular-expression-简介">附录E ── 正则表达式(Regular Expression) 简介</h2>
+<h3 id="为什么要使用正则表达式">为什么要使用正则表达式</h3>
+<p>UNIX 中提供了许多 指令 和 tools, 它们具有在文件中 查找(Search)字串或替换(Replace)字串 的功能. 像 grep, vi , sed, awk,&hellip;<br>
+不论是查找字串或替换字串, 都得先告诉这些指令所要查找(被替换)的字串为何.若未能预先明确知道所要查找(被替换)的字串为何, 只知该字串存在的范围或特征时,例如 :<br>
+(一)找寻 &ldquo;T0.c&rdquo;, &ldquo;T1.c&rdquo;, &ldquo;T2.c&rdquo;&hellip;. &ldquo;T9.c&rdquo; 当中的任一字串.<br>
+(二)找寻至少存在一个 &ldquo;A&quot;的任意字串.<br>
+这情況下, 如何告知执行查找字串的指令所要查找的字串为何.<br>
+例 (一) 中, 要查找任一在 &ldquo;T&rdquo; 与 &ldquo;.c&rdquo; 之间存在一个阿拉伯数字的字串;当然您可以列举的方式, 一一把所要找寻的字串告诉执行命令的指令.但例 (二) 中合乎该条件的字串有无限种可能,势必无法一一列举.此时,便需要另一种字串表示的方法(协定).</p>
+<h3 id="什么是正则表达式">什么是正则表达式</h3>
+<p>正则表达式(以下简称 Regexp)是一种字串表达的方式. 可用以指定具有某特征的所有字串.<br>
+注: 为区別于一般字串, 本附录中代表 Regexp 的字串之前皆加 &ldquo;Regexp&rdquo;. awk 程式中常以/&hellip;./括住 Regexp; 以区別于一般字串.</p>
+<h3 id="组成正则表达式的元素">组成正则表达式的元素</h3>
+<p>普通字符 除了 . * [ ] + ? ( ) \  ^ $ 外之所有字符.<br>
+由普通字符所组成的Regexp其意义与原字串字面意义相同.<br>
+例如: Regexp &ldquo;the&rdquo; 与一般字串的 &ldquo;the&rdquo; 代表相同的意义.<br>
+. (Meta character) : 用以代表任意一字符.<br>
+须留心 UNIX Shell 中使用 &ldquo;<em>&ldquo;表示 Wild card, 可用以代表任意长度的字串.而 Regexp 中使用 &ldquo;.&rdquo; 来代表一个任意字符.(注意: 并非任意长度的字串)Regexp 中 &ldquo;</em>&rdquo; 另有其它涵意, 并不代表任意长度的字串.<br>
+^ 表示该字串必须出现于行首. <br>
+$ 表示该字串必须出现于行末.<br>
+例如 :<br>
+Regexp /^The/ 用以表示所有出现于行首的字串 &ldquo;The&rdquo;.<br>
+Regexp /The$/ 用以表示所有出现于行末字串 &ldquo;The&rdquo;.<br>
+\ 将特殊字符还原成字面意义的字符(Escape character)<br>
+Regexp 中特殊字符将被解释成特定的意义. 若要表示特殊字符的字面(literal meaning)意义时,在特殊字符之前加上&rdquo;&quot;即可.<br>
+例如 :<br>
+使用Regexp来表示字串 &ldquo;a.out&quot;时, 不可写成 /a.out/.<br>
+因为 &ldquo;.&ldquo;是特殊字符, 表任一字符. 可符合 Regexp / a.out/ 的字串将不只 &ldquo;a.out&rdquo; 一个; 字串 &ldquo;a2out&rdquo;, &ldquo;a3out&rdquo;, &ldquo;aaout&rdquo; &hellip;都符合 Regexp /a.out/  正确的用法为:  / a.out/<br>
+[&hellip;]字符集合, 用以表示两中括号间所有的字符当中的任一个.<br>
+例如:<br>
+Regexp /[Tt]/ 可用以表示字符 &ldquo;T&rdquo; 或 &ldquo;t&rdquo;.故 Regexp /[Tt]he/ 表示 字串 &ldquo;The&rdquo; 或 &ldquo;the&rdquo;.<br>
+字符集合 [&hellip;] 內不可随意留空白.<br>
+例如: Regexp /[ Tt ]/ 其中括号內有空白字符, 除表示&quot;T&rdquo;, &ldquo;t&rdquo; 中任一个字符, 也可代表一个 &quot; &ldquo;(空白字符)</p>
+<ul>
+<li>字符集合中可使用 &ldquo;-&rdquo; 来指定字符的区间, 其用法如下:<br>
+Regexp /[0-9]/ 等于 /[0123456789]/ 用以表示任意一个阿拉伯数字.<br>
+同理 Regexp /[A-Z]/ 用以表示任意一个大写英文字母.<br>
+但应留心:<br>
+Regexp /[0-9a-z]/ 并不等于 /[0-9][a-z]/; 前者表示一个字符,后者表示二个字符.<br>
+Regexp /[-9]/ 或 /[9-]/ 只代表字符 &ldquo;9&quot;或 &ldquo;-&rdquo;.<br>
+[^&hellip;]使用[^..] 产生字符集合的补集(complement set).<br>
+其用法如下 :<br>
+例如: 要指定 &ldquo;T&rdquo; 或 &ldquo;t&rdquo; 之外的任一个字符, 可用 /[^Tt]/ 表之.<br>
+同理 Regexp /[^a-zA-Z]/ 表示英文字母之外的任一个字符.<br>
+须留心 &ldquo;^&rdquo; 的位置 : &ldquo;^&ldquo;必须紧接於&rdquo;[&ldquo;之后, 才代表字符集合的补集<br>
+例如 :Regexp /[0-9^]/ 只是用以表示一个阿拉伯数字或字符&rdquo;^&rdquo;.</li>
+</ul>
+<ul>
+<li>形容字符重复次数的特殊字符.<br>
+&ldquo;<em>&rdquo; 形容它前方之字符可出现 1 次或多次, 或不出现(0次).<br>
+例如:<br>
+Regexp /T[0-9]</em>.c/ 中 * 形容其前 [0-9] (一个阿拉伯数字)出现的次数可为 0次或 多次.故Regexp /T[0-9]*.c/ 可用以表示&quot;T.c&rdquo;, &ldquo;T0.c&rdquo;, &ldquo;T1.c&rdquo;&hellip;&ldquo;T19.c&rdquo;<br>
++形容其前的字符出现一次或一次以上.<br>
+例如:<br>
+Regexp /[0-9]+/ 用以表示一位或一位以上的数字.<br>
+?  形容其前的字符可出现一次或不出现.<br>
+例如:<br>
+Regexp /[+-]?[0-9]+/ 表示数字(一位以上)之前可出现正负号或不出现正负号.<br>
+(&hellip;)用以括住一群字符,且将之视成一个group(见下面说明)<br>
+例如 :<br>
+Regexp /12+/   表示字串 &ldquo;12&rdquo;, &ldquo;122&rdquo;, &ldquo;1222&rdquo;, &ldquo;12222&rdquo;,&hellip;<br>
+Regexp /(12)+/ 表示字串 &ldquo;12&rdquo;, &ldquo;1212&rdquo;, &ldquo;121212&rdquo;, &ldquo;12121212&rdquo;&hellip;.<br>
+上式中 12 以( )括住, 故 &ldquo;+&rdquo; 所形容的是 12, 重复出现的也是 12.<br>
+| 表示逻辑上的&quot;或&rdquo;(or)<br>
+例如:<br>
+Regexp / Oranges? | apples?  | water/ 可用以表示 :  字串 &ldquo;Orange&rdquo;, &ldquo;Oranges&rdquo; 或 &ldquo;apple&rdquo;, &ldquo;apples&rdquo;  或 &ldquo;water&rdquo;</li>
+</ul>
+<h3 id="match是什么">match是什么?</h3>
+<p>讨论 Regexp 时, 经常遇到 &ldquo;某字串匹配( match )某 Regexp&quot;的字眼. 其意思为 :  &ldquo;这个 Regexp 可被解释成该字串&rdquo;.<br>
+[ 例如] :<br>
+字串 &ldquo;the&rdquo; 匹配(match) Regexp /[Tt]he/.<br>
+因为 Regexp /[Tt]he/ 可解释成字串 &ldquo;the&rdquo; 或 &ldquo;The&rdquo;, 故字串 &ldquo;the&rdquo; 或 &ldquo;The&quot;都匹配(match) Regexp /[Th]he/.</p>
+<h3 id="awk-中提供二个关系运算符relational-operator见注一----">awk 中提供二个关系运算符(Relational Operator,见注一) ~   !~,</h3>
+<p>它们也称之为 match, not match.但函义与一般常称的 match 略有不同.<br>
+其定义如下:<br>
+A  表一字串, B 表一 Regular Expression<br>
+只要 A 字串中存在有子字串可 match( 一般定义的 match) Regexp  B , 则 A ~B 就算成立, 其值为 true, 反之则为 false.<br>
+! ~ 的定义与~恰好相反.<br>
+例 如 :<br>
+&ldquo;another&rdquo; 中含有子字串 &ldquo;the&rdquo; 可 match Regexp /[Tt]he/ , 所以<br>
+&ldquo;another&rdquo; ~ /[Tt]he/  之值为 true.<br>
+[注 一] : 有些论著不把这两个运算符( ~, !~)与 Relational Operators 归为一类.</p>
+<h3 id="应用-regular-expression-解题的简例">应用 Regular Expression 解题的简例</h3>
+<p>下面列出一些应用 Regular Expression 的简例, 部分范例中会更改$0 之值, 若您使用的 awk不允许用户更改 $0时, 请改用 gawk. <br>
+例1:<br>
+将文件中所有的字串 &ldquo;Regular Expression&rdquo; 或 &ldquo;Regular expression&rdquo; 换成 &ldquo;Regexp&rdquo;<br>
+awk '<br>
+{ gsub( /Regular[ \t]+[Ee]xpression/, &ldquo;Regexp&rdquo;)<br>
+print<br>
+}<br>
+' $*<br>
+例2:<br>
+去除文件中的空白行(或仅含空白字符或tab的行)<br>
+awk &lsquo;$0 !~ /^[ \t]<em>$/ { print }&rsquo; $</em><br>
+例3:<br>
+在文件中具有 ddd-dddd (电话号码型态, d 表digital)的字串前加上&quot;TEL : &quot;<br>
+awk '<br>
+{ gsub( /[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]/, &ldquo;TEL : &amp;&rdquo; )<br>
+print<br>
+}<br>
+' $*<br>
+例4:<br>
+从文件的 Fullname 中分离出 路径 与 档名<br>
+awk '<br>
+BEGIN{<br>
+Fullname = &ldquo;/usr/local/bin/xdvi&rdquo;<br>
+match( Fullname, /.<em>//)<br>
+path = substr(Fullname, 1, RLENGTH-1)<br>
+name = substr(Fullname, RLENGTH+1)<br>
+print &ldquo;path :&rdquo;, path,&rdquo;  name :&quot;,name<br>
+}<br>
+' $</em><br>
+结果印出<br>
+path : /usr/local/bin   name : xdvi<br>
+例5:<br>
+将某一数值改以现金表示法表示(整数部分每三位加一撇,且含二位小数)<br>
+awk '<br>
+BEGIN {<br>
+Number = 123456789<br>
+Number = sprintf(&quot;$%.2f&rdquo;,Number)<br>
+while( match(Number,/[0-9][0-9][0-9][0-9]/ ) )<br>
+sub(/[0-9][0-9][0-9][.,]/, &ldquo;,&amp;&rdquo;, Number)<br>
+print Number<br>
+}<br>
+' $*<br>
+结果输出<br>
+$123,456,789.00<br>
+例6:<br>
+把文件中所有具 &ldquo;program数字.f&quot;形态的字串改为&rdquo;[Ref : program数字.c]&rdquo;<br>
+awk '<br>
+{<br>
+while( match( $0, /program[0-9]+.f/ )  ){<br>
+Replace = &ldquo;[Ref : &quot; substr( $0, RSTART, RLENGTH-2) &ldquo;.c]&rdquo;<br>
+sub( /program[0-9]+.f/, Replace)<br>
+}<br>
+print<br>
+}<br>
+' $*</p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/internal/zhuqianshu.awk-best-manual/11/" rel="next">11.使用 awk 编写递归程序</a>
+  </div>
+  
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>最近更新于 Dec 21, 2020</p>
+
+          
+
+
+
+          
+
+
+          
+
+
+  
+  
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

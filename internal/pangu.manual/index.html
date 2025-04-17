@@ -1,0 +1,1877 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="盘古服务器（10.11.41.109）的主要安装软件、注释路径和其他信息。持续更新中……">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/pangu.manual/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/pangu.manual/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/pangu.manual/">
+  <meta property="og:title" content="Pangu服务器说明文档 | JiangLab">
+  <meta property="og:description" content="盘古服务器（10.11.41.109）的主要安装软件、注释路径和其他信息。持续更新中……"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-07-28T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-07-28T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wukong.tongji.edu.cn/internal/pangu.manual/"
+  },
+  "headline": "Pangu服务器说明文档",
+  
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "2020-07-28T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "朱乾书"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "JiangLab",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_192x192_fit_lanczos_3.png"
+    }
+  },
+  "description": "盘古服务器（10.11.41.109）的主要安装软件、注释路径和其他信息。持续更新中……"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Pangu服务器说明文档 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Pangu服务器说明文档</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span >朱乾书</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 28, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 分钟阅读时长
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/%E6%96%87%E6%A1%A3/">文档</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <blockquote>
+<p>V 1.3<br>
+create by Qianshu Zhu<br>
+2020-7-1 modified</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>System release: CentOS Linux release 7.4.1708<br>
+CPU: Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz &ndash; total 160 processors<br>
+Disk: /dev/sdb(home)&ndash;46TB, /dev/mapper/mpatha(home1)&ndash;59TB<br>
+MemTotal:   1056 GB</p>
+</blockquote>
+<p>&ndash;</p>
+<blockquote>
+<p>pangu系统中的所有软件请尽量交由管理员安装，包括python和R的packages等<br>
+本文档不定期完善更新<br>
+因PATH中加入的路径越来越多，某些不常用的工具将可能会出现执行文件重名的情况（目前没有发现），请一定主要用type或which查看调用的是不是预期的软件，并在/etc/profile.d/PATH中查看PATH的顺序</p>
+</blockquote>
+<h2 id="已安装的软件">已安装的软件：</h2>
+<table>
+<thead>
+<tr>
+<th>软件</th>
+<th>调用命令</th>
+<th>版本号</th>
+<th>备注</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>bamtools</strong></td>
+<td>bamtools</td>
+<td>2.5.1</td>
+<td>依赖cmake</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bat</strong></td>
+<td>bat</td>
+<td>0.11</td>
+<td>可替代cat，以语法格式高亮显示文件</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bcftools</strong></td>
+<td>bcftools</td>
+<td>1.9</td>
+<td>隶属htslib</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bedtools</strong></td>
+<td>bedtools</td>
+<td>2.28.0</td>
+<td>toolset for genome arithmetic</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bsmap</strong></td>
+<td>bsmap</td>
+<td>2.90</td>
+<td>已停止更新</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bsmapz</strong></td>
+<td>bsmapz</td>
+<td>1.1.0</td>
+<td>bsmap适应新版samtools的分支版本</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>BEDOPS</strong></td>
+<td>bedops；hotspot</td>
+<td>2.4.36</td>
+<td>因bedops依赖的库较多，安装了一个miniconda来装bedops;使用前先使用conda-init激活环境；其存放路径：/opt/miniconda2/bin/bedops</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>blast</strong></td>
+<td>blastn</td>
+<td>2.7.1</td>
+<td>NCBI blast tools</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>BLAT</strong></td>
+<td>blat</td>
+<td>36x2</td>
+<td>fast sequence search command line tool</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bismark</strong></td>
+<td>bismark..</td>
+<td>0.22.1</td>
+<td>index:/home/share/bismark_index</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bowtie</strong></td>
+<td>bowtie</td>
+<td>1.2.3</td>
+<td>已安装多个版本，index已配置在全局变量BOWTIE_INDEXES=/home/share/bowtie_index</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bowtie2</strong></td>
+<td>bowtie2</td>
+<td>2.3.5.1</td>
+<td>已安装多个版本，index已配置在全局变量BOWTIE2_INDEXES=/home/share/bowtie2_index</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bwa</strong></td>
+<td>bwa</td>
+<td>0.7.17</td>
+<td>index：/home/share/bwa_index</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>cellranger</strong></td>
+<td>cellranger</td>
+<td>3.1.0</td>
+<td>10Xgenomics工具集；注释文件/home/share/cellranger</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>cufflinks</strong></td>
+<td>cufflinks; cuffdiff..</td>
+<td>2.2.1</td>
+<td>软件下包含多个工具，可通过which查看</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>cutadapt</strong></td>
+<td>cutadapt</td>
+<td>2.5</td>
+<td>python3版本，可多线程使用；pip3安装</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>deepTools</strong></td>
+<td>deeptools..</td>
+<td>3.3.0</td>
+<td>多工具集；pip安装</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>datamash</strong></td>
+<td>datamash</td>
+<td>1.4</td>
+<td>shell下的表格处理脚本</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>fastp</strong></td>
+<td>fastp</td>
+<td>0.12.0</td>
+<td>cutadapt和fastq的多线程改进版本</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>fithic</strong></td>
+<td>fithic2/fithic</td>
+<td>2.0.7/1.1.1</td>
+<td>fithic2是python3版本，pip3安装；fithic是python2</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>flash</strong></td>
+<td>flash</td>
+<td>1.2.11</td>
+<td>Fast Length Adjustment of SHort reads</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GeneTrack</strong></td>
+<td>python run.py</td>
+<td>1.0.3</td>
+<td>/usr/local/software/GeneTrack-1.0.3，使用方法较复杂</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GATK</strong></td>
+<td>gatk</td>
+<td>4.1.3.0</td>
+<td>多工具集；注释：/home/share/gatk_resource</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GSEA</strong></td>
+<td>gsea</td>
+<td>3.0</td>
+<td>java图形界面运行</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>htslib</strong></td>
+<td>htslib</td>
+<td>1.9</td>
+<td>隶属htslib</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HiC-Pro</strong></td>
+<td>HiC-Pro</td>
+<td>2.11.1</td>
+<td>HiC比对pipeline，注释文件：$ConfigHP</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HiCExplorer</strong></td>
+<td>hicexplorer</td>
+<td>2.2.1.1</td>
+<td>python3版本；pip3安装</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>hisat2</strong></td>
+<td>hisat2</td>
+<td>2.1.0</td>
+<td>推荐使用的index: /home/share/hisat2_index/new_index</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>homer</strong></td>
+<td>homer</td>
+<td>&ndash;</td>
+<td>一套多软件工具集</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>IGV</strong></td>
+<td>igv</td>
+<td>2.6.3</td>
+<td>高dpi版：igv_hidpi；包含IGVtools：igvtools</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>igblast</strong></td>
+<td>igblastn</td>
+<td>1.9.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>linuxnd</strong></td>
+<td>linuxnd</td>
+<td>&ndash;</td>
+<td>下载诺禾数据的工具</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>picard</strong></td>
+<td>picard</td>
+<td>2.20.7</td>
+<td>多种工具集</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td>R; Rscript</td>
+<td>3.6.0</td>
+<td>默认使用的R，yum安装; 3.5.3已安装</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>rstudio-server</strong></td>
+<td>ip:8787</td>
+<td>1.2.1335</td>
+<td>通过浏览器打开10.11.41.109:8787使用；默认使用R-3.6.0，若需要其他版本可另开启一个端口；</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>STAR</strong></td>
+<td>STAR</td>
+<td>2.7.2b</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sra-tools</strong></td>
+<td>fastq-dump..</td>
+<td>2.10.0</td>
+<td>ncbi工具集</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>MACS</strong></td>
+<td>macs14</td>
+<td>1.4.3</td>
+<td>python2版本，pip安装</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>MACS2</strong></td>
+<td>macs2</td>
+<td>2.1.2</td>
+<td>python2版本，pip安装</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>moabs</strong></td>
+<td>moabs</td>
+<td>1.3.3</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>meme</strong></td>
+<td>meme</td>
+<td>5.0.5</td>
+<td>motif相关工具</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ChromHMM</strong></td>
+<td>ChromHMM</td>
+<td>1.19</td>
+<td>java -jar ChromHMM.jar</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>stringtie</strong></td>
+<td>stringtie</td>
+<td>2.0.3</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>3DChromatin_ReplicateQC</strong></td>
+<td>&ndash;</td>
+<td>&ndash;</td>
+<td>四种HiC的QC工具包；包括：HiCRep,HiC-Spector,QuASAR-Rep,genomedisco</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Domaincaller</strong></td>
+<td>&ndash;</td>
+<td>&ndash;</td>
+<td>matlab、perl脚本，需要分多步骤执行，/usr/local/software/Domaincaller</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>samtools</strong></td>
+<td>samtools</td>
+<td>1.9</td>
+<td>隶属htslib</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sambamba</strong></td>
+<td>sambamba</td>
+<td>0.7.0</td>
+<td>依赖ldc，高效的sam bam处理工具</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>python2</strong></td>
+<td>python</td>
+<td>2.7.16</td>
+<td>默认使用的python，调用命令python或python2，附带pip</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>python3</strong></td>
+<td>python3</td>
+<td>3.7.4</td>
+<td>调用命令python3，附pip3</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>subread</strong></td>
+<td>featureCounts..</td>
+<td>2.0.0</td>
+<td>多工具集，常用featureCounts</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>matlab</strong></td>
+<td>matlab</td>
+<td>R2019a</td>
+<td>因版权问题，只能一个用户使用</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Juicebox</strong></td>
+<td>Juicebox</td>
+<td>1.11.08</td>
+<td>类似igv的HiC浏览器</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>jupyter-IGV</strong></td>
+<td>ip:port</td>
+<td>1.0</td>
+<td>类似于rstudio-server的igv，可通过浏览器在服务器上使用IGV，但需要每人申请一个端口号；</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>trash-cli</strong></td>
+<td>trash..</td>
+<td>0.17.1.14</td>
+<td>回收站机制，可替代rm防止误删除；以trash开头的多个命令；pip安装</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>translation</strong></td>
+<td>trans; etc; cte..</td>
+<td>0.9.6.11</td>
+<td>一个调用网络词典的翻译脚本；i.e. etc:英译中；cte:中译英</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>motd</strong></td>
+<td>motd</td>
+<td>1.0</td>
+<td>motto of the day; 一个随机获取随机motto，并在login时展示的脚本</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>wechat</strong></td>
+<td>wechat; wait-m; wait-n</td>
+<td>1.0</td>
+<td>一个给微信发提醒消息的脚本；需要先加入本实验室的企业微信；i.e. 在后台运行程序后运行wait-m，可在程序运行结束后及时收到提醒</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>xsel</strong></td>
+<td>xsel</td>
+<td>1.2.0</td>
+<td>shell下的剪切板功能；配合多种脚本使用；i.e. cwd;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>安装路径：/usr/local/software<br>
+部分单一的程序脚本在/usr/local/bin中<br>
+部分软件调用链接到/usr/local/LINKS，其他添加在PATH中<br>
+软件安装根据大家需求不定期更新<br>
+默认使用最新版本，需要老版本软件的可通过绝对路径访问<br>
+indexes、codes和annotation都放在/home/share中<br>
+/home/share/hisat2_index是原有的index；<br>
+/home/share/hisat2_index/new_index是自己制作的index</p>
+</blockquote>
+<h3 id="babraham-projects">Babraham projects:</h3>
+<blockquote>
+<p>(Babraham所有的工具包，路径/usr/local/software/Babraham-Projects，某些不常用的自行查看文档使用)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>软件</th>
+<th>调用命令</th>
+<th>版本号</th>
+<th>备注</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ASAP</strong></td>
+<td>&ndash;</td>
+<td>0.1.2</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bareback</strong></td>
+<td>&ndash;</td>
+<td>1.0</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>bismark</strong></td>
+<td>bismark</td>
+<td>0.22.1</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>fastq_screen</strong></td>
+<td>fastq_screen</td>
+<td>0.14.0</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>hicup</strong></td>
+<td>hicup</td>
+<td>0.7.2</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>seqmonk</strong></td>
+<td>seqmonk</td>
+<td>1.45.4</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sierra</strong></td>
+<td>sierra</td>
+<td>0.3</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SNPsplit</strong></td>
+<td>SNPsplit</td>
+<td>0.3.2</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>fastqc</strong></td>
+<td>fastqc</td>
+<td>0.11.8</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Sherman</strong></td>
+<td>Sherman</td>
+<td>0.1.8</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>redotable</strong></td>
+<td>redotable</td>
+<td>1.1</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>chipmonk</strong></td>
+<td>&ndash;</td>
+<td>1.2.3</td>
+<td><em>java -classpath . uk.ac.bbsrc.babraham.ChipMonk.ChipMonkApplication</em></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>focalpoint</strong></td>
+<td>&ndash;</td>
+<td>0.6</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>fretsaw</strong></td>
+<td>&ndash;</td>
+<td>1.0</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>mzViewer</strong></td>
+<td>&ndash;</td>
+<td>0.4</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>sparkspotter</strong></td>
+<td>&ndash;</td>
+<td>1.1</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>stackmeasure</strong></td>
+<td>&ndash;</td>
+<td>1.0</td>
+<td>&ndash;</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ucsc-tools">UCSC-tools</h3>
+<blockquote>
+<p>
+<a href="http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/" target="_blank" rel="noopener">http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/</a><br>
+路径：/usr/local/software/UCSC-tools，已加到环境变量PATH中<br>
+工具较多，主要有：bigWigToBedGraph, faToFastq, fetchChromSizes等等</p>
+</blockquote>
+<hr>
+<h2 id="已安装的r-library">已安装的R library</h2>
+<p>BiocManager<br>
+devtools</p>
+<h4 id="cran-packages">CRAN packages:</h4>
+<p>(&ldquo;magrittr&rdquo;,&ldquo;ggplot2&rdquo;,&ldquo;data.table&rdquo;,&ldquo;reshape2&rdquo;,&ldquo;pheatmap&rdquo;,&ldquo;stringr&rdquo;,&ldquo;RColorBrewer&rdquo;)<br>
+(&ldquo;ggrepel&rdquo;,&ldquo;gplots&rdquo;,&ldquo;stringi&rdquo;,&ldquo;stringr&rdquo;,&ldquo;Rcpp&rdquo;,&ldquo;rlang&rdquo;,&ldquo;tidyr&rdquo;,&ldquo;dplyr&rdquo;,&ldquo;ggsignif&rdquo;,&ldquo;ggforce&rdquo;)<br>
+install.packages(&ldquo;bigmemory&rdquo;)<br>
+imager,bigmemory #FIND依赖</p>
+<h4 id="bioconductor">bioconductor:</h4>
+<p>(&ldquo;DESeq2&rdquo;,&ldquo;clusterProfiler&rdquo;,&ldquo;GSEABase&rdquo;,&ldquo;edgeR&rdquo;,&ldquo;fgsea&rdquo;,&ldquo;biomaRt&rdquo;,&ldquo;Seurat&rdquo;,&ldquo;GEOquery&rdquo;,&ldquo;ggtree&rdquo;,&ldquo;GSEABase&rdquo;,&ldquo;limma&rdquo;,&ldquo;enrichplot&rdquo;)<br>
+hicrep, FitHiC<br>
+BiocManager::install(&ldquo;multiHiCcompare&rdquo;)<br>
+BiocManager::install(&ldquo;diffLoop&rdquo;)<br>
+BiocManager::install(&ldquo;HiTC&rdquo;)<br>
+BiocManager::install(&ldquo;DiffBind&rdquo;)<br>
+&ldquo;Seurat2&rdquo;</p>
+<h4 id="github">github:</h4>
+<p>devtools::install_github(&ldquo;kassambara/easyGgplot2&rdquo;)<br>
+devtools::install_github(&ldquo;3DGenomes/binless&rdquo;,subdir=&ldquo;binless&rdquo;) #依赖gsl-devel</p>
+<h4 id="source">source</h4>
+<p>wget 
+<a href="https://bitbucket.org/nadhir/find/downloads/FIND_1.0.0.tar.gz" target="_blank" rel="noopener">https://bitbucket.org/nadhir/find/downloads/FIND_1.0.0.tar.gz</a><br>
+R CMD INSTALL FIND_1.0.0.tar.gz</p>
+<h4 id="已安装r包可查看usrlib64rlibrary和usrsharerlibrary">已安装R包，可查看/usr/lib64/R/library和/usr/share/R/library</h4>
+<h2 id="已安装的python-packages包括pip和源码安装">已安装的python packages（包括pip和源码安装）：</h2>
+<ul>
+<li>bx-python #for HiC-Pro</li>
+<li>trash-cli</li>
+<li>deepTools</li>
+<li>MACS2</li>
+<li>MACS</li>
+<li>scipy</li>
+<li>biopython</li>
+</ul>
+<p>###python3下安装:</p>
+<ul>
+<li>fithic</li>
+<li>cutadapt</li>
+<li>HiCExplorer</li>
+<li>multiqc</li>
+<li>idr 2.0.2</li>
+</ul>
+<h2 id="yum安装的软件">yum安装的软件</h2>
+<ul>
+<li>vim-X11</li>
+<li>xsel</li>
+<li>jq</li>
+<li>R-3.6.0</li>
+<li>rstudio-server-rhel-1.2.1335</li>
+<li>iptables-service</li>
+<li>ccache</li>
+<li>docker</li>
+<li>gsl-devel</li>
+<li>gdal</li>
+<li>proj-4</li>
+</ul>
+<h2 id="某些重要文件的存放路径">某些重要文件的存放路径</h2>
+<ul>
+<li>所有软件、packages和library的安装，以及系统配置记录：/root/git/LinuxSet</li>
+<li>软件安装目录：/usr/local/software</li>
+<li>软件软连接目录：/usr/local/LINKS</li>
+<li>环境路径PATH存放位置：/etc/profile.d/PATH</li>
+<li>R-3.6.0 库library存放位置：/usr/lib64/R/library /usr/share/R/library</li>
+<li>bowtie2 index：/home/share/bowtie2_index</li>
+<li>bowtie index：/home/share/bowtie_index</li>
+<li>bismark index：/home/share/bismark_index</li>
+<li>baw index：/home/share/bwa_index</li>
+<li>hisat2 index：/home/share/hisat2_index/new_index (上一级上hisat2自带的index)</li>
+<li>STAR index：/home/share/STAR_index</li>
+<li>各课题原始数据：/home/share/DATA/clean_reads</li>
+<li>gene annotation：/home/share/ann</li>
+<li>从UCSC上下载的annotation：/home/share/ann/useful_annotation/download_FTP</li>
+<li>共享的脚本代码：/home/share/codes</li>
+<li>从Illumina下载的annotation等：/home/share/Illumina_iGenome</li>
+<li>课程以及其他共享资源：/home/share/resource</li>
+<li>JC, lab meeting的PPT和视频资料等: /home/share/Lab-Meeting-JC</li>
+</ul>
+<blockquote>
+<p>其他资源和来源情况请查看/home/share下的数据结构和log、README文件</p>
+</blockquote>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/manual/">manual</a>
+  
+  <a class="badge badge-light" href="/tag/%E5%AE%9E%E9%AA%8C%E5%AE%A4/">实验室</a>
+  
+  <a class="badge badge-light" href="/tag/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+  
+  <a class="badge badge-light" href="/tag/%E8%AF%B4%E6%98%8E/">说明</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://wukong.tongji.edu.cn/internal/pangu.manual/&amp;text=Pangu%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%af%b4%e6%98%8e%e6%96%87%e6%a1%a3" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://wukong.tongji.edu.cn/internal/pangu.manual/&amp;t=Pangu%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%af%b4%e6%98%8e%e6%96%87%e6%a1%a3" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Pangu%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%af%b4%e6%98%8e%e6%96%87%e6%a1%a3&amp;body=https://wukong.tongji.edu.cn/internal/pangu.manual/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://wukong.tongji.edu.cn/internal/pangu.manual/&amp;title=Pangu%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%af%b4%e6%98%8e%e6%96%87%e6%a1%a3" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Pangu%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%af%b4%e6%98%8e%e6%96%87%e6%a1%a3%20https://wukong.tongji.edu.cn/internal/pangu.manual/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://wukong.tongji.edu.cn/internal/pangu.manual/&amp;title=Pangu%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%af%b4%e6%98%8e%e6%96%87%e6%a1%a3" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/%E6%9C%B1%E4%B9%BE%E4%B9%A6/avatar_hue0c0e125ed41d05dff48b99dcb6e3408_155081_270x270_fill_q90_lanczos_center.jpg" alt="朱乾书">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="/author/%E6%9C%B1%E4%B9%BE%E4%B9%A6/">朱乾书</a></h5>
+        <h6 class="card-subtitle">2015级硕士，2017年秋转博，2021年8月毕业，2021年9月入站博士后，2024年8月出站，现为重庆市妇幼保健院副研究员</h6>
+        
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:zhuqianshu@tongji.edu.cn" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/rysterzhu" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=YtdNWvYAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.researchgate.net/profile/Qianshu_Zhu" target="_blank" rel="noopener">
+        <i class="ai ai-researchgate"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+  
+
+
+
+
+
+
+
+
+<div class="article-widget">
+  
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/internal/guliang.pbmc.protocol/" rel="next">利用梯度离心法分离人外周血PBMC</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/internal/album.all/" rel="prev">实验室活动相册汇总</a>
+  </div>
+  
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>相关</h3>
+    <ul>
+      
+      <li><a href="/internal/peopleincharge/">实验室各项负责人一览表</a></li>
+      
+      <li><a href="/post/2020.recruitment.jiang_cizhong/">同济大学生命科学与技术学院江赐忠课题组招聘启事</a></li>
+      
+      <li><a href="/internal/album.all/">实验室活动相册汇总</a></li>
+      
+      <li><a href="/internal/chenmo.cutrun.protocol/">裂核版 Cut&amp;Run protocol</a></li>
+      
+      <li><a href="/internal/album.10thaniversary/">实验室十周年活动相册-部分</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

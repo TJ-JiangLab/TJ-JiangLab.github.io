@@ -1,0 +1,1133 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="大致总结了一下linux下各种格式的压缩包的压缩、解压方法。">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/gz-unzip/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/gz-unzip/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/gz-unzip/">
+  <meta property="og:title" content="linux下 tar解压 gz解压 bz2等各种解压文件使用方法 | JiangLab">
+  <meta property="og:description" content="大致总结了一下linux下各种格式的压缩包的压缩、解压方法。"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-12-21T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-12-21T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>linux下 tar解压 gz解压 bz2等各种解压文件使用方法 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/internal/zhuqianshu.tips/">首页</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/rpkmsummary/">一个使用multiBamSummary计算区域rpkm的脚本</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/shell-test/">对比 test、[、[[ 判断用法</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/sort-body/">保持标题行在顶部后排序</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/multi-threads/">控制并发线程数</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/shell-intercept-string/">Shell 字符串截取方法</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/trash-cli/">回收站功能</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/translation/">翻译软件</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/regex/">linux shell 正则表达式</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/cron-filesystem-size/">定时检查磁盘空间使用情况</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/crontab-initiation/">定时任务的使用</a>
+      </li>
+      
+      <li class="active">
+        <a href="/internal/zhuqianshu.tips/gz-unzip/">tar解压 gz解压 bz2等各种解压文件使用方法</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">在本页</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#在linux下解压winzip格式的文件">在linux下解压Winzip格式的文件</a></li>
+        <li><a href="#各种压缩文件的解压安装方法">各种压缩文件的解压（安装方法）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>linux下 tar解压 gz解压 bz2等各种解压文件使用方法</h1>
+
+          <div class="article-style">
+            <p>大致总结了一下linux下各种格式的压缩包的压缩、解压方法。但是部分方法我没有用到，也就不全，希望大家帮我补充，我将随时修改完善，谢谢！   <br>
+　　 <br>
+　　.tar<br>
+　　解包：tar xvf FileName.tar<br>
+　　打包：tar cvf FileName.tar DirName<br>
+　　（注：tar是打包，不是压缩！）<br>
+　　———————————————<br>
+　　.gz<br>
+　　解压 1：gunzip FileName.gz<br>
+　　解压2：gzip -d FileName.gz<br>
+　　压缩：gzip FileName<br>
+　　.tar.gz 和 .tgz<br>
+　　解压：tar zxvf FileName.tar.gz<br>
+　　压缩：tar zcvf FileName.tar.gz DirName<br>
+　　———————————————<br>
+　　.bz2<br>
+　　解压1：bzip2 -d FileName.bz2<br>
+　　解压2：bunzip2 FileName.bz2<br>
+　　压缩： bzip2 -z FileName<br>
+　　.tar.bz2<br>
+　　解压：tar jxvf FileName.tar.bz2 或tar &ndash;bzip xvf FileName.tar.bz2<br>
+　　压缩：tar jcvf FileName.tar.bz2 DirName<br>
+　　 ———————————————<br>
+　　.bz<br>
+　　解压1：bzip2 -d FileName.bz<br>
+　　解压2：bunzip2 FileName.bz<br>
+　　压缩：未知<br>
+　　.tar.bz<br>
+　　解压：tar jxvf FileName.tar.bz<br>
+　　压缩：未知<br>
+　　———————————————<br>
+　　.Z<br>
+　　解压：uncompress FileName.Z<br>
+　　压缩：compress FileName<br>
+　　.tar.Z<br>
+　　解压：tar Zxvf FileName.tar.Z<br>
+　　压缩：tar Zcvf FileName.tar.Z DirName<br>
+　　———————————————<br>
+　　.zip<br>
+　　解压：unzip FileName.zip<br>
+　　压缩：zip FileName.zip DirName<br>
+　　压缩一个目录使用 -r 参数，-r 递归。例： $ zip -r FileName.zip DirName<br>
+　　———————————————<br>
+　　.rar<br>
+　　解压：rar x FileName.rar<br>
+　　压缩：rar a FileName.rar DirName<br>
+　　<br>
+　　rar 请到：http://www.rarsoft.com/download.htm 下载！<br>
+　　解压后请将rar_static拷贝到/usr /bin目录（其他由$PATH环境变量指定的目录也可以）：<br>
+　　[root@www2 tmp]# cp rar_static /usr/bin/rar<br>
+　　———————————————<br>
+　　.lha<br>
+　　解压：lha -e FileName.lha<br>
+　　压缩：lha -a FileName.lha FileName<br>
+　　<br>
+　　lha请到：http://www.infor.kanazawa-it.ac.jp/~ishii/lhaunix/下载！<br>
+　　解压后请将 lha拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以）：<br>
+　　[root@www2 tmp]# cp lha /usr/bin/<br>
+　　———————————————<br>
+　　.rpm<br>
+　　解包：rpm2cpio FileName.rpm | cpio -div<br>
+　　———————————————<br>
+　　.deb<br>
+　　解包：ar p FileName.deb data.tar.gz | tar zxf -<br>
+　　———————————————<br>
+　　.tar .tgz .tar.gz .tar.Z .tar.bz .tar.bz2 .zip .cpio .rpm .deb .slp .arj .rar .ace .lha .lzh .lzx .lzs .arc .sda .sfx .lnx .zoo .cab .kar .cpt .pit .sit .sea<br>
+　　解压：sEx x FileName.*<br>
+　　压缩：sEx a FileName.* FileName<br>
+　　<br>
+　　sEx只是调用相关程序，本身并无压缩、解压功能，请注意！<br>
+　　sEx请到： 
+<a href="http://sourceforge.net/projects/sex" target="_blank" rel="noopener">http://sourceforge.net/projects/sex</a>下载！<br>
+　　解压后请将sEx拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以）：<br>
+　　[root@www2 tmp]# cp sEx /usr/bin/　　
+　　
+#＃# Linux下常见文件解压方法及命令<br>
+　　系统·System<br>
+　　<br>
+　　1.以.a为扩展名的文件:<br>
+　　#tar xv file.a<br>
+　　2.以.z为扩展名的文件:<br>
+　　#uncompress file.Z<br>
+　　3.以.gz为扩展名的文件:<br>
+　　#gunzip file.gz<br>
+　　4.以.bz2为扩展名的文件:<br>
+　　#bunzip2 file.bz2<br>
+　　5.以.tar.Z为扩展名的文件:<br>
+　　#tar xvZf file.tar.Z<br>
+　　或 #compress -dc file.tar.Z | tar xvf<br>
+　　6.以.tar.gz/.tgz为扩展名的文件:<br>
+　　#tar xvzf file.tar.gz<br>
+　　或 gzip -dc file.tar.gz | tar xvf -<br>
+　　7.以.tar.bz2为扩展名的文件:<br>
+　　#tar xvIf file.tar.bz2<br>
+　　或 bzip2 -dc file.tar.bz2 | xvf -<br>
+　　8.以.cpio.gz/.cgz为扩展名的文件:<br>
+　　#gzip -dc file.cgz | cpio -div<br>
+　　9. 以.cpio/cpio为扩展名的文件:<br>
+　　#cpio -div file.cpio<br>
+　　或cpio -divc file.cpio<br>
+　　10.以.rpm为扩展名的文件安装:<br>
+　　#rpm -i file.rpm<br>
+　　11.以.rpm为扩展名的文件解压缩：<br>
+　　 #rpm2cpio file.rpm | cpio -div<br>
+　　12.以.deb为扩展名的文件安装：<br>
+　　#dpkg -i file.deb<br>
+　　13.以.deb为扩展名的文件解压缩:<br>
+　　#dpkg-deb -fsys-tarfile file.deb | tar xvf - ar p<br>
+　　file.deb data.tar.gz | tar xvzf -<br>
+　　14.以.zip为扩展名的文件:<br>
+　　#unzip file.zip<br>
+　　</p>
+<h3 id="在linux下解压winzip格式的文件">在linux下解压Winzip格式的文件</h3>
+<p>　　要是装了jdk的话，可以用 jar命令；还可以使用unzip命令。<br>
+　　直接解压.tar.gz文件<br>
+　　xxxx.tar.gz文件使用tar带zxvf参数，可以一次解压开。XXXX为文件名。 例如：<br>
+　　$tar zxvf xxxx.tar.gz<br>
+　　</p>
+<h3 id="各种压缩文件的解压安装方法">各种压缩文件的解压（安装方法）</h3>
+<p>　　.a ar xv file.a<br>
+　　.Z uncompress file.Z<br>
+　　.gz gunzip file.gz<br>
+　　.bz2 bunzip2 file.bz2<br>
+　　.tar.Z tar xvZf file.tar.Z<br>
+　　compress -dc file.tar.Z | tar xvf -<br>
+　　.tar.gz/.tgz tar xvzf file.tar.gz<br>
+　　gzip -dc file.tar.gz | tar xvf -<br>
+　　.tar.bz2 tar xvIf file.tar.bz2<br>
+　　bzip2 -dc file.tar.bz2 | xvf -<br>
+　　.cpio.gz/.cgz gzip -dc file.cgz | cpio -div<br>
+　　.cpio/cpio cpio -div file.cpio<br>
+　　cpio -divc file.cpio<br>
+　　.rpm/install rpm -i file.rpm<br>
+　　.rpm/extract rpm2cpio file.rpm | cpio -div<br>
+　　.deb/install dpkg -i file.deb<br>
+　　.deb/exrtact dpkg-deb -fsys-tarfile file.deb | tar xvf -<br>
+　　ar p file.deb data.tar.gz | tar xvzf -<br>
+　　.zip unzip file.zip<br>
+　　<br>
+　　<br>
+　　bzip2 -d myfile.tar.bz2 | tar xvf<br>
+　　<br>
+　　<br>
+　　tar xvfz myfile.tar.bz2<br>
+　　<br>
+　　<br>
+　　x 是解压<br>
+　　v 是复杂输出<br>
+　　f 是指定文件<br>
+　　z gz格式<br>
+　　<br>
+　　<br>
+###　gzip<br>
+　　gzip[选项]要压缩（或解压缩）的文件名<br>
+　　-c将输出写到标准输出上，并保留原有文件。<br>
+　　-d将压缩文件压缩。<br>
+　　-l对每个压缩文件，显示下列字段：压缩文件的大小，未压缩文件的大小、压缩比、未压缩文件的名字<br>
+　　-r递归式地查找指定目录并压缩或压缩其中的所有文件。<br>
+　　-t测试压缩文件是正完整。<br>
+　　-v对每一个压缩和解压缩的文件，显示其文件名和压缩比。<br>
+　　-num-用指定的数字调整压缩的速度。<br>
+　　举例：<br>
+　　把/usr目录并包括它的子目录在内的全部文件做一备份，备份文件名为usr.tar<br>
+　　tar cvf usr.tar /home<br>
+　　把/usr 目录并包括它的子目录在内的全部文件做一备份并进行压缩，备份文件名是usr.tar.gz<br>
+　　tar czvf usr.tar.gz /usr<br>
+　　压缩一组文件，文件的后缀为tar.gz<br>
+　　#tar cvf back.tar /back/<br>
+　　#gzip -q back.tar<br>
+　　or<br>
+　　#tar cvfz back.tar.gz /back/<br>
+　　释放一个后缀为tar.gz 的文件。<br>
+　　#tar zxvf back.tar.gz<br>
+　　#gzip back.tar.gz<br>
+　　#tar xvf back.tar</p>
+<p><em>转载自网络</em></p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/internal/zhuqianshu.tips/crontab-initiation/" rel="next">服务器定时任务的使用示例</a>
+  </div>
+  
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>最近更新于 Dec 21, 2020</p>
+
+          
+
+
+
+          
+
+
+          
+
+
+  
+  
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

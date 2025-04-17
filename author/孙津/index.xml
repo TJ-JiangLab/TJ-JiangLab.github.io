@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>孙津 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/%E5%AD%99%E6%B4%A5/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/%E5%AD%99%E6%B4%A5/index.xml" rel="self" type="application/rss+xml" />
+    <description>孙津</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sun, 23 Aug 1970 06:01:41 +0800</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>孙津</title>
+      <link>https://wukong.tongji.edu.cn/author/%E5%AD%99%E6%B4%A5/</link>
+    </image>
+    
+    <item>
+      <title>Aberrant H3K4me3 modification of epiblast genes of extraembryonic tissue causes placental defects and implantation failure in mouse IVF embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2022.cell_reports.bai_dandan/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2022.cell_reports.bai_dandan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Differential Transcriptomes and Methylomes of Trophoblast Stem Cells From Naturally-Fertilized and Somatic Cell Nuclear-Transferred Embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.frontiers_in_cell_and_developmental_biology.sun_jin/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.frontiers_in_cell_and_developmental_biology.sun_jin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genome transfer for the prevention of female infertility caused by maternal gene mutation</title>
+      <link>https://wukong.tongji.edu.cn/publication/2020.journal_of_genetics_and_genomics.bai_dandan/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2020.journal_of_genetics_and_genomics.bai_dandan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>H3K27me3 Signal in the Cis Regulatory Elements Reveals the Differentiation Potential of Progenitors During Drosophila Neuroglial Development</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Drosophila Brahma complex remodels nucleosome organizations in multiple aspects</title>
+      <link>https://wukong.tongji.edu.cn/publication/2014.nucleic_acids_research.shi_jiejun/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2014.nucleic_acids_research.shi_jiejun/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

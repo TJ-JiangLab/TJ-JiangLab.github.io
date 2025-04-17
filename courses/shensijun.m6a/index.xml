@@ -1,0 +1,1479 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>m6a RNA科研设计、数据分析、结果解读 精品培训班 实操环节 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/courses/shensijun.m6a/index.xml" rel="self" type="application/rss+xml" />
+    <description>m6a RNA科研设计、数据分析、结果解读 精品培训班 实操环节</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>m6a RNA科研设计、数据分析、结果解读 精品培训班 实操环节</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/</link>
+    </image>
+    
+    <item>
+      <title>一、检查测序数据质量（验货一定要仔细）</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part1/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part1/</guid>
+      <description>&lt;h3 id=&#34;1建立工作目录和其他相关目录略&#34;&gt;1、建立工作目录和其他相关目录（略）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+mkdir $work_dir
+cd $work_dir
+
+mkdir 0.0_fastq  
+mkdir 0.1_fastqc  
+mkdir 0.2_fastq_cut  
+mkdir 0.3_fastqc_cut  
+mkdir 1.1_hisat2
+mkdir 1.2_bwa
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips:在shell编程中，$ 符号意味着变量，是最常用符号之一&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;2下载公共数据略&#34;&gt;2、下载公共数据（略）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;根据文献找到数据下载地址 GSE29714 SRP007335&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig1-1.bmp&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig1-2.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;wget -i download_list.txt    即可下载&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;3解压公共数据略&#34;&gt;3、解压公共数据（略）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;cd  ./SRA
+for i in *.2
+do
+echo $i
+mv $i ${i/.2/.sra}
+done
+#--------------------------------------------------------------------
+for i in *.sra
+do 
+echo $i
+nohup fastq-dump --gzip --split-3 $i -O ../0.0_fastq &amp;gt; ${i}.log &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1:在shell编程中，for循环是常用函数之一，需配合 do 和 done 使用
+Tips2:在shell编程中，echo非常重要，他就是”print“！
+Tips3:在shell编程中，* 是通配符，非常重要，学习正则表达式（你会打开新世界的大门），另外 * 也要谨慎使用（rm -rf * 你懂得）
+Tips4:fastq-dump是最常用的公共数据解压软件，隶属于sra-toolkit(ncbi)，其中&amp;ndash;gzip;&amp;ndash;split-3（最实用参数）;-O 等参数较常用
+Tips5:nohup可以将标准输出写到一个文件中以便复查，&amp;amp;表示放后台（可配合fg/bg命令，和Ctrl+Z/Ctrl+C等）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig1-3.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;4重命名数据不要怕烦不然你会后悔的oo&#34;&gt;4、重命名数据（不要怕烦，不然你会后悔的o(╥﹏╥)o）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;fastq_dir=$work_dir/0.0_fastq
+echo $fastq_dir
+cd $fastq_dir
+
+mv SRR496283.fastq.gz C57BL6_Brain_Sample_1_MeRIP-SYSY.fastq.gz
+mv SRR496284.fastq.gz C57BL6_Brain_Sample_1_Non-IP_Control.fastq.gz
+mv SRR496285.fastq.gz C57BL6_Brain_Sample_2_Non-IP_Control.fastq.gz
+mv SRR496286.fastq.gz C57BL6_Brain_Sample_2_MeRIP-NEB.fastq.gz
+mv SRR496287.fastq.gz C57BL6_Brain_Sample_2_MeRIP-SYSY.fastq.gz
+mv SRR494613.fastq.gz HEK293T_Sample_1_Non-IP_Control.fastq.gz
+mv SRR494614.fastq.gz HEK293T_Sample_1_MeRIP-SYSY.fastq.gz
+mv SRR494615.fastq.gz HEK293T_Sample_2_Non-IP_Control.fastq.gz
+mv SRR494616.fastq.gz HEK293T_Sample_2_MeRIP-SYSY.fastq.gz
+mv SRR494617.fastq.gz HEK293T_Sample_3_Non-IP_Control.fastq.gz
+mv SRR494618.fastq.gz HEK293T_Sample_3_MeRIP-NEB.fastq.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips:基于GEO数据库和SraRunInfo.csv修改&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig1-4.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;5测序原始数据质控&#34;&gt;5、测序原始数据质控&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;fastq_dir=$work_dir/0.0_fastq
+cd $fastq_dir
+for i in *.fastq.gz
+do
+echo $i
+(nohup fastqc -o ../0.1_fastqc -f fastq ./$i &amp;gt;../0.1_fastqc/${i}.fastqc.log) &amp;amp;
+done
+#--------------------------------------------------------------------
+fastqc_dir=$work_dir/0.1_fastqc
+cd $fastqc_dir
+multiqc -d ./ -dd 5 -n 1.fastq_qc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig1-5.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig1-6.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1:fastqc是最常用的质控软件，由babraham出品，这家机构是个宝，你这辈子绕不过他的，参数非常简便
+fastQC真的很fast&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/C57BL6_Brain_Sample_1_MeRIP-SYSY_fastqc.html&#34;&gt;《=== fastqc报告示例 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig1-7.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips2:multiqc这款软件是集成可视化各类质控的软件，特别好用，一起来解读一下结果
+mutiqc真的很multi&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/1.fastq_qc.html&#34;&gt;《=== multiqc报告示例 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;    &lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>二、去除数据中的不良序列 (一把剪刀走江湖)</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part2/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part2/</guid>
+      <description>&lt;h3 id=&#34;1神器专精-cutadapt&#34;&gt;1、神器专精 cutadapt&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+fastq_dir=$work_dir/0.0_fastq
+fastq_cut_dir=$work_dir/0.2_fastq_cut
+
+echo $fastq_dir
+cd $fastq_dir
+
+#for Single-end data
+
+for i in *.fastq.gz
+do
+echo $i
+
+(nohup cutadapt -a AGATCGGAAGAGC -m 20  -q 20,20 --trim-n -o $fastq_cut_dir/${i%%.fastq.gz}_cut.fastq.gz $i &amp;gt; $fastq_cut_dir/${i%%.fastq.gz}.cutadpt.log) &amp;amp;
+
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1:在shell编程中，${i/ABC/abc} 和 ${i%%ABC}abc 是两种比较常用的重命名文件的形式
+Tips2:在cutadapt中 -a/-A -m -q &amp;ndash;trim-n 等是比较常用的参数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;#for Pair-end data
+
+for i in *_1.fq.gz
+do
+echo $i
+t=${i/_1.fq.gz/_2.fq.gz}
+echo $t
+
+(nohup cutadapt -a AGATCGGAAGAGC -A AGATCGGAAGAGC --trim-n -m 50 -q 20,20 -o $fastq_cut_dir/${i%%.fq.gz}_cut.fastq.gz -p $fastq_cut_dir/${t%%.fq.gz}_cut.fastq.gz  $i $t &amp;gt; $fastq_cut_dir/${i%%_1.fq.gz}.cutadpt.log) &amp;amp;
+
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig2-1.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;2multiqc总结一下&#34;&gt;2、multiqc总结一下&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;fastq_cut_dir=$work_dir/0.2_fastq_cut
+cd $fastq_cut_dir
+multiqc -d ./ -dd 5 -n 2.cutadapt_qc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/2.cutadapt_qc.html&#34;&gt;《=== cutadapt报告示例 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;3看看洗干净了不&#34;&gt;3、看看洗干净了不&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;fastq_cut_dir=$work_dir/0.2_fastq_cut
+cd $fastq_cut_dir
+for i in *.fastq.gz
+do
+echo $i
+(nohup fastqc -o $work_dir/0.3_fastqc_cut -f fastq ./$i &amp;gt; $work_dir/0.3_fastqc_cut/${i}.fastqc.log) &amp;amp;
+done
+#--------------------------------------------------------------------
+fastqc_dir=$work_dir/0.1_fastqc
+cd $fastqc_dir
+multiqc -d ./ -dd 5 -n 3.fastqc_cut
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/3.fastqc_cut.html&#34;&gt;《=== fastqc_cut报告示例 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;    &lt;/p&gt;
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Softwares
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://www.bioinformatics.babraham.ac.uk/projects/fastqc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fastqc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://multiqc.info/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MultiQC&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Other
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://hannonlab.cshl.edu/fastx_toolkit/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fastx —— fast削&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>三、开始比对测序数据，回帖基因组 （reads要回家）</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part3/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part3/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;比对是最耗资源和时间的一步&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1传统的hisat2&#34;&gt;1、传统的hisat2&lt;/h3&gt;
+&lt;h4 id=&#34;a---比对&#34;&gt;A - 比对&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+fastq_cut_dir=$work_dir/0.2_fastq_cut/mouse
+hisat2_dir=$work_dir/1.1_hisat2/mouse
+hisat2_index=/home/share/hisat2_index
+
+echo $fastq_cut_dir
+cd $fastq_cut_dir
+
+species=mm10_tran
+thread=5
+
+#for Single-end data
+for i in *_cut.fastq.gz
+do
+echo $i
+
+(nohup hisat2 -p $thread  --dta-cufflinks --no-discordant --no-mixed -t -x $hisat2_index/new_index/$species -U $i -S $hisat2_dir/${i%%_cut.fastq.gz}.hisat2.sam --no-unal &amp;gt; $hisat2_dir/${i%%_cut.fastq.gz}.hisat2.log) &amp;amp;
+
+done
+
+echo $hisat2_dir
+cd $hisat2_dir
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1:hisat2有官方提供的比对基因组，我们也可以自己建立，需要的同学可以答疑时咨询我们老师
+Tips2:hisat2默认输出一条/一对reads的最佳5处匹配位置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;#for Pair-end data
+for i in *_1_cut.fastq.gz 
+do
+echo $i
+t=${i/_1_cut.fastq.gz/_2_cut.fastq.gz}  
+echo $t
+
+(nohup hisat2 -p $thread --dta-cufflinks --no-discordant --no-mixed -t -x $hisat2_index/new_index/$species -1 $i -2 $t -S $hisat2_dir/${i%%_1_cut.fastq.gz}.hisat2.sam --no-unal &amp;gt; $hisat2_dir/${i%%_1_cut.fastq.gz}.hisat2.log) &amp;amp;
+
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig3-1.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;b---转换格式保存&#34;&gt;B - 转换格式保存&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+hisat2_dir=$work_dir/1.1_hisat2
+
+echo $hisat2_dir
+cd $hisat2_dir
+mkdir position_sorted_bam
+#--------------------------------------------------------------------
+#transfer sam to position_sorted_bam
+for i in *.sam
+do
+echo $i
+( nohup samtools sort -@ 5 -o ./position_sorted_bam/${i%%.sam}.position_sorted.bam $i ) &amp;amp;
+done
+#--------------------------------------------------------------------
+#build bam index for position_sorted_bam
+for i in ./position_sorted_bam/*.bam
+do
+( nohup samtools index $i ) &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig3-2.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;c---简单统计一下&#34;&gt;C - 简单统计一下&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+hisat2_dir=$work_dir/1.1_hisat2
+echo $hisat2_dir
+cd $hisat2_dir
+
+echo -e &#39;Sample\ttotal_reads(million)\taligned exactly 1 time\tpercentage\taligned &amp;gt;1 times\tpercentage\ttotal_percentage&#39; &amp;gt; hisat2_align_summary.tab
+
+for i in *.log
+do
+echo $i
+awk -v sample=${i%%.hisat2.log} &#39;BEGIN{FS=&amp;quot;[ \t();%]+&amp;quot; ; OFS=&amp;quot;\t&amp;quot;}  NR==5 {t=$2} NR==7 {a=$2;b=$3} NR==8 {c=$2;d=$3} END{print sample,t/1e6,a/1e6,b&amp;quot;%&amp;quot;,c/1e6,d&amp;quot;%&amp;quot;,(b+d)&amp;quot;%&amp;quot;}&#39; $i &amp;gt;&amp;gt; hisat2_align_summary.tab
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/hisat2_align_summary.tab&#34;&gt;《=== hisat2比对结果统计示例 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Sample&lt;/th&gt;
+&lt;th&gt;total_reads(million)&lt;/th&gt;
+&lt;th&gt;aligned exactly 1 time&lt;/th&gt;
+&lt;th&gt;percentage&lt;/th&gt;
+&lt;th&gt;aligned &amp;gt;1 times&lt;/th&gt;
+&lt;th&gt;percentage&lt;/th&gt;
+&lt;th&gt;total_percentage&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C57BL6_Brain_Sample_1_MeRIP-SYSY&lt;/td&gt;
+&lt;td&gt;37.755&lt;/td&gt;
+&lt;td&gt;25.8406&lt;/td&gt;
+&lt;td&gt;68.44%&lt;/td&gt;
+&lt;td&gt;5.81707&lt;/td&gt;
+&lt;td&gt;15.41%&lt;/td&gt;
+&lt;td&gt;83.85%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C57BL6_Brain_Sample_1_Non-IP_Control&lt;/td&gt;
+&lt;td&gt;36.7711&lt;/td&gt;
+&lt;td&gt;21.7639&lt;/td&gt;
+&lt;td&gt;59.19%&lt;/td&gt;
+&lt;td&gt;8.96879&lt;/td&gt;
+&lt;td&gt;24.39%&lt;/td&gt;
+&lt;td&gt;83.58%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C57BL6_Brain_Sample_2_MeRIP-NEB&lt;/td&gt;
+&lt;td&gt;35.1339&lt;/td&gt;
+&lt;td&gt;28.4138&lt;/td&gt;
+&lt;td&gt;80.87%&lt;/td&gt;
+&lt;td&gt;2.80259&lt;/td&gt;
+&lt;td&gt;7.98%&lt;/td&gt;
+&lt;td&gt;88.85%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C57BL6_Brain_Sample_2_MeRIP-SYSY&lt;/td&gt;
+&lt;td&gt;43.9483&lt;/td&gt;
+&lt;td&gt;34.9316&lt;/td&gt;
+&lt;td&gt;79.48%&lt;/td&gt;
+&lt;td&gt;4.76865&lt;/td&gt;
+&lt;td&gt;10.85%&lt;/td&gt;
+&lt;td&gt;90.33%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C57BL6_Brain_Sample_2_Non-IP_Control&lt;/td&gt;
+&lt;td&gt;41.4148&lt;/td&gt;
+&lt;td&gt;21.9999&lt;/td&gt;
+&lt;td&gt;53.12%&lt;/td&gt;
+&lt;td&gt;12.0241&lt;/td&gt;
+&lt;td&gt;29.03%&lt;/td&gt;
+&lt;td&gt;82.15%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips: hisat2输出的SAM文件中 &amp;lsquo;NH:i:N&amp;rsquo; The number of mapped locations for the read or the pair.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;d---bam-to-bigwig&#34;&gt;D - bam to bigwig&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;bam_dir=$hisat2_dir/position_sorted_bam
+deeptools_bw_dir=$bam_dir/deeptools_bw
+mkdir $deeptools_bw_dir
+cd $deeptools_bw_dir
+
+for i in $bam_dir/*.position_sorted.bam
+do
+echo $i
+t=${i##*/}
+name=${t%%.position_sorted.bam}
+
+nohup bamCoverage -p 10 -b $i -o ${name}.bw  --normalizeUsing RPKM --binSize 10 --smoothLength 30 &amp;gt; ./${name}.bw.log &amp;amp;
+
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1:deeptools是NGS比对后分析的四大金刚之一（samtools/bedtools/deeptools/bamtools），后面还会用到他
+Tips2:bamCoverage是deeptools工具套件的其中一个函数，产固定步长的bigwig效果很好，他有一个姐妹函数bamCompare后面会讲&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;B字三剑客 “bam、bigwig、bed” ，三人足以横扫天下，后面会介绍&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig3-3.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;e---igv-展示-准备bw文件&#34;&gt;E - IGV 展示 （准备bw文件）&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig3-5.bmp&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig3-6.bmp&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig3-7.bmp&#34; alt=&#34;&#34;&gt;
+ &lt;/p&gt;
+&lt;h3 id=&#34;2无敌的bwa-不要迷恋哥哥只是个传说&#34;&gt;2、无敌的bwa (不要迷恋哥,哥只是个传说)&lt;/h3&gt;
+&lt;h4 id=&#34;a---比对-1&#34;&gt;A - 比对&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+fastq_cut_dir=$work_dir/0.2_fastq_cut/mouse
+bwa_dir=$work_dir/1.2_bwa/mouse
+
+echo $fastq_cut_dir
+cd $fastq_cut_dir
+
+species=/home/share/bwa_index/mm10.fa
+thread=5
+
+#for Single-end data
+for i in *_cut.fastq.gz
+do 
+echo $i
+
+( nohup bwa mem -t $thread  $species  $i -M -R &#39;@RG\tID:sample\tSM:sample&#39; -o $bwa_dir/${i%%_cut.fastq.gz}.bwa.sam &amp;gt; $bwa_dir/${i%%_cut.fastq.gz}.bwa.log 2&amp;gt;&amp;amp;1 ) &amp;amp;
+done
+
+echo $bwa_dir
+cd $bwa_dir
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1:bwa需要自己建立比对基因组，需要的同学可以答疑时咨询我们老师
+Tips2:bwa不论比对质量都会输出，需要后续筛选&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;#for Pair-end data
+for i in *1_cut.fastq.gz
+do 
+echo $i
+t=${i/1_cut.fastq.gz/2_cut.fastq.gz}
+
+( nohup bwa mem -t $thread  $species  $i $t -M -R &#39;@RG\tID:sample\tSM:sample&#39; -o $bwa_dir/${i%%_1_cut.fastq.gz}.bwa.sam &amp;gt; $bwa_dir/${i%%_1_cut.fastq.gz}.bwa.log 2&amp;gt;&amp;amp;1 ) &amp;amp;
+
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;b---转换格式保存初步筛选数据&#34;&gt;B - 转换格式保存，初步筛选数据&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;## 1.sam to bam ##
+for i in *.sam
+do
+echo $i
+( nohup samtools  sort -@ 5 -o ${i%%.sam}.position_sorted.bam $i ) &amp;amp;
+done
+#--------------------------------------------------------------------
+## 2.filter ## 
+MAPQ=20
+flag=2   #only for pair-end sequencing
+
+for i in *.position_sorted.bam
+do
+echo $i
+nohup samtools view -@ 10 -hb  -f $flag -q $MAPQ $i -o ${i%%.bam}.MAPQ${MAPQ}.bam &amp;amp;
+done
+#--------------------------------------------------------------------
+## 3.index ## 
+for i in *MAPQ*.bam
+do
+echo $i
+mv  $i  ${i%%.position_sorted*}.final.bam 
+done
+
+for i in *.final.bam 
+do
+( nohup samtools index $i ) &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig3-4.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;c---简单统计一下-1&#34;&gt;C - 简单统计一下&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+fastq_cut_dir=$work_dir/0.2_fastq_cut/mouse
+bwa_dir=$work_dir/1.2_bwa/mouse
+mkdir $bwa_dir/flagstat
+#--------------------------------------------------------------------
+# step1- create flagstat from bam files
+for i in *.bam
+do
+echo $i
+samtools flagstat -@ 10 $i &amp;gt; ./flagstat/${i/.bam/.flagstat} &amp;amp;
+done
+#--------------------------------------------------------------------
+# step2 - summary from flagstat files
+cd $bwa_dir/flagstat
+echo -e &#39;Sample\tTotal mapped fragments(M)\tfilter_keep(M)\tpercentage\tduplicate(M)\tpercentage\tfinal_keep(M)\tpercentage&#39; &amp;gt; flag_state.tab
+
+for i in *.bwa.position_sorted.flagstat
+do
+name=${i%%.bwa.position_sorted.flagstat}
+echo $name
+awk -v name=$name &#39;
+BEGIN{FS=&amp;quot;[ \t();%]+&amp;quot;;OFS=&amp;quot;\t&amp;quot;}
+FILENAME==name&amp;quot;.bwa.position_sorted.flagstat&amp;quot; &amp;amp;&amp;amp; FNR==5 {total=t=($1/2)/1e6}
+FILENAME==name&amp;quot;.bwa.position_sorted.MAPQ20.flagstat&amp;quot; &amp;amp;&amp;amp; FNR==5 {filter_keep=t=($1/2)/1e6;filter_keep_p=filter_keep/total*100}
+END{print name,total,filter_keep,filter_keep_p&amp;quot;%&amp;quot;}&#39; ${name}.bwa.position_sorted.flagstat ${name}.bwa.position_sorted.MAPQ20.flagstat \
+&amp;gt;&amp;gt; bwa_align_summary.tab
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/bwa_align_summary.tab&#34;&gt;《=== bwa比对结果统计示例 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Sample | Total_mapped fragments(M) | filter_keep(M) | percentage | duplicate(M) | percentage | final_keep(M) | percentage
+&amp;ndash; | &amp;ndash; | &amp;ndash; | &amp;ndash; | &amp;ndash; | &amp;ndash; | &amp;ndash;
+C57BL6_Brain_Sample_1_MeRIP-SYSY | 32.8287 | 23.9329 | 72.9024% | 6.61624 | 20.1538% | 17.3166 | 52.7485%
+C57BL6_Brain_Sample_1_Non-IP_Control | 31.0159 | 19.873 | 64.0737% | 7.51592 | 24.2325% | 12.3571 | 39.8412%
+C57BL6_Brain_Sample_2_MeRIP-NEB | 33.1795 | 27.2499 | 82.1288% | 7.68763 | 23.1698% | 19.5623 | 58.959%
+C57BL6_Brain_Sample_2_MeRIP-SYSY | 41.8398 | 32.5188 | 77.7223% | 13.0959 | 31.3001% | 19.4229 | 46.4222%
+C57BL6_Brain_Sample_2_Non-IP_Control | 38.0361 | 18.1338 | 47.6753% | 9.7594 | 25.6583% | 8.37443 | 22.0171%&lt;/p&gt;
+&lt;h4 id=&#34;d---bam-to-bigwig-1&#34;&gt;D - bam to bigwig&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;# with duplicate
+for i in ./*.position_sorted.MAPQ20.bam
+do
+echo $i
+t=${i##*/}
+name=${t%%.position_sorted*}
+nohup bamCoverage  -p 10 -b $i -o ${name}.withdup.bw  --normalizeUsing RPKM --binSize 10 --smoothLength 30 &amp;gt; ./${name}.withdup.bw.log &amp;amp;
+done
+#--------------------------------------------------------------------
+# without duplicate
+for i in ./*.final.bam
+do
+echo $i
+t=${i##*/}
+name=${t%%.final.bam}
+nohup bamCoverage  -p 10 -b $i -o ${name}.rmdup.bw  --normalizeUsing RPKM --binSize 10 --smoothLength 30 &amp;gt; ./${name}.rmdup.bw.log &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;3duplicate怎么办你还在用picard吗&#34;&gt;3、duplicate怎么办?（你还在用picard吗?）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# step1 - mark
+for i in *position_sorted.bam
+do
+echo $i
+sambamba markdup -t 10 $i  ${i/.bam/.mark.bam} &amp;gt; ${i/.bam/.mark.log} 2&amp;gt;&amp;amp;1  &amp;amp;
+done
+#--------------------------------------------------------------------
+# step2 - remove
+flag=1024
+for i in *mark.bam
+do
+echo $i
+nohup samtools view -@ 10 -Shb -F $flag  $i -o ${i%%.position_sorted*}.final.bam &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;为什么选择sambamba？因为他长得像samtools；
+为什么选择sambamba？因为他比picard好用，运行稳定；
+为什么选择sambamba？因为他和picard一样结果，通吃SE/PE。
+。。。还问？不用问了，用就对了！
+不过picard的统计还是很丰富的，有时还是有点作用的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;那到底去不去？两个门派都有，哪个好用就入哪个门派吧&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Softwares&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://ccb.jhu.edu/software/hisat2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HISAT2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://github.com/lh3/bwa&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BWA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://www.htslib.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;samtools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://deeptools.readthedocs.io/en/develop/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;deeptools&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Other&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://samtools.github.io/hts-specs/SAMv1.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;sam文件格式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://github.com/alexdobin/STAR&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;STAR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://ccb.jhu.edu/software/tophat/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TopHat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://github.com/BenLangmead/bowtie2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bowtie2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>四、Post alignment QC （你以为壳子好的快递，里面也是好的嘛？）</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part4/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part4/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;除了早期的测序质控外，比对后质控也是重要的环节之一，这一部分主要来看看比对后的情况，判断样本是否正常&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1运行-picard&#34;&gt;1、运行 picard&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+hisat2_bam_dir=$work_dir/1.1_hisat2/mouse/position_sorted_bam
+
+echo $hisat2_bam_dir
+cd $hisat2_bam_dir
+mkdir picard
+
+species=mm10
+
+#mkdir picard
+for i in *.bam
+do
+echo $i
+(nohup picard CollectRnaSeqMetrics \
+REF_FLAT=/home/share/ann/${species}.refFlat \
+STRAND_SPECIFICITY=NONE \
+INPUT=$i \
+OUTPUT= ./picard/${i%%.bam}.picard_out \
+CHART_OUTPUT=./picard/${i%%.bam}.picard_out_chart.pdf \
+REFERENCE_SEQUENCE=/home/share/bowtie2_index/${species}.fa \
+&amp;gt; ./picard/${i%%.bam}.picard.log) &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1：refFlat文件可以从UCSC下载，没有的话可以使用如下生成：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;gtfToGenePred -genePredExt -geneNameAsName2 XXX.gtf XXX.refFlat
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips2：picard是一个基于Java的软件，有的时候对线程和内存不友好，可以按如下调整：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;java -jar -Xmx10000m -XX:ParallelGCThreads=10 $picard_path/picard.jar CollectRnaSeqMetrics
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最后生成文件如下：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig4-1.bmp&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig4-2.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2summary&#34;&gt;2、summary&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;picard_dir=$work_dir/1.1_hisat2/position_sorted_bam/picard
+
+echo $picard_dir
+cd $picard_dir
+
+# picard_distribution
+echo -e &#39;Sample\tPCT_CODING_BASES\tPCT_UTR_BASES\tPCT_INTRONIC_BASES\tPCT_INTERGENIC_BASES&#39; &amp;gt; picard_distribution.tab  
+for i in *_out
+do
+echo $i
+awk -v sample=${i} -v t=&amp;quot;&amp;quot; &#39;BEGIN{FS=&amp;quot;[:\t ]+&amp;quot; } NR==8{t=t&amp;quot;\t&amp;quot;$15&amp;quot;\t&amp;quot;$16&amp;quot;\t&amp;quot;$17&amp;quot;\t&amp;quot;$18} END{print sample&amp;quot;&amp;quot;t}&#39; $i &amp;gt;&amp;gt; picard_distribution.tab
+done
+
+#picard_coverage_100
+file=picard_coverage_100.tab
+for i in *_out
+do
+echo $i
+if [ ! -f &amp;quot;$file&amp;quot; ]; then
+  tail -103 $i|cut -f 1,2|sed &#39;1c All_Reads.normalized_coverage\t&#39;${i} &amp;gt; $file
+else
+  tail -103 $i|cut -f2|sed &#39;1c&#39;${i} &amp;gt;temp
+  paste  $file temp &amp;gt; temp2
+  mv temp2 $file
+  rm temp
+fi
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/picard_qc/picard_distribution.tab&#34;&gt;《=== picard_distribution ===》&lt;/a&gt;
+&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig4-4.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/picard_qc/picard_coverage_100.tab&#34;&gt;《=== picard_coverage_100 ===》&lt;/a&gt;
+&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig4-3.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Softwares
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://broadinstitute.github.io/picard/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Picard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Other
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://rseqc.sourceforge.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RseQC&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>五、Sample QC （发错货这事，有时挺常见的）</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part5/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part5/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;除了 早期测序质控，比对后质控，还有一个质控——实验质控（带生物学意义的质控）
+deeptools真的很deep&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1preparation两种模式全基因组特定区域&#34;&gt;1、preparation（两种模式——全基因组|特定区域）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+hisat2_bam_dir=$work_dir/1.1_hisat2/mouse/position_sorted_bam
+
+echo $hisat2_bam_dir
+cd $hisat2_bam_dir
+
+(nohup multiBamSummary bins  -p 60 --bamfiles $hisat2_bam_dir/*bam -out ./deeptools/results_whole_region.npz ) &amp;amp;
+(nohup multiBamSummary BED-file --BED ./mm10.RefSeq.bed  -p 60 --bamfiles $hisat2_bam_dir/*bam -out ./deeptools_qc/results_gene_region.npz ) &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1：multiBamSummary是deeptools套件的一个函数，主要用于生成下游质控的初始文件
+Tips2：默认划bins是10kb一个bin
+Tips3：mm10.RefSeq.bed 来自 UCSC TABLE broswer&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig5-1.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2correlation&#34;&gt;2、Correlation&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;plotCorrelation -in results_gene_region.npz --corMethod spearman --skipZeros --plotTitle &amp;quot;Spearman Correlation of Read Counts gene region&amp;quot; \
+--labels SYSY-MeRIP-rep1 input-rep1 NEB-MeRIP-rep2 SYSY-MeRIP-rep2 input-rep2 --colorMap PiYG \
+--whatToPlot heatmap  --plotNumbers -o heatmap_SpearmanCorr_readCounts_gene_region.png --outFileCorMatrix SpearmanCorr_readCounts_gene_region.tab &amp;amp;
+
+plotCorrelation -in results_gene_region.npz --corMethod spearman --skipZeros --plotTitle &amp;quot;Spearman Correlation of Read Counts gene region&amp;quot; \
+--labels SYSY-MeRIP-rep1 input-rep1 NEB-MeRIP-rep2 SYSY-MeRIP-rep2 input-rep2 --log1p \
+--whatToPlot scatterplot -o heatmap_SpearmanCorr_readCounts_gene_region_2.png &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1：spearman 和 pearson 是最常用的方法，pearson更容易受异常值影响
+Tips2：用于判断异常样本
+Tips3：文件名太长可以用 &amp;ndash;labels 修改
+Tips4：可修改颜色&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;heatmap&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/deeptools_qc/heatmap_SpearmanCorr_readCounts_gene_region.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;scatterplot&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/deeptools_qc/heatmap_SpearmanCorr_readCounts_gene_region_2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3pca&#34;&gt;3、PCA&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;cd  $hisat2_bam_dir/deeptools_qc
+
+plotPCA --transpose --markers &#39;o&#39; &#39;&amp;gt;&#39; &#39;o&#39; &#39;o&#39; &#39;&amp;gt;&#39; -in results_gene_region.npz -o PCA_readCounts_gene_region.png -T &amp;quot;PCA of read counts gene region&amp;quot; --outFileNameData PCA_readCounts_data_gene_region.tab &amp;amp;
+
+plotPCA --transpose --markers &#39;o&#39; &#39;&amp;gt;&#39; &#39;o&#39; &#39;o&#39; &#39;&amp;gt;&#39; -in results_whole_region.npz -o PCA_readCounts_whole_region.png -T &amp;quot;PCA of read counts whole region&amp;quot; --outFileNameData PCA_readCounts_data_whole_region.tab &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips1：PCA是一种降维方法，他将样本的诸多差异（基因|bins|&amp;hellip;）浓缩到二维，其中PC1和PC2是区别最大的前两个维度
+Tips2：默认取前1000个影响因素
+Tips3：用于判断异常样本
+Tips4：文件名太长可以用 &amp;ndash;labels 修改&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gene_region范围计算&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/deeptools_qc/PCA_readCounts_gene_region.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;whole_region范围计算&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/deeptools_qc/PCA_readCounts_whole_region.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;4fragment-length&#34;&gt;4、fragment length&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+hisat2_bam_dir=$work_dir/1.1_hisat2/mouse/position_sorted_bam
+
+for i in $hisat2_bam_dir/*.bam
+do
+echo $i
+(nohup bamPEFragmentSize -p 20 -hist ${i##*/}fragmentSize.png -T &amp;quot;Fragment size of SE MeIP-seq data&amp;quot; --maxFragmentLength 200 --bamfiles  $i  --samplesLabel  ${i##*/}) &amp;gt; ./${i##*/}fragmentSize.log &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips：主要用于判断片段超声情况，一般m6A大约在100-200nt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/deeptools_qc/C57BL6_Brain_Sample_1_MeRIP-SYSY.hisat2.position_sorted.bamfragmentSize.png&#34;&gt;&lt;/a&gt;
+&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/deeptools_qc/M-shNC-IP_BKDL190832169-1a.hisat2.position_sorted.bamfragmentSize.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;5other&#34;&gt;5、other&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;plotFingerprint
+plotCoverage
+#这两个函数主要检查抗体富集和reads覆盖度，仅供参考
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;br/&gt;    &lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>六、reads distribution （m6a在基因上的分布——另一种QC）</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part6/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part6/</guid>
+      <description>&lt;h2 id=&#34;1input-normalize---消除背景噪音&#34;&gt;1.input normalize ##  消除背景噪音&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;ChIP=C57BL6_Brain_Sample_1_MeRIP-SYSY.hisat2
+Input=C57BL6_Brain_Sample_1_Non-IP_Control.hisat2
+operation=log2
+
+bigwigCompare -p 50  -b1 ${ChIP}.bw  -b2 ${Input}.bw \
+--operation ${operation}  --binSize 10 --pseudocount 1 \
+-o ${ChIP}_${operation}_${Input}.bw --outFileFormat bigwig \
+&amp;gt; ${ChIP}_${operation}_${Input}.log &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;#&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/p&gt;
+&lt;h2 id=&#34;2prepare-matrix&#34;&gt;2.prepare matrix&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;cd /home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/deeptools_profile/result
+
+bw_dir1=/home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/deeptools_bw/assemble_bw
+region_dir1=/home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/deeptools_profile/bed_home
+
+bw_files=&amp;quot;
+$bw_dir1/C57BL6_Brain_Sample_1_MeRIP-SYSY.hisat2_log2ratio_C57BL6_Brain_Sample_1_Non-IP_Control.hisat2.bw 
+$bw_dir1/C57BL6_Brain_Sample_2_MeRIP-NEB.hisat2_log2ratio_C57BL6_Brain_Sample_2_Non-IP_Control.hisat2.bw 
+$bw_dir1/C57BL6_Brain_Sample_2_MeRIP-SYSY.hisat2_log2ratio_C57BL6_Brain_Sample_2_Non-IP_Control.hisat2.bw 
+&amp;quot;
+region_files=&amp;quot;
+$region_dir1/mm10.RefSeq.cds.bed
+&amp;quot;
+
+try=MeIRP_profile_on_cds_mm10_input_norm
+
+nohup computeMatrix scale-regions -p 100  -b 1000 -a 1000 --regionBodyLength 3000 -R $region_files \
+-S $bw_files --startLabel cdsStart  --endLabel cdsEnd --binSize 50 \
+--samplesLabel  SYSY-MeRIP-rep1 NEB-MeRIP-rep2 SYSY-MeRIP-rep2 \
+-o ./${try}_computeMatrix.gz --outFileNameMatrix ./${try}_computeMatrix.matrix.tab \
+--outFileSortedRegions ./${try}_computeMatrix.SortedRegions.bed &amp;gt; ./${try}_computeMatrix.log &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;#&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/p&gt;
+&lt;h2 id=&#34;3display-graph&#34;&gt;3.display graph &lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;try=MeIRP_profile_on_cds_mm10_input_norm
+
+plotProfile --matrixFile ${try}_computeMatrix.gz --outFileName ${try}_profile_1.pdf --outFileNameData ${try}_profile_1.tab --dpi 720 --perGroup --numPlotsPerRow 2 --plotHeight 12 --plotWidth 16 &amp;amp;
+plotProfile --matrixFile ${try}_computeMatrix.gz --outFileName ${try}_profile_2.pdf --outFileNameData ${try}_profile_2.tab --dpi 720            --numPlotsPerRow 2 --plotHeight 12 --plotWidth 16 &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tips：主要查看基因CDS区域上带有m6a的reads的分布&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig6-1.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;也可以展示每个基因的情况&#34;&gt;也可以展示每个基因的情况&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;plotHeatmap --matrixFile ./${try}_computeMatrix.gz --outFileName ./${try}_peak.pdf --colorList &amp;quot;white,blue&amp;quot; --whatToShow &amp;quot;plot, heatmap and colorbar&amp;quot; --dpi 720 --missingDataColor white \
+--refPointLabel &amp;quot;center&amp;quot; --regionsLabel &amp;quot; &amp;quot;  --xAxisLabel &amp;quot; &amp;quot; --sortRegions descend --sortUsing mean --heatmapHeight 30 --heatmapWidth 4 &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig6-2.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Softwares
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://deeptools.readthedocs.io/en/develop/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;deeptools&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>七、call peak ！（花这么多钱，就为了这个东西！m6a到底富集在哪？我要坐标！）</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part7/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part7/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;还记得那三剑客吗？“bam、bigwig、bed” 。豪不夸张的说，拥有这三样东西，NGS-data的下游分析就手到擒来。前面我们获得了bam和bigwig，接下来我们获得m6a的bed，至于其他bed可以来源与UCSC和文献。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1macs2万能钥匙真的万能吗&#34;&gt;1、MACS2（万能钥匙真的万能吗？）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;hisat2_dir=$work_dir/1.1_hisat2/mouse
+hisat2_bam_dir=$hisat2_dir/position_sorted_bam
+macs2_dir=$hisat2_dir/position_sorted_bam/macs2
+
+cd $hisat2_bam_dir
+
+#----------
+
+my_name=SYSY_rep1
+mkdir $macs2_dir/${my_name}
+
+t=C57BL6_Brain_Sample_1_MeRIP-SYSY.hisat2.position_sorted.bam
+c=C57BL6_Brain_Sample_1_Non-IP_Control.hisat2.position_sorted.bam
+
+nohup macs2 callpeak -t $hisat2_bam_dir/$t -c $hisat2_bam_dir/$c -g mm -f BAM -n ${my_name} --outdir $macs2_dir/${my_name} -q 0.01 &amp;gt; $macs2_dir/${my_name}.macs2.log &amp;amp;
+
+#----------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/Fig7-1.bmp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;2参数小贴士&#34;&gt;2、参数小贴士&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;解释&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-g/&amp;ndash;gsize&lt;/td&gt;
+&lt;td&gt;hs: 2.7e9；mm: 1.87e9；ce: 9e7；dm: 1.2e8&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-f&lt;/td&gt;
+&lt;td&gt;BAM；BAMPE  等&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-q or -p&lt;/td&gt;
+&lt;td&gt;&amp;lt;0.001；&amp;lt;0.01；&amp;lt;0.05 等&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-m/&amp;ndash;mfold&lt;/td&gt;
+&lt;td&gt;-m 5,50&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;keep-dup&lt;/td&gt;
+&lt;td&gt;Default: 1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;fix-bimodal&lt;/td&gt;
+&lt;td&gt;when MACS failed to build paired model, it will use the nomodel settings&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;nomodel&lt;/td&gt;
+&lt;td&gt;配合  &amp;ndash;shift &amp;ndash;extsize  使用&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;nolamda&lt;/td&gt;
+&lt;td&gt;谨慎使用 - With this flag on, MACS will use the background lambda as local lambda. This means MACS will not consider the local bias at peak candidate regions.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;slocal； &amp;ndash;llocal&lt;/td&gt;
+&lt;td&gt;谨慎使用 - MACS considers 1000bp for small local region(&amp;ndash;slocal), and 10000bps for large local region(&amp;ndash;llocal)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;3输出文件简介&#34;&gt;3、输出文件简介&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NAME_peaks.narrowPeak is BED6+4 format file which contains the peak locations together with peak summit, pvalue and qvalue. You can load it to UCSC genome browser. Definition of some specific columns are:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;列头&lt;/th&gt;
+&lt;th&gt;解释&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;5th&lt;/td&gt;
+&lt;td&gt;integer score for display. It&amp;rsquo;s calculated as int(-10&lt;em&gt;log10pvalue) or int(-10&lt;/em&gt;log10qvalue) depending on whether -p (pvalue) or -q (qvalue) is used as score cutoff. Please note that currently this value might be out of the [0-1000] range defined in UCSC Encode narrowPeak format. You can let the value saturated at 1000 (i.e. p/q-value = 10^-100) by using the following 1-liner awk: awk -v OFS=&amp;quot;\t&amp;quot; &amp;lsquo;{$5=$5&amp;gt;1000?1000:$5} {print}&amp;rsquo; NAME_peaks.narrowPeak&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7th&lt;/td&gt;
+&lt;td&gt;fold-change at peak summit&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8th&lt;/td&gt;
+&lt;td&gt;-log10pvalue at peak summit&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9th&lt;/td&gt;
+&lt;td&gt;-log10qvalue at peak summit&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10th&lt;/td&gt;
+&lt;td&gt;relative summit position to peak start&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/macs2/SYSY_rep1/SYSY_rep1_peaks.narrowPeak&#34;&gt;《=== narrowPeak文件示例 ===》&lt;/a&gt;
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/macs2/SYSY_rep1/SYSY_rep1_summits.bed&#34;&gt;《=== summit文件示例 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/ChIPseeker/peak_profile&#34;&gt;《=== 各类peak属性统计（R） ===》&lt;/a&gt;
+###请打开 Rcode - part7&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SYSY_rep1_peaks_PeakLengthDensity.pdf
+SYSY_rep1_peaks_PeakEnrichmentDensity.pdf
+SYSY_rep1_peaks_PeakPvalueDensity.pdf
+SYSY_rep1_peaks_PeakSummitPosition.pdf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;4deeptools----peak-中心信号--summitbed--bw&#34;&gt;4、deeptools &amp;ndash;&amp;gt; peak 中心信号  summit.bed + bw&lt;/h3&gt;
+&lt;h3 id=&#34;5narrowpeak文件初步过滤&#34;&gt;5、narrowPeak文件初步过滤&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;; FS=&amp;quot;\t&amp;quot;} $5 &amp;gt; 50 {print $0}&#39; XXX.narrowPeak &amp;gt; XXX.filter.narrowPeak 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Softwares
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://github.com/taoliu/MACS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MACS2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://bedtools.readthedocs.io/en/latest/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BEDtools&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Other
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://github.com/compgenomics/MeTPeak&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MeTPeak&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://github.com/compgenomics/MeTDiff&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MeTDiff&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://matk.renlab.org/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MATK&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;peak+deeotools+summit?heatmap?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>八、motif（下游验证的突破口）</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part8/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part8/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;peak分析中，motif是重要的一环，这也是后续实验验证的（mutation）的核心，之所以特异，正因为有你——motif&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1homer不是那个写史诗的荷马其实是辛普森一家&#34;&gt;1、Homer（不是那个写史诗的荷马，其实是辛普森一家）&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# Step1 - filter (maybe)
+
+awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;; FS=&amp;quot;\t&amp;quot;} $5 &amp;gt; 50 {print $0}&#39; Rrp6_ChIRP_1_peaks.narrowPeak &amp;gt; Rrp6_ChIRP_1_peaks_m100.narrowPeak 
+awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;; FS=&amp;quot;\t&amp;quot;} $5 &amp;gt; 50 {print $0}&#39; Rrp6_ChIRP_2_peaks.narrowPeak &amp;gt; Rrp6_ChIRP_2_peaks_m100.narrowPeak 
+
+#--------------------------------------------------------------------
+# Step2 - clean
+
+for i in /home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/homer/bed_home/*.narrowPeak
+do
+echo $i
+#awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;;FS=&amp;quot;\t&amp;quot;;count=1} {print &amp;quot;peak_&amp;quot;count,$1,$2,$3,0,0;count=count+1}&#39; $i &amp;gt; ${i/.bed/.new.bed}
+#awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;;FS=&amp;quot;\t&amp;quot;;count=1} {print $1,$2,$3,&amp;quot;peak_&amp;quot;count,$4,0;count=count+1}&#39; $i &amp;gt; ${i/.narrowPeak/.new.bed}
+awk &#39;BEGIN{OFS=&amp;quot;\t&amp;quot;;FS=&amp;quot;\t&amp;quot;;count=1} {print $1,$2,$3,$4}&#39; $i &amp;gt; ${i/.narrowPeak/.new.bed}
+done 
+
+#--------------------------------------------------------------------
+# Step3 - find motif
+
+for i in ./*.new.bed
+do
+echo $i
+t=${i##*/}
+name=${t%%.new.bed}
+mkdir ${name}
+findMotifsGenome.pl $i mm10 ${name} -size given -mask -p 20 -len 5,6,8,10,12 -S 30 -rna -preparsedDir ${name} &amp;gt; ${name}/${name}.log 2&amp;gt;&amp;amp;1 &amp;amp;
+done 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/find_motif_2/SYSY_rep1_peaks.new.bed&#34;&gt;《=== 输入bed文件示例 ===》&lt;/a&gt;
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/find_motif_2/SYSY_rep1_peaks/homerResults.html&#34;&gt;《=== 输出结果文件示例 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;2参数小贴士&#34;&gt;2、参数小贴士&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;解释&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-size&lt;/td&gt;
+&lt;td&gt;fragment size to use for motif finding&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-mask&lt;/td&gt;
+&lt;td&gt;mask repeats/lower case sequence&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-len&lt;/td&gt;
+&lt;td&gt;motif length&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-S&lt;/td&gt;
+&lt;td&gt;Number of motifs to optimize&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-rna&lt;/td&gt;
+&lt;td&gt;output RNA motif logos and compare to RNA motif databas&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-gc&lt;/td&gt;
+&lt;td&gt;use GC% for sequence content normalization&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-preparsedDir&lt;/td&gt;
+&lt;td&gt;location to search for preparsed file and/or place new files&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;3其他方法可再补充&#34;&gt;3、其他方法(可再补充)&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;A - 基于fasta的homer
+bedtools getfasta -fi ~/Database/	genome/hg38/hg38_UCSC.fa -bed Joint_peak.bed -fo Joint_peak.fa -split -s
+findMotifs.pl jointPeak.fa fasta /home/xxx/project1/fisherPeak/homer_motif -fasta ~/Database/transcriptome/backgroud_peaks/hg38_200bp_randomPeak.fa -rna -p 10 -len 5,6,7
+
+B - MEME（不是那个meme）
+C - 基于bam序列
+D - 基于已知motif矩阵
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Softwares
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://homer.ucsd.edu/homer/motif/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Homer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://bedtools.readthedocs.io/en/latest/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BEDtools&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Other
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://meme-suite.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MEME&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>九、功能性分析（生物学意义不能少，editor拒稿几大套路之一）</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part9/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part9/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;peak的功能属性不同于统计属性，生物学意义是生物信息学分析提档的关键&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1relative-gene-location-distribution-of-peaks&#34;&gt;1、Relative gene location distribution of peaks&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# Step1 - intersect with different part of genes
+work_dir=/home4/sjshen/project/m6a/GSE29714_Cell
+peak_distribution_dir=$work_dir/1.1_hisat2/mouse/position_sorted_bam/peak_distribution
+
+cd $peak_distribution_dir/result
+
+for i in $peak_distribution_dir/peak_bed_home/SYSY_rep1_summits.bed 
+do 
+t1=${i##*/}
+bed_name_1=${t1%%.bed}
+    for j in $peak_distribution_dir/ann_bed_home/*bed 
+    do
+    t2=${j##*/}
+    bed_name_2=${t2%%.bed}
+    bedtools intersect -wa -wb -a $i -b $j &amp;gt;  $peak_distribution_dir/result/${bed_name_1}.${bed_name_2}.intersect.tab &amp;amp;
+    done
+done
+
+#--------------------------------------------------------------------
+
+# Step2 - plot in R
+# 详见代码
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/peak_distribution&#34;&gt;《=== 绘图代码 R ===》&lt;/a&gt;
+###请打开 Rcode - part9_1
+&lt;img src=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/peak_distribution/m6a.distribution.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2which-genes-does-peaks-belong-to----gene-mapping&#34;&gt;2、Which gene(s) does peak(s) belong to ?  —— gene mapping&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# 方法1 - homer - intersect with different part of genes
+cd anno_peak
+
+for i in /home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/homer/bed_home/*.narrowPeak
+do
+echo $i
+name=${i##*/}
+mkdir ${name}
+#mkdir ${name}/go
+annotatePeaks.pl  $i mm10 -annStats ${name}/${name}.stat 2&amp;gt;${name}/${name}.log 1&amp;gt;${name}/${name}.gene &amp;amp;
+done 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/anno_peak/SYSY_rep1_peaks.narrowPeak/SYSY_rep1_peaks.narrowPeak.gene&#34;&gt;《=== Homer - 临近基因注释 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 方法2 - ChIPseeker
+# 详见R代码
+&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/ChIPseeker/9_2_Related_Genes&#34;&gt;《=== Rcode - part9_2 - ChIPSeeker ===》&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 方法3 - bedtools
+for i in *bed;do
+echo $i
+awk &#39;{printf &amp;quot;%s\t%d\t%d\t%s\t%d\t%s\n&amp;quot;,$1,($2+$3)/2,($2+$3)/2,$4,$5,&amp;quot;+&amp;quot;}&#39; $i | bedtools closest -a - -b mm10_transcript_uniqGene.bed -D b &amp;gt; ${i/.bed/.myann.txt}
+done
+# 1.peak用中心坐标来找
+# 2.两个文件均包含六列(第六列为strand--重要)
+# 3.根据输出结果最后一列判断:在基因上游为负值,基因下游为正值, 基因body为0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;3which-functional-regions-does-peaks-belong-to-&#34;&gt;3、Which functional region(s) does peak(s) belong to ?&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# 方法1 - homer - 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/anno_peak/SYSY_rep1_peaks.narrowPeak/SYSY_rep1_peaks.narrowPeak.stat&#34;&gt;《=== Homer - peak分布注释 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 方法2 - ChIPseeker
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/ChIPseeker/9_3_genome_functional_region&#34;&gt;《=== Rcode - part9_3 - ChIPSeeker ===》&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;4chrom-profile-of-peaks&#34;&gt;4、Chrom profile of peaks&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/ChIPseeker/9_4_chromosome_profiling&#34;&gt;《=== Rcode - part9_4 - ChIPSeeker ===》&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;5go-term--kegg&#34;&gt;5、GO term &amp;amp; KEGG&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/ChIPseeker/9_5_GO_term_and_KEGG&#34;&gt;《=== Rcode - part9_5 - ChIPSeeker ===》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Softwares
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://homer.ucsd.edu/homer/motif/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Homer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://bedtools.readthedocs.io/en/latest/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BEDtools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ChIPseeker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>十、差异分析（五指兄弟不同长，天地万物终有别）</title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part10/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/part10/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;我们实验总有 对照组/处理组 或者 时间线，所以多样本的分析也很重要&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1peak-related-gene-交并补-差异-venn来了peak定位好时推荐&#34;&gt;1、peak related gene 交并补-差异 （Venn来了，peak定位好时推荐）&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/ChIPseeker/10_1_venn&#34;&gt;《=== Venn示例 ===》&lt;/a&gt;
+###请打开 Rcode - part10_1
+
+&lt;a href=&#34;https://bioinfogp.cnb.csic.es/tools/venny/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;《=== Venn神器 ===》&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2difference-based-on-value-per-region-peak定位不好时可以以region来做差异&#34;&gt;2、difference based on value per region (peak定位不好时，可以以region来做差异)&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# Step1 - preparation -  region可以来源于现有peak，也可以全基因组计算(bedtools makewindows)
+
+cd  /home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/peak_operation
+work_dir=/home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/peak_operation
+
+# intersect
+bedtools intersect -a $work_dir/peak_bed_home/SYSY_rep1_peaks.narrowPeak  -b $work_dir/peak_bed_home/SYSY_rep2_peaks.narrowPeak &amp;gt; $work_dir/intersect/SYSY_common.bed
+bedtools intersect -a $work_dir/peak_bed_home/NEB_rep2_peaks.narrowPeak  -b $work_dir/peak_bed_home/SYSY_rep2_peaks.narrowPeak  &amp;gt; $work_dir/intersect/NEB_SYSY_common.bed
+
+# merge (cat/sort/merge)
+cat $work_dir/peak_bed_home/SYSY_rep1_peaks.narrowPeak $work_dir/peak_bed_home/SYSY_rep2_peaks.narrowPeak $work_dir/peak_bed_home/NEB_rep2_peaks.narrowPeak &amp;gt; $work_dir/merge/all_common.bed
+bedSort all_common.bed all_common.sorted.bed
+bedtools merge -i all_common.sorted.bed &amp;gt; all_common.merge.bed
+
+#--------------------------------------------------------------------
+
+# Step2 - calculate peak RPKM 
+
+cd  /home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/peak_operation
+work_dir=/home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/peak_operation
+
+#  A - count
+#bed_dir=/home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/peak_operation/merge
+#bed_dir=/home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam/peak_operation/intersect
+
+bam_dir=/home4/sjshen/project/m6a/GSE29714_Cell/1.1_hisat2/mouse/position_sorted_bam
+
+# cd $bam_dir
+# for i in *.bam
+# do
+# echo $i
+# samtools flagstat -@ 10 $i &amp;gt; ./${i/.bam/.flagstat} &amp;amp;
+# done
+
+for i in $bed_dir/*.bed
+do
+t1=${i##*/}
+bed_name=${t1%%.bed}
+echo $bed_name
+    for j in $bam_dir/*.bam
+    do
+    t2=${j##*/}
+    bam_name=${t2%%.hisat*}
+    echo $bam_name
+    (nohup multiBamSummary BED-file --BED $i -p 20 --centerReads --bamfiles $j --outRawCounts ./${bed_name}.${bam_name}.readCounts.bed -out ./${bed_name}.${bam_name}.readCounts.npz )&amp;amp;
+    done
+done
+
+#  B - RPKM
+for i in *.readCounts.bed
+do
+t1=${i%%.readCounts.bed}
+name=${t1##*.}
+echo $name
+total_mapped_hit=`awk &#39; BEGIN{FS=&amp;quot;[ \t();%]+&amp;quot;;OFS=&amp;quot;\t&amp;quot;} FNR==5 {print $1}&#39; $bam_dir/${name}.hisat2.position_sorted.flagstat`
+echo $total_mapped_hit
+awk -v total_mapped_hit=$total_mapped_hit &#39;BEGIN{FS=&amp;quot;\t&amp;quot;;OFS=&amp;quot;\t&amp;quot;} NR&amp;gt;1 {print $1,$2,$3,($4*1e6)/(total_mapped_hit*($3-$2))*1000} &#39; $i &amp;gt; ${t1}.deeptools.rpkm.bed &amp;amp;
+done
+
+#total_mapped_hit=`awk &#39; BEGIN{FS=&amp;quot;[ \t();%]+&amp;quot;;OFS=&amp;quot;\t&amp;quot;} FNR==9 {print $1}&#39; $bam_dir/${name}.flagstat`
+
+# C - sort
+for i in *.deeptools.rpkm.bed
+do
+echo $i
+bedSort $i ${i/rpkm/rpkm.sorted} &amp;amp;  ###ucsc tools
+done
+
+# D - clean 
+for i in *.deeptools.rpkm.sorted.bed
+do
+echo $i
+egrep -v \(Pf3D7_API_v3\|Pf_M76611\) $i &amp;gt; ${i/.deeptools.rpkm.sorted.bed/.rpkm.clean.bed} &amp;amp;
+done
+
+#--------------------------------------------------------------------
+
+# Step3 - plot in R
+# 详见代码
+&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; 
+
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/hugo/resource/m6a/peak_operation/Rworkspace&#34;&gt;《=== 示例备份 ===》&lt;/a&gt;
+###请打开 Rcode - part10_2&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Softwares
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://www.htslib.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;samtools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://bedtools.readthedocs.io/en/latest/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BEDtools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://deeptools.readthedocs.io/en/develop/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;deeptools&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wukong.tongji.edu.cn/courses/shensijun.m6a/total/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/courses/shensijun.m6a/total/</guid>
+      <description>&lt;h1 id=&#34;m6a-rna科研设计数据分析结果解读-精品培训班-实操环节&#34;&gt;m6a RNA科研设计、数据分析、结果解读 精品培训班 实操环节&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;m6A（N6-methyladenosine，6-甲基腺嘌呤）是mRNA上最常见的化学修饰。它是一种动态可逆的化学修饰，在甲基转移酶复合物催化下产生，被RNA结合蛋白识别，可由去甲基化酶移除。m6A所涉及的生物学功能非常广泛，包括调控mRNA的可变剪接、出核、定位、翻译和稳定性等，广泛参与哺乳动物的昼夜节律、生殖发育、免疫、干细胞分化、肿瘤生成和转移以及肥胖等重要生命过程。此外，m6A也具有极强的物种保守性，迄今为止在酵母、果蝇、疟原虫、植物、高等动物中都有发现，所以作为表观遗传界的新星m6A研究将助力生命科学研究走上新台阶。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本次上机主要练习m6a测序数据(MeRIP)的分析与解读&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;##一、检查测序数据质量（验货一定要仔细）
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part1-2.html)
+##二、去除数据中的不良序列 (一把剪刀走江湖)
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part1-2.html)
+##三、开始比对测序数据，回帖基因组 （reads要回家）
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part3.html)
+##四、Post alignment QC （你以为壳子好的快递，里面也是好的嘛？）
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part4.html)
+##五、Sample QC （发错货这事，有时挺常见的）
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part5-6.html)
+##六、reads distribution （m6a在基因上的分布——另一种QC）
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part5-6.html)
+##七、call peak ！（花这么多钱，就为了这个东西！m6a到底富集在哪？我要坐标！）
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part7.html)
+##八、motif（下游验证的突破口）
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part8.html)
+##九、功能性分析（生物学意义不能少，editor拒稿几大套路之一）
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part9.html)
+##十、差异分析（五指兄弟不同长，天地万物终有别）
+[《=== 文件 ===》](/resource/hugo/resource/m6a/html_home/m6a_training - part10.html)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

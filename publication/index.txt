@@ -1,0 +1,61 @@
+---
+title: ""
+#作者可添加多个，姓,名逗号分隔。示例：
+#- Zhu, Qianshu
+#- Jiang, Cizhong
+authors:
+- ""
+#日期格式：2020-01-01T00:00:00Z；或2020-01-01
+date: ""
+#doi格式：10.1038/s41467-020-15607-z
+doi: ""
+
+publishDate: ""
+#2表示期刊文章
+publication_types: ["2"]
+#期刊名称在*号间添加，示例：publication: "*NATURE COMMUNICATIONS*"
+publication: "**"
+publication_short: "**"
+#摘要和总结可多行
+abstract: ""
+summary: ""
+
+tags:
+- Publications
+featured: false
+
+#可选添加其他链接，如pubmed；或pdf全文下载，示例：将pdf命名为full.pdf，放在同一目录下
+links:
+- name: "PubMed"
+  url: "https://pubmed.ncbi.nlm.nih.gov//"
+links:
+- name: "PDF"
+url_pdf: "./full.pdf"
+
+
+#可选主题图，将图片命名为featured.jpg/png，放在同一目录下
+image:
+  caption: \"\"
+  focal_point: \"\"
+  preview_only: false
+
+#可选项目名，一般无
+projects: []
+#可选滚动相册，一般无
+slides: ""
+---
+
+[说明] # 可在之后添加Markdown格式的任意内容、图片等，来补充说明文章。
+    # 在/home/share/hugo/academic/content/zh/publication中创建一个新文件夹，将本文件重命名为index.md放入，通知管理员更新
+	# 示例可参考/home/share/hugo/academic/content/zh/publication/2020.nature_communications.chen_mo
+
+
+
+
+
+
+
+
+
+
+

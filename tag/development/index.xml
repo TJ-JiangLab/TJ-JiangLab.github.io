@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>development | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/tag/development/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/tag/development/index.xml" rel="self" type="application/rss+xml" />
+    <description>development</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>development</title>
+      <link>https://wukong.tongji.edu.cn/tag/development/</link>
+    </image>
+    
+    <item>
+      <title>BMP4可调控下游靶基因Ube2s和Chmp4b来维持小鼠胚胎干细胞发育潜能</title>
+      <link>https://wukong.tongji.edu.cn/post/2022.protein_cell.liumeng/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2022.protein_cell.liumeng/</guid>
+      <description>&lt;p&gt;胚胎干细胞(embryonic stem cell, ESC) 是在体外建立起来的一种具备自我更新和三胚层分化能力的一类干细胞。良好的体外培养条件对于干细胞特性的维持至关重要，不仅显著影响细胞的转录组学和表观组，还进一步影响细胞基因组稳定性，增殖以及体内外分化能力。传统的小鼠胚胎干细胞培养在基于血清（FBS）的体系中，但由于血清批次不稳定和成分信息不明确等因素，可造成不同实验室或同一实验室不同阶段进行的胚胎干细胞体外培养存在差异，且血清体系中不明确的成分可引起冲突的细胞信号刺激，使得该条件下的胚胎干细胞呈现显著的异质性。因此，成分明确的无血清培养体系被建立并广泛用于人或小鼠胚胎干细胞培养。目前，对于小鼠胚胎干细胞而言，应用最广泛的是2008年Austin Smith实验室建立的基于N2/B27+2i（GSK3bi，CHIR99021和MEKi，PD0325901）培养体系（NB/2i），一般认为该条件下的胚胎干细胞呈现出 “ground state” 状态，具备良好的发育潜能【1】。然而，近年来无血清培养体系被揭露会引起DNA甲基化异常擦除，损害细胞端粒的稳定性并最终损伤细胞发育潜能。在该体系下，细胞仅10代左右的培养即不能通过胚胎干细胞分化潜能验证金标准的考核（四倍体补偿实验：即体外培养的胚胎干细胞可通过该实验形成一只完整的小鼠，小鼠中所有的细胞均由培养的细胞分化而来）【2,3】。&lt;/p&gt;
+&lt;p&gt;无血清体系中的MEKi引起的基因组不稳定及不可逆的DNA低甲基化状态被认为是造成该缺陷的主要原因，通过降低MEKi浓度至1/5，或改用MEKi为SRCi（CGP77675）可较为有效地维持胚胎干细胞的多能性。然而，这些缺陷并未在传统的血清培养体系中被观测到，提示无血清培养体系仍然有待改进。此外，上述研究认为MEKi是主要“背锅侠”，却有意或无意地忽略了血清与无血清体系中其他多个差异要素（如血清及基础培养基（前者采用DMEM，后者采用DMEM/F12、Neurobasal、N2和B27））。因此，找到造成胚胎干细胞发育潜能缺陷的原因，不仅将有助于优化胚胎干细胞的体外培养条件，还将有效提高或维持干细胞的质量从而助力于干细胞治疗等临床应用领域。&lt;/p&gt;
+&lt;p&gt;2022年2月11日，同济大学生命科学与技术学院高绍荣、陈嘉瑜和江赐忠课题组于Protein &amp;amp; Cell 在线发表了题为BMP4 preserves the developmental potential of mESCs through Ube2s- and Chmp4b- mediated chromosomal stability safeguarding 的研究论文。这项工作揭示了骨形态发生蛋白BMP4对于小鼠胚胎干细胞多能性的维持有显著的促进作用，在无血清培养体系中添加BMP4 可以适当激活 BMP 信号通路，进而上调无血清体系中受损的下游靶基因Ube2s和Chmp4b表达，来保障小鼠胚胎干细胞的染色体完整性和增殖能力，并进一步提高并长期维持小鼠胚胎干细胞的体内发育潜能。&lt;/p&gt;
+&lt;img src=&#34;fig1.png&#34;/&gt;  
+&lt;p&gt;在本研究中，作者将同一株细胞系分别培养在血清（S），血清/2i（S/2i）和无血清（N/2i）体系中，检测同一代数下不同培养条件对同一株细胞多能性的影响。研究发现，血清体系下2i的使用可以极大提升细胞的多能性，表现为极佳的体内发育潜能（高嵌合率），而无血清体系却严重削弱了2i的这一作用。无血清N/2i相较于血清体系S/2i下的胚胎干细胞表现出增殖慢，核型异常，低皮肤嵌合率和低生殖系嵌合率等表型，且不能通过四倍体补偿实验获得发育至成年的小鼠。通过比较两种体系下的细胞转录组，发现BMP，TGFβ和AKT等信号通路在无血清体系中呈现显著下调。为明确哪条信号通路与表现出的细胞多能性缺陷有重要关联，作者进行了筛选试验，将可激活相应通路的重要分子分别添加在无血清N/2i体系中，从而检测该通路的激活对胚胎干细胞染色体稳定性、细胞增殖及发育潜能的影响。研究结果表明，BMP通路的激活具有显著效果，其中BMP4最优并显著提高了无血清体系下胚胎干细胞的分化潜能，细胞可通过金标准的检验，这揭示了BMP信号通路在无血清培养体系中对维持细胞的发育潜能和保障染色体的完整性发挥了重要作用。&lt;/p&gt;
+&lt;p&gt;为了深入探究BMP4改善细胞缺陷的内在机制，作者通过聚焦核型和增殖异常表型的转录差异分析发现了Ube2s和Chmp4b两个靶基因，并发现BMP4的添加可引起两者基因调控区域组蛋白修饰的改变从而激活基因的表达。敲降或短期的诱导敲降Ube2s或Chmp4b均可以引起细胞增殖速度减慢，核型异常率增加及体内发育潜能受损，表现为三胚层分化异常和极低的嵌合率。此时，BMP4的添加已不能恢复该受损表型。此外，过表达实验也证实无血清体系下两者的过表达均可修复相关受损表型。值得注意的是，BMP4对无血清体系中的胚胎干细胞多能性的改善作用，不同于已报道的通过操纵ERK通路来实现（降低MEKi浓度或采用SRCi），也不影响2i条件下的DNA低甲基化状态，但其对胚胎干细胞发育潜能的提升最优。&lt;/p&gt;
+&lt;img src=&#34;fig2.png&#34;/&gt;  
+&lt;p&gt;同济大学博士研究生王明珠，赵堃和刘孟为本文的共同第一作者。同济大学江赐忠教授，高绍荣教授及陈嘉瑜教授为本文的共同通讯作者。&lt;/p&gt;
+&lt;p&gt;【附课题组手记】&lt;/p&gt;
+&lt;p&gt;如何在体外条件下维持细胞多能性，是一个老生常谈的话题。2017年起多篇研究指出了2i中MEKi对细胞多能性的损伤作用，然而在这一缺陷在我们的长期2i应用中并未被显著观察到。由于2i的正向作用大家已经很明确了，因此指出他们的side effect确实很能抓人眼球，我们想指出2i不是背锅侠，反而会落入“nothing new”的窘境。因此，在要不要开展这个研究之初，我们是有纠结的。我们不仅要考虑研究的前沿性和新颖性，也要考虑更实际一点的问题，似乎这个课题“做不大”，学生能不能毕业？而且，彼时我们已经展开了2C和扩展多能性的研究，做这些热点不“香”吗？但是，我们实验室长期从事胚胎干细胞多能性的调控研究，对胚胎干细胞的体外培养及分化潜能检测具有深刻理解，应有责任告诉大家我们的观点，该如何更好地维持细胞多能性，2i到底是不是该背这个锅。有时候，总得做点“傻事”，不是吗？最后，感谢合作者和学生们的努力最终完成了一个较为系统的研究，也感谢Protein &amp;amp; Cell杂志给了我们审稿和发表的机会。&lt;/p&gt;
+&lt;p&gt;【招聘和招生小广告】&lt;/p&gt;
+&lt;p&gt;同济大学生命科学与技术学院历史悠久，曾在战火中历尽艰险仍展开发育生物学的教学与科研工作。目前，学院生物学是教育部的“双一流”重点建设学科，其中“干细胞生物学”、“表观遗传学”和“生物信息学”已逐渐成为学院的优势与特色发展方向。我们热忱欢迎海内外优秀学者或学生来我们这里一起品品茶，喝喝咖啡，聊聊科学，共同探索生命的奥秘。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cell Reports：揭示胎儿生长受限子代认知障碍新机制</title>
+      <link>https://wukong.tongji.edu.cn/post/2021.cell_reports.sjshen/</link>
+      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2021.cell_reports.sjshen/</guid>
+      <description>&lt;p&gt;胎儿生长受限（Fetal growth restriction, FGR），又称宫内生长受限（intrauterine growth restriction，IUGR）是指胎儿受各种不利因素的影响，在子宫内未达到其遗传的生长潜能，即胎儿出生体重低于同孕龄平均体重的两个标准差。&lt;/p&gt;
+&lt;p&gt;FGR 是世界性的围生期严重并发症之一，在全球的发病率平均约为 5%。FGR 与出生后子代多种代谢系统及神经系统疾病密切相关，是包括认知障碍和脑瘫等在内的不良神经发育结果的重要危险因素。&lt;/p&gt;
+&lt;p&gt;大量的大规模随访研究表明，FGR 子代在儿童和青少年期具有学习能力困难和记忆障碍，例如较差的空间记忆，较低的学业成绩和较低的智商，并呈现出男性易感倾向，提示胚胎期胎儿的生长受限与出生后子代认知能力受损密切联系，但这种联系是如何介导的并不清楚。目前因缺乏对胎源性认知障碍的病理机制的深入理解，临床上尚缺少针对 FGR 子代认知障碍的干预治疗方案。&lt;/p&gt;
+&lt;p&gt;2021 年 11 月 2 日，同济大学附属第一妇婴保健院康九红教授课题组在《Cell Reports》杂志在线发表题为 Fetal Growth Restriction Impairs Hippocampal Neurogenesis and Cognition via Tet1 in Offspring 的研究论文，该研究揭示了 DNA 羟甲基化酶 Tet1 调控宫内生长受限子代海马神经发生受损和认知缺陷的作用和机制。&lt;/p&gt;
+&lt;p&gt;FGR 导致子代海马神经干细胞（NSC）增殖降低，且从出生后早期到成年期诱导海马神经发生持续性减少。进一步发现 FGR 小鼠海马神经干细胞中 Tet1 表达的持续下降。机制上，Tet1 下调引起 Dll3 和 Notch1 启动子区的高甲基化和 Notch 信号通路的抑制，导致 NSC 增殖减少。在海马齿状回（dentate gyrus, DG）区增加 Tet1 的表达可激活 Notch 信号，促进海马神经干细胞增殖，并改善 FGR 子代的学习和记忆能力。&lt;/p&gt;
+&lt;p&gt;本项研究表明，FGR 出生后子代海马神经干细胞中 Tet1/Notch 的下降导致其增殖减少，可作为干预 FGR 子代认知障碍的潜在分子靶标。&lt;/p&gt;
+&lt;img src=&#34;fig1.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;FGR 子代的海马依赖性学习记忆和神经发生受损&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;FGR 子代小鼠的认知能力是否发生改变？为了探究这一问题，作者建立了两种 FGR 小鼠模型：产前地塞米松过度暴露（DEX-FGR）和蛋白质限制饮食诱导的 FGR（PR- FGR）。&lt;/p&gt;
+&lt;p&gt;通过新物体识别、Morris 水迷宫和场景恐惧实验发现与对照组相比，FGR 子代海马依赖性学习记忆能力降低；同时旷场和黑白箱实验结果显示两组无差异，排除了焦虑行为对认知的干扰。&lt;/p&gt;
+&lt;p&gt;在哺乳动物海马体中，位于海马齿状回 DG 区的神经干细胞（neural stem cells, NSCs）增殖并分化为神经元和星形胶质细胞，新生神经细胞再整合到现有的回路中。这个过程即是神经发生，从个体早期发育过程开始贯穿一生，并且在成体认知过程中发挥着重要作用。&lt;/p&gt;
+&lt;p&gt;大多数动物模型数据表明 FGR 子代海马神经元数量减少，海马神经元形态异常和神经连接功能改变。但是，FGR 如何影响海马神经发生过程尚不清楚。作者检测发现，从出生后早期到成年期，FGR 子代海马神经干细胞的增殖能力持续下降，虽然干细胞向神经元和星型胶质细胞的分化能力没有改变，但是因为神经干细胞数目持续减少，最终导致神经元数目减少，神经发生受抑制。&lt;/p&gt;
+&lt;img src=&#34;fig2.png&#34;/&gt;
+&lt;p&gt;&lt;em&gt;&lt;center&gt;总结图：FGR 引起子代海马神经干细胞中 Tet1/Notch信号通路表达下降，导致海马神经干细胞增殖能力降低，认知功能受损。（图片来源：Cell Reports）&lt;/center&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Tet1 减少抑制 FGR 小鼠海马神经干细胞增殖
+调控 FGR 小鼠海马神经干细胞增殖减少的机制是什么呢？&lt;/p&gt;
+&lt;p&gt;越来越多的证据表明，子宫内环境可以通过改变后代的表观遗传状态来编程成年疾病，从而在不改变 DNA 序列的情况下导致基因表达的永久性改变。DNA 甲基化是最广为人知的表观遗传修饰，在人类和动物中，许多异常的 DNA 甲基化与产前 FGR 及其出生后疾病相关联。&lt;/p&gt;
+&lt;p&gt;作者通过在出生后早期（第 3 天）和成年期（8 周）的海马组织、体外分离培养的海马 NSCs 中检测 DNA 甲基化酶和羟甲基化酶的表达水平，发现仅 Tet1 的表达持续性降低。通过流式细胞分析技术在体内证实了 FGR 小鼠海马 NSCs 中 Tet1 的表达降低。&lt;/p&gt;
+&lt;p&gt;Tet1 的降低是否导致 FGR 小鼠海马 NSCs 增殖能力下降？作者利用体外 DEX 处理 NSCs 模型模拟体内，发现敲降 Tet1 导致 NSC 增殖能力下降且介导了 DEX 对 NSC 增殖的抑制；过表达 Tet1 恢复了 DEX 对 NSC 增殖的抑制作用且依赖于 Tet1 的酶活性。体内外实验证明 FGR 小鼠神经干细胞中 Tet1 表达减少且抑制其增殖。&lt;/p&gt;
+&lt;p&gt;Tet1 减少引起 Notch 信号通路的下调&lt;/p&gt;
+&lt;p&gt;Tet1 减少又是如何抑制 FGR 小鼠海马 NSCs 增殖？作者对出生后早期（第 3 天）和成年期（8 周）的海马组织进行 RNA-seq 分析，发现 FGR 小鼠海马中 Notch 信号通路表达持续降低。进一步作者通过实验验证发现 FGR 小鼠海马中 Notch 信号通路的关键分子 Dll3 和 Notch1 以及下游靶基因 Hes5 的表达明显降低。&lt;/p&gt;
+&lt;p&gt;高度保守的 Notch 信号传导通路对于维持 NSCs 增殖和海马神经发生是必需的。已发现其受体 Notch1 和重要下游信号分子 Hes5 可以促进 NSC 增殖。作者利用体外细胞模型，不仅发现其配体 Dll3 正向调控 Notch1 和 Hes5 的表达，对 NSC 增殖起正向调节作用；还证明了过表达 N1ICD（Notch1 的胞内结构域）可挽救 DEX 对 NSC 增殖的抑制作用。&lt;/p&gt;
+&lt;p&gt;作者通过对公共数据的挖掘，提示 Tet1 可能直接调控 Notch 信号通路。&lt;/p&gt;
+&lt;p&gt;为了验证这一假设，作者首先在体内的海马组织中通过 ChIP、hMeDIP 和重亚硫酸盐测序实验发现 FGR 小鼠海马中 Tet1 和 DNA 5hmC 在 Dll3 和 Notch1 的启动子区的富集减少，且 Dll3 和 Notch1 的启动子区 DNA 5mC 升高。再利用体外细胞模型，证明敲降 Tet1 和 DEX 处理皆能引起 Dll3 和 Notch1 的启动子区 5hmC 结合的减少和 5mC 升高。Notch 信号通路的抑制剂 DAPT 可以抵消过表达 TET1 对 DEX 抑制 NSCs 的挽救。&lt;/p&gt;
+&lt;p&gt;以上实验表明 Tet1 减少引起 Notch 信号通路的下调，且 Notch 信号通路受 Tet1 依赖的 DNA 去甲基化的直接调控。&lt;/p&gt;
+&lt;p&gt;Tet1 作为干预 FGR 认知障碍的潜在靶标&lt;/p&gt;
+&lt;p&gt;在 FGR 小鼠海马 NSCs 中增加 Tet1 的表达能否改善其认知功能下降？作者通过向海马 DG 区双侧立体定位注射过表达 Tet1 或对照的逆转录病毒，结果发现在 FGR 小鼠海马中增加 Tet1 的表达，可以激活 Notch 信号通路，促进海马 NSCs 增殖并改善认知缺陷。&lt;/p&gt;
+&lt;p&gt;因此，作者的研究内容提示：FGR 引发的持久性 Tet1/Notch 信号通路降低持续抑制海马神经发生并最终损害成年子代学习记忆能力。作者的发现增加了对胎源性认知障碍疾病中调控机制的理解，并为 FGR 子代认知障碍的干预治疗提供新的分子靶点，具有潜在的转化应用价值。&lt;/p&gt;
+&lt;p&gt;康九红教授为本文通讯作者，康九红课题组陈文副教授和刘纳纳博士生为本文共同第一作者。同济大学博士生沈仕君、朱蔚、常书娟等参与该研究。本项目受到国家自然基金委的资助。该研究还得到同济大学生命科学与技术学院江赐忠教授、奚佳捷副教授、郭旭东研究员、贾文文副教授、李昂副教授等老师的大力支持。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

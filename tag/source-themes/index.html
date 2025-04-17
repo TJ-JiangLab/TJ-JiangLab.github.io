@@ -1,0 +1,955 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Jianglab">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/tag/source-themes/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+  <link rel="alternate" href="/tag/source-themes/index.xml" type="application/rss+xml" title="JiangLab">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/tag/source-themes/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/tag/source-themes/">
+  <meta property="og:title" content="Source Themes | JiangLab">
+  <meta property="og:description" content="Jianglab"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    <meta property="og:updated_time" content="2022-01-01T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Source Themes | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1>Source Themes</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2022.proceedings_of_the_national_academy_of_sciences_of_the_united_states_of_america.liu_meng/" >5-methylcytosine modification by Plasmodium NSUN2 stabilizes mRNA and mediates the development of gametocytes</a></h2>
+      <div class="article-style">
+        
+          5-methylcytosine (m5C) is an important epitranscriptomic modification involved in messenger RNA (mRNA) stability and translation efficiency in various biological processes. However, it remains unclear if m5C modification contributes to the dynamic regulation of the transcriptome during the developmental cycles of Plasmodium parasites. Here, we characterize the landscape of m5C mRNA modifications at single nucleotide resolution in the asexual replication stages and gametocyte sexual stages of rodent (Plasmodium yoelii) and human (Plasmodium falciparum) malaria parasites. While different representations of m5C-modified mRNAs are associated with the different stages, the abundance of the m5C marker is strikingly enhanced in the transcriptomes of gametocytes. Our results show that m5C modifications confer stability to the Plasmodium transcripts and that a Plasmodium ortholog of NSUN2 is a major mRNA m5C methyltransferase in malaria parasites. Upon knockout of P. yoelii nsun2 (pynsun2), marked reductions of m5C modification were observed in a panel of gametocytogenesisassociated transcripts. These reductions correlated with impaired gametocyte production in the knockout rodent malaria parasites. Restoration of the nsun2 gene in the knockout parasites rescued the gametocyte production phenotype as well as m5C modification of the gametocytogenesis-associated transcripts. Together with the mRNA m5C profiles for two species of Plasmodium, our findings demonstrate a major role for NSUN2-mediated m5C modifications in mRNA transcript stability and sexual differentiation in malaria parasites.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2022.cell_reports.bai_dandan/" >Aberrant H3K4me3 modification of epiblast genes of extraembryonic tissue causes placental defects and implantation failure in mouse IVF embryos</a></h2>
+      <div class="article-style">
+        
+          Assisted reproductive technology has been widely applied in the treatment of human infertility. However, accumulating evidence indicates that in vitro fertilization (IVF) is associated with a low pregnancy rate, placental defects, and metabolic diseases in offspring. Here, we find that IVF manipulation notably disrupts extraembryonic tissue-specific gene expression, and 334 epiblast (Epi)-specific genes and 24 Epi-specific transcription factors are abnormally expressed in extraembryonic ectoderm (ExE) of IVF embryos at embryonic day 7.5. Combined histone modification analysis reveals that aberrant H3K4me3 modification at the Epi active promoters results in increased expression of these genes in ExE. Importantly, we demonstrate that knockdown of the H3K4me3-recruited regulator Kmt2e, which is highly expressed in IVF embryos, greatly improves the development of IVF embryos and reduces abnormal gene expression in ExE. Our study therefore identifies that abnormal H3K4me3 modification in extraembryonic tissue is a major cause of implantation failure and abnormal placental development of IVF embryos.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2022.protein_cell.wang_mingzhu/" >BMP4 preserves the developmental potential of mESCs through Ube2s- and Chmp4b-mediated chromosomal stability safeguarding</a></h2>
+      <div class="article-style">
+        
+          Chemically defined medium is widely used for culturing mouse embryonic stem cells (mESCs), in which N2B27 works as a substitution for serum, and GSK3 beta and MEK inhibitors (2i) help to promote ground-state pluripotency. However, recent studies suggested that MEKi might cause irreversible defects that compromise the developmental potential of mESCs. Here, we demonstrated the deficient bone morphogenetic protein (BMP) signal in the chemically defined condition is one of the main causes for the impaired pluripotency. Mechanistically, activating the BMP signal pathway by BMP4 could safeguard the chromosomal integrity and proliferation capacity of mESCs through regulating downstream targets Ube2s and Chmp4b. More importantly, BMP4 promotes a distinct in vivo developmental potential and a long-term pluripotency preservation. Besides, the pluripotent improvements driven by BMP4 are superior to those by attenuating MEK suppression. Taken together, our study shows appropriate activation of BMP signal is essential for regulating functional pluripotency and reveals that BMP4 should be applied in the serum-free culture system.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2021.nucleic_acids_research.shang_xiaomin/" >A cascade of transcriptional repression determines sexual commitment and development in Plasmodium falciparum</a></h2>
+      <div class="article-style">
+        
+          Gametocytogenesis, the process by which malaria parasites produce sexual forms that can infect mosquitoes, is essential for the transmission of malaria. A transcriptional switch of the pfap2-g gene triggers sexual commitment, but how the complex multi-step process is precisely programed remains largely unknown. Here, by systematic functional screening of a panel of ApiAP2 transcription factors, we identify six new ApiAP2 members associated with gametocytogenesis in Plasmodium falciparum. Among these, PfAP2-G5 (PF3D7_1139300) was found to be indispensable for gametocytogenesis. This factor suppresses the transcriptional activity of the pfap2-g gene via binding to both the upstream region and exonic gene body, the latter is linked to the maintenance of local heterochromatin structure, thereby preventing initiation of sexual commitment. Removal of this repressive effect through pfap2-g5 knockout disrupts the asexual replication cycle and promotes sexual commitment accompanied by upregulation of pfap2-g expression. However, the gametocytes produced fail to mature fully. Further analyses show that PfAP2-G5 is essential for gametocyte maturation, and causes the down-regulation of pfap2-g and a set of early gametocyte genes activated by PfAP2-G prior to gametocyte development. Collectively, our findings reveal a regulation cascade of gametocyte production in malaria parasites, and provide a new target for transmission blocking interventions.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2021.nature_communications.nagy_zsuzsanna/" >An ALYREF-MYCN coactivator complex drives neuroblastoma tumorigenesis through effects on USP3 and MYCN stability</a></h2>
+      <div class="article-style">
+        
+          To achieve the very high oncoprotein levels required to drive the malignant state cancer cells utilise the ubiquitin proteasome system to upregulate transcription factor levels. Here our analyses identify ALYREF, expressed from the most common genetic copy number variation in neuroblastoma, chromosome 17q21-ter gain as a key regulator of MYCN protein turnover. We show strong co-operativity between ALYREF and MYCN from transgenic models of neuroblastoma in vitro and in vivo. The two proteins form a nuclear coactivator complex which stimulates transcription of the ubiquitin specific peptidase 3, USP3. We show that increased USP3 levels reduce K-48- and K-63-linked ubiquitination of MYCN, thus driving up MYCN protein stability. In the MYCN-ALYREF-USP3 signal, ALYREF is required for MYCN effects on the malignant phenotype and that of USP3 on MYCN stability. This data defines a MYCN oncoprotein dependency state which provides a rationale for future pharmacological studies. Neuroblastoma (NB) is often driven by MYCN amplification. Here, the authors show that the most frequent genetic lesion, gain of 17q21-ter in NB leads to overexpression of ALYREF, which forms a complex with MYCN, regulating MYCN stability via the deubiquitinating enzyme, USP3.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2021.experimental_biology_and_medicine.lu_ping/" >Characterizing disease progression of nonalcoholic steatohepatitis in Leptin-deficient rats by integrated transcriptome analysis</a></h2>
+      <div class="article-style">
+        
+          Nonalcoholic steatohepatitis (NASH) is an aggressive liver disease threatening human health, yet no medicine is developed to treat this disease. In this study, we first discovered that Leptin mutant rats (Lep(Delta I14/Delta I14)) exhibit characteristic NASH phenotypes including steatosis, lymphocyte infiltration, and ballooning after postnatal week 16. We then examined NASH progression by performing an integrated analysis of hepatic transcriptome in Leptin-deficient rats from postnatal 4 to 48 weeks. Initially, simple steatosis in Lep(Delta I14/Delta I14) rats were observed with increased expression of the genes encoding for rate-limiting enzymes in lipid metabolism such as acetyl-CoA carboxylase and fatty acid synthase. When NASH phenotypes became well developed at postnatal week 16, we found gene expression changes in insulin resistance, inflammation, reactive oxygen species and endoplasmic reticulum stress. As NASH phenotypes further progressed with age, we observed elevated expression of cytokines and chemokines including C-C motif chemokine ligand 2, tumor necrosis factor alpha, interleukin-6, and interleukin-1 beta together with activation of the c-Jun N-terminal kinase and nuclear factor-kappa B pathways. Histologically, livers in Lep(Delta I14/Delta I14) rats exhibited increased cell infiltration of MPO+ neutrophils, CD8(+) T cells, CD68(+) hepatic macrophages, and CCR2(+) inflammatory monocyte-derived macrophages associated with macrophage polarization from M2 to M1. Subsequent cross-species comparison of transcriptomes in human, rat, and mouse NASH models indicated that Leptin-deficient rats bear more similarities to human NASH patients than previously established mouse NASH models. Taken together, our study suggests that Lep(Delta I14/Delta I14) rats are a valuable pre-clinical rodent model to evaluate NASH drug safety and efficacy.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2021.embo_journal.ma_lin/" >Developmental programming and lineage branching of early human telencephalon</a></h2>
+      <div class="article-style">
+        
+          The dorsal and ventral human telencephalons contain different neuronal subtypes, including glutamatergic, GABAergic, and cholinergic neurons, and how these neurons are generated during early development is not well understood. Using scRNA-seq and stringent validations, we reveal here a developmental roadmap for human telencephalic neurons. Both dorsal and ventral telencephalic radial glial cells (RGs) differentiate into neurons via dividing intermediate progenitor cells (IPCs_div) and early postmitotic neuroblasts (eNBs). The transcription factor ASCL1 plays a key role in promoting fate transition from RGs to IPCs_div in both regions. RGs from the regionalized neuroectoderm show heterogeneity, with restricted glutamatergic, GABAergic, and cholinergic differentiation potencies. During neurogenesis, IPCs_div gradually exit the cell cycle and branch into sister eNBs to generate distinct neuronal subtypes. Our findings highlight a general RGs-IPCs_div-eNBs developmental scheme for human telencephalic progenitors and support that the major neuronal fates of human telencephalon are predetermined during dorsoventral regionalization with neuronal diversity being further shaped during neurogenesis and neural circuit integration.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2021.frontiers_in_cell_and_developmental_biology.sun_jin/" >Differential Transcriptomes and Methylomes of Trophoblast Stem Cells From Naturally-Fertilized and Somatic Cell Nuclear-Transferred Embryos</a></h2>
+      <div class="article-style">
+        
+          Trophoblast stem cells (TSCs) are critical to mammalian embryogenesis by providing the cell source of the placenta. TSCs can be derived from trophoblast cells. However, the efficiency of TSC derivation from somatic cell nuclear transfer (NT) blastocysts is low. The regulatory mechanisms underlying transcription dynamics and epigenetic landscape remodeling during TSC derivation remain elusive. Here, we derived TSCs from the blastocysts by natural fertilization (NF), NT, and a histone deacetylase inhibitor Scriptaid-treated NT (SNT). Profiling of the transcriptomes across the stages of TSC derivation revealed that fibroblast growth factor 4 (FGF4) treatment resulted in many differentially expressed genes (DEGs) at outgrowth and initiated transcription program for TSC formation. We identified 75 transcription factors (TFs) that are continuously upregulated during NF TSC derivation, whose transcription profiles can infer the time course of NF not NT TSC derivation. Most DEGs in NT outgrowth are rescued in SNT outgrowth. The correct time course of SNT TSC derivation is inferred accordingly. Moreover, these TFs comprise an interaction network important to TSC stemness. Profiling of DNA methylation dynamics showed an extremely low level before FGF4 treatment and gradual increases afterward. FGF4 treatment results in a distinct DNA methylation remodeling process committed to TSC formation. We further identified 1,293 CpG islands (CGIs) whose DNA methylation difference is more than 0.25 during NF TSC derivation. The majority of these CGIs become highly methylated upon FGF4 treatment and remain in high levels. This may create a barrier for lineage commitment to restrict embryonic development, and ensure TSC formation. There exist hundreds of aberrantly methylated CGIs during NT TSC derivation, most of which are corrected during SNT TSC derivation. More than half of the aberrantly methylated CGIs before NT TSC formation are inherited from the donor genome. In contrast, the aberrantly methylated CGIs upon TSC formation are mainly from the highly methylated CGIs induced by FGF4 treatment. Functional annotation indicates that the aberrantly highly methylated CGIs play a role in repressing placenta development genes, etc., related to post-implantation development and maintaining TSC pluripotency. Collectively, our findings provide novel insights into the transcription dynamics, DNA methylation remodeling, and the role of FGF4 during TSC derivation.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2021.cell_stem_cell.yang_guang/" >Dux-Mediated Corrections of Aberrant H3K9ac during 2-Cell Genome Activation Optimize Efficiency of Somatic Cell Nuclear Transfer</a></h2>
+      <div class="article-style">
+        
+          Differentiated somatic cells can be reprogrammed to totipotent embryos through somatic cell nuclear transfer (SCNT) with low efficiency. The histone deacetylase inhibitor trichostatin A (TSA) has been found to improve SCNT efficiency, but the underlying mechanism remains undetermined. Here, we examined genome-wide H3K9ac during SCNT embryo development and found that aberrant H3K9ac regions resulted in reduced 2-cell genome activation. TSA treatment largely corrects aberrant acetylation in SCNT embryos with an efficiency that is dictated by the native epigenetic environment. We further identified that the overexpression of Dux greatly improves SCNT efficiency by correcting the aberrant H3K9ac signal at its target sites, ensuring appropriate 2-cell genome activation. Intriguingly, the improvement in development mediated by TSA and Kdm4b is impeded by Dux knockout in SCNT embryos. Together, our study reveals that reprogramming of H3K9ac is important for optimal SCNT efficiency and identifies Dux as a crucial transcription factor in this process.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2021.cell_reports.chen_wen/" >Fetal growth restriction impairs hippocampal neurogenesis and cognition via Tet1 in offspring</a></h2>
+      <div class="article-style">
+        
+          Fetal growth restriction (FGR) increases the risk for impaired cognitive function later in life. However, the precise mechanisms remain elusive. Using dexamethasone-induced FGR and protein restriction-influenced FGR mouse models, we observe learning and memory deficits in adult FGR offspring. FGR induces decreased hippocampal neurogenesis from the early post-natal period to adulthood by reducing the proliferation of neural stem cells (NSCs). We further find a persistent decrease of Tet1 expression in hippocampal NSCs of FGR mice. Mechanistically, Tet1 downregulation results in hypermethylation of the Dll3 and Notch1 promoters and inhibition of Notch signaling, leading to reduced NSC proliferation. Overexpression of Tet1 activates Notch signaling, offsets the decline in neurogenesis, and enhances learning and memory abilities in FGR offspring. Our data indicate that a long-term decrease in Tet1/Notch signaling in hippocampal NSCs contributes to impaired neurogenesis following FGR and could serve as potential targets for the intervention of FGR-related cognitive disorders.
+        
+      </div>
+    </div>
+  
+
+  
+<nav>
+  <ul class="pagination justify-content-center">
+    
+    
+    <li class="page-item"><a class="page-link" href="/tag/source-themes/page/2/">&raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

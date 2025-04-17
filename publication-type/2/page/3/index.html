@@ -1,0 +1,955 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Jianglab">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/publication-type/2/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+  <link rel="alternate" href="/publication-type/2/index.xml" type="application/rss+xml" title="JiangLab">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/publication-type/2/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/publication-type/2/">
+  <meta property="og:title" content="2 | JiangLab">
+  <meta property="og:description" content="Jianglab"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    <meta property="og:updated_time" content="2022-01-01T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>2 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+<div class="universal-wrapper pt-3">
+  <h1>2</h1>
+
+  
+
+  
+</div>
+
+
+
+<div class="universal-wrapper">
+  
+
+  
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.nucleic_acids_research.chen_yu/" >A PARP1-BRG1-SIRT1 axis promotes HR repair by reducing nucleosome density at DNA damage sites</a></h2>
+      <div class="article-style">
+        
+          Creating access to DNA double-strand break (DSB) sites in the chromatin context is an essential step during the repair process, but much remains to be determined about its regulatory mechanisms. Here, using a novel reporter cassette for simultaneous detection of homologous recombination (HR) and non-homologous end joining (NHEJ) at the same chromosomal site, we report that the efficiency of HR but not NHEJ negatively correlates with nucleosome density. We demonstrate that PARP1 is required for HR by modulating nucleosome density at damage sites. Mechanistic studies indicate that the ATPase domain of BRG1 and the ZnF domain of SIRT1 interact with poly-ADP ribose (PAR) in response to DNA damage, and are responsible for bringing the two factors to broken DNA ends. At DNA damage sites, BRG1 and SIRT1 physically interact, whereupon SIRT1 deacety-lates BRG1 at lysine residues 1029 and 1033, stimulating its ATPase activity to remodel chromatin and promote HR.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.cancer_research.nagy_zsuzsanna/" >Alyref is a novel binding partner and co-factor for MYCN-driven oncogenesis in neuroblastoma</a></h2>
+      <div class="article-style">
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.acta_pharmacologica_sinica.tang_wei/" >Chemical cocktails enable hepatic reprogramming of human urine-derived cells with a single transcription factor</a></h2>
+      <div class="article-style">
+        
+          Human liver or hepatocyte transplantation is limited by a severe shortage of donor organs. Direct reprogramming of other adult cells into hepatic cells may offer a solution to this problem. In a previous study, we have generated hepatocyte-like cells from mouse fibroblasts using only one transcription factor (TF) plus a chemical cocktail. Here, we show that human urine-derived epithelial-like cells (hUCs) can also be transdifferentiated into human hepatocyte-like cells (hiHeps) using one TF (Foxa3, Hnf1 alpha, or Hnf4 alpha) plus the same chemical cocktail CRVPTD (C, CHIR99021; R, RepSox; V, VPA; P, Parnate; T, TTNPB; and D, Dznep). These hiHeps express multiple hepatocyte-specific genes and display functions characteristic of mature hepatocytes. With the introduction of the large T antigen, these hiHeps can be expanded in vitro and can restore liver function in mice with concanavalin-A-induced acute liver failure. Our study provides a strategy to generate functional hepatocyte-like cells from hUCs by using a single TF plus a chemical cocktail.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.theranostics.zhang_qitong/" >Collaborative ISL1/GATA3 interaction in controlling neuroblastoma oncogenic pathways overlapping with but distinct from MYCN</a></h2>
+      <div class="article-style">
+        
+          Background: Transcription factor ISL1 plays a critical role in sympathetic neurogenesis. Expression of ISL1 has been associated with neuroblastoma, a pediatric tumor derived from sympatho-adrenal progenitors, however the role of ISL1 in neuroblastoma remains unexplored.Method: Here, we knocked down ISL1 (KD) in SH-SY5Y neuroblastoma cells and performed RNA-seq and ISL1 ChIP-seq analyses.Results: Analyses of these data revealed that ISL1 acts upstream of multiple oncogenic genes and pathways essential for neuroblastoma proliferation and differentiation, including LMO1 and LIN28B. ISL1 promotes expression of a number of cell cycle associated genes, but represses differentiation associated genes including RA receptors and the downstream target genes EPAS1 and CDKN1A. Consequently, Knockdown of ISL1 inhibits neuroblastoma cell proliferation and migration in vitro and impedes tumor growth in vivo, and enhances neuronal differentiation by RA treatment. Furthermore, genome-wide mapping revealed a substantial co-occupancy of binding regions by ISL1 and GATA3, and ISL1 physically interacts with GATA3, and together they synergistically regulate the aforementioned oncogenic pathways. In addition, analyses of the roles of ISL1 and MYCN in MYCN-amplified and MYCN non-amplified neuroblastoma cells revealed an epistatic relationship between ISL1 and MYCN. ISL1 and MYCN function in parallel to regulate common yet distinct oncogenic pathways in neuroblastoma.Conclusion: Our study has demonstrated that ISL1 plays an essential role in neuroblastoma regulatory networks and may serve as a potential therapeutic target in neuroblastoma.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.genome_research.li_jin/" >Guide Positioning Sequencing identifies aberrant DNA methylation patterns that alter cell identity and tumor-immune surveillance networks</a></h2>
+      <div class="article-style">
+        
+          Aberrant DNA methylation is a distinguishing feature of cancer. Yet, how methylation affects immune surveillance and tumor metastasis remains ambiguous. We introduce a novel method, Guide Positioning Sequencing (GPS), for precisely detecting whole-genome DNA methylation with cytosine coverage as high as 96% and unbiased coverage of GC-rich and repetitive regions. Systematic comparisons of GPS with whole-genome bisulfite sequencing (WGBS) found that methylation difference between gene body and promoter is an effective predictor of gene expression with a correlation coefficient of 0.67 (GPS) versus 0.33 (WGBS). Moreover, Methylation Boundary Shift (MBS) in promoters or enhancers is capable of modulating expression of genes associated with immunity and tumor metabolism. Furthermore, aberrant DNA methylation results in tissue-specific enhancer switching, which is responsible for altering cell identity during liver cancer development. Altogether, we demonstrate that GPS is a powerful tool with improved accuracy and efficiency over WGBS in simultaneously detecting genome-wide DNA methylation and genomic variation. Using GPS, we show that aberrant DNA methylation is associated with altering cell identity and immune surveillance networks, which may contribute to tumorigenesis and metastasis.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/" >H3K27me3 Signal in the Cis Regulatory Elements Reveals the Differentiation Potential of Progenitors During Drosophila Neuroglial Development</a></h2>
+      <div class="article-style">
+        
+          Drosophila neural development undergoes extensive chromatin remodeling and precise epigenetic regulation. However, the roles of chromatin remodeling in establishment and maintenance of cell identity during cell fate transition remain enigmatic. Here, we compared the changes in gene expression, as well as the dynamics of nucleosome positioning and key histone modifications between the four major neural cell types during Drosophila neural development. We find that the neural progenitors can be separated from the terminally differentiated cells based on their gene expression profiles, whereas nucleosome distribution in the flanking regions of transcription start sites fails to identify the relationships between the progenitors and the differentiated cells. H3K27me3 signal in promoters and enhancers can not only distinguish the progenitors from the differentiated cells but also identify the differentiation path of the neural stem cells (NSCs) to the intermediate progenitor cells to the glial cells. In contrast, H3K9ac signal fails to identify the differentiation path, although it activates distinct sets of genes with neuron-specific and glia-related functions during the differentiation of the NSCs into neurons and glia, respectively. Together, our study provides novel insights into the crucial roles of chromatin remodeling in determining cell type during Drosophila neural development.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.biotechnology_letters.chen_kaiming/" >Improved recombinant protein production by regulation of transcription and protein transport in Chinese hamster ovary cells</a></h2>
+      <div class="article-style">
+        
+          ObjectivesTo identify genes that affected protein expression in Chinese hamster ovary (CHO) cells was significant, and we identified the changes in the transcriptome and the functional gene sets that would contribute to increase expression of recombinant protein.ResultsHere two sub-clones from a methotrexate-treated parental recombinant CHO cell line were selected. The two sub-clones, with different expression levels (qp were 42.8pg/cell/day and 14.0pg/cell/day), were analyzed through RNA-seq. More than 600 genes were identified as differently expressed, and we found that the differentially expressed genes were involved in processes such as RNA processing, transcription, protein catabolism, and protein transport. Among these, we cloned genes encoding proteins that were involved in transcription and protein transport to investigate their effect on protein production.ConclusionsWe found that some genes involved in transcription and protein transport would improve recombinant protein production in CHO cells.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.frontiers_in_genetics.hu_xinjie/" >Increase in DNA Damage by MYCN Knockdown Through Regulating Nucleosome Organization and Chromatin State in Neuroblastoma</a></h2>
+      <div class="article-style">
+        
+          As a transcription factor, MYCN regulates myriad target genes including the histone chaperone FACT. Moreover, FACT and MYCN expression form a forward feedback loop in neuroblastoma. It is unclear whether MYCN is involved in chromatin remodeling in neuroblastoma through regulation of its target genes. We showed here that MYCN knockdown resulted in loss of the nucleosome-free regions through nucleosome assembly in the promoters of genes functionally enriched for DNA repair. The active mark H3K9ac was removed or replaced by the repressive mark H3K27me3 in the promoters of double-strand break repair-related genes upon MYCN knockdown. Such chromatin state alterations occurred only in MYCN-bound promoters. Consistently, MYCN knockdown resulted in a marked increase in DNA damage in the treatment with hydroxyurea. In contrast, nucleosome reorganization and histone modification changes in the enhancers largely included target genes with tumorigenesis-related functions such as cell proliferation, cell migration, and cell-cell adhesion. The chromatin state significantly changed in both MYCN-bound and MYCN-unbound enhancers upon MYCN knockdown. Furthermore, MYCN knockdown independently regulated chromatin remodeling in the promoters and the enhancers. These findings reveal the novel epigenetic regulatory role of MYCN in chromatin remodeling and provide an alternative potential epigenetic strategy for MYCN-driven neuroblastoma treatment.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.frontiers_in_cell_and_developmental_biology.liu_meng/" >TRIBE Uncovers the Role of Dis3 in Shaping the Dynamic Transcriptome in Malaria Parasites</a></h2>
+      <div class="article-style">
+        
+          Identification of RNA targets of RNA-binding proteins (RBPs) is essential for complete understanding of their biological functions. However, it is still a challenge to identify the biologically relevant targets of RBPs through in vitro strategies of RIP-seq, HITS-CLIP, or GoldCLIP due to the potentially high background and complicated manipulation. In malaria parasites, RIP-seq and gene disruption are the few tools available currently for identification of RBP targets. Here, we have adopted the TRIBE (Targets of RNA binding proteins identified by editing) system to in vivo identify the RNA targets of PfDis3, a key exoribonuclease subunit of RNA exosome in Plasmodium falciparum. We generated a transgenic parasite line of PfDis3-ADARcd, which catalyzes an adenosine (A)-to-inosine (I) conversion at the potential interacting sites of PfDis3-targeting RNAs. Most of PfDis3 target genes contain one edit site. The majority of the edit sites detected by PfDis3-TRIBE locate in exons and spread across the entire coding regions. The nucleotides adjacent to the edit sites contain similar to 75% of A C T. PfDis3-TRIBE target genes are biases toward higher RIP enrichment, suggesting that PfDis3-TRIBE preferentially detects stronger PfDis3 RIP targets. Collectively, PfDis3-TRIBE is a favorable tool to identify in vivo target genes of RBP with high efficiency and reproducibility. Additionally, the PfDis3-targeting genes are involved in stage-related biological processes during the blood-stage development. Thus PfDis3 appears to shape the dynamic transcriptional transcriptome of malaria parasites through post-transcriptional degradation of a variety of unwanted transcripts from both strands in the asexual blood stage.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/2019.oncogene.zhang_shiping/" >Wingless modulates activator protein-1-mediated tumor invasion</a></h2>
+      <div class="article-style">
+        
+          Metastasis begins with a subset of local tumor cells acquiring the potential to invade into surrounding tissues, and remains to be a major obstacle for cancer treatments. More than 90% of cancer patients died from tumor metastasis, instead of primary tumor growth. The canonical Wnt/beta-catenin pathway plays essential roles in promoting tumor formation, yet its function in regulating tumor metastasis and the underlying mechanisms remain controversial. Here we employed well-established Drosophila tumor models to investigate the regulating mechanism of Wingless (Wg) pathway in tumor invasion. Our results showed that Wg signaling is necessary and sufficient for cell polarity disruption-induced cell migration and molecular changes reminiscent of epithelial-mesenchymal transition (EMT). Moreover, reducing Wg signaling suppressed lgl(-/-)/Ras(V12)-induced tumor invasion, and cooperation between Arm and Ras(V12) is sufficient to induce tumor invasion. Mechanistically, we found that cell polarity disruption activates JNK signaling, which in turn upregulate wg expression through transcription factor activator protein-1 (AP-1). We identified a consensus AP-1 binding site located in the 2nd intron of wg, and confirmed that it is essential for AP-1 induced wg transcription both in vitro and in vivo. Lastly, we confirmed that the transcriptional activation of WNT by AP-1 is conserved in human cancer cells. These evidences reveal a positive role of Wnt/beta-catenin pathway in tumor invasion, and provide a conserved mechanism that connects JNK and Wnt signaling in regulating tumor progression.
+        
+      </div>
+    </div>
+  
+
+  
+<nav>
+  <ul class="pagination justify-content-center">
+    
+    <li class="page-item"><a class="page-link" href="/publication-type/2/page/2/">&laquo;</a></li>
+    
+    
+    <li class="page-item"><a class="page-link" href="/publication-type/2/page/4/">&raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1351 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="1.Hi-C的原理，参考文献，review Hi-C是通过高通">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/">
+  <meta property="og:title" content="HiC-Pro分析流程 | JiangLab">
+  <meta property="og:description" content="1.Hi-C的原理，参考文献，review Hi-C是通过高通"><meta property="og:image" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/featured.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/featured.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-07-27T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-07-27T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/"
+  },
+  "headline": "HiC-Pro分析流程",
+  
+  "image": [
+    "https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/featured.png"
+  ],
+  
+  "datePublished": "2020-07-27T00:00:00Z",
+  "dateModified": "2020-07-27T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "朱乾书"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "JiangLab",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_192x192_fit_lanczos_3.png"
+    }
+  },
+  "description": "1.Hi-C的原理，参考文献，review Hi-C是通过高通"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>HiC-Pro分析流程 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+<div class="article-container pt-3">
+  <h1>HiC-Pro分析流程</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span >朱乾书</span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 27, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 分钟阅读时长
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/%E6%B5%81%E7%A8%8B/">流程</a></span>
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1" href="/publication/2020.nature_communications.chen_mo/full.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1" href="https://doi.org/10.1038/s41467-020-15607-z" target="_blank" rel="noopener">
+  DOI
+</a>
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1" href="https://pubmed.ncbi.nlm.nih.gov/32286279/" target="_blank" rel="noopener">
+    
+    PubMed
+  </a>
+
+
+</div>
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 278px;">
+  <div style="position: relative">
+    <img src="/internal/zhuqianshu.hicpro/featured_hu796dbf9a8b65399195a4aa5318c098e5_294271_720x0_resize_lanczos_3.png" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h3 id="1hi-c的原理参考文献review">1.Hi-C的原理，参考文献，review</h3>
+<ol>
+<li>Hi-C是通过高通量测序检测基因组不同位置可能存在的空间互作（contacts），研究全基因组范围内整个染色质DNA在空间位置上的关系的方法。由Job Dekker实验室从3C技术延伸开发。</li>
+<li>具体的实验流程方法原理建议从Job Dekker的几篇文章和综述开始了解:</li>
+</ol>
+<h3 id="2数据质检与预处理与chip-seq相似">2.数据质检与预处理（与ChIP-seq相似）</h3>
+<p>1). 根据Hi-C实验原理，Hi-C测序数据必定为双端测序。与ChIP-seq类似，同样使用fastqc检查测序质量和建库质量，用cutadapt去除接头（如有必要<br>
+2). 示例：</p>
+<pre><code>nohup fastqc -o $wdir/1.qc $wdir/0.raw/*gz -t 20 &amp;
+py35
+for i in $wdir/0.raw/*R1.fastq.gz; do o=$wdir/2.cutadapt/${i##*/};
+nohup cutadapt -j 8 --trim-n -q 25,25 -m 75 -a AGATCGGAAGAGC -A AGATCGGAAGAGC -o $o -p ${o/R1/R2} $i ${i/R1/R2} &gt; ${o/R1.fastq.gz/log} &amp;
+done
+nohup fastqc -o $wdir/3.cutadapt_qc $wdir/2.cutadapt/*gz -t 10 &amp;
+data：
+es.R1.fastq.gz es.R2.fastq.gz
+</code></pre>
+<h3 id="3-比对与contact-pairs处理hic-pro简单流程分步流程">3. 比对与contact pairs处理（HiC-Pro，简单流程，分步流程）</h3>
+<h4 id="1-原理">(1). 原理</h4>
+<p>使用HiC-Pro对双端测序数据进行比对和处理，具体的流程、原理和软件使用配置请参考文献和manual：<br>
+
+<a href="https://github.com/nservant/HiC-Pro" target="_blank" rel="noopener">HiC-Pro Github</a><br>
+Servant N., et al. HiC-Pro: An optimized and flexible pipeline for Hi-C processing. Genome Biology 2015, 16:259 doi:10.1186/s13059-015-0831-x</p>
+<h4 id="2-示例">(2) 示例：</h4>
+<p><code>nohup HiC-Pro -i $wdir/0.input -o $wdir/1.output -c $ConfigHP/config-hicpro.txt &gt; $wdir/hicpro.log &amp;</code></p>
+<h4 id="3数据">(3)数据：</h4>
+<p><code>$wdir/0.input/es/es.clean.R1.fastq.gz $wdir/0.input/es/es.clean.R2.fastq.gz</code></p>
+<h4 id="4-configuration">(4) Configuration:</h4>
+<p>HiC-Pro的所有参数都配置在config-hicpro.txt中，具体各参数的含义请参照示例文件；</p>
+<h4 id="5-结果">(5) 结果：</h4>
+<p><code>bowtie_results/bwt2/ bwt2_global/ bwt2_local/ hic_results/data/ matrix/ pic/</code><br>
+HiC-Pro总流程运行的结果按分步骤放在不同文件夹中，建议运行一次后一个个查看，重要的结果文件有：</p>
+<ul>
+<li>validPairs: 每组双端测序数据得到的contact pairs</li>
+<li>allValidPairs: 每sample合并所有生物学或技术重复后，并去除PCR duplicates后的contact pairs</li>
+<li>matrix: 根据给定的resolution得到的长格式的矩阵文件</li>
+<li>iced.matrix: 对raw matrix做ICE normalize</li>
+<li>abs.bed: 特定resolution下，每个bin的index（只与resolution和chromosome size有关）</li>
+<li>其他一些stats文件：统计了比对率、contact数量、PCR duplicates数量等统计日志</li>
+<li>Mapping结果bam文件非常庞大，建议删除</li>
+</ul>
+<h4 id="6-分步流程">(6) 分步流程：</h4>
+<p>HiC-Pro是一整套包括mapping, filtering, quality checks, merge and remove duplicates, build matrix 和 ICE normalize的处理流程，<br>
+其中各个步骤可以单独运行，使用HiC-Pro -s ANALYSIS_STEP -i 上一步所得结果 运行。
+比如合并多次测序的contact pairs，可将多次测序的validPairs放在同一文件夹，运行-s merge_persample merge_persample merge_persample</p>
+<h4 id="7-其他">(7) 其他</h4>
+<p>HiC-Pro分步运行仍使用configuration文件配置参数。不过每一步运行的脚本和代码都记录在run.log中，因此在处理一些复杂情况时，可参照run.log中的脚本运行需要的步骤。建议仔细查看此日志。</p>
+<h3 id="4-matrix与normalization">4. Matrix与normalization</h3>
+<p>(1) 因为远端互作一般很少，在一个正方形的互作热图上很多是空白，因此HiC-Pro使用长格式的稀疏矩阵记录基因组上各个bin之间的互作数。即第一、二列分别表示两个位置，第三列表示这两个位置的互作数。在一个bed文件中记录了在这种分辨率下每个位置表示的哪条染色体的哪个区域。可以通过脚本或R语言将这种格式与正方形matrix之间转换。</p>
+<p>(2) Hi-C数据的normalization方法有很多种，并且一直有新的研究发表。建议通过综述了解。</p>
+<p>(3) HiC-Pro运行了ICE normalization，结果的数据格式与raw matrix相同，但互作数经过了校正。</p>
+<p>(4) 但没有对文库大小进行校正，最好的建议是在处理和分析前对互相比较的样本间数据量downsample到一致的水平。</p>
+<p>(5) 其他R包，如Binless和multiHiCcompare也推荐尝试。</p>
+<h3 id="5-probability">5. Probability</h3>
+<p>(1) 多种Hi-C分析软件可获得Probability~distance曲线结果，如Fit-HiC，pairsqc等。</p>
+<p>(2) 也可根据文章methods对Probability的定义，自编简单脚本统计Probability。</p>
+<p>(3)</p>
+<h3 id="6-compartment">6. Compartment</h3>
+<p>(1) 在一条染色体中，对各个位置与其他位置之间的互作数做相关性分析，可得到每两个位置之间的相关性，相关性为正和为负的区域一般会分隔成几Mb以上大小的区室。</p>
+<p>(2) 同理在一条染色体中，对各个位置与其他位置之间的互作数做PCA分析，可得到每个位置的第一主成分PC1，研究发现PC1值正负符号可将染色质分为active和inactive两类，与染色质marker较好的对应。因此将通过其他活性或抑制性marker将它们分为compartment A和compartment。</p>
+<p>(3) 根据以上原理，可用计算PCA的方法自编脚本计算PC1。或推荐使用Homer软件计算。</p>
+<p>(4) 需要注意的是，某些物种比如human染色体长短臂间互作少，可能计算得到的PC1以长短臂区分符号，因此可使用PC2的符号鉴别compartment</p>
+<p>(5)</p>
+<h3 id="7-call-tad">7. Call TAD</h3>
+<p>(1) 拓扑相关结构域（Topologically associating domains，简称TAD），是已被显微成像技术确认的染色质结构，在Hi-C数据的heatmap上表现为一个个几百Kb到几Mb范围的三角。</p>
+<p>(2) 鉴定TAD的算法有很多并且不断更新中，这里推荐两种比较常用的。</p>
+<p>(3) Directionality index(DI) 通过计算具有方向性的系数，表示上下游一定区域的互作数变化大小，来区分TAD内部和边界，并通过隐马可夫模型鉴定TAD。</p>
+<p>(4) Insulation score是计算每个位置的绝缘系数，在局部区域中绝缘分数最大的即为TAD的边界boundary，人为设定阈值，定义boundary之间为TAD。</p>
+<p>(5) 需要注意算法中涉及很多参数，脚本中是默认参数，可根据需要进行调整。</p>
+<h3 id="8-call-loops">8. Call loops</h3>
+<p>(1) 染色质环（contact loops）是层级最低的染色质结构，需要很高的实验质量和数据量以得到较高的分辨率，一般需要10kb以下。Loops类似于ChIP-seq的peaks，定义为Hi-C图谱中互作频率比周围相邻区域都高的格子区域。</p>
+<p>(2) 同样鉴定loops的算法也有很多并且不断更新中，较常用的比如HiCCUPS，Fit-Hi-C。</p>
+<p>(3)</p>
+<h3 id="9-3d-model">9. 3D model</h3>
+<h3 id="10-其他常用的脚本">10. 其他常用的脚本</h3>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/hi-c/">Hi-C</a>
+  
+  <a class="badge badge-light" href="/tag/hic-pro/">HiC-Pro</a>
+  
+  <a class="badge badge-light" href="/tag/%E6%95%B0%E6%8D%AE/">数据</a>
+  
+  <a class="badge badge-light" href="/tag/%E5%88%86%E6%9E%90/">分析</a>
+  
+  <a class="badge badge-light" href="/tag/pipeline/">pipeline</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/&amp;text=HiC-Pro%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/&amp;t=HiC-Pro%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=HiC-Pro%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b&amp;body=https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/&amp;title=HiC-Pro%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=HiC-Pro%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b%20https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://wukong.tongji.edu.cn/internal/zhuqianshu.hicpro/&amp;title=HiC-Pro%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/%E6%9C%B1%E4%B9%BE%E4%B9%A6/avatar_hue0c0e125ed41d05dff48b99dcb6e3408_155081_270x270_fill_q90_lanczos_center.jpg" alt="朱乾书">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="/author/%E6%9C%B1%E4%B9%BE%E4%B9%A6/">朱乾书</a></h5>
+        <h6 class="card-subtitle">2015级硕士，2017年秋转博，2021年8月毕业，2021年9月入站博士后，2024年8月出站，现为重庆市妇幼保健院副研究员</h6>
+        
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:zhuqianshu@tongji.edu.cn" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/rysterzhu" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=YtdNWvYAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.researchgate.net/profile/Qianshu_Zhu" target="_blank" rel="noopener">
+        <i class="ai ai-researchgate"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+  
+
+
+
+
+
+
+
+
+<div class="article-widget">
+  
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/internal/album.all/" rel="next">实验室活动相册汇总</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/internal/peopleincharge/" rel="prev">实验室各项负责人一览表</a>
+  </div>
+  
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>相关</h3>
+    <ul>
+      
+      <li><a href="/post/2020.nature_communications.chen_mo/">小鼠体细胞核移植过程中染色质高级结构重编程模式及分子机制</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

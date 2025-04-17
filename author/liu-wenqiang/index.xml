@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Liu, Wenqiang | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/liu-wenqiang/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/liu-wenqiang/index.xml" rel="self" type="application/rss+xml" />
+    <description>Liu, Wenqiang</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>Liu, Wenqiang</title>
+      <link>https://wukong.tongji.edu.cn/author/liu-wenqiang/</link>
+    </image>
+    
+    <item>
+      <title>Differential Transcriptomes and Methylomes of Trophoblast Stem Cells From Naturally-Fertilized and Somatic Cell Nuclear-Transferred Embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.frontiers_in_cell_and_developmental_biology.sun_jin/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.frontiers_in_cell_and_developmental_biology.sun_jin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dux-Mediated Corrections of Aberrant H3K9ac during 2-Cell Genome Activation Optimize Efficiency of Somatic Cell Nuclear Transfer</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.cell_stem_cell.yang_guang/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.cell_stem_cell.yang_guang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genome transfer for the prevention of female infertility caused by maternal gene mutation</title>
+      <link>https://wukong.tongji.edu.cn/publication/2020.journal_of_genetics_and_genomics.bai_dandan/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2020.journal_of_genetics_and_genomics.bai_dandan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Accurate annotation of accessible chromatin in mouse and human primordial germ cells</title>
+      <link>https://wukong.tongji.edu.cn/publication/2018.cell_research.li_jingyi/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2018.cell_research.li_jingyi/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

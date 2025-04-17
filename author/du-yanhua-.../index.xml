@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Du, Yanhua, ... | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/du-yanhua-.../</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/du-yanhua-.../index.xml" rel="self" type="application/rss+xml" />
+    <description>Du, Yanhua, ...</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>Du, Yanhua, ...</title>
+      <link>https://wukong.tongji.edu.cn/author/du-yanhua-.../</link>
+    </image>
+    
+    <item>
+      <title>H3K27me3 Signal in the Cis Regulatory Elements Reveals the Differentiation Potential of Progenitors During Drosophila Neuroglial Development</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Increase in DNA Damage by MYCN Knockdown Through Regulating Nucleosome Organization and Chromatin State in Neuroblastoma</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_genetics.hu_xinjie/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_genetics.hu_xinjie/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

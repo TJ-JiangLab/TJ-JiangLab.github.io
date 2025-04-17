@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chen, Xiaolong | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/chen-xiaolong/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/chen-xiaolong/index.xml" rel="self" type="application/rss+xml" />
+    <description>Chen, Xiaolong</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_2.png</url>
+      <title>Chen, Xiaolong</title>
+      <link>https://wukong.tongji.edu.cn/author/chen-xiaolong/</link>
+    </image>
+    
+    <item>
+      <title>H3K27me3 Signal in the Cis Regulatory Elements Reveals the Differentiation Potential of Progenitors During Drosophila Neuroglial Development</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chromatin remodeling during in vivo neural stem cells differentiating to neurons in early Drosophila embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.ye_youqiong/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.ye_youqiong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nucleosome eviction along with H3K9ac deposition enhances Sox2 binding during human neuroectodermal commitment</title>
+      <link>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.du_yanhua/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.du_yanhua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chromatin remodeling during the in vivo glial differentiation in early Drosophila embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.ye_youqiong/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.ye_youqiong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hierarchical Oct4 Binding in Concert with Primed Epigenetic Rearrangements during Somatic Cell Reprogramming</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.cell_reports.chen_jun/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.cell_reports.chen_jun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Integrated transcriptome analysis of human iPS cells derived from a fragile X syndrome patient during neuronal differentiation</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.science_china-life_sciences.lu_ping/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.science_china-life_sciences.lu_ping/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JiangLab·相册·瀑布流</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script>
+    $(function () {
+        const COLUMN = 4; 
+        let arr = []; 
+        let minHeight = [] 
+
+        create();
+
+        function create() {
+            $("<ul></ul>").appendTo($("body")).css("width", "100%");
+            for (let i = 0; i < COLUMN; i++) {
+                var li = document.createElement("li");
+                $(li).appendTo($("ul"))
+                    .css({
+                        "width": "24%",
+                        "margin": "0 0.5%"
+                    });
+                arr.push(li);
+                // console.log(arr);
+                minHeight.push(0);
+            }
+            createImg();
+        }
+
+        function createImg() {
+            let img = new Image();
+            img.num = 1;
+            img.src = `./${img.num}.jpg`; 
+            $(img).css("width", "100%");
+            $(img).on("load", loadHandler);
+        }
+
+        function loadHandler() {
+            let min = Math.min.apply(null, minHeight);
+            let minIndex = minHeight.indexOf(min);
+            let im = this.cloneNode(true);
+            arr[minIndex].append(im);
+            minHeight[minIndex] += im.getBoundingClientRect().height;
+
+            this.num++;
+
+			if (this.num > 10000) {
+                $(this).off("load", loadHandler);
+                return;
+            }
+			
+            this.src = `./${this.num}.jpg`;
+        }
+    });
+</script>
+
+</html>
+

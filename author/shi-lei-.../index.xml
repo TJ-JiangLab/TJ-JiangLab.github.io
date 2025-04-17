@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shi, Lei, ... | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/shi-lei-.../</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/shi-lei-.../index.xml" rel="self" type="application/rss+xml" />
+    <description>Shi, Lei, ...</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>Shi, Lei, ...</title>
+      <link>https://wukong.tongji.edu.cn/author/shi-lei-.../</link>
+    </image>
+    
+    <item>
+      <title>Mapping germ-layer specification preventing genes in hPSCs via genome-scale CRISPR screening</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.iscience.xu_xiangjie/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.iscience.xu_xiangjie/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>乾书的乱七八糟小Tips专栏 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/index.xml" rel="self" type="application/rss+xml" />
+    <description>乾书的乱七八糟小Tips专栏</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Wed, 02 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>乾书的乱七八糟小Tips专栏</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/</link>
+    </image>
+    
+    <item>
+      <title>一个使用multiBamSummary计算区域rpkm的脚本</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/rpkmsummary/</link>
+      <pubDate>Tue, 22 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/rpkmsummary/</guid>
+      <description>&lt;p&gt;整理我使用的一些命令成一个bash脚本，还没有测试：&lt;br&gt;
+脚本位置：/home/share/codes/qszhu/rpkmSummary.sh&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+set -e
+help()
+{ cat &amp;lt;&amp;lt; HELP
+    This is a shell script calculate the 
+	本程序使用Bam文件计算特定区域（bed文件）内的rpkm，以及与input的比较
+	使用范例：
+		rpkmSummary -b genes.bed -t treatment.bam -c input.bam -o $odir/$key ...
+	必须参数：
+		-b 输入的需要计算的区域，bed文件 【必须提前建立index】
+		-t 输入的ChIP-seq比对，Bam文件
+		-o 输出文件的前缀，可带输出路径
+		
+	可选参数：
+		-c 输入的input或IgG比对的，bam文件
+		-g 输入的参考基因组染色体长度，chromSizes文件，或genome ID [默认：mm10,即/home/share/chrom_sizes/mm10.chrom.sizes]
+		--id 提供bed文件的区域的ID列，将在输出文件中第5列记录区域ID [应大于3，默认0，不输出ID]
+		--tmp 中间结果temp文件存放目录 [默认：/tmp]
+		-p 使用线程数 [默认：8]
+		-v verbose模式，保留temp文件 [默认删除temp]
+		
+	-c input.bam使用的可选参数：
+		--operation {ratio,logXratio,reciprocal_ratio,subtract,logXsubtract} [default: log2ratio]
+			ratio: (treatment rpkm + pseudocount)/(input rpkm + pseudocount)
+			logXratio: log((treatment rpkm + pseudocount)/(input rpkm + pseudocount))
+			reciprocal_ratio: as ratio, the reciprocal ratio returns the the negative of the inverse of the ratio if the ratio is less than 0
+			subtract: (treatment rpkm) - (input rpkm)
+			logXsubtract: log((treatment rpkm) - (input rpkm) + pseudocount), if treatment less then input, result is log(pseudocount)
+		--pseudocount PSEUDOCOUNT [default: log2ratio]
+			A small number to avoid x/0 or log(0)
+		--logx {2,10...} [default: 2]
+			可自定义log ratio或log subtract的对数底数，默认为log2
+			若--operation的参数为log2ratio 或 log10ratio等，该参数无用
+		
+	multiBamSummary的已默认设置参数：
+		--ignoreDuplicates --samFlagInclude 2 --samFlagExclude 1024 --maxFragmentLength 1000 --centerReads
+		可使用任意参数覆盖
+HELP
+exit 0
+}
+
+p=8
+multiBamSummary=&amp;quot;--ignoreDuplicates --samFlagInclude 2 --samFlagExclude 1024 --maxFragmentLength 1000 --centerReads&amp;quot;
+declare -A multiBamSummary_operations
+#multiBamSummary_operations=([&amp;quot;--ignoreDuplicates&amp;quot;]=&amp;quot;&amp;quot; [&amp;quot;--samFlagInclude&amp;quot;]=&amp;quot;2&amp;quot; [&amp;quot;--samFlagExclude&amp;quot;]=&amp;quot;1024&amp;quot; [&amp;quot;--maxFragmentLength&amp;quot;]=&amp;quot;1000&amp;quot; [&amp;quot;--centerReads&amp;quot;]=&amp;quot;&amp;quot;)
+chromsize=mm10
+operation=logXratio
+pseudocount=1
+logx=2
+tmpdir=/tmp
+hasid=0
+while [ -n &amp;quot;$1&amp;quot; ]; do
+case &amp;quot;$1&amp;quot; in
+    -t) in_file=$2; shift 2;;
+	-c) input_file=$2; shift 2;;
+	-b) BED=$2; shift 2;;
+	-o) outprex=$2; shift 2;;
+	--operation) operation=$2; shift 2;;
+	--pseudocount) pseudocount=$2; shift 2;;
+	--logx) logx=$2; shift 2;;
+	--id) hasid=$2; shift 2;;
+	--deeptools) multiBamSummary_operations=$2; shift 2;;
+    -p) p=$2; shift 2;;
+	-g) chromsize=$2; shift 2;;
+	--tmp) tmpdir=$2; shift 2;;
+	-v) verbose=T; shift 1;;
+	-h) help; exit 1;;
+    -*) break;;
+     *) break;;
+esac
+done
+#####################initiation
+if [ -z &amp;quot;$in_file&amp;quot; ] || [ -z &amp;quot;$BED&amp;quot; ] || [ -z &amp;quot;$outprex&amp;quot; ]; then 
+echo &amp;quot;error: 缺少参数 -b -t or -o. -h for help&amp;quot;;exit 1;
+fi
+
+key=$(basename &amp;quot;$outprex&amp;quot;)
+mkdir -p $tmpdir 
+if test -n &amp;quot;${outprex/$key}&amp;quot;; then mkdir -p ${outprex/$key}; fi
+
+input_rpkm=&amp;quot;$outprex.input.rpkm.bg&amp;quot;
+treatment_rpkm=&amp;quot;$outprex.rpkm.bg&amp;quot;
+treatment_operated=&amp;quot;$outprex.$operation.bg&amp;quot;
+
+if test -r &amp;quot;/home/share/chrom_sizes/$chromsize.chrom.sizes&amp;quot;; then chromsize=/home/share/chrom_sizes/$chromsize.chrom.sizes
+elif test -r &amp;quot;$chromsize&amp;quot;; then  chromsize=$chromsize
+else echo &amp;quot;error: -g mission file. -h for help&amp;quot;; exit 1;
+fi
+awk -v OFS=&amp;quot;\t&amp;quot; &#39;{print $1,0,$2}&#39; $chromsize &amp;gt; $tmpdir/$key.chrom.bed
+
+#####################treatment rpkm
+nohup multiBamSummary BED-file --BED &amp;quot;$BED&amp;quot; -b &amp;quot;$in_file&amp;quot; -o $tmpdir/$key.gz -p $p $multiBamSummary --outRawCounts $tmpdir/$key.tab #&amp;gt; $tmpdir/$key.log 
+
+nohup multiBamSummary BED-file --BED $tmpdir/$key.chrom.bed -b &amp;quot;$in_file&amp;quot; -o $tmpdir/$key.chrom.gz -p $p $multiBamSummary --outRawCounts $tmpdir/$key.chrom.tab #&amp;gt; $tmpdir/$key.chrom.log 
+
+awk -v OFS=&amp;quot;\t&amp;quot; -v hasid=$hasid &#39;ARGIND==1{if(hasid&amp;gt;0){id[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]=$hasid}} 
+ARGIND==2&amp;amp;&amp;amp;FNR&amp;gt;1{total+=$4} 
+ARGIND==3&amp;amp;&amp;amp;FNR==1{if(hasid&amp;gt;0){print &amp;quot;chr\tstart\tend\trpkm\tid&amp;quot;}else{print &amp;quot;chr\tstart\tend\trpkm&amp;quot;}}
+ARGIND==3&amp;amp;&amp;amp;FNR&amp;gt;1{if(hasid&amp;gt;0){print $1,$2,$3,($4*1e9)/(($3-$2)*total,id[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]}else{print $1,$2,$3,($4*1e9)/(($3-$2)*total}}&#39; &amp;quot;$BED&amp;quot; $tmpdir/$key.chrom.tab $tmpdir/$key.tab &amp;gt; &amp;quot;$treatment_rpkm&amp;quot;
+
+#####################input rpkm
+if test -n &amp;quot;$input_file&amp;quot;; then
+nohup multiBamSummary BED-file --BED &amp;quot;$BED&amp;quot; -b &amp;quot;$input_file&amp;quot; -o $tmpdir/$key.input.gz -p $p $multiBamSummary --outRawCounts $tmpdir/$key.input.tab #&amp;gt; $tmpdir/$key.input.log 
+
+nohup multiBamSummary BED-file --BED $tmpdir/$key.chrom.bed -b &amp;quot;$input_file&amp;quot; -o $tmpdir/$key.input.chrom.gz -p $p $multiBamSummary --outRawCounts $tmpdir/$key.input.chrom.tab #&amp;gt; $tmpdir/$key.input.chrom.log 
+
+awk -v OFS=&amp;quot;\t&amp;quot; -v hasid=$hasid &#39;ARGIND==1{if(hasid&amp;gt;0){id[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]=$hasid}} 
+ARGIND==2&amp;amp;&amp;amp;FNR&amp;gt;1{total+=$4} 
+ARGIND==3&amp;amp;&amp;amp;FNR==1{if(hasid&amp;gt;0){print &amp;quot;chr\tstart\tend\trpkm\tid&amp;quot;}else{print &amp;quot;chr\tstart\tend\trpkm&amp;quot;}}
+ARGIND==3&amp;amp;&amp;amp;FNR&amp;gt;1{if(hasid&amp;gt;0){print $1,$2,$3,($4*1e9)/(($3-$2)*total,id[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]}else{print $1,$2,$3,($4*1e9)/(($3-$2)*total}}&#39; &amp;quot;$BED&amp;quot; $tmpdir/$key.input.chrom.tab $tmpdir/$key.input.tab &amp;gt; &amp;quot;$input_rpkm&amp;quot;
+fi
+
+#####################operation
+if [ -r &amp;quot;$input_rpkm&amp;quot; ] &amp;amp;&amp;amp; [ -r &amp;quot;$treatment_rpkm&amp;quot; ]; then
+if [[ &amp;quot;$operation&amp;quot; = &amp;quot;log2ratio&amp;quot; ]]; then operation=&amp;quot;logXratio&amp;quot;; logx=2
+elif [ &amp;quot;$operation&amp;quot; = &amp;quot;log10ratio&amp;quot; ]; then operation=&amp;quot;logXratio&amp;quot;; logx=10
+elif [ &amp;quot;$operation&amp;quot; = &amp;quot;log2subtract&amp;quot; ]; then operation=&amp;quot;logXsubtract&amp;quot;; logx=2
+elif [ &amp;quot;$operation&amp;quot; = &amp;quot;log10rsubtract&amp;quot; ]; then operation=&amp;quot;logXsubtract&amp;quot;; logx=10
+fi
+
+if [ &amp;quot;$operation&amp;quot; = &amp;quot;logXratio&amp;quot; ]; then
+	awk -v OFS=&amp;quot;\t&amp;quot; -v m=$pseudocount -v logx=$logx &#39;NR==1{print $0;next} NR==FNR{a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]=$4+m} NR&amp;gt;FNR{$4=log(($4+m)/a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3])/log(logx);print $0}&#39; &amp;quot;$input_rpkm&amp;quot; &amp;quot;$treatment_rpkm&amp;quot; &amp;gt; $treatment_operated
+elif [ &amp;quot;$operation&amp;quot; = &amp;quot;ratio&amp;quot; ]; then
+	awk -v OFS=&amp;quot;\t&amp;quot; -v m=$pseudocount &#39;NR==1{print $0;next} NR==FNR{a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]=$4+m} NR&amp;gt;FNR{$4=($4+m)/a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3];print $0}&#39; &amp;quot;$input_rpkm&amp;quot; &amp;quot;$treatment_rpkm&amp;quot; &amp;gt; $treatment_operated
+elif [ &amp;quot;$operation&amp;quot; = &amp;quot;reciprocal_ratio&amp;quot; ]; then
+	awk -v OFS=&amp;quot;\t&amp;quot; -v m=$pseudocount &#39;NR==1{print $0;next} NR==FNR{a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]=$4+m} NR&amp;gt;FNR{$4=($4+m)/a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3];if($4&amp;lt;1)$4=-1/$4;print $0}&#39; &amp;quot;$input_rpkm&amp;quot; &amp;quot;$treatment_rpkm&amp;quot; &amp;gt; $treatment_operated
+elif [ &amp;quot;$operation&amp;quot; = &amp;quot;subtract&amp;quot; ]; then
+	awk -v OFS=&amp;quot;\t&amp;quot; &#39;NR==1{print $0;next} NR==FNR{a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]=$4} NR&amp;gt;FNR{$4=$4-a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3];print $0}&#39; &amp;quot;$input_rpkm&amp;quot; &amp;quot;$treatment_rpkm&amp;quot; &amp;gt; $treatment_operated
+elif [ &amp;quot;$operation&amp;quot; = &amp;quot;logXsubtract&amp;quot; ]; then
+	awk -v OFS=&amp;quot;\t&amp;quot; -v m=$pseudocount -v logx=$logx &#39;NR==1{print $0;next} NR==FNR{a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]=$4} NR&amp;gt;FNR{if($4&amp;lt;a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]){$4=log(m)/log(logx)}else{$4=log($4-a[$1&amp;quot;\t&amp;quot;$2&amp;quot;\t&amp;quot;$3]+m)/log(logx)};print $0}&#39; &amp;quot;$input_rpkm&amp;quot; &amp;quot;$treatment_rpkm&amp;quot; &amp;gt; $treatment_operated
+fi
+fi
+
+#####################remove temp files
+if [ -z &amp;quot;$verbose&amp;quot; ]; then rm $tmpdir/$key*;fi
+
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>shell编程的if test</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/shell-test/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/shell-test/</guid>
+      <description>&lt;p&gt;
+&lt;a href=&#34;https://segmentfault.com/a/1190000022265453&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://segmentfault.com/a/1190000022265453&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;shell的if语句比较复杂，经常写错，导致得到错误的结果。&lt;br&gt;
+这里我总结一下我的理解：&lt;/p&gt;
+&lt;p&gt;首先，if的写法是：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if ... ; then   
+xxx  
+elif ... ; then   
+xxx  
+else   
+xxx  
+fi 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里的&amp;hellip;是测试语句，0是true，1是false（bash的特性）&lt;br&gt;
+xxx是执行语句&lt;/p&gt;
+&lt;p&gt;测试语句有三种写法，先看个例子：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if test -n &amp;quot;$a&amp;quot;;then echo $a; fi  
+if [ -n &amp;quot;$a&amp;quot; ];then echo $a; fi  
+if [[ -n $a ]];then echo $a; fi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第一种其实最好理解，与普通的bash语句一样，因此变量$a一定要用双引号括起来，不然当有空格时会当做两个参数而报错，当$a为空时还会被当做没有参数。
+第二种可以理解为：[是test的别名，但其最后一个参数必须是]。因此[和]前后不能与其他参数或关键字相连。&lt;br&gt;
+第三种可以理解为第二种的扩展，功能相同，但其中的变量$a只会被当做一个参数，解决了其中的空格问题。&lt;/p&gt;
+&lt;p&gt;关于test的参数说明，可以在man test中查看。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if test -n &amp;quot;$a&amp;quot; -a -z &amp;quot;$b&amp;quot; -o &amp;quot;$c&amp;quot; = &amp;quot;$d&amp;quot;; then echo &amp;quot;ture&amp;quot;;fi  
+if [ ! -z &amp;quot;$a&amp;quot; ] &amp;amp;&amp;amp; [ ! -n &amp;quot;$b&amp;quot; ] || [ ! &amp;quot;$c&amp;quot; != &amp;quot;$d&amp;quot; ]; then echo &amp;quot;ture&amp;quot;;fi  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这两句结果相同&lt;/p&gt;
+&lt;p&gt;另外，字符串匹配判断：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if [[ $a == x* ]]; then echo $a; fi
+或  
+if [[ $a =~ &amp;quot;^x.*&amp;quot; ]]; then echo $a; fi
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>保持标题行在顶部后排序</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/sort-body/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/sort-body/</guid>
+      <description>&lt;p&gt;我们在linux中处理的数据通常是以tab分割的表格格式，例如&lt;br&gt;
+chr3  1000  2000&lt;br&gt;
+chr1 2000 3000&lt;br&gt;
+chr3 500  600&lt;/p&gt;
+&lt;p&gt;排序的方法：&lt;br&gt;
+sort -k1V,1 -k2n,2 file&lt;/p&gt;
+&lt;p&gt;但某些表格包括标题行的时候，怎么排除首行，对文件内容排序，并保留首行在顶部输出呢？&lt;br&gt;
+例如：&lt;br&gt;
+gene  expression&lt;br&gt;
+Zscan4f 1.0&lt;br&gt;
+Dux 2.0&lt;br&gt;
+Zscan4d 1.0&lt;br&gt;
+Xist  3.0&lt;/p&gt;
+&lt;p&gt;简单的sort是肯定不行的，我在网上找到一个很巧妙的方法：&lt;br&gt;
+在/etc/profile中定义了一个function：&lt;br&gt;
+&lt;code&gt;function sorth(){ read -r; printf &#39;%s\n&#39; &amp;quot;$REPLY&amp;quot;; /bin/sort &amp;quot;$@&amp;quot;;}&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;想保持标题行在顶部后排序只需执行&#34;&gt;想保持标题行在顶部后排序，只需执行：&lt;/h3&gt;
+&lt;h3 id=&#34;sorth--k11--file&#34;&gt;&lt;code&gt;sorth -k1,1 &amp;lt; file&lt;/code&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原理是：read -r读取一行，read会将第一行内容自动保存在REPLY中，然后打印出来；再对剩余内容进行排序&lt;br&gt;
+因为是将输入直接作为内容，所以不能直接给文件名（错误：sorth file）&lt;br&gt;
+可以使用输入重定向符&amp;quot;&amp;lt;&amp;quot;, 也可以使用管道，例如: cat file | sorth&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;同理，如果想保持标题行在顶部对内容进行操作：&lt;br&gt;
+在/etc/profile中定义了一个function：&lt;br&gt;
+&lt;code&gt;function body(){ IFS= read -r; printf &#39;%s\n&#39; &amp;quot;$REPLY&amp;quot;; &amp;quot;$@&amp;quot;; }&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;所以当想保持标题行在顶部然后对内容进行排序&#34;&gt;所以，当想保持标题行在顶部，然后对内容进行排序：&lt;/h3&gt;
+&lt;h3 id=&#34;body-sort--k11--file&#34;&gt;&lt;code&gt;body sort -k1,1 &amp;lt; file&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;例如当想保持标题行在顶部然后在内容中搜索含有zscan的行&#34;&gt;例如，当想保持标题行在顶部，然后在内容中搜索含有Zscan的行：&lt;/h3&gt;
+&lt;h3 id=&#34;body-grep-zscan--file&#34;&gt;&lt;code&gt;body grep Zscan &amp;lt; file&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;例如当想保持标题行在顶部然后在内容中执行awk处理等&#34;&gt;例如，当想保持标题行在顶部，然后在内容中执行awk处理等：&lt;/h3&gt;
+&lt;h3 id=&#34;body-awk-chr--file&#34;&gt;&lt;code&gt;body awk &#39;/chr/{...}&#39; &amp;lt; file&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;任何需要执行的命令，前面加&amp;quot;body &amp;ldquo;就OK啦！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>控制并发线程数</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/multi-threads/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/multi-threads/</guid>
+      <description>&lt;p&gt;我们知道，在linux服务器中，如果想将任务提交到后台，以便可以继续使用当前shell做别的事，或者通过循环一次运行多个任务，对于那些需要很长时间的程序是很有用的
+如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for i in *R1.fastq.gz; do 
+nohup bowtie2 -x mm10 -1 $i -2 ${i/R1/R2} ... -p 4 &amp;gt; log/${i%.R1*}.log &amp;amp;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其中nohup表示不在shell上显示日志，而是将日志写到log/${i%.R1*}.log中&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;但如果数据很多的时候，一口气全讲任务提交到后台同时运行，服务器可能会被卡死，因此我们希望根据需要控制在后台同时运行的任务数量。&lt;/p&gt;
+&lt;p&gt;例如有10个数据，先运行4个，当其中某个运行完成，自动再运行一个……直到所有数据运行完成。&lt;/p&gt;
+&lt;p&gt;最后我在网上找到了一种非常巧妙的&lt;/p&gt;
+&lt;h3 id=&#34;实现方法&#34;&gt;实现方法：&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/sh
+#多进程并发数控制
+
+THREAD=4  #并行进程数
+tempfifo=$$.fifo  # $$表示当前执行文件的PID,作为临时文件名
+
+#如果接收到Ctrl+C中断命令，则关闭文件描述符1000的读写
+trap &amp;quot;exec 1000&amp;gt;&amp;amp;-;exec 1000&amp;lt;&amp;amp;-;exit 0&amp;quot; 2  
+mkfifo $tempfifo    #创建一个管道文件
+#将文件描述符1000与管道文件链接，以便可以同时存在读写
+exec 1000&amp;lt;&amp;gt;$tempfifo    
+
+
+#往管道中写入THREAD行空行
+for((i=0;i&amp;lt;$THREAD;i++))
+do
+    echo &amp;gt;&amp;amp; 1000
+done
+
+#程序任务需要：循环读取符合的文件
+for i in *R1*;   
+do
+    read -u 1000   #读取管道文件的一行，每次读取管道就会减少一个空行
+    {
+    	###############################程序任务
+    	o=${i##*/};o=${o%%.*};
+    	nohup hisat2 --dta-cufflinks --no-discordant --no-mixed -p 32 --no-unal -x /home/share/hisat2_index/new_index/hg19_tran -1 $i -2 ${i/R1/R2} -S /home/qszhu/workspace/3.epidermal/1.align/$o.hisat2.sam &amp;gt; /home/qszhu/workspace/3.epidermal/1.align/logs/$o.hisat2.log
+    	###############################
+    
+    	echo &amp;gt;&amp;amp;1000 #跑完一个任务，就往管道文件中写入一个空行
+    	echo $o&amp;quot; done&amp;quot;
+    }&amp;amp;    #放入后台执行，若管道中还有空行则可继续执行下个任务，若没有则停滞
+done
+
+wait
+echo &amp;quot;All threads done.&amp;quot;
+rm -rf $tempfifo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;简单来说，我们在一个文件中写入了4行，每次运行一个任务，会读取一行，当4行全用掉就会锁住，而当其中某个任务完成后，就会往管道文件中写入一空行，因此下一个任务又可以开始加入后台执行，这样一直都会有4个任务在后台运行！
+$$是本shell的id，防止与其他shell进程冲突
+mkfifo创建管道文件
+1000是一个文件描述符，可以是大于3的正整数。可以在/dev/fd中查看文件描述符定位的文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;不写bash文件直接在xshell上简便的运行方法&#34;&gt;不写bash文件，直接在xshell上简便的运行方法：&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;mkfifo /tmp/$$.fifo;exec 1000&amp;lt;&amp;gt;/tmp/$$.fifo;for((i=0;i&amp;lt;4;i++));do echo&amp;gt;&amp;amp;1000;done 
+for i in $ddir/*sorted.bam; 
+do read -u 1000;{ 
+
+echo&amp;gt;&amp;amp;1000; }&amp;amp; done;wait;rm /tmp/$$.fifo;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;第一行中的4可修改，表示同时运行的程序数量。每当运行完一个文件，将立即读取下一个，一直保持同时运行8个&lt;/li&gt;
+&lt;li&gt;第二行是循环头部，可根据需要修改为循环读取所有输入文件，for、while任何循环都可以&lt;/li&gt;
+&lt;li&gt;在第四行处编写命令，可根据需要多行多个程序顺序执行，可nohup保留日志，但不要在命令后加“&amp;amp;”放后台！&lt;/li&gt;
+&lt;li&gt;其他不用修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;下面这种更好更简洁&#34;&gt;下面这种更好更简洁&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;del -f /tmp/$$.fifo;mkfifo /tmp/$$.fifo&amp;amp;&amp;amp;exec 9&amp;lt;&amp;gt;/tmp/$$.fifo&amp;amp;&amp;amp;for((i=0;i&amp;lt;4;i++));do echo&amp;gt;&amp;amp;9;done;
+for k in *bam;do read -u 9;{ 
+
+echo&amp;gt;&amp;amp;9;}&amp;amp;done&amp;amp;&amp;amp;wait&amp;amp;&amp;amp;del /tmp/$$.fifo;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;我已将第一句设为function写在profile中&#34;&gt;我已将第一句设为function写在profile中：&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;function mult(){ /bin/rm -f /tmp/$$.fifo&amp;amp;&amp;amp;/usr/bin/mkfifo /tmp/$$.fifo&amp;amp;&amp;amp;exec 9&amp;lt;&amp;gt;/tmp/$$.fifo&amp;amp;&amp;amp;for((i=0;i&amp;lt;$1;i++));do /usr/bin/echo&amp;gt;&amp;amp;9;done&amp;amp;&amp;amp;/bin/rm -f /tmp/$$.fifo||echo &amp;quot;error&amp;quot;; }&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;因此只需要执行&#34;&gt;因此只需要执行：&lt;/h2&gt;
+&lt;h2 id=&#34;mult-4&#34;&gt;&lt;code&gt;mult 4&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;for-i-in-do-read--u-9-xxxecho9done&#34;&gt;&lt;code&gt;for i in *;do read -u 9;{ xxx;echo&amp;gt;&amp;amp;9;}&amp;amp;done&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;放后台不挂起即使关闭shell仍然运行的写法&#34;&gt;放后台不挂起(即使关闭shell仍然运行)的写法：&lt;/h2&gt;
+&lt;h2 id=&#34;mult-4-1&#34;&gt;&lt;code&gt;mult 4&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;nohup-bash--c-for-i-in-do-read--u-9-xxxecho9donerunlog&#34;&gt;&lt;code&gt;nohup bash -c &#39;for i in *;do read -u 9;{ xxx;echo&amp;gt;&amp;amp;9;}&amp;amp;done&#39;&amp;gt;run.log&amp;amp;&lt;/code&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;如果在运行时想增加一个运行数只需加一个空行echo9即可&#34;&gt;如果在运行时想增加一个运行数，只需加一个空行&lt;code&gt;echo&amp;gt;&amp;amp;9&lt;/code&gt;，即可&lt;/h3&gt;
+&lt;h3 id=&#34;如果在运行时想减少一个运行数需要去除一个空行read--u-9但需要等待正在执行的任务其中之一完成&#34;&gt;如果在运行时想减少一个运行数，需要去除一个空行&lt;code&gt;read -u 9&lt;/code&gt;，但需要等待正在执行的任务其中之一完成&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://wukong.tongji.edu.cn/resource/codes/threads.sh&#34;&gt;模板sh文件&lt;/a&gt;: &lt;em&gt;/home/share/codes/threads.sh&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Shell脚本8种字符串截取方法总结</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/shell-intercept-string/</link>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/shell-intercept-string/</guid>
+      <description>&lt;p&gt;Linux 的字符串截取很有用。有八种方法。&lt;br&gt;
+假设有变量 var=http://www.aaa.com/123.htm&lt;/p&gt;
+&lt;h3 id=&#34;0--号字符串替换&#34;&gt;0. / 号字符串替换&lt;/h3&gt;
+&lt;h3 id=&#34;echo-varwwwvvv&#34;&gt;&lt;code&gt;echo ${var/www/vvv}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;结果是：http://vvv.aaa.com/123.htm 表示将var变量中的www替换为vvv，&lt;br&gt;
+如果需替换“/”为“|”&lt;/p&gt;
+&lt;h3 id=&#34;echo-var&#34;&gt;&lt;code&gt;echo ${var/\//|}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;结果是：http:|/www.aaa.com/123.htm&lt;/p&gt;
+&lt;h3 id=&#34;1--号截取删除左边字符保留右边字符&#34;&gt;1. # 号截取，删除左边字符，保留右边字符&lt;/h3&gt;
+&lt;h3 id=&#34;echo-var-1&#34;&gt;&lt;code&gt;echo ${var#*//}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;其中 var 是变量名，# 号是运算符，*// 表示从左边开始删除第一个 // 号及左边的所有字符&lt;br&gt;
+即删除 http://
+结果是 ：www.aaa.com/123.htm&lt;/p&gt;
+&lt;h3 id=&#34;2--号截取删除左边字符保留右边字符&#34;&gt;2. ## 号截取，删除左边字符，保留右边字符。&lt;/h3&gt;
+&lt;h3 id=&#34;echo-var-2&#34;&gt;&lt;code&gt;echo ${var##*/}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;##*/ 表示从左边开始删除最后（最右边）一个 / 号及左边的所有字符&lt;br&gt;
+即删除 
+&lt;a href=&#34;http://www.aaa.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://www.aaa.com/&lt;/a&gt;&lt;br&gt;
+结果是 123.htm&lt;/p&gt;
+&lt;h3 id=&#34;3-号截取删除右边字符保留左边字符&#34;&gt;3. %号截取，删除右边字符，保留左边字符&lt;/h3&gt;
+&lt;h3 id=&#34;echo-var-3&#34;&gt;&lt;code&gt;echo ${var%/*}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;%/* 表示从右边开始，删除第一个 / 号及右边的字符&lt;br&gt;
+结果是：http://www.aaa.com&lt;/p&gt;
+&lt;h3 id=&#34;4--号截取删除右边字符保留左边字符&#34;&gt;4. %% 号截取，删除右边字符，保留左边字符&lt;/h3&gt;
+&lt;h3 id=&#34;echo-var-4&#34;&gt;&lt;code&gt;echo ${var%%/*}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;%%/* 表示从右边开始，删除最后（最左边）一个 / 号及右边的字符&lt;br&gt;
+结果是：http:&lt;/p&gt;
+&lt;h3 id=&#34;5-从左边第几个字符开始及字符的个数&#34;&gt;5. 从左边第几个字符开始，及字符的个数&lt;/h3&gt;
+&lt;h3 id=&#34;echo-var05&#34;&gt;&lt;code&gt;echo ${var:0:5}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;其中的 0 表示左边第一个字符开始，5 表示字符的总个数。 &lt;br&gt;
+结果是：http:&lt;/p&gt;
+&lt;h3 id=&#34;6-从左边第几个字符开始一直到结束&#34;&gt;6. 从左边第几个字符开始，一直到结束。&lt;/h3&gt;
+&lt;h3 id=&#34;echo-var7&#34;&gt;&lt;code&gt;echo ${var:7}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;其中的 7 表示左边第8个字符开始，一直到结束。&lt;br&gt;
+结果是 ：www.aaa.com/123.htm&lt;/p&gt;
+&lt;h3 id=&#34;7-从右边第几个字符开始及字符的个数&#34;&gt;7. 从右边第几个字符开始，及字符的个数&lt;/h3&gt;
+&lt;h3 id=&#34;echo-var0-73&#34;&gt;&lt;code&gt;echo ${var:0-7:3}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;其中的 0-7 表示右边算起第七个字符开始，3 表示字符的个数。&lt;br&gt;
+结果是：123&lt;/p&gt;
+&lt;h3 id=&#34;8-从右边第几个字符开始一直到结束&#34;&gt;8. 从右边第几个字符开始，一直到结束。&lt;/h3&gt;
+&lt;h3 id=&#34;echo-var0-7&#34;&gt;&lt;code&gt;echo ${var:0-7}&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;表示从右边第七个字符开始，一直到结束。&lt;br&gt;
+结果是：123.htm&lt;br&gt;
+注：（左边的第一个字符是用 0 表示，右边的第一个字符用 0-1 表示）&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;转载自网络&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>linux的回收站功能</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/trash-cli/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/trash-cli/</guid>
+      <description>&lt;p&gt;linux删除文件是rm，当文件被删除后是很难再恢复的。&lt;br&gt;
+这里我在github找到了一个python的项目，可以实现类似于windows系统下的回收站功能。&lt;/p&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/andreafrancia/trash-cli.git
+cd trash-cli
+sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;此fork相比原始项目，可以同时restore多个文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;包含命令&#34;&gt;包含命令：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;trash &amp;ndash;help&lt;/li&gt;
+&lt;li&gt;trash-empty&lt;/li&gt;
+&lt;li&gt;trash-list&lt;/li&gt;
+&lt;li&gt;trash-put&lt;/li&gt;
+&lt;li&gt;trash-restore&lt;/li&gt;
+&lt;li&gt;trash-rm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;使用方法&#34;&gt;使用方法&lt;/h3&gt;
+&lt;p&gt;echo &amp;ldquo;alias rm=trash-put&amp;rdquo; &amp;raquo; ~/.bashrc&lt;br&gt;
+echo &amp;ldquo;alias rm-empty=/home/share/codes/trash-emty.sh&amp;rdquo; &amp;raquo; ~/.bashrc&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过别名使用trash-put覆盖rm，这样当按原来习惯rm文件时，自动使用trash-put功能将文件放到回收站&lt;br&gt;
+若时误删，则可使用trash-restore恢复文件&lt;br&gt;
+注意！当要清理数据时，这样rm是不能立即腾出可用空间的，需要再运行trash-empty来清空回收站&lt;br&gt;
+回收站默认位置在~/.local/share/Trash，即trash-put默认是将文件放在此目录下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;新版本更新了可一次restore多个文件&lt;br&gt;
+使用方法：&lt;br&gt;
+$ trash-restore&lt;br&gt;
+0 2007-08-30 12:36:00 /home/andrea/foo&lt;br&gt;
+1 2007-08-30 12:39:41 /home/andrea/bar&lt;br&gt;
+2 2007-08-30 12:39:41 /home/andrea/bar2&lt;br&gt;
+3 2007-08-30 12:39:41 /home/andrea/foo2&lt;br&gt;
+What file to restore [0..4]: 0-2, 3&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;写了一个清空回收站前记录删除的文件列表的脚本&#34;&gt;写了一个清空回收站前记录删除的文件列表的脚本&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;lt;&amp;lt;\EOF &amp;gt; /home/share/codes/trash-empty.sh
+#!/bin/sh
+list=$(trash-list)
+if [ -n &amp;quot;$list&amp;quot; ]; then
+echo -e $list&amp;quot;\ntrash-empty at &amp;quot;$(date)&amp;quot;\n&amp;quot; &amp;gt;&amp;gt; ~/.trash_history
+trash-empty
+fi
+EOF
+chmod a+x /home/share/codes/trash-empty.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;为每个用户写了一个每周一4点清理回收站的定时任务&#34;&gt;为每个用户写了一个每周一4点清理回收站的定时任务&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;#every monday 4:00 empty each user&#39;s trash&amp;quot; &amp;gt;&amp;gt; /etc/crontab
+for u in $(awk -v FS=&amp;quot;:&amp;quot; &#39;$3&amp;gt;=500{print $1}&#39; /etc/passwd); do
+echo &amp;quot;0 4 * * 1 ${u} /home/share/codes/trash-empty.sh&amp;quot; &amp;gt;&amp;gt; /etc/crontab
+done
+vim /etc/crontab #delete some wrong user
+
+service crond restart
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>翻译软件</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/translation/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/translation/</guid>
+      <description>&lt;p&gt;我在服务器上安装了翻译软件，&lt;br&gt;
+放在/usr/local/bin/trans&lt;br&gt;
+可直接使用&lt;em&gt;trans&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;来自github上的一个翻译脚本修改，可选多种引擎&lt;br&gt;
+默认使用的是google的翻译引擎&lt;/p&gt;
+&lt;p&gt;写了两个默认使用的&lt;em&gt;英译中&lt;/em&gt;和&lt;em&gt;中译英&lt;/em&gt;的方法:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;alias etc=&amp;quot;trans en:zh-CN -show-original n -show-original-phonetics n -show-prompt-message n -show-translation Y -show-translation-phonetics n -show-languages n -show-original-dictionary n -show-dictionary y -show-alternatives Y -j&amp;quot;
+alias cte=&amp;quot;trans zh-CN:en -show-original n -show-original-phonetics n -show-prompt-message n -show-translation Y -show-translation-phonetics Y -show-languages n -show-original-dictionary n -show-dictionary y -show-alternatives Y -j&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可直接使用&lt;em&gt;etc&lt;/em&gt;和&lt;em&gt;cte&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;写了一个翻译快速翻译一段&lt;em&gt;英文文献&lt;/em&gt;的方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+echo $1 | awk -v RS=&amp;quot;\n&amp;quot; -v ORS=&amp;quot; &amp;quot; &#39;{print}&#39; | trans en:zh-CN -show-original n -show-original-phonetics n -show-prompt-message n -show-translation Y -show-translation-phonetics n -show-languages n -show-original-dictionary n -show-dictionary y -show-alternatives Y -j
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;主要针对的是paper中的分栏，将句子中的换行去除，然后合并翻译。
+使用方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;从paper中copy一段&lt;/li&gt;
+&lt;li&gt;在shell中输入&lt;em&gt;trsp &amp;ldquo;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;粘贴&lt;/li&gt;
+&lt;li&gt;再输入*&amp;quot;*，回车&lt;/li&gt;
+&lt;li&gt;即可得到中文翻译&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>linux shell 正则表达式(BREs,EREs,PREs)差异比较</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/regex/</link>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/regex/</guid>
+      <description>&lt;p&gt;在计算机科学中，是指一个用来描述或者匹配一系列符合某个句法规则的字符串的单个字符串。在很多文本编辑器或其他工具里，正则表达式通常被用来检索和/或替换那些符合某个模式的文本内容 &lt;br&gt;
+在计算机科学中，是指一个用来描述或者匹配一系列符合某个句法规则的字符串的单个字符串。在很多文本编辑器或其他工具里，正则表达式通常被用来检索 和/或替换那些符合某个模式的文本内容。许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引 擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成&amp;quot;regex&amp;quot;，单数有regexp、 regex，复数有regexps、regexes、regexen。这些是正则表达式的定义。 由于起源于unix系统，因此很多语法规则一样的。但是随着逐渐发展，后来扩展出以下几个类型。了解这些对于学习正则表达式。&lt;/p&gt;
+&lt;h2 id=&#34;一正则表达式分类&#34;&gt;一、正则表达式分类：&lt;/h2&gt;
+&lt;p&gt;1、基本的正则表达式（Basic Regular Expression 又叫 Basic RegEx 简称 BREs）  &lt;br&gt;
+2、扩展的正则表达式（Extended Regular Expression 又叫 Extended RegEx 简称 EREs）  &lt;br&gt;
+3、Perl 的正则表达式（Perl Regular Expression 又叫 Perl RegEx 简称 PREs）  &lt;br&gt;
+说明：只有掌握了正则表达式，才能全面地掌握 Linux 下的常用文本工具（例如：grep、egrep、GUN sed、 Awk 等） 的用法&lt;/p&gt;
+&lt;h2 id=&#34;二linux-中常用文本工具与正则表达式的关系&#34;&gt;二、Linux 中常用文本工具与正则表达式的关系&lt;/h2&gt;
+&lt;p&gt;常握 Linux 下几种常用文本工具的特点，对于我们更好的使用正则表达式是很有帮助的&lt;/p&gt;
+&lt;h3 id=&#34;grep--egrep-正则表达式特点&#34;&gt;grep , egrep 正则表达式特点：&lt;/h3&gt;
+&lt;h4 id=&#34;1grep-支持breserespres-正则表达式&#34;&gt;1）grep 支持：BREs、EREs、PREs 正则表达式&lt;/h4&gt;
+&lt;p&gt;grep 指令后不跟任何参数，则表示要使用 &amp;ldquo;BREs&amp;rdquo;  &lt;br&gt;
+grep 指令后跟 &amp;ldquo;-E&amp;rdquo; 参数，则表示要使用 &amp;ldquo;EREs&amp;rdquo;  &lt;br&gt;
+grep 指令后跟 &amp;ldquo;-P&amp;rdquo; 参数，则表示要使用 &amp;ldquo;PREs&amp;rdquo;&lt;/p&gt;
+&lt;h4 id=&#34;2egrep-支持erespres-正则表达式&#34;&gt;2）egrep 支持：EREs、PREs 正则表达式&lt;/h4&gt;
+&lt;p&gt;egrep 指令后不跟任何参数，则表示要使用 &amp;ldquo;EREs&amp;rdquo;  &lt;br&gt;
+egrep 指令后跟 &amp;ldquo;-P&amp;rdquo; 参数，则表示要使用 &amp;ldquo;PREs&amp;rdquo;&lt;/p&gt;
+&lt;h4 id=&#34;3grep-与-egrep-正则匹配文件处理文件方法&#34;&gt;3）grep 与 egrep 正则匹配文件，处理文件方法&lt;/h4&gt;
+&lt;p&gt;a. grep 与 egrep 的处理对象：文本文件  &lt;br&gt;
+b. grep 与 egrep 的处理过程：查找文本文件中是否含要查找的 &amp;ldquo;关键字&amp;rdquo;（关键字可以是正则表达式） ，如果含有要查找的 &amp;ldquo;关健字&amp;rdquo;，那么默认返回该文本文件中包含该&amp;quot;关健字&amp;quot;的该行的内容，并在标准输出中显示出来，除非使用了&amp;quot;&amp;gt;&amp;quot; 重定向符号,  &lt;br&gt;
+c. grep 与 egrep 在处理文本文件时，是按行处理的&lt;/p&gt;
+&lt;h3 id=&#34;sed-正则表达式特点&#34;&gt;sed 正则表达式特点&lt;/h3&gt;
+&lt;h4 id=&#34;1sed-文本工具支持breseres&#34;&gt;1）sed 文本工具支持：BREs、EREs&lt;/h4&gt;
+&lt;p&gt;sed 指令默认是使用&amp;quot;BREs&amp;quot;  &lt;br&gt;
+sed 命令参数 &amp;ldquo;-r &amp;quot; ，则表示要使用&amp;quot;EREs&amp;rdquo;&lt;/p&gt;
+&lt;h4 id=&#34;2sed-功能与作用&#34;&gt;2）sed 功能与作用&lt;/h4&gt;
+&lt;p&gt;a. sed 处理的对象：文本文件  &lt;br&gt;
+b. sed 处理操作：对文本文件的内容进行 &amp;mdash; 查找、替换、删除、增加等操作  &lt;br&gt;
+c. sed 在处理文本文件的时候，也是按行处理的&lt;/p&gt;
+&lt;h3 id=&#34;awkgawk正则表达式特点&#34;&gt;Awk（gawk）正则表达式特点&lt;/h3&gt;
+&lt;h4 id=&#34;1awk-文本工具支持eres&#34;&gt;1）Awk 文本工具支持：EREs&lt;/h4&gt;
+&lt;p&gt;awk 指令默认是使用 &amp;ldquo;EREs&amp;rdquo;&lt;/p&gt;
+&lt;h4 id=&#34;2awk-文本工具处理文本的特点&#34;&gt;2）Awk 文本工具处理文本的特点&lt;/h4&gt;
+&lt;p&gt;a. awk 处理的对象：文本文件  &lt;br&gt;
+b. awk 处理操作：主要是对列进行操作&lt;/p&gt;
+&lt;h2 id=&#34;三常见3中类型正则表达式比较&#34;&gt;三、常见3中类型正则表达式比较&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字符&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;Basic RegEx&lt;/th&gt;
+&lt;th&gt;Extended RegEx&lt;/th&gt;
+&lt;th&gt;python RegEx&lt;/th&gt;
+&lt;th&gt;Perl regEx&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;转义&lt;/td&gt;
+&lt;td&gt;\&lt;/td&gt;
+&lt;td&gt;\&lt;/td&gt;
+&lt;td&gt;\&lt;/td&gt;
+&lt;td&gt;\&lt;/td&gt;
+&lt;td&gt;\&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;^&lt;/td&gt;
+&lt;td&gt;匹配行首，例如&#39;^dog&amp;rsquo;匹配以字符串dog开头的行（注意：awk 指令中，&#39;^&amp;lsquo;则是匹配字符串的开始）&lt;/td&gt;
+&lt;td&gt;^&lt;/td&gt;
+&lt;td&gt;^&lt;/td&gt;
+&lt;td&gt;^&lt;/td&gt;
+&lt;td&gt;^&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;td&gt;匹配行尾，例如：&#39;^、dog$&amp;lsquo;匹配以字符串 dog 为结尾的行（注意：awk 指令中，&#39;$&amp;lsquo;则是匹配字符串的结尾）&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;^$&lt;/td&gt;
+&lt;td&gt;匹配空行&lt;/td&gt;
+&lt;td&gt;^$&lt;/td&gt;
+&lt;td&gt;^$&lt;/td&gt;
+&lt;td&gt;^$&lt;/td&gt;
+&lt;td&gt;^$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;^string$&lt;/td&gt;
+&lt;td&gt;匹配行，例如：&#39;^dog$&amp;lsquo;匹配只含一个字符串 dog 的行&lt;/td&gt;
+&lt;td&gt;^string$&lt;/td&gt;
+&lt;td&gt;^string$&lt;/td&gt;
+&lt;td&gt;^string$&lt;/td&gt;
+&lt;td&gt;^string$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\&amp;lt;&lt;/td&gt;
+&lt;td&gt;匹配单词，例如：&#39;\&amp;lt;frog&amp;rsquo; （等价于&amp;rsquo;\bfrog&amp;rsquo;），匹配以 frog 开头的单词&lt;/td&gt;
+&lt;td&gt;\&amp;lt;&lt;/td&gt;
+&lt;td&gt;\&amp;lt;&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持（但可以使用\b来匹配单词，例如：&#39;\bfrog&amp;rsquo;）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\&amp;gt;&lt;/td&gt;
+&lt;td&gt;匹配单词，例如：&amp;lsquo;frog\&amp;gt;&#39;（等价于&amp;rsquo;frog\b &amp;lsquo;），匹配以 frog 结尾的单词&lt;/td&gt;
+&lt;td&gt;\&amp;gt;&lt;/td&gt;
+&lt;td&gt;\&amp;gt;&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持（但可以使用\b来匹配单词，例如：&amp;lsquo;frog\b&amp;rsquo;）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\&amp;lt;x\&amp;gt;&lt;/td&gt;
+&lt;td&gt;匹配一个单词或者一个特定字符，例如：&#39;\&amp;lt;frog\&amp;gt;&#39;（等价于&amp;rsquo;\bfrog\b&amp;rsquo;）、&#39;\&amp;lt;G\&amp;gt;&#39;&lt;/td&gt;
+&lt;td&gt;\&amp;lt;x\&amp;gt;&lt;/td&gt;
+&lt;td&gt;\&amp;lt;x\&amp;gt;&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持（但可以使用\b来匹配单词，例如：&#39;\bfrog\b&#39;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;()&lt;/td&gt;
+&lt;td&gt;匹配表达式，例如：不支持&#39;（frog）&#39;&lt;/td&gt;
+&lt;td&gt;不支持（但可以使用\(\)，如：\(dog\)&lt;/td&gt;
+&lt;td&gt;()&lt;/td&gt;
+&lt;td&gt;()&lt;/td&gt;
+&lt;td&gt;()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\(\)&lt;/td&gt;
+&lt;td&gt;匹配表达式，例如：不支持&#39;（frog）&#39;&lt;/td&gt;
+&lt;td&gt;\(\)&lt;/td&gt;
+&lt;td&gt;不支持（同())&lt;/td&gt;
+&lt;td&gt;不支持（同())&lt;/td&gt;
+&lt;td&gt;不支持（同())&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;？&lt;/td&gt;
+&lt;td&gt;匹配前面的子表达式 0 次或 1 次（等价于{0,1}），例如：where(is)?能匹配&amp;quot;where&amp;quot; 以及&amp;quot;whereis&amp;quot;&lt;/td&gt;
+&lt;td&gt;不支持（同\?)&lt;/td&gt;
+&lt;td&gt;？&lt;/td&gt;
+&lt;td&gt;？&lt;/td&gt;
+&lt;td&gt;？&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\?&lt;/td&gt;
+&lt;td&gt;匹配前面的子表达式 0 次或 1 次（等价于&#39;\{0,1\}&#39;），例如：&amp;lsquo;where\(is\)\? &amp;lsquo;能匹配 &amp;ldquo;where&amp;quot;以及&amp;quot;whereis&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;\?&lt;/td&gt;
+&lt;td&gt;不支持（同?)&lt;/td&gt;
+&lt;td&gt;不支持（同?)&lt;/td&gt;
+&lt;td&gt;不支持（同?)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;?&lt;/td&gt;
+&lt;td&gt;当该字符紧跟在任何一个其他限制符（*, +, ?, {n},{n,}, {n,m}） 后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串 &amp;ldquo;oooo&amp;rdquo;，&amp;lsquo;o+?&amp;rsquo; 将匹配单个&amp;quot;o&amp;quot;，而 &amp;lsquo;o+&amp;rsquo; 将匹配所有 &amp;lsquo;o&amp;rsquo;&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;.&lt;/td&gt;
+&lt;td&gt;匹配除换行符（&#39;\n&amp;rsquo;）之外的任意单个字符（注意：awk 指令中的句点能匹配换行符）&lt;/td&gt;
+&lt;td&gt;.&lt;/td&gt;
+&lt;td&gt;.（如果要匹配包括&amp;quot;\n&amp;quot;在内的任何一个字符，请使用：&#39;(^$)&lt;/td&gt;
+&lt;td&gt;（.）&lt;/td&gt;
+&lt;td&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\*&lt;/td&gt;
+&lt;td&gt;匹配前面的子表达式 0 次或多次（等价于{0, }），例如：zo* 能匹配 &amp;ldquo;z&amp;quot;以及 &amp;ldquo;zoo&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\+&lt;/td&gt;
+&lt;td&gt;匹配前面的子表达式 1 次或多次（等价于&amp;rsquo;\{1, \}&#39;），例如：&amp;lsquo;where\(is\)\+ &amp;lsquo;能匹配 &amp;ldquo;whereis&amp;quot;以及&amp;quot;whereisis&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;\+&lt;/td&gt;
+&lt;td&gt;不支持（同+)&lt;/td&gt;
+&lt;td&gt;不支持（同+)&lt;/td&gt;
+&lt;td&gt;不支持（同+)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;+&lt;/td&gt;
+&lt;td&gt;匹配前面的子表达式 1 次或多次（等价于{1, }），例如：zo+能匹配 &amp;ldquo;zo&amp;quot;以及 &amp;ldquo;zoo&amp;rdquo;，但不能匹配 &amp;ldquo;z&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;不支持（同\+)&lt;/td&gt;
+&lt;td&gt;+&lt;/td&gt;
+&lt;td&gt;+&lt;/td&gt;
+&lt;td&gt;+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{n}&lt;/td&gt;
+&lt;td&gt;n 必须是一个 0 或者正整数，匹配子表达式 n 次，例如：zo{2}能匹配&lt;/td&gt;
+&lt;td&gt;不支持（同\{n\})&lt;/td&gt;
+&lt;td&gt;{n}&lt;/td&gt;
+&lt;td&gt;{n}&lt;/td&gt;
+&lt;td&gt;{n}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{n,}&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;zooz&amp;rdquo;，但不能匹配 &amp;ldquo;Bob&amp;quot;n 必须是一个 0 或者正整数，匹配子表达式大于等于 n次，例如：go{2,}&lt;/td&gt;
+&lt;td&gt;不支持（同\{n,\})&lt;/td&gt;
+&lt;td&gt;{n,}&lt;/td&gt;
+&lt;td&gt;{n,}&lt;/td&gt;
+&lt;td&gt;{n,}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{n,m}&lt;/td&gt;
+&lt;td&gt;能匹配 &amp;ldquo;good&amp;rdquo;，但不能匹配 godm 和 n 均为非负整数，其中 n &amp;lt;= m，最少匹配 n 次且最多匹配 m 次 ，例如：o{1,3}将配&amp;quot;fooooood&amp;rdquo; 中的前三个 o（请注意在逗号和两个数之间不能有空格）&lt;/td&gt;
+&lt;td&gt;不支持（同\{n,m\})&lt;/td&gt;
+&lt;td&gt;{n,m}&lt;/td&gt;
+&lt;td&gt;{n,m}&lt;/td&gt;
+&lt;td&gt;{n,m}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td&gt;y&lt;/td&gt;
+&lt;td&gt;匹配 x 或 y，例如： 不支持&amp;rsquo;z&lt;/td&gt;
+&lt;td&gt;（food）&amp;rsquo; 能匹配 &amp;ldquo;z&amp;rdquo; 或&amp;quot;food&amp;rdquo;；&#39;（z&lt;/td&gt;
+&lt;td&gt;f）ood&amp;rsquo; 则匹配&amp;quot;zood&amp;rdquo; 或 &amp;ldquo;food&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;不支持（同x\|y)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0-9]&lt;/td&gt;
+&lt;td&gt;匹配从 0 到 9 中的任意一个数字字符（注意：要写成递增）&lt;/td&gt;
+&lt;td&gt;[0-9]&lt;/td&gt;
+&lt;td&gt;[0-9]&lt;/td&gt;
+&lt;td&gt;[0-9]&lt;/td&gt;
+&lt;td&gt;[0-9]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[xyz]&lt;/td&gt;
+&lt;td&gt;字符集合，匹配所包含的任意一个字符，例如：&#39;[abc]&amp;lsquo;可以匹配&amp;quot;lay&amp;quot; 中的 &amp;lsquo;a&amp;rsquo;（注意：如果元字符，例如：. *等，它们被放在[ ]中，那么它们将变成一个普通字符）&lt;/td&gt;
+&lt;td&gt;[xyz]&lt;/td&gt;
+&lt;td&gt;[xyz]&lt;/td&gt;
+&lt;td&gt;[xyz]&lt;/td&gt;
+&lt;td&gt;[xyz]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[^xyz]&lt;/td&gt;
+&lt;td&gt;负值字符集合，匹配未包含的任意一个字符（注意：不包括换行符），例如：&#39;[^abc]&amp;rsquo; 可以匹配 &amp;ldquo;Lay&amp;rdquo; 中的&amp;rsquo;L&#39;（注意：[^xyz]在awk 指令中则是匹配未包含的任意一个字符+换行符）&lt;/td&gt;
+&lt;td&gt;[^xyz]&lt;/td&gt;
+&lt;td&gt;[^xyz]&lt;/td&gt;
+&lt;td&gt;[^xyz]&lt;/td&gt;
+&lt;td&gt;[^xyz]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[A-Za-z]&lt;/td&gt;
+&lt;td&gt;匹配大写字母或者小写字母中的任意一个字符（注意：要写成递增）&lt;/td&gt;
+&lt;td&gt;[A-Za-z]&lt;/td&gt;
+&lt;td&gt;[A-Za-z]&lt;/td&gt;
+&lt;td&gt;[A-Za-z]&lt;/td&gt;
+&lt;td&gt;[A-Za-z]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[^A-Za-z]&lt;/td&gt;
+&lt;td&gt;匹配除了大写与小写字母之外的任意一个字符（注意：写成递增）&lt;/td&gt;
+&lt;td&gt;[^A-Za-z]&lt;/td&gt;
+&lt;td&gt;[^A-Za-z]&lt;/td&gt;
+&lt;td&gt;[^A-Za-z]&lt;/td&gt;
+&lt;td&gt;[^A-Za-z]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\d&lt;/td&gt;
+&lt;td&gt;匹配从 0 到 9 中的任意一个数字字符（等价于 [0-9]）&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\d&lt;/td&gt;
+&lt;td&gt;\d&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\D&lt;/td&gt;
+&lt;td&gt;匹配非数字字符（等价于 [^0-9]）&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\D&lt;/td&gt;
+&lt;td&gt;\D&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\S&lt;/td&gt;
+&lt;td&gt;匹配任何非空白字符（等价于[^\f\n\r\t\v]）&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\S&lt;/td&gt;
+&lt;td&gt;\S&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\s&lt;/td&gt;
+&lt;td&gt;匹配任何空白字符，包括空格、制表符、换页符等等（等价于[ \f\n\r\t\v]）&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\s&lt;/td&gt;
+&lt;td&gt;\s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\W&lt;/td&gt;
+&lt;td&gt;匹配任何非单词字符 (等价于[^A-Za-z0-9_])&lt;/td&gt;
+&lt;td&gt;\W&lt;/td&gt;
+&lt;td&gt;\W&lt;/td&gt;
+&lt;td&gt;\W&lt;/td&gt;
+&lt;td&gt;\W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\w&lt;/td&gt;
+&lt;td&gt;匹配包括下划线的任何单词字符（等价于[A-Za-z0-9_]）&lt;/td&gt;
+&lt;td&gt;\w&lt;/td&gt;
+&lt;td&gt;\w&lt;/td&gt;
+&lt;td&gt;\w&lt;/td&gt;
+&lt;td&gt;\w&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\B&lt;/td&gt;
+&lt;td&gt;匹配非单词边界，例如：&amp;lsquo;er\B&amp;rsquo; 能匹配 &amp;ldquo;verb&amp;rdquo; 中的&amp;rsquo;er&#39;，但不能匹配&amp;quot;never&amp;quot; 中的&amp;rsquo;er&#39;&lt;/td&gt;
+&lt;td&gt;\B&lt;/td&gt;
+&lt;td&gt;\B&lt;/td&gt;
+&lt;td&gt;\B&lt;/td&gt;
+&lt;td&gt;\B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\b&lt;/td&gt;
+&lt;td&gt;匹配一个单词边界，也就是指单词和空格间的位置，例如： &amp;lsquo;er\b&amp;rsquo; 可以匹配&amp;quot;never&amp;quot; 中的 &amp;lsquo;er&amp;rsquo;，但不能匹配 &amp;ldquo;verb&amp;rdquo; 中的&amp;rsquo;er&#39;&lt;/td&gt;
+&lt;td&gt;\b&lt;/td&gt;
+&lt;td&gt;\b&lt;/td&gt;
+&lt;td&gt;\b&lt;/td&gt;
+&lt;td&gt;\b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\t&lt;/td&gt;
+&lt;td&gt;匹配一个横向制表符（等价于 \x09和 \cI）&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\t&lt;/td&gt;
+&lt;td&gt;\t&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\v&lt;/td&gt;
+&lt;td&gt;匹配一个垂直制表符（等价于 \x0b和 \cK）&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\v&lt;/td&gt;
+&lt;td&gt;\v&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\n&lt;/td&gt;
+&lt;td&gt;匹配一个换行符（等价于 \x0a 和\cJ）&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\n&lt;/td&gt;
+&lt;td&gt;\n&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\f&lt;/td&gt;
+&lt;td&gt;匹配一个换页符（等价于\x0c 和\cL）&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\f&lt;/td&gt;
+&lt;td&gt;\f&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\r&lt;/td&gt;
+&lt;td&gt;匹配一个回车符（等价于 \x0d 和\cM）&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\r&lt;/td&gt;
+&lt;td&gt;\r&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\\&lt;/td&gt;
+&lt;td&gt;匹配转义字符本身&amp;quot;\&amp;quot;&lt;/td&gt;
+&lt;td&gt;\\&lt;/td&gt;
+&lt;td&gt;\\&lt;/td&gt;
+&lt;td&gt;\\&lt;/td&gt;
+&lt;td&gt;\\&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\cx&lt;/td&gt;
+&lt;td&gt;匹配由 x 指明的控制字符，例如：\cM匹配一个Control-M 或回车符，x 的值必须为A-Z 或 a-z 之一，否则，将 c 视为一个原义的 &amp;lsquo;c&amp;rsquo; 字符&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt; &lt;/td&gt;
+&lt;td&gt;\cx&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\xn&lt;/td&gt;
+&lt;td&gt;匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长，例如：&#39;\x41&#39; 匹配 &amp;ldquo;A&amp;rdquo;。&#39;\x041&#39; 则等价于&#39;\x04&#39; &amp;amp; &amp;ldquo;1&amp;rdquo;。正则表达式中可以使用 ASCII 编码&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt; &lt;/td&gt;
+&lt;td&gt;\xn&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\num&lt;/td&gt;
+&lt;td&gt;匹配 num，其中 num是一个正整数。表示对所获取的匹配的引用&lt;/td&gt;
+&lt;td&gt;不支持&lt;/td&gt;
+&lt;td&gt;\num&lt;/td&gt;
+&lt;td&gt;\num&lt;/td&gt;
+&lt;td&gt; &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:alnum:]&lt;/td&gt;
+&lt;td&gt;匹配任何一个字母或数字（[A-Za-z0-9]），例如：&#39;[[:alnum:]] &#39;&lt;/td&gt;
+&lt;td&gt;[:alnum:]&lt;/td&gt;
+&lt;td&gt;[:alnum:]&lt;/td&gt;
+&lt;td&gt;[:alnum:]&lt;/td&gt;
+&lt;td&gt;[:alnum:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:alpha:]&lt;/td&gt;
+&lt;td&gt;匹配任何一个字母（[A－Za－z]）， 例如：&#39; [[:alpha:]] &#39;&lt;/td&gt;
+&lt;td&gt;[:alpha:]&lt;/td&gt;
+&lt;td&gt;[:alpha:]&lt;/td&gt;
+&lt;td&gt;[:alpha:]&lt;/td&gt;
+&lt;td&gt;[:alpha:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:digit:]&lt;/td&gt;
+&lt;td&gt;匹配任何一个数字（[0-9]），例如：&#39;[[:digit:]] &#39;&lt;/td&gt;
+&lt;td&gt;[:digit:]&lt;/td&gt;
+&lt;td&gt;[:digit:]&lt;/td&gt;
+&lt;td&gt;[:digit:]&lt;/td&gt;
+&lt;td&gt;[:digit:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:lower:]&lt;/td&gt;
+&lt;td&gt;匹配任何一个小写字母（[a-z]）， 例如：&#39; [[:lower:]] &#39;&lt;/td&gt;
+&lt;td&gt;[:lower:]&lt;/td&gt;
+&lt;td&gt;[:lower:]&lt;/td&gt;
+&lt;td&gt;[:lower:]&lt;/td&gt;
+&lt;td&gt;[:lower:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:upper:]&lt;/td&gt;
+&lt;td&gt;匹配任何一个大写字母（[A-Z]）&lt;/td&gt;
+&lt;td&gt;[:upper:]&lt;/td&gt;
+&lt;td&gt;[:upper:]&lt;/td&gt;
+&lt;td&gt;[:upper:]&lt;/td&gt;
+&lt;td&gt;[:upper:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:space:]&lt;/td&gt;
+&lt;td&gt;任何一个空白字符： 支持制表符、空格，例如：&#39; [[:space:]] &#39;&lt;/td&gt;
+&lt;td&gt;[:space:]&lt;/td&gt;
+&lt;td&gt;[:space:]&lt;/td&gt;
+&lt;td&gt;[:space:]&lt;/td&gt;
+&lt;td&gt;[:space:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:blank:]&lt;/td&gt;
+&lt;td&gt;空格和制表符（横向和纵向），例如：&#39;[[:blank:]]&amp;lsquo;ó&amp;rsquo;[\s\t\v]&#39;&lt;/td&gt;
+&lt;td&gt;[:blank:]&lt;/td&gt;
+&lt;td&gt;[:blank:]&lt;/td&gt;
+&lt;td&gt;[:blank:]&lt;/td&gt;
+&lt;td&gt;[:blank:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:graph:]&lt;/td&gt;
+&lt;td&gt;任何一个可以看得见的且可以打印的字符（注意：不包括空格和换行符等），例如：&#39;[[:graph:]] &#39;&lt;/td&gt;
+&lt;td&gt;[:graph:]&lt;/td&gt;
+&lt;td&gt;[:graph:]&lt;/td&gt;
+&lt;td&gt;[:graph:]&lt;/td&gt;
+&lt;td&gt;[:graph:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:print:]&lt;/td&gt;
+&lt;td&gt;任何一个可以打印的字符（注意：不包括：[:cntrl:]、字符串结束符&#39;\0&#39;、EOF 文件结束符（-1）， 但包括空格符号），例如：&#39;[[:print:]] &#39;&lt;/td&gt;
+&lt;td&gt;[:print:]&lt;/td&gt;
+&lt;td&gt;[:print:]&lt;/td&gt;
+&lt;td&gt;[:print:]&lt;/td&gt;
+&lt;td&gt;[:print:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:cntrl:]&lt;/td&gt;
+&lt;td&gt;任何一个控制字符（ASCII 字符集中的前 32 个字符，即：用十进制表示为从 0 到31，例如：换行符、制表符等等），例如：&#39; [[:cntrl:]]&#39;&lt;/td&gt;
+&lt;td&gt;[:cntrl:]&lt;/td&gt;
+&lt;td&gt;[:cntrl:]&lt;/td&gt;
+&lt;td&gt;[:cntrl:]&lt;/td&gt;
+&lt;td&gt;[:cntrl:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:punct:]&lt;/td&gt;
+&lt;td&gt;任何一个标点符号（不包括：[:alnum:]、[:cntrl:]、[:space:]这些字符集）&lt;/td&gt;
+&lt;td&gt;[:punct:]&lt;/td&gt;
+&lt;td&gt;[:punct:]&lt;/td&gt;
+&lt;td&gt;[:punct:]&lt;/td&gt;
+&lt;td&gt;[:punct:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[:xdigit:]&lt;/td&gt;
+&lt;td&gt;任何一个十六进制数（即：0-9，a-f，A-F）&lt;/td&gt;
+&lt;td&gt;[:xdigit:]&lt;/td&gt;
+&lt;td&gt;[:xdigit:]&lt;/td&gt;
+&lt;td&gt;[:xdigit:]&lt;/td&gt;
+&lt;td&gt;[:xdigit:]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;四三种不同类型正则表达式比较&#34;&gt;四、三种不同类型正则表达式比较&lt;/h2&gt;
+&lt;p&gt;注意： 当使用 BERs（基本正则表达式）时，必须在下列这些符号前加上转义字符（&#39;\&#39;），屏蔽掉它们的 speical meaning  &amp;ldquo;?,+,|,{,},（,）&amp;rdquo; 这些字符，需要加入转义符号&amp;quot;\&amp;quot;  &lt;br&gt;
+注意：修饰符用在正则表达式结尾，例如：/dog/i，其中 &amp;quot; i &amp;quot; 就是修饰符，它代表的含义就是：匹配时不区分大小写，那么修饰符有哪些呢？常见的修饰符如下:  &lt;br&gt;
+g   全局匹配（即：一行上的每个出现，而不只是一行上的第一个出现） &lt;br&gt;
+s    把整个匹配串当作一行处理 &lt;br&gt;
+m    多行匹配 &lt;br&gt;
+i    忽略大小写 &lt;br&gt;
+x    允许注释和空格的出现 &lt;br&gt;
+U    非贪婪匹配&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>定时检查磁盘空间使用情况</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/cron-filesystem-size/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/cron-filesystem-size/</guid>
+      <description>&lt;p&gt;今天打算写一个每周定时检查磁盘空间使用情况，以及各用户目录占用空间的大小&lt;/p&gt;
+&lt;h3 id=&#34;in-pangu&#34;&gt;in pangu&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;df -h | awk &#39;NR==1{print &amp;quot;Server&amp;quot;,&amp;quot;FileSystem&amp;quot;,$2,$3,$4,$5} 
+$6~&amp;quot;/home[0-9]*&amp;quot;{split($6,temp,&amp;quot;/&amp;quot;);
+if(length(temp)==4){s=temp[3];f=temp[4]}else{s=&amp;quot;pangu&amp;quot;;f=temp[2]};
+print s,f,$2,$3,$4,$5}&#39;
+
+du -sh /home/* /home1/* /mnt/guru/home/* /mnt/guru/home3/* /mnt/guru/home4/* /mnt/sanzi/home2/* /mnt/sanzi/home1/* &amp;gt; user.size.$(date +%Y-%m-%d).log
+awk &#39;$1~/T$/{split($2,temp,&amp;quot;/&amp;quot;);
+if(length(temp)&amp;gt;3){s=temp[3];f=temp[4];u=temp[5]}else{s=&amp;quot;pangu&amp;quot;;f=temp[2];u=temp[3]};
+print s,f,u,$1
+}&#39; user.size.$(date +%Y-%m-%d).log
+
+
+
+echo &amp;quot;0 19 * * thu root /home/share/codes/filesystem-size.sh&amp;quot; &amp;gt;&amp;gt; /etc/crontab
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>服务器定时任务的使用示例</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/crontab-initiation/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/crontab-initiation/</guid>
+      <description>&lt;p&gt;当我们需要定时在服务器上运行任务时，如每天、每周或每月等&lt;br&gt;
+可以在/etc/cron.d/       cron.daily/   cron.hourly/  cron.monthly/ cron.weekly/
+中添加配置文件
+root直接在/etc/crontab中添加&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SHELL=/bin/bash
+PATH=/usr/local/LINKS:/usr/local/software/python-2.7.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+MAILTO=root
+
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+
+0 19 * * thu root /home/share/codes/backup-JC.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是一个每周四19点自动同步/home/share/Lab-Meeting-JC文件夹到其他服务器的任务
+需要注意脚本中运行的程序的路径需要写在PATH中&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>linux下 tar解压 gz解压 bz2等各种解压文件使用方法</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/gz-unzip/</link>
+      <pubDate>Mon, 21 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/gz-unzip/</guid>
+      <description>&lt;p&gt;大致总结了一下linux下各种格式的压缩包的压缩、解压方法。但是部分方法我没有用到，也就不全，希望大家帮我补充，我将随时修改完善，谢谢！   &lt;br&gt;
+　　 &lt;br&gt;
+　　.tar&lt;br&gt;
+　　解包：tar xvf FileName.tar&lt;br&gt;
+　　打包：tar cvf FileName.tar DirName&lt;br&gt;
+　　（注：tar是打包，不是压缩！）&lt;br&gt;
+　　———————————————&lt;br&gt;
+　　.gz&lt;br&gt;
+　　解压 1：gunzip FileName.gz&lt;br&gt;
+　　解压2：gzip -d FileName.gz&lt;br&gt;
+　　压缩：gzip FileName&lt;br&gt;
+　　.tar.gz 和 .tgz&lt;br&gt;
+　　解压：tar zxvf FileName.tar.gz&lt;br&gt;
+　　压缩：tar zcvf FileName.tar.gz DirName&lt;br&gt;
+　　———————————————&lt;br&gt;
+　　.bz2&lt;br&gt;
+　　解压1：bzip2 -d FileName.bz2&lt;br&gt;
+　　解压2：bunzip2 FileName.bz2&lt;br&gt;
+　　压缩： bzip2 -z FileName&lt;br&gt;
+　　.tar.bz2&lt;br&gt;
+　　解压：tar jxvf FileName.tar.bz2 或tar &amp;ndash;bzip xvf FileName.tar.bz2&lt;br&gt;
+　　压缩：tar jcvf FileName.tar.bz2 DirName&lt;br&gt;
+　　 ———————————————&lt;br&gt;
+　　.bz&lt;br&gt;
+　　解压1：bzip2 -d FileName.bz&lt;br&gt;
+　　解压2：bunzip2 FileName.bz&lt;br&gt;
+　　压缩：未知&lt;br&gt;
+　　.tar.bz&lt;br&gt;
+　　解压：tar jxvf FileName.tar.bz&lt;br&gt;
+　　压缩：未知&lt;br&gt;
+　　———————————————&lt;br&gt;
+　　.Z&lt;br&gt;
+　　解压：uncompress FileName.Z&lt;br&gt;
+　　压缩：compress FileName&lt;br&gt;
+　　.tar.Z&lt;br&gt;
+　　解压：tar Zxvf FileName.tar.Z&lt;br&gt;
+　　压缩：tar Zcvf FileName.tar.Z DirName&lt;br&gt;
+　　———————————————&lt;br&gt;
+　　.zip&lt;br&gt;
+　　解压：unzip FileName.zip&lt;br&gt;
+　　压缩：zip FileName.zip DirName&lt;br&gt;
+　　压缩一个目录使用 -r 参数，-r 递归。例： $ zip -r FileName.zip DirName&lt;br&gt;
+　　———————————————&lt;br&gt;
+　　.rar&lt;br&gt;
+　　解压：rar x FileName.rar&lt;br&gt;
+　　压缩：rar a FileName.rar DirName&lt;br&gt;
+　　&lt;br&gt;
+　　rar 请到：http://www.rarsoft.com/download.htm 下载！&lt;br&gt;
+　　解压后请将rar_static拷贝到/usr /bin目录（其他由$PATH环境变量指定的目录也可以）：&lt;br&gt;
+　　[root@www2 tmp]# cp rar_static /usr/bin/rar&lt;br&gt;
+　　———————————————&lt;br&gt;
+　　.lha&lt;br&gt;
+　　解压：lha -e FileName.lha&lt;br&gt;
+　　压缩：lha -a FileName.lha FileName&lt;br&gt;
+　　&lt;br&gt;
+　　lha请到：http://www.infor.kanazawa-it.ac.jp/~ishii/lhaunix/下载！&lt;br&gt;
+　　解压后请将 lha拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以）：&lt;br&gt;
+　　[root@www2 tmp]# cp lha /usr/bin/&lt;br&gt;
+　　———————————————&lt;br&gt;
+　　.rpm&lt;br&gt;
+　　解包：rpm2cpio FileName.rpm | cpio -div&lt;br&gt;
+　　———————————————&lt;br&gt;
+　　.deb&lt;br&gt;
+　　解包：ar p FileName.deb data.tar.gz | tar zxf -&lt;br&gt;
+　　———————————————&lt;br&gt;
+　　.tar .tgz .tar.gz .tar.Z .tar.bz .tar.bz2 .zip .cpio .rpm .deb .slp .arj .rar .ace .lha .lzh .lzx .lzs .arc .sda .sfx .lnx .zoo .cab .kar .cpt .pit .sit .sea&lt;br&gt;
+　　解压：sEx x FileName.*&lt;br&gt;
+　　压缩：sEx a FileName.* FileName&lt;br&gt;
+　　&lt;br&gt;
+　　sEx只是调用相关程序，本身并无压缩、解压功能，请注意！&lt;br&gt;
+　　sEx请到： 
+&lt;a href=&#34;http://sourceforge.net/projects/sex&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://sourceforge.net/projects/sex&lt;/a&gt;下载！&lt;br&gt;
+　　解压后请将sEx拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以）：&lt;br&gt;
+　　[root@www2 tmp]# cp sEx /usr/bin/　　
+　　
+#＃# Linux下常见文件解压方法及命令&lt;br&gt;
+　　系统·System&lt;br&gt;
+　　&lt;br&gt;
+　　1.以.a为扩展名的文件:&lt;br&gt;
+　　#tar xv file.a&lt;br&gt;
+　　2.以.z为扩展名的文件:&lt;br&gt;
+　　#uncompress file.Z&lt;br&gt;
+　　3.以.gz为扩展名的文件:&lt;br&gt;
+　　#gunzip file.gz&lt;br&gt;
+　　4.以.bz2为扩展名的文件:&lt;br&gt;
+　　#bunzip2 file.bz2&lt;br&gt;
+　　5.以.tar.Z为扩展名的文件:&lt;br&gt;
+　　#tar xvZf file.tar.Z&lt;br&gt;
+　　或 #compress -dc file.tar.Z | tar xvf&lt;br&gt;
+　　6.以.tar.gz/.tgz为扩展名的文件:&lt;br&gt;
+　　#tar xvzf file.tar.gz&lt;br&gt;
+　　或 gzip -dc file.tar.gz | tar xvf -&lt;br&gt;
+　　7.以.tar.bz2为扩展名的文件:&lt;br&gt;
+　　#tar xvIf file.tar.bz2&lt;br&gt;
+　　或 bzip2 -dc file.tar.bz2 | xvf -&lt;br&gt;
+　　8.以.cpio.gz/.cgz为扩展名的文件:&lt;br&gt;
+　　#gzip -dc file.cgz | cpio -div&lt;br&gt;
+　　9. 以.cpio/cpio为扩展名的文件:&lt;br&gt;
+　　#cpio -div file.cpio&lt;br&gt;
+　　或cpio -divc file.cpio&lt;br&gt;
+　　10.以.rpm为扩展名的文件安装:&lt;br&gt;
+　　#rpm -i file.rpm&lt;br&gt;
+　　11.以.rpm为扩展名的文件解压缩：&lt;br&gt;
+　　 #rpm2cpio file.rpm | cpio -div&lt;br&gt;
+　　12.以.deb为扩展名的文件安装：&lt;br&gt;
+　　#dpkg -i file.deb&lt;br&gt;
+　　13.以.deb为扩展名的文件解压缩:&lt;br&gt;
+　　#dpkg-deb -fsys-tarfile file.deb | tar xvf - ar p&lt;br&gt;
+　　file.deb data.tar.gz | tar xvzf -&lt;br&gt;
+　　14.以.zip为扩展名的文件:&lt;br&gt;
+　　#unzip file.zip&lt;br&gt;
+　　&lt;/p&gt;
+&lt;h3 id=&#34;在linux下解压winzip格式的文件&#34;&gt;在linux下解压Winzip格式的文件&lt;/h3&gt;
+&lt;p&gt;　　要是装了jdk的话，可以用 jar命令；还可以使用unzip命令。&lt;br&gt;
+　　直接解压.tar.gz文件&lt;br&gt;
+　　xxxx.tar.gz文件使用tar带zxvf参数，可以一次解压开。XXXX为文件名。 例如：&lt;br&gt;
+　　$tar zxvf xxxx.tar.gz&lt;br&gt;
+　　&lt;/p&gt;
+&lt;h3 id=&#34;各种压缩文件的解压安装方法&#34;&gt;各种压缩文件的解压（安装方法）&lt;/h3&gt;
+&lt;p&gt;　　.a ar xv file.a&lt;br&gt;
+　　.Z uncompress file.Z&lt;br&gt;
+　　.gz gunzip file.gz&lt;br&gt;
+　　.bz2 bunzip2 file.bz2&lt;br&gt;
+　　.tar.Z tar xvZf file.tar.Z&lt;br&gt;
+　　compress -dc file.tar.Z | tar xvf -&lt;br&gt;
+　　.tar.gz/.tgz tar xvzf file.tar.gz&lt;br&gt;
+　　gzip -dc file.tar.gz | tar xvf -&lt;br&gt;
+　　.tar.bz2 tar xvIf file.tar.bz2&lt;br&gt;
+　　bzip2 -dc file.tar.bz2 | xvf -&lt;br&gt;
+　　.cpio.gz/.cgz gzip -dc file.cgz | cpio -div&lt;br&gt;
+　　.cpio/cpio cpio -div file.cpio&lt;br&gt;
+　　cpio -divc file.cpio&lt;br&gt;
+　　.rpm/install rpm -i file.rpm&lt;br&gt;
+　　.rpm/extract rpm2cpio file.rpm | cpio -div&lt;br&gt;
+　　.deb/install dpkg -i file.deb&lt;br&gt;
+　　.deb/exrtact dpkg-deb -fsys-tarfile file.deb | tar xvf -&lt;br&gt;
+　　ar p file.deb data.tar.gz | tar xvzf -&lt;br&gt;
+　　.zip unzip file.zip&lt;br&gt;
+　　&lt;br&gt;
+　　&lt;br&gt;
+　　bzip2 -d myfile.tar.bz2 | tar xvf&lt;br&gt;
+　　&lt;br&gt;
+　　&lt;br&gt;
+　　tar xvfz myfile.tar.bz2&lt;br&gt;
+　　&lt;br&gt;
+　　&lt;br&gt;
+　　x 是解压&lt;br&gt;
+　　v 是复杂输出&lt;br&gt;
+　　f 是指定文件&lt;br&gt;
+　　z gz格式&lt;br&gt;
+　　&lt;br&gt;
+　　&lt;br&gt;
+###　gzip&lt;br&gt;
+　　gzip[选项]要压缩（或解压缩）的文件名&lt;br&gt;
+　　-c将输出写到标准输出上，并保留原有文件。&lt;br&gt;
+　　-d将压缩文件压缩。&lt;br&gt;
+　　-l对每个压缩文件，显示下列字段：压缩文件的大小，未压缩文件的大小、压缩比、未压缩文件的名字&lt;br&gt;
+　　-r递归式地查找指定目录并压缩或压缩其中的所有文件。&lt;br&gt;
+　　-t测试压缩文件是正完整。&lt;br&gt;
+　　-v对每一个压缩和解压缩的文件，显示其文件名和压缩比。&lt;br&gt;
+　　-num-用指定的数字调整压缩的速度。&lt;br&gt;
+　　举例：&lt;br&gt;
+　　把/usr目录并包括它的子目录在内的全部文件做一备份，备份文件名为usr.tar&lt;br&gt;
+　　tar cvf usr.tar /home&lt;br&gt;
+　　把/usr 目录并包括它的子目录在内的全部文件做一备份并进行压缩，备份文件名是usr.tar.gz&lt;br&gt;
+　　tar czvf usr.tar.gz /usr&lt;br&gt;
+　　压缩一组文件，文件的后缀为tar.gz&lt;br&gt;
+　　#tar cvf back.tar /back/&lt;br&gt;
+　　#gzip -q back.tar&lt;br&gt;
+　　or&lt;br&gt;
+　　#tar cvfz back.tar.gz /back/&lt;br&gt;
+　　释放一个后缀为tar.gz 的文件。&lt;br&gt;
+　　#tar zxvf back.tar.gz&lt;br&gt;
+　　#gzip back.tar.gz&lt;br&gt;
+　　#tar xvf back.tar&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;转载自网络&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

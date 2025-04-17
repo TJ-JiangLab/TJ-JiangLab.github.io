@@ -1,0 +1,1084 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="awk 中除了函数的参数列(Argument List)上的参数(A">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.awk-best-manual/11/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.awk-best-manual/11/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.awk-best-manual/11/">
+  <meta property="og:title" content="11.使用 awk 编写递归程序 | JiangLab">
+  <meta property="og:description" content="awk 中除了函数的参数列(Argument List)上的参数(A"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-12-21T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-12-21T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>11.使用 awk 编写递归程序 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/internal/zhuqianshu.awk-best-manual/">首页</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/1/">1. 前言</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/2/">2. awk概述  </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/3/">3. 如何执行awk</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/4/">4. 选择符合指定条件的记录  </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/5/">5. awk 中数组</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/6/">6. awk 程序中使用 Shell 命令 </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/7/">7. awk 程序的应用实例  </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/8/">8. 处理多行的数据</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/9/">9. 如何读取命令行上的参数 </a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/10/">10.编写可与用户交互的 awk 程序 </a>
+      </li>
+      
+      <li class="active">
+        <a href="/internal/zhuqianshu.awk-best-manual/11/">11.使用 awk 编写递归程序</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.awk-best-manual/12/">12.附录</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">在本页</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>11.使用 awk 编写递归程序</h1>
+
+          <div class="article-style">
+            <p>awk 中除了函数的参数列(Argument List)上的参数(Arguments)外,所有变量不管于何处出现,全被视为全局变量. 其生命持续至程序结束 &mdash; 该变量不论在function外或 function内皆可使用,只要变量名称相同所使用的就是同一个变量,直到程序结束.<br>
+因递归函数内部的变量, 会因它调用子函数(本身)而重复使用,故编写该类函数时, 应特别留心.</p>
+<h4 id="-例如--">[ 例如 : ]</h4>
+<p>执行<br>
+awk '<br>
+BEGIN {<br>
+x = 35<br>
+y = 45<br>
+test_variable( x )<br>
+printf(&ldquo;Return to main : arg1= %d, x= %d, y= %d, z= %d\n&rdquo;, arg1, x, y, z)<br>
+}<br>
+function test_variable( arg1 )<br>
+{<br>
+arg1++ # arg1 为参数列上的参数, 是local variable. 离开此函数后将消失.<br>
+y ++ # 会改变主式中的变量 y<br>
+z = 55 # z 为该函数中新使用的变量, 主程序中变量 z 仍可被使用.<br>
+printf(&ldquo;Inside the function: arg1=%d,x=%d, y=%d, z=%d\n&rdquo;, arg1, x, y, z)<br>
+} '<br>
+结果屏幕印出<br>
+Inside the function: arg1=36,x=35, y=46, z=55<br>
+Return to main : arg1= 0, x= 35, y= 46, z= 55<br>
+由上可知 :<br>
+函数内可任意使用主程序中的任何变量.函数内所启用的任何变量(除参数外), 于该函数之外依然可以使用.此特性优劣参半, 最大的坏处是式中的变量不易被保护, 特别是递归调用本身, 执行子函数时会破坏父函数内的变量.<br>
+一个变通的方法是: 在函数的参数列中虚列一些参数. 函数执行中使用这些虚列的参数来记录不想被破坏的数据,如此执行子函数时就不会破坏到这些数据. 此外awk 并不会检查调用函数时所传递的参数个数是否一致.</p>
+<h4 id="例如-">例如 :</h4>
+<p>定义递归函数如下 :<br>
+function demo( arg1 ) { # 最常见的错误例子<br>
+&hellip;&hellip;..<br>
+for(i=1; i&lt; 20 ; i++){<br>
+demo(x)</p>
+<h1 id="又呼叫本身-因为-i-是-global-variable-故执行完该子函数后">又呼叫本身. 因为 i 是 global variable, 故执行完该子函数后</h1>
+<h1 id="原函数中的-i-已经被坏-故本函数无法正确执行">原函数中的 i 已经被坏, 故本函数无法正确执行.</h1>
+<p>&hellip;&hellip;.<br>
+}<br>
+&hellip;&hellip;&hellip;.<br>
+}<br>
+可将上列函数中的 i 虚列在该函数的参数列上, 如此 i 便是一个局部变量, 不会因执行子函数而被破坏.<br>
+将上列函数修改如下:<br>
+function demo( arg1, i )<br>
+{<br>
+&hellip;&hellip;<br>
+for(i=1; i&lt; 20; i++)<br>
+{<br>
+demo(x)#awk不会检查呼叫函数时, 所传递的参数个数是否一致<br>
+&hellip;..<br>
+}<br>
+}<br>
+$0, $1,.., NF, NR,..也都是 global variable, 读者于递归函数中若有使用这些内建变量, 也应另外设立一些局部变量来保存,以免被破坏.</p>
+<h4 id="-范例-">[ 范例 :]</h4>
+<p>以下是一个常见的递归调用范例. 它要求使用者输入一串元素(各元素间用空白隔开) 然后印出这些元素所有可能的排列.<br>
+编辑如下的awk式, 取名为 permu<br>
+#!/bin/sh</p>
+<p>awk '<br>
+BEGIN {<br>
+print &ldquo;请输入排列的元素,各元素间请用空白隔开&rdquo;<br>
+getline<br>
+permutation($0, &ldquo;&quot;)<br>
+printf(&quot;\n共 %d 种排列方式\n&rdquo;, counter)<br>
+}<br>
+function permutation( main_lst, buffer,     new_main_lst, nf, i, j )<br>
+{<br>
+$0 = main_lst # 把main_lst指定给$0之后awk将自动进行字段分割.<br>
+nf = NF # 故可用 NF 表示 main_lst 上存在的元素个数.<br>
+# BASE CASE : 当main_lst只有一个元素时.<br>
+if( nf == 1){<br>
+print buffer main_lst #buffer的内容再加上main_lst就是完成一次排列的结果<br>
+counter++<br>
+return<br>
+}<br>
+# General Case : 每次从 main_lst 中取出一个元素放到buffer中<br>
+# 再用 main_lst 中剩下的元素 (new_main_lst) 往下进行排列<br>
+else for( i=1; i&lt;=nf ;i++)<br>
+{<br>
+$0 = main_lst # $0为全局变量已被破坏, 故重新把main_lst赋给$0,令awk再做一次字段分割<br>
+new_main_lst = &quot;&quot;<br>
+for(j=1; j&lt;=nf; j++) # 连接 new_main_lst<br>
+if( j != i ) new_main_lst = new_main_lst &quot; &quot; $j<br>
+permutation( new_main_lst, buffer &quot; &quot; $i )<br>
+}<br>
+}<br>
+' $*<br>
+执行<br>
+$ ./permu<br>
+屏幕上出现<br>
+请输入排列的元素,各元素间请用空白隔开</p>
+<p>若输入 1 2 3 回车,结果印出<br>
+1 2 3<br>
+1 3 2<br>
+2 1 3<br>
+2 3 1<br>
+3 1 2<br>
+3 2 1</p>
+<p>共 6 种排列方式</p>
+<h4 id="-说-明--">[ 说 明 : ]</h4>
+<p>有些较旧版的awk,并不容许使用者指定$0之值. 此时可改用gawk, 或 nawk.否则也可自行使用 split() 函数来分割 main_lst.<br>
+为避免执行子函数时破坏 new_main_lst, nf, i, j 故把这些变量也列于参数列上. 如此,new_main_lst, nf, i, j 将被当成局部变量,而不会受到子函数中同名的变量影响. 读者声明函数时,参数列上不妨将这些 &ldquo;虚列的参数&rdquo; 与真正用于传递信息的参数间以较长的空白隔开, 以便于区别.<br>
+awk 中欲将字符串concatenation(连接)时, 直接将两字符串并置即可(Implicit Operator).</p>
+<h4 id="例如--1">例如 :</h4>
+<p>awk '<br>
+BEGIN{<br>
+A = &ldquo;This &quot;<br>
+B = &ldquo;is a &quot;<br>
+C = A B &ldquo;key.&rdquo; # 变量A与B之间应留空白,否则&quot;AB&quot;将代表另一新变量.<br>
+print C<br>
+} '<br>
+结果将印出<br>
+This is a key.<br>
+awk使用者所编写的函数可再重用, 并不需要每个awk式中都重新编写.<br>
+将函数部分单独编写于一文件中, 当需要用到该函数时再以下列方式include进来.<br>
+$ awk -f 函数文件名 -f awk主程序文件名 数据文件文件名</p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/internal/zhuqianshu.awk-best-manual/10/" rel="next">10.编写可与用户交互的 awk 程序 </a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/internal/zhuqianshu.awk-best-manual/12/" rel="prev">12.附录</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>最近更新于 Dec 21, 2020</p>
+
+          
+
+
+
+          
+
+
+          
+
+
+  
+  
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cao, Xinkai | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/cao-xinkai/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/cao-xinkai/index.xml" rel="self" type="application/rss+xml" />
+    <description>Cao, Xinkai</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_2.png</url>
+      <title>Cao, Xinkai</title>
+      <link>https://wukong.tongji.edu.cn/author/cao-xinkai/</link>
+    </image>
+    
+    <item>
+      <title>Nucleosome eviction along with H3K9ac deposition enhances Sox2 binding during human neuroectodermal commitment</title>
+      <link>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.du_yanhua/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.du_yanhua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>H2A.Z Nucleosome Positioning Has No Impact on Genetic Variation in Drosophila Genome</title>
+      <link>https://wukong.tongji.edu.cn/publication/2013.plos_one.tang_yitao/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2013.plos_one.tang_yitao/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

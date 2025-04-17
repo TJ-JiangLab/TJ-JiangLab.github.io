@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Han, Leng | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/han-leng/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/han-leng/index.xml" rel="self" type="application/rss+xml" />
+    <description>Han, Leng</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Mon, 01 Jan 2007 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>Han, Leng</title>
+      <link>https://wukong.tongji.edu.cn/author/han-leng/</link>
+    </image>
+    
+    <item>
+      <title>Features and trend of loss of promoter-associated CpG islands in the human and mouse genomes</title>
+      <link>https://wukong.tongji.edu.cn/publication/2007.molecular_biology_and_evolution.jiang_cizhong/</link>
+      <pubDate>Mon, 01 Jan 2007 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2007.molecular_biology_and_evolution.jiang_cizhong/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

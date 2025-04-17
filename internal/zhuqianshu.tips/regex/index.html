@@ -1,0 +1,1466 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="在计算机科学中，是指一个用来描述或者匹配一系列符合某个句法规">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/regex/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.9.0/instantsearch.min.css" integrity="sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g=" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch-theme-algolia.min.css" integrity="sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o=" crossorigin="anonymous">
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700%7CMa+Shan+Zheng%7CNoto+Serif+SC:500%7CNoto+Sans+SC:500%7CZCOOL+KuaiLe&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hue4b599c36ee50e917f75ce6b4f6c5314_9111_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/regex/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@rysterzhu">
+  <meta property="twitter:creator" content="@rysterzhu">
+  
+  <meta property="og:site_name" content="JiangLab">
+  <meta property="og:url" content="https://wukong.tongji.edu.cn/internal/zhuqianshu.tips/regex/">
+  <meta property="og:title" content="linux shell 正则表达式(BREs,EREs,PREs)差异比较 | JiangLab">
+  <meta property="og:description" content="在计算机科学中，是指一个用来描述或者匹配一系列符合某个句法规"><meta property="og:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png">
+  <meta property="twitter:image" content="https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-12-21T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-12-21T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>linux shell 正则表达式(BREs,EREs,PREs)差异比较 | JiangLab</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/"><img src="/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_0x70_resize_lanczos_3.png" alt="JiangLab"></a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#hero"><span  style="font-size:25px">简介</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#post"><span  style="font-size:25px">动态</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span  style="font-size:25px">发表</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/post/members"><span  style="font-size:25px">成员</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#slider"><span  style="font-size:25px">活动</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span  style="font-size:25px">学习</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/tools/"><span  style="font-size:25px">工具</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/internal/"><span  style="font-size:25px">资料</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span  style="font-size:25px">联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="搜索"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/internal/zhuqianshu.tips/">首页</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/rpkmsummary/">一个使用multiBamSummary计算区域rpkm的脚本</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/shell-test/">对比 test、[、[[ 判断用法</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/sort-body/">保持标题行在顶部后排序</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/multi-threads/">控制并发线程数</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/shell-intercept-string/">Shell 字符串截取方法</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/trash-cli/">回收站功能</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/translation/">翻译软件</a>
+      </li>
+      
+      <li class="active">
+        <a href="/internal/zhuqianshu.tips/regex/">linux shell 正则表达式</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/cron-filesystem-size/">定时检查磁盘空间使用情况</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/crontab-initiation/">定时任务的使用</a>
+      </li>
+      
+      <li >
+        <a href="/internal/zhuqianshu.tips/gz-unzip/">tar解压 gz解压 bz2等各种解压文件使用方法</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">在本页</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一正则表达式分类">一、正则表达式分类：</a></li>
+    <li><a href="#二linux-中常用文本工具与正则表达式的关系">二、Linux 中常用文本工具与正则表达式的关系</a>
+      <ul>
+        <li><a href="#grep--egrep-正则表达式特点">grep , egrep 正则表达式特点：</a></li>
+        <li><a href="#sed-正则表达式特点">sed 正则表达式特点</a></li>
+        <li><a href="#awkgawk正则表达式特点">Awk（gawk）正则表达式特点</a></li>
+      </ul>
+    </li>
+    <li><a href="#三常见3中类型正则表达式比较">三、常见3中类型正则表达式比较</a></li>
+    <li><a href="#四三种不同类型正则表达式比较">四、三种不同类型正则表达式比较</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>linux shell 正则表达式(BREs,EREs,PREs)差异比较</h1>
+
+          <div class="article-style">
+            <p>在计算机科学中，是指一个用来描述或者匹配一系列符合某个句法规则的字符串的单个字符串。在很多文本编辑器或其他工具里，正则表达式通常被用来检索和/或替换那些符合某个模式的文本内容 <br>
+在计算机科学中，是指一个用来描述或者匹配一系列符合某个句法规则的字符串的单个字符串。在很多文本编辑器或其他工具里，正则表达式通常被用来检索 和/或替换那些符合某个模式的文本内容。许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引 擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成&quot;regex&quot;，单数有regexp、 regex，复数有regexps、regexes、regexen。这些是正则表达式的定义。 由于起源于unix系统，因此很多语法规则一样的。但是随着逐渐发展，后来扩展出以下几个类型。了解这些对于学习正则表达式。</p>
+<h2 id="一正则表达式分类">一、正则表达式分类：</h2>
+<p>1、基本的正则表达式（Basic Regular Expression 又叫 Basic RegEx 简称 BREs）  <br>
+2、扩展的正则表达式（Extended Regular Expression 又叫 Extended RegEx 简称 EREs）  <br>
+3、Perl 的正则表达式（Perl Regular Expression 又叫 Perl RegEx 简称 PREs）  <br>
+说明：只有掌握了正则表达式，才能全面地掌握 Linux 下的常用文本工具（例如：grep、egrep、GUN sed、 Awk 等） 的用法</p>
+<h2 id="二linux-中常用文本工具与正则表达式的关系">二、Linux 中常用文本工具与正则表达式的关系</h2>
+<p>常握 Linux 下几种常用文本工具的特点，对于我们更好的使用正则表达式是很有帮助的</p>
+<h3 id="grep--egrep-正则表达式特点">grep , egrep 正则表达式特点：</h3>
+<h4 id="1grep-支持breserespres-正则表达式">1）grep 支持：BREs、EREs、PREs 正则表达式</h4>
+<p>grep 指令后不跟任何参数，则表示要使用 &ldquo;BREs&rdquo;  <br>
+grep 指令后跟 &ldquo;-E&rdquo; 参数，则表示要使用 &ldquo;EREs&rdquo;  <br>
+grep 指令后跟 &ldquo;-P&rdquo; 参数，则表示要使用 &ldquo;PREs&rdquo;</p>
+<h4 id="2egrep-支持erespres-正则表达式">2）egrep 支持：EREs、PREs 正则表达式</h4>
+<p>egrep 指令后不跟任何参数，则表示要使用 &ldquo;EREs&rdquo;  <br>
+egrep 指令后跟 &ldquo;-P&rdquo; 参数，则表示要使用 &ldquo;PREs&rdquo;</p>
+<h4 id="3grep-与-egrep-正则匹配文件处理文件方法">3）grep 与 egrep 正则匹配文件，处理文件方法</h4>
+<p>a. grep 与 egrep 的处理对象：文本文件  <br>
+b. grep 与 egrep 的处理过程：查找文本文件中是否含要查找的 &ldquo;关键字&rdquo;（关键字可以是正则表达式） ，如果含有要查找的 &ldquo;关健字&rdquo;，那么默认返回该文本文件中包含该&quot;关健字&quot;的该行的内容，并在标准输出中显示出来，除非使用了&quot;&gt;&quot; 重定向符号,  <br>
+c. grep 与 egrep 在处理文本文件时，是按行处理的</p>
+<h3 id="sed-正则表达式特点">sed 正则表达式特点</h3>
+<h4 id="1sed-文本工具支持breseres">1）sed 文本工具支持：BREs、EREs</h4>
+<p>sed 指令默认是使用&quot;BREs&quot;  <br>
+sed 命令参数 &ldquo;-r &quot; ，则表示要使用&quot;EREs&rdquo;</p>
+<h4 id="2sed-功能与作用">2）sed 功能与作用</h4>
+<p>a. sed 处理的对象：文本文件  <br>
+b. sed 处理操作：对文本文件的内容进行 &mdash; 查找、替换、删除、增加等操作  <br>
+c. sed 在处理文本文件的时候，也是按行处理的</p>
+<h3 id="awkgawk正则表达式特点">Awk（gawk）正则表达式特点</h3>
+<h4 id="1awk-文本工具支持eres">1）Awk 文本工具支持：EREs</h4>
+<p>awk 指令默认是使用 &ldquo;EREs&rdquo;</p>
+<h4 id="2awk-文本工具处理文本的特点">2）Awk 文本工具处理文本的特点</h4>
+<p>a. awk 处理的对象：文本文件  <br>
+b. awk 处理操作：主要是对列进行操作</p>
+<h2 id="三常见3中类型正则表达式比较">三、常见3中类型正则表达式比较</h2>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>说明</th>
+<th>Basic RegEx</th>
+<th>Extended RegEx</th>
+<th>python RegEx</th>
+<th>Perl regEx</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>转义</td>
+<td>\</td>
+<td>\</td>
+<td>\</td>
+<td>\</td>
+<td>\</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配行首，例如'^dog&rsquo;匹配以字符串dog开头的行（注意：awk 指令中，'^&lsquo;则是匹配字符串的开始）</td>
+<td>^</td>
+<td>^</td>
+<td>^</td>
+<td>^</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配行尾，例如：'^、dog$&lsquo;匹配以字符串 dog 为结尾的行（注意：awk 指令中，'$&lsquo;则是匹配字符串的结尾）</td>
+<td>$</td>
+<td>$</td>
+<td>$</td>
+<td>$</td>
+</tr>
+<tr>
+<td>^$</td>
+<td>匹配空行</td>
+<td>^$</td>
+<td>^$</td>
+<td>^$</td>
+<td>^$</td>
+</tr>
+<tr>
+<td>^string$</td>
+<td>匹配行，例如：'^dog$&lsquo;匹配只含一个字符串 dog 的行</td>
+<td>^string$</td>
+<td>^string$</td>
+<td>^string$</td>
+<td>^string$</td>
+</tr>
+<tr>
+<td>\&lt;</td>
+<td>匹配单词，例如：'\&lt;frog&rsquo; （等价于&rsquo;\bfrog&rsquo;），匹配以 frog 开头的单词</td>
+<td>\&lt;</td>
+<td>\&lt;</td>
+<td>不支持</td>
+<td>不支持（但可以使用\b来匹配单词，例如：'\bfrog&rsquo;）</td>
+</tr>
+<tr>
+<td>\&gt;</td>
+<td>匹配单词，例如：&lsquo;frog\&gt;'（等价于&rsquo;frog\b &lsquo;），匹配以 frog 结尾的单词</td>
+<td>\&gt;</td>
+<td>\&gt;</td>
+<td>不支持</td>
+<td>不支持（但可以使用\b来匹配单词，例如：&lsquo;frog\b&rsquo;）</td>
+</tr>
+<tr>
+<td>\&lt;x\&gt;</td>
+<td>匹配一个单词或者一个特定字符，例如：'\&lt;frog\&gt;'（等价于&rsquo;\bfrog\b&rsquo;）、'\&lt;G\&gt;'</td>
+<td>\&lt;x\&gt;</td>
+<td>\&lt;x\&gt;</td>
+<td>不支持</td>
+<td>不支持（但可以使用\b来匹配单词，例如：'\bfrog\b'</td>
+</tr>
+<tr>
+<td>()</td>
+<td>匹配表达式，例如：不支持'（frog）'</td>
+<td>不支持（但可以使用\(\)，如：\(dog\)</td>
+<td>()</td>
+<td>()</td>
+<td>()</td>
+</tr>
+<tr>
+<td>\(\)</td>
+<td>匹配表达式，例如：不支持'（frog）'</td>
+<td>\(\)</td>
+<td>不支持（同())</td>
+<td>不支持（同())</td>
+<td>不支持（同())</td>
+</tr>
+<tr>
+<td>？</td>
+<td>匹配前面的子表达式 0 次或 1 次（等价于{0,1}），例如：where(is)?能匹配&quot;where&quot; 以及&quot;whereis&quot;</td>
+<td>不支持（同\?)</td>
+<td>？</td>
+<td>？</td>
+<td>？</td>
+</tr>
+<tr>
+<td>\?</td>
+<td>匹配前面的子表达式 0 次或 1 次（等价于'\{0,1\}'），例如：&lsquo;where\(is\)\? &lsquo;能匹配 &ldquo;where&quot;以及&quot;whereis&rdquo;</td>
+<td>\?</td>
+<td>不支持（同?)</td>
+<td>不支持（同?)</td>
+<td>不支持（同?)</td>
+</tr>
+<tr>
+<td>?</td>
+<td>当该字符紧跟在任何一个其他限制符（*, +, ?, {n},{n,}, {n,m}） 后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串 &ldquo;oooo&rdquo;，&lsquo;o+?&rsquo; 将匹配单个&quot;o&quot;，而 &lsquo;o+&rsquo; 将匹配所有 &lsquo;o&rsquo;</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除换行符（'\n&rsquo;）之外的任意单个字符（注意：awk 指令中的句点能匹配换行符）</td>
+<td>.</td>
+<td>.（如果要匹配包括&quot;\n&quot;在内的任何一个字符，请使用：'(^$)</td>
+<td>（.）</td>
+<td>.</td>
+</tr>
+<tr>
+<td>\*</td>
+<td>匹配前面的子表达式 0 次或多次（等价于{0, }），例如：zo* 能匹配 &ldquo;z&quot;以及 &ldquo;zoo&rdquo;</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr>
+<td>\+</td>
+<td>匹配前面的子表达式 1 次或多次（等价于&rsquo;\{1, \}'），例如：&lsquo;where\(is\)\+ &lsquo;能匹配 &ldquo;whereis&quot;以及&quot;whereisis&rdquo;</td>
+<td>\+</td>
+<td>不支持（同+)</td>
+<td>不支持（同+)</td>
+<td>不支持（同+)</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配前面的子表达式 1 次或多次（等价于{1, }），例如：zo+能匹配 &ldquo;zo&quot;以及 &ldquo;zoo&rdquo;，但不能匹配 &ldquo;z&rdquo;</td>
+<td>不支持（同\+)</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>n 必须是一个 0 或者正整数，匹配子表达式 n 次，例如：zo{2}能匹配</td>
+<td>不支持（同\{n\})</td>
+<td>{n}</td>
+<td>{n}</td>
+<td>{n}</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>&ldquo;zooz&rdquo;，但不能匹配 &ldquo;Bob&quot;n 必须是一个 0 或者正整数，匹配子表达式大于等于 n次，例如：go{2,}</td>
+<td>不支持（同\{n,\})</td>
+<td>{n,}</td>
+<td>{n,}</td>
+<td>{n,}</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>能匹配 &ldquo;good&rdquo;，但不能匹配 godm 和 n 均为非负整数，其中 n &lt;= m，最少匹配 n 次且最多匹配 m 次 ，例如：o{1,3}将配&quot;fooooood&rdquo; 中的前三个 o（请注意在逗号和两个数之间不能有空格）</td>
+<td>不支持（同\{n,m\})</td>
+<td>{n,m}</td>
+<td>{n,m}</td>
+<td>{n,m}</td>
+</tr>
+<tr>
+<td>x</td>
+<td>y</td>
+<td>匹配 x 或 y，例如： 不支持&rsquo;z</td>
+<td>（food）&rsquo; 能匹配 &ldquo;z&rdquo; 或&quot;food&rdquo;；'（z</td>
+<td>f）ood&rsquo; 则匹配&quot;zood&rdquo; 或 &ldquo;food&rdquo;</td>
+<td>不支持（同x\|y)</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>匹配从 0 到 9 中的任意一个数字字符（注意：要写成递增）</td>
+<td>[0-9]</td>
+<td>[0-9]</td>
+<td>[0-9]</td>
+<td>[0-9]</td>
+</tr>
+<tr>
+<td>[xyz]</td>
+<td>字符集合，匹配所包含的任意一个字符，例如：'[abc]&lsquo;可以匹配&quot;lay&quot; 中的 &lsquo;a&rsquo;（注意：如果元字符，例如：. *等，它们被放在[ ]中，那么它们将变成一个普通字符）</td>
+<td>[xyz]</td>
+<td>[xyz]</td>
+<td>[xyz]</td>
+<td>[xyz]</td>
+</tr>
+<tr>
+<td>[^xyz]</td>
+<td>负值字符集合，匹配未包含的任意一个字符（注意：不包括换行符），例如：'[^abc]&rsquo; 可以匹配 &ldquo;Lay&rdquo; 中的&rsquo;L'（注意：[^xyz]在awk 指令中则是匹配未包含的任意一个字符+换行符）</td>
+<td>[^xyz]</td>
+<td>[^xyz]</td>
+<td>[^xyz]</td>
+<td>[^xyz]</td>
+</tr>
+<tr>
+<td>[A-Za-z]</td>
+<td>匹配大写字母或者小写字母中的任意一个字符（注意：要写成递增）</td>
+<td>[A-Za-z]</td>
+<td>[A-Za-z]</td>
+<td>[A-Za-z]</td>
+<td>[A-Za-z]</td>
+</tr>
+<tr>
+<td>[^A-Za-z]</td>
+<td>匹配除了大写与小写字母之外的任意一个字符（注意：写成递增）</td>
+<td>[^A-Za-z]</td>
+<td>[^A-Za-z]</td>
+<td>[^A-Za-z]</td>
+<td>[^A-Za-z]</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配从 0 到 9 中的任意一个数字字符（等价于 [0-9]）</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>\d</td>
+<td>\d</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配非数字字符（等价于 [^0-9]）</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>\D</td>
+<td>\D</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任何非空白字符（等价于[^\f\n\r\t\v]）</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>\S</td>
+<td>\S</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任何空白字符，包括空格、制表符、换页符等等（等价于[ \f\n\r\t\v]）</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>\s</td>
+<td>\s</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配任何非单词字符 (等价于[^A-Za-z0-9_])</td>
+<td>\W</td>
+<td>\W</td>
+<td>\W</td>
+<td>\W</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配包括下划线的任何单词字符（等价于[A-Za-z0-9_]）</td>
+<td>\w</td>
+<td>\w</td>
+<td>\w</td>
+<td>\w</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配非单词边界，例如：&lsquo;er\B&rsquo; 能匹配 &ldquo;verb&rdquo; 中的&rsquo;er'，但不能匹配&quot;never&quot; 中的&rsquo;er'</td>
+<td>\B</td>
+<td>\B</td>
+<td>\B</td>
+<td>\B</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配一个单词边界，也就是指单词和空格间的位置，例如： &lsquo;er\b&rsquo; 可以匹配&quot;never&quot; 中的 &lsquo;er&rsquo;，但不能匹配 &ldquo;verb&rdquo; 中的&rsquo;er'</td>
+<td>\b</td>
+<td>\b</td>
+<td>\b</td>
+<td>\b</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>匹配一个横向制表符（等价于 \x09和 \cI）</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>\t</td>
+<td>\t</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>匹配一个垂直制表符（等价于 \x0b和 \cK）</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>\v</td>
+<td>\v</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>匹配一个换行符（等价于 \x0a 和\cJ）</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>\n</td>
+<td>\n</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>匹配一个换页符（等价于\x0c 和\cL）</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>\f</td>
+<td>\f</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>匹配一个回车符（等价于 \x0d 和\cM）</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>\r</td>
+<td>\r</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>匹配转义字符本身&quot;\&quot;</td>
+<td>\\</td>
+<td>\\</td>
+<td>\\</td>
+<td>\\</td>
+</tr>
+<tr>
+<td>\cx</td>
+<td>匹配由 x 指明的控制字符，例如：\cM匹配一个Control-M 或回车符，x 的值必须为A-Z 或 a-z 之一，否则，将 c 视为一个原义的 &lsquo;c&rsquo; 字符</td>
+<td>不支持</td>
+<td>不支持</td>
+<td> </td>
+<td>\cx</td>
+</tr>
+<tr>
+<td>\xn</td>
+<td>匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长，例如：'\x41' 匹配 &ldquo;A&rdquo;。'\x041' 则等价于'\x04' &amp; &ldquo;1&rdquo;。正则表达式中可以使用 ASCII 编码</td>
+<td>不支持</td>
+<td>不支持</td>
+<td> </td>
+<td>\xn</td>
+</tr>
+<tr>
+<td>\num</td>
+<td>匹配 num，其中 num是一个正整数。表示对所获取的匹配的引用</td>
+<td>不支持</td>
+<td>\num</td>
+<td>\num</td>
+<td> </td>
+</tr>
+<tr>
+<td>[:alnum:]</td>
+<td>匹配任何一个字母或数字（[A-Za-z0-9]），例如：'[[:alnum:]] '</td>
+<td>[:alnum:]</td>
+<td>[:alnum:]</td>
+<td>[:alnum:]</td>
+<td>[:alnum:]</td>
+</tr>
+<tr>
+<td>[:alpha:]</td>
+<td>匹配任何一个字母（[A－Za－z]）， 例如：' [[:alpha:]] '</td>
+<td>[:alpha:]</td>
+<td>[:alpha:]</td>
+<td>[:alpha:]</td>
+<td>[:alpha:]</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td>匹配任何一个数字（[0-9]），例如：'[[:digit:]] '</td>
+<td>[:digit:]</td>
+<td>[:digit:]</td>
+<td>[:digit:]</td>
+<td>[:digit:]</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td>匹配任何一个小写字母（[a-z]）， 例如：' [[:lower:]] '</td>
+<td>[:lower:]</td>
+<td>[:lower:]</td>
+<td>[:lower:]</td>
+<td>[:lower:]</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td>匹配任何一个大写字母（[A-Z]）</td>
+<td>[:upper:]</td>
+<td>[:upper:]</td>
+<td>[:upper:]</td>
+<td>[:upper:]</td>
+</tr>
+<tr>
+<td>[:space:]</td>
+<td>任何一个空白字符： 支持制表符、空格，例如：' [[:space:]] '</td>
+<td>[:space:]</td>
+<td>[:space:]</td>
+<td>[:space:]</td>
+<td>[:space:]</td>
+</tr>
+<tr>
+<td>[:blank:]</td>
+<td>空格和制表符（横向和纵向），例如：'[[:blank:]]&lsquo;ó&rsquo;[\s\t\v]'</td>
+<td>[:blank:]</td>
+<td>[:blank:]</td>
+<td>[:blank:]</td>
+<td>[:blank:]</td>
+</tr>
+<tr>
+<td>[:graph:]</td>
+<td>任何一个可以看得见的且可以打印的字符（注意：不包括空格和换行符等），例如：'[[:graph:]] '</td>
+<td>[:graph:]</td>
+<td>[:graph:]</td>
+<td>[:graph:]</td>
+<td>[:graph:]</td>
+</tr>
+<tr>
+<td>[:print:]</td>
+<td>任何一个可以打印的字符（注意：不包括：[:cntrl:]、字符串结束符'\0'、EOF 文件结束符（-1）， 但包括空格符号），例如：'[[:print:]] '</td>
+<td>[:print:]</td>
+<td>[:print:]</td>
+<td>[:print:]</td>
+<td>[:print:]</td>
+</tr>
+<tr>
+<td>[:cntrl:]</td>
+<td>任何一个控制字符（ASCII 字符集中的前 32 个字符，即：用十进制表示为从 0 到31，例如：换行符、制表符等等），例如：' [[:cntrl:]]'</td>
+<td>[:cntrl:]</td>
+<td>[:cntrl:]</td>
+<td>[:cntrl:]</td>
+<td>[:cntrl:]</td>
+</tr>
+<tr>
+<td>[:punct:]</td>
+<td>任何一个标点符号（不包括：[:alnum:]、[:cntrl:]、[:space:]这些字符集）</td>
+<td>[:punct:]</td>
+<td>[:punct:]</td>
+<td>[:punct:]</td>
+<td>[:punct:]</td>
+</tr>
+<tr>
+<td>[:xdigit:]</td>
+<td>任何一个十六进制数（即：0-9，a-f，A-F）</td>
+<td>[:xdigit:]</td>
+<td>[:xdigit:]</td>
+<td>[:xdigit:]</td>
+<td>[:xdigit:]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四三种不同类型正则表达式比较">四、三种不同类型正则表达式比较</h2>
+<p>注意： 当使用 BERs（基本正则表达式）时，必须在下列这些符号前加上转义字符（'\'），屏蔽掉它们的 speical meaning  &ldquo;?,+,|,{,},（,）&rdquo; 这些字符，需要加入转义符号&quot;\&quot;  <br>
+注意：修饰符用在正则表达式结尾，例如：/dog/i，其中 &quot; i &quot; 就是修饰符，它代表的含义就是：匹配时不区分大小写，那么修饰符有哪些呢？常见的修饰符如下:  <br>
+g   全局匹配（即：一行上的每个出现，而不只是一行上的第一个出现） <br>
+s    把整个匹配串当作一行处理 <br>
+m    多行匹配 <br>
+i    忽略大小写 <br>
+x    允许注释和空格的出现 <br>
+U    非贪婪匹配</p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">上一页</div>
+    <a href="/internal/zhuqianshu.tips/translation/" rel="next">翻译软件</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">下一页</div>
+    <a href="/internal/zhuqianshu.tips/cron-filesystem-size/" rel="prev">定时检查磁盘空间使用情况</a>
+  </div>
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>最近更新于 Dec 21, 2020</p>
+
+          
+
+
+
+          
+
+
+          
+
+
+  
+  
+
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-algolia-template" type="text/html">
+      <div class="search-hit">
+        <div class="search-hit-content">
+          <div class="search-hit-name">
+            <a href="{{relpermalink}}">{{{_highlightResult.title.value}}}</a>
+          </div>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{{_highlightResult.summary.value}}}</p>
+        </div>
+      </div>
+    </script>
+    
+
+    
+    
+
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.10.2/instantsearch.min.js" integrity="sha256-gFCtPk/sonctyfwYOgjrPoWApQ0rqB6ezBBZ7p32yGc=" crossorigin="anonymous"></script>
+    
+    <script>
+      const algoliaConfig = {
+        appId: "UWDZST2A4F",
+        apiKey: "5cb01a84714166f683081e92985b3f57",
+        indexName: "wukong",
+        poweredBy:  true 
+      };
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.ef76feba4f3d5167dd71e920b83aec3d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

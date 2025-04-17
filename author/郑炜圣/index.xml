@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>郑炜圣 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/%E9%83%91%E7%82%9C%E5%9C%A3/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/%E9%83%91%E7%82%9C%E5%9C%A3/index.xml" rel="self" type="application/rss+xml" />
+    <description>郑炜圣</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sun, 23 Aug 1970 06:01:41 +0800</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>郑炜圣</title>
+      <link>https://wukong.tongji.edu.cn/author/%E9%83%91%E7%82%9C%E5%9C%A3/</link>
+    </image>
+    
+    <item>
+      <title>Differential Transcriptomes and Methylomes of Trophoblast Stem Cells From Naturally-Fertilized and Somatic Cell Nuclear-Transferred Embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.frontiers_in_cell_and_developmental_biology.sun_jin/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.frontiers_in_cell_and_developmental_biology.sun_jin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genetrack-安装流程</title>
+      <link>https://wukong.tongji.edu.cn/internal/zhengweisheng.genetrack-install/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/zhengweisheng.genetrack-install/</guid>
+      <description>&lt;p&gt;#################################################&lt;/p&gt;
+&lt;h2 id=&#34;genetrack-ubuntu-linux-x86_64安装-简易版-丁桂涛&#34;&gt;GeneTrack Ubuntu Linux x86_64安装 简易版 丁桂涛&lt;/h2&gt;
+&lt;p&gt;#################################################
+下载 GeneTrack-1.0.3_all.zip并解压&lt;br&gt;
+切换到解压之后到GeneTrack目录&lt;br&gt;
+安装python-virtualenv&lt;br&gt;
+sudo apt-get install python-virtualenv&lt;br&gt;
+virtualenv -p ./required/python2.5/bin/python &amp;ndash;system-site-packages .&lt;br&gt;
+每次使用GeneTrack之前先输入&lt;br&gt;
+source PATH_TO_GENETRACK/bin/activate&lt;br&gt;
+export LD_LIBRARY_PATH=PATH_TO_GENETRACK/required/hdf5/lib(注：可以将这条加到~/.bashrc文件中，以后就不用每次输了)&lt;br&gt;
+测试GeneTrack&lt;/p&gt;
+&lt;p&gt;以上步骤在Ubuntu 12.04 x86_64上测试成功，如果这样安装不行，建议全新安装，参考下面安装步骤的完整版&lt;/p&gt;
+&lt;p&gt;#####################################################################&lt;/p&gt;
+&lt;h2 id=&#34;install-genetrack-on-ubuntu-1204-x86_64-gnulinux---by-ding-guitao&#34;&gt;install Genetrack on Ubuntu 12.04 x86_64 GNU/Linux   by Ding Guitao&lt;/h2&gt;
+&lt;p&gt;#####################################################################&lt;/p&gt;
+&lt;h3 id=&#34;01-download-genetrack&#34;&gt;01. download Genetrack&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;cd ~/install/
+wget http://genetrack.googlecode.com/files/GeneTrack-1.0.3.zip
+unzip GeneTrack-1.0.3.zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;02-install-sqlite3&#34;&gt;02. install sqlite3&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://www.sqlite.org/sqlite-amalgamation-3.6.20.tar.gz
+tar zxvf sqlite-amalgamation-3.6.20.tar.gz 
+cd sqlite-3.6.20/
+./configure --prefix=/home/dgt/install/sqlite3
+make
+make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;03-install-zlib-dev&#34;&gt;03. install zlib-dev&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://fossies.org/unix/misc/zlib-1.2.6.tar.gz
+tar zxvf zlib-1.2.6.tar.gz
+cd zlib-1.2.6/
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;04-install-python25&#34;&gt;04. install python2.5&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://python.org/ftp/python/2.5.1/Python-2.5.1.tar.bz2
+tar xjvf Python-2.5.1.tar.bz2
+cd Python-2.5.1/
+vim setup.py
+    sqlite_inc_paths = [ &#39;/usr/include&#39;,
+                             &#39;/usr/include/sqlite&#39;,
+                             &#39;/usr/include/sqlite3&#39;,
+                             &#39;/usr/local/include&#39;,
+                             &#39;/usr/local/include/sqlite&#39;,
+                             &#39;/usr/local/include/sqlite3&#39;,
+                             &#39;/home/dgt/install/sqlite-3.6.20/include&#39;,
+                             &#39;/home/dgt/install/sqlite-3.6.20/include/sqlite3&#39;,
+                           ]
+      disabled_module_list = [&amp;quot;bsddb185&amp;quot;,&amp;quot;dl&amp;quot;,&amp;quot;imageop&amp;quot;]
+./configure --prefix=/home/dgt/install/python2.5 --with-zlib
+make
+make install 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;05-install-python-virtualenv&#34;&gt;05. install python-virtualenv&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install python-virtualenv
+virtualenv -p /home/dgt/install/python2.5/bin/python2.5 --system-site-packages /home/dgt/install/GeneTrack-1.0.3
+source /home/dgt/install/GeneTrack-1.0.3/bin/activate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;06-install-sqlalchemy&#34;&gt;06. install SQLAlchemy&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://nchc.dl.sourceforge.net/project/sqlalchemy/sqlalchemy/0.7.6/SQLAlchemy-0.7.6.tar.gz
+tar zxvf SQLAlchemy-0.7.6.tar.gz
+cd SQLAlchemy-0.7.6/
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;07-install-cython&#34;&gt;07. install Cython&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://cython.org/release/Cython-0.16.zip
+unzip Cython-0.16.zip
+cd Cython-0.16/
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;08-install-numpy&#34;&gt;08. install numpy&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://nchc.dl.sourceforge.net/project/numpy/NumPy/1.6.1/numpy-1.6.1.tar.gz
+tar zxvf numpy-1.6.1.tar.gz
+cd numpy-1.6.1/
+python setup.py build
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;09-install-numexpr&#34;&gt;09. install numexpr&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget 
+cd numexpr-2.0.1/
+python setup.py build
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;10-install-gc-complier&#34;&gt;10. install gc++ complier&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install build-essential 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;11-install-hdf5&#34;&gt;11. install hdf5&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.8.tar.gz
+tar zxvf hdf5-1.8.8.tar.gz
+cd hdf5-1.8.8
+./configure --prefix=/usr/local/hdf5
+make
+make check
+make install
+make check-install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;12-install-multiprocessing&#34;&gt;12. install multiprocessing&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://pypi.python.org/packages/source/m/multiprocessing/multiprocessing-2.6.2.1.tar.gz
+tar zxvf multiprocessing-2.6.2.1.tar.gz
+cd multiprocessing-2.6.2.1/
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;13-install-pytables&#34;&gt;13. install pytables&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://nchc.dl.sourceforge.net/project/pytables/pytables/2.3.1/tables-2.3.1.tar.gz
+tar zxvf tables-2.3.1.tar.gz
+cd tables-2.3.1/
+export HDF5_DIR=/usr/local/hdf5
+export LD_LIBRARY_PATH=/usr/local/hdf5/lib
+echo &amp;quot;export LD_LIBRARY_PATH=/usr/local/hdf5/lib&amp;quot; &amp;gt;&amp;gt;~/.bashrc
+python setup.py build_ext --inplace
+python
+        &amp;gt;&amp;gt;&amp;gt; import tables
+        &amp;gt;&amp;gt;&amp;gt; tables.test()
+python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;14-install-chartdirector&#34;&gt;14. install ChartDirector&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;wget http://download2.advsofteng.com/chartdir_python_linux_64.tar.gz
+tar zxvf chartdir_python_linux_64.tar.gz
+cd ChartDirector/lib/
+cp -r * /home/dgt/install/python2.5/lib/python2.5/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;15-genetrack-test&#34;&gt;15. GeneTrack test&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;python run.py
+python run.py test
+python run.py execute yeast.yeast_dataconf
+python run.py server yeast.yeast_webconf
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Increase in DNA Damage by MYCN Knockdown Through Regulating Nucleosome Organization and Chromatin State in Neuroblastoma</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_genetics.hu_xinjie/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_genetics.hu_xinjie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reduced Self-Diploidization and Improved Survival of Semi-cloned Mice Produced from Androgenetic Haploid Embryonic Stem Cells through Overexpression of Dnmt3b</title>
+      <link>https://wukong.tongji.edu.cn/publication/2018.stem_cell_reports.he_wenteng/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2018.stem_cell_reports.he_wenteng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The microRNA Signatures in Mouse Liver Ischemia Reperfusion Injury</title>
+      <link>https://wukong.tongji.edu.cn/publication/2015.transplantation.men_hewei/</link>
+      <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2015.transplantation.men_hewei/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nucleosome organizations in induced pluripotent stem cells reprogrammed from somatic cells belonging to three different germ layers</title>
+      <link>https://wukong.tongji.edu.cn/publication/2014.bmc_biology.tao_yu/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2014.bmc_biology.tao_yu/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

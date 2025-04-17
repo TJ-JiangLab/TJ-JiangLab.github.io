@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>顾靓 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/%E9%A1%BE%E9%9D%93/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/%E9%A1%BE%E9%9D%93/index.xml" rel="self" type="application/rss+xml" />
+    <description>顾靓</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sun, 23 Aug 1970 05:55:01 +0800</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>顾靓</title>
+      <link>https://wukong.tongji.edu.cn/author/%E9%A1%BE%E9%9D%93/</link>
+    </image>
+    
+    <item>
+      <title>疟疾传播的核心调控因子</title>
+      <link>https://wukong.tongji.edu.cn/post/2021.nar.sjshen/</link>
+      <pubDate>Mon, 29 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2021.nar.sjshen/</guid>
+      <description>&lt;p&gt;  疟疾（malaria）是由疟原虫感染人体引起的、通过蚊媒传播的寄生虫病。世界卫生组织于2021年6月30日正式宣布我国消除疟疾，但目前全球仍有近90个国家有疟疾流行，每年2亿多人感染，导致约40万死亡，是全球最严重的公共卫生问题之一。而且，我国目前仍有大量的境外输入病例，如何防止输入再传播是巩固我国无疟状态的关键。疟原虫的生活史需要经历人和按蚊两个宿主，只有成熟的配子体才能通过按蚊传播。因此，疟原虫的配子生殖（gametocytogenesis）过程，即在人体内红细胞寄生阶段的无性体（asexual forms）向配子体（gametocytes）的性转换和发育（sexual commitment and development）是疟原虫感染按蚊的关键，也是疟疾传播的决定性环节。迄今为止，人们已经陆续发现了一些参与疟原虫配子生殖的重要调控因子如AP2-G, GDV1,等等（Kafsack et al. 2014. Nature; Poran et al. 2017. Nature; Filarsky et al. 2018. Science），但是对于该过程的核心调控网络仍所知甚少。&lt;/p&gt;
+&lt;p&gt;  2021年8月8日，同济大学医学院/附属东方医院张青锋团队联合生命科学院江赐忠团队及江苏省寄生虫病防治研究所曹俊团队在Nucleic Acids Research杂志在线发表了题为&lt;b&gt;&lt;font color=&#34;#006666&#34;&gt;A cascade of transcriptional repression determines sexual commitment and development in Plasmodium falciparum&lt;/font&gt;&lt;/b&gt; 的研究性论著，&lt;b&gt;&lt;font color=&#34;#660000&#34;&gt;首次揭示了恶性疟原虫配子生殖的多重表观遗传调控网络，发现了核心调控因子PfAP2-G5并阐明其作用机制，为疟疾传播阻断新措施的研发提供了关键靶点。&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;  在本研究中，作者首先利用CRISPR-Cas9基因编辑技术对恶性疟原虫ApiAp2转录调控因子家族开展了系统的基因敲除和配子体生成能力的筛选。发现在恶性疟原虫的27个ApiAP2成员中，有6个与配子生殖有关。令人惊奇的是，其中一个成员PfAP2-G5的敲除虽然能显著促进疟原虫无性体向配子体的性转换，但是不能产生成熟的配子体，提示该蛋白在配子生殖的不同阶段具有双重调控作用。于是，作者利用染色质免疫共沉淀（ChIP-seq）和差异转录组（RNA-seq）分析，并结合基因突变和生化实验，在全基因组水平上鉴定了PfAP2-G5的靶基因及调控机制。结果表明：PfAP2-G5是一个转录抑制因子，能够通过直接结合靶基因的上游调控区域，例如疟原虫性转换关键基因pfap2-g，抑制靶基因启动子的转录活性；同时，该蛋白也是异染色质（Heterochromatin）结构的相关因子，能够参与靶基因位点处的局部异染色质形成，抑制靶基因的表达。因此，PfAP2-G5可以抑制pfap2-g等基因的表达，从而阻止疟原虫性转换的开启，在没有合适的传播机会时，继续滞留在人体内进行无性繁殖。&lt;/p&gt;
+&lt;p&gt;  为进一步探索PfAP2-G5在配子生殖过程中的下游调控机制，作者首先利用配子体产生和成熟过程中的动态转录组分析和虫体发育过程（G0-GV）分析，揭示了该蛋白对于早期配子体（GI）的发育具有不可或缺的作用。染色质免疫共沉淀和差异转录组分析表明：在疟原虫性转换阶段，PfAP2-G能够上调PfAP2-G5以及其他靶基因，促进早期配子体G0的发育；但是，当疟原虫发育到GI阶段时，PfAP2-G5能够联合PfAP2-G2，迅速抑制PfAP2-G及其靶基因，而这些早期配子体发育相关基因的快速关闭是配子体成熟的关键。因此，这些ApiAP2蛋白组成的表观遗传调控网络决定了配子体的发生和发育成熟（见以下模式图）。&lt;/p&gt;
+&lt;img src=&#34;fig1.png&#34;/&gt;  
+&lt;p&gt;  综上所述，&lt;b&gt;&lt;font color=&#34;#660000&#34;&gt;PfAP2-G5介导的转录调控网络是疟原虫配子生殖过程的决定因素，决定着疟原虫生活史中两种生理状态的抉择：滞留在人体内进行无性循环繁殖，或进入性转换发育成配子体，从而感染按蚊继续传播。该蛋白的鉴定将为阻断疟疾阻断的新药或疫苗研制提供一个关键的靶点。&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;  同济大学医学院博士研究生尚晓敏、生科院博士研究生沈仕君、江苏省寄生虫病防治研究所唐建霞副研究员为本文的共同第一作者。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A cascade of transcriptional repression determines sexual commitment and development in Plasmodium falciparum</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.nucleic_acids_research.shang_xiaomin/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.nucleic_acids_research.shang_xiaomin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Architectural Factor HMGB1 Is Involved in Genome Organization in the Human Malaria Parasite Plasmodium falciparum.</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.mbio.lu_binbin/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.mbio.lu_binbin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>利用梯度离心法分离人外周血PBMC</title>
+      <link>https://wukong.tongji.edu.cn/internal/guliang.pbmc.protocol/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/internal/guliang.pbmc.protocol/</guid>
+      <description>&lt;h2 id=&#34;1实验试剂&#34;&gt;1.实验试剂&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Histopaque ®-&lt;strong&gt;1077&lt;/strong&gt;（Sigma-Aldrich）：一种无菌、经内毒素检测的聚蔗糖及泛影钠溶液，并调整密度至1.077g/mL。这种即用型的培养基可有助于从&lt;strong&gt;小体积（3ml）&lt;strong&gt;的全血中进行&lt;/strong&gt;活性淋巴细胞和其他单核细胞&lt;/strong&gt;的快速恢复。
+√	外周血单核细胞（PBMC）以及骨髓单核细胞（BMMC）的分离
+√	通过离心进行单核细胞的纯化
+√	人类淋巴细胞的分离
+√	从全血中进行乳腺癌循环肿瘤细胞（CTC）的分离&lt;/li&gt;
+&lt;li&gt;Histopaque ®-1119（Sigma-Aldrich）: 一种含有聚蔗糖和泛影酸钠的溶液，密度经调节后为1.119 g/mL。 与Histopaque-1077结合使用，可分离&lt;strong&gt;单核细胞和粒细胞&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;Histopaque ®-1083（Sigma-Aldrich）：一种含有聚蔗糖和泛影酸钠的混合溶液，密度调节至1.083g/mL。 有助于从&lt;strong&gt;大鼠、小鼠和其他小型哺乳动物&lt;/strong&gt;中分离活的单核细胞。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2实验步骤&#34;&gt;2.实验步骤&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;选1077用于人外周血单核细胞分离。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;提前将1077置于室温，平时在2~8°C保存。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在15ml离心管中加入3ml 1077，&lt;strong&gt;倾斜离心管&lt;/strong&gt;，用&lt;strong&gt;巴斯德管&lt;/strong&gt;慢慢滴加EDTA抗凝全血，形成1077与全血分离液面后，将总量为3ml的血液全部加至1077以上（可能会出现小血滴渗入1077层）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;室温400 x g离心30 min（不要太冷，这样会影响PBMC的恢复），离心机的升降速度均调至3（0~9为离心机升降速度的档位，0档表示最慢上升至指定最高速或最慢降至停止，9档反之），慢速的升降可以使分层更明显，太快升降容易导致血小板层与PBMC层分界模糊。分层后如下图。
+&lt;img src=&#34;./PBMC-1.jpg&#34; alt=&#34;PBMC离心分层图&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;建议可以先用巴斯德管移走血小板层，再吸取包含淋巴细胞和其他单核细胞的云雾状和透明层至新离心管中，加入10ml 等渗PBS（pH7.2~7.4为等渗PBS）用吸管轻柔吹匀，250 x g离心10 min，弃上清&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加入5ml PBS清洗细胞1-2次，每次250 x g离心10 min。做后续实验。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;to-be-continued&#34;&gt;To Be Continued&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href=&#34;./PBMC.docx&#34;&gt;Word下载&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>H3K27me3 Signal in the Cis Regulatory Elements Reveals the Differentiation Potential of Progenitors During Drosophila Neuroglial Development</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.genomics_proteomics_bioinformatics.chen_xiaolong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Increase in DNA Damage by MYCN Knockdown Through Regulating Nucleosome Organization and Chromatin State in Neuroblastoma</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_genetics.hu_xinjie/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_genetics.hu_xinjie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dynamic placement of the linker histone H1 associated with nucleosome arrangement and gene transcription in early Drosophila embryonic development</title>
+      <link>https://wukong.tongji.edu.cn/publication/2018.cell_death_disease.hu_jian/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2018.cell_death_disease.hu_jian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chromatin remodeling during in vivo neural stem cells differentiating to neurons in early Drosophila embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.ye_youqiong/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.ye_youqiong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chromatin remodeling during the in vivo glial differentiation in early Drosophila embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.ye_youqiong/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.ye_youqiong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gene Expression Profiling Analysis of Bisphenol A-Induced Perturbation in Biological Processes in ER-Negative HEK293 Cells</title>
+      <link>https://wukong.tongji.edu.cn/publication/2014.plos_one.yin_rong/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2014.plos_one.yin_rong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phylogenetic affinity of tree shrews to Glires is attributed to fast evolution rate</title>
+      <link>https://wukong.tongji.edu.cn/publication/2014.molecular_phylogenetics_and_evolution.lin_jiannan/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2014.molecular_phylogenetics_and_evolution.lin_jiannan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Toxic effects of decabromodiphenyl ether (BDE-209) on human embryonic kidney cells</title>
+      <link>https://wukong.tongji.edu.cn/publication/2014.frontiers_in_genetics.li_min/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2014.frontiers_in_genetics.li_min/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

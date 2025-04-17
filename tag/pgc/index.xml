@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PGC | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/tag/pgc/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/tag/pgc/index.xml" rel="self" type="application/rss+xml" />
+    <description>PGC</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>PGC</title>
+      <link>https://wukong.tongji.edu.cn/tag/pgc/</link>
+    </image>
+    
+    <item>
+      <title>高绍荣/江赐忠教授团队在Cell Research在线发表论文揭示原始生殖细胞的染色质状态</title>
+      <link>https://wukong.tongji.edu.cn/post/2018.cell_research.sjsheng/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2018.cell_research.sjsheng/</guid>
+      <description>&lt;p&gt;  为了确保下一代个体的健康和种群的延续，保持生殖细胞的遗传稳定性是至关重要的。其中原始生殖细胞（Primordial germ cells，PGCs）是胚胎发育过程中首先产生的生殖细胞群体，作为雄性和雌性生殖细胞的前体，PGCs的正常发育决定了后续生殖细胞的正常发育。尽管人们对于PGCs的研究已经取得了不少研究成果，但更多的是基于转录谱和甲基化的研究。对于PGCs发育过程中的染色质动态变化和转录调控的研究却并不多，这主要是受限于PGCs的取材困难和细胞数量不足。&lt;/p&gt;
+&lt;p&gt;  10月10日，同济大学高绍荣课题组联合江赐忠课题组在Cell Research杂志在线发表了题为“Accurate annotation of accessible chromatin in mouse and human primordial germ cells”的最新研究成果，他们利用最新优化的low-input DNase-seq技术结合生物信息学大数据分析，精确注释了PGCs发育过程中染色质的开放状态，为PGCs发育过程中各个重要生物学事件提供了重要线索。&lt;/p&gt;
+&lt;p&gt;  研究人员首先对 PGCs 发育过程中染色质开放状态进行了观察，发现启动子区域的DNase I-hypersensitive sites（DHSs）无论在时期还是性别上都具有高度的保守性。而远端的 DHSs 则截然不同，展现出了极强的时期和性别特异性。通过对这些远端 DHSs 的层次聚类和 PCA 分析，研究人员绘制出了 PGCs 的发育轨迹，证实了这些 DHSs 在 PGCs 发育中起到至关重要的瞬时调控功能。研究人员进一步对远端的 DHSs 进行序列注释（motif），发现OCT4, SOX2, NANOG, PRDM9, NFY 等重要因子在 PGCs 发育过程中有独特的富集模式，这为后续研究提供了重要线索。研究人员通过对 DHSs 精确注释，从全基因组水平上找到了多能因子 OCT4, SOX2, NANOG 以及 PRDM14 在 PGCs 中的结合位点。进一步研究发现，这些多能因子的结合都是先在小鼠怀孕后 12.5 天有第一波小幅下降，而怀孕后 14.5 天则是最剧烈的一次多能性丢失。这一发现克服了因 PGCs 细胞数量不足无法做 X-ChIP 的困难，利用 low-input DNase-seq 技术首次精确注释了多能性因子在 PGCs 发育过程中的结合位点，为进一步深入研究提供了基础。&lt;/p&gt;
+&lt;p&gt;  随后，研究人员将重点转向晚期 PGCs 的性别分化。令人兴奋的是，研究人员通过 DHSs 结合公共数据，检测到了雌性 PGCs 在进入减数分裂时期后发生同源重组的热点（recombination hotspots）。这些雌性同源重组热点共计 12,211 个，约占雌性特有 DHSs 的1/3。而在早年的工作中只有雄性生殖细胞的同源重组热点被系统鉴定过。研究人员通过对不同品系小鼠的分析，同源重组关键因子 PRDM9 敲除组的分析，以及雌雄 PGCs 各自特有 DHSs 的差异分析，充分证明了用 DHSs 检测同源重组热点的可靠性。这项研究开创了一种可靠且高效的在个体水平上检测雌性同源重组热点的方法，为雌性同源重组热点的机制研究提供了可能。与雌性进入减数分裂不同，雄性 PGCs 则是进入细胞停滞状态，研究人员发现先锋因子 NFY 和 H3K27me3 修饰共同在远端调控序列营造了预开放的染色质状态，为雄性生殖细胞的下一阶段发育做好了准备。&lt;/p&gt;
+&lt;p&gt;  最后，研究人员还从比较生物学和进化上综合分析了小鼠和人类 PGCs 的保守情况。研究人员发现小鼠 PGCs 在早期阶段具有相对较弱的保守性，而晚期雌性 PGCs 因为在进行减数分裂和同源重组，其整体保守性非常高，甚至在进化树图谱上（哺乳动物尺度之外）比高度保守的脑组织细胞还要强。更耐人寻味的是，单独分离出晚期雌性 PGCs 的同源重组位点，它们的保守性会比早期 PGCs 更低。这充分体现了晚期雌性 PGCs 在同源重组事件的调控上是非常保守的，但发生同源重组的位点上的序列却是不保守的，这与同源重组热点位置会发生 Double strand breaks（DSBs）的事实相符。在人类 PGCs 的研究上虽看不出对于时期的依赖性，但是也发现 PGCs 在哺乳动物以外比脑组织更保守，证实了PGCs作为生殖细胞在一个更长的时间尺度上非常保守，其遗传稳定性对于个体和种群的延续至关重要。&lt;/p&gt;
+&lt;p&gt;  总的来说，这项研究精确注释了PGCs发育过程中的染色质开放状态，鉴定了一批重要因子的结合位点，检测到了雌性同源重组热点，注释了雄性 PGCs 预开放的染色质状态，并对生殖细胞的进化保守性进行了系统分析，为 PGCs 的进一步研究奠定了基础。&lt;/p&gt;
+&lt;p&gt;  同济大学博士研究生李静一、博士研究生沈仕君和陈嘉瑜副教授为本文共同第一作者，高绍荣教授和江赐忠教授为本文共同通讯作者。该研究得到了科技部、基金委和上海市科委项目支持。&lt;/p&gt;
+&lt;p&gt;A. Schematic of low-input DNase-seq for probing accessible chromatin in mouse and human PGCs and gonadal somatic cells.&lt;br&gt;
+B. Bar charts showing the number of female recombination hotspots identified by DMC1-hotspots with Fs-DHSs and those identified by PRDM9 Affinity-seq peaks with Fs-DHSs.&lt;br&gt;
+C. Plots showing cumulative proportion of mouse PGC DHSs conserved across the vertebrate tree.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

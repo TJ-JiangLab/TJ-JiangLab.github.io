@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>唐一陶 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/%E5%94%90%E4%B8%80%E9%99%B6/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/%E5%94%90%E4%B8%80%E9%99%B6/index.xml" rel="self" type="application/rss+xml" />
+    <description>唐一陶</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sat, 22 Aug 1970 07:45:01 +0800</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>唐一陶</title>
+      <link>https://wukong.tongji.edu.cn/author/%E5%94%90%E4%B8%80%E9%99%B6/</link>
+    </image>
+    
+    <item>
+      <title>H2A.Z Nucleosome Positioning Has No Impact on Genetic Variation in Drosophila Genome</title>
+      <link>https://wukong.tongji.edu.cn/publication/2013.plos_one.tang_yitao/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2013.plos_one.tang_yitao/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

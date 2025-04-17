@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zhu, Xianmin | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/zhu-xianmin/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/zhu-xianmin/index.xml" rel="self" type="application/rss+xml" />
+    <description>Zhu, Xianmin</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>Zhu, Xianmin</title>
+      <link>https://wukong.tongji.edu.cn/author/zhu-xianmin/</link>
+    </image>
+    
+    <item>
+      <title>Characterizing disease progression of nonalcoholic steatohepatitis in Leptin-deficient rats by integrated transcriptome analysis</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.experimental_biology_and_medicine.lu_ping/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.experimental_biology_and_medicine.lu_ping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Integrated transcriptome analysis of human iPS cells derived from a fragile X syndrome patient during neuronal differentiation</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.science_china-life_sciences.lu_ping/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.science_china-life_sciences.lu_ping/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

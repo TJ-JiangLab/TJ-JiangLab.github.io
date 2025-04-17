@@ -1,0 +1,42 @@
+---
+title: "$10"
+authors:
+- "$2"
+
+date: "$33"
+doi: "$29"
+
+publishDate: "$33"
+publication_types: [\"2\"]
+
+publication: \"*"$18"*\"
+publication_short: \"\"
+
+abstract: "$35"
+
+summary: "$35"
+
+tags:
+- Publications
+featured: false
+
+links:
+- name: "$57"
+  url: https://pubmed.ncbi.nlm.nih.gov/"$57"/
+links:
+- name: "$56"
+url_pdf: \"./full.pdf\"
+
+
+# featured.jpg/png to your page's folder.
+image:
+  caption: \"\"
+  focal_point: \"\"
+  preview_only: false
+
+projects: []
+
+slides: \"\"
+---
+
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zhang, Xiaoqing | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/zhang-xiaoqing/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/zhang-xiaoqing/index.xml" rel="self" type="application/rss+xml" />
+    <description>Zhang, Xiaoqing</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>Zhang, Xiaoqing</title>
+      <link>https://wukong.tongji.edu.cn/author/zhang-xiaoqing/</link>
+    </image>
+    
+    <item>
+      <title>Developmental programming and lineage branching of early human telencephalon</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.embo_journal.ma_lin/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.embo_journal.ma_lin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mapping germ-layer specification preventing genes in hPSCs via genome-scale CRISPR screening</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.iscience.xu_xiangjie/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.iscience.xu_xiangjie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nucleosome eviction along with H3K9ac deposition enhances Sox2 binding during human neuroectodermal commitment</title>
+      <link>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.du_yanhua/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.du_yanhua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Smad5 acts as an intracellular pH messenger and maintains bioenergetic homeostasis</title>
+      <link>https://wukong.tongji.edu.cn/publication/2017.cell_research.fang_yujiang/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2017.cell_research.fang_yujiang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Smad2 and Smad3 have differential sensitivity in relaying TGF beta signaling and inversely regulate early lineage specification</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.liu_ling/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.liu_ling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Targeted Differentiation of Regional Ventral Neuroprogenitors and Related Neuronal Subtypes from Human Pluripotent Stem Cells</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.stem_cell_reports.chi_liankai/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.stem_cell_reports.chi_liankai/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>史偈君 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/%E5%8F%B2%E5%81%88%E5%90%9B/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/%E5%8F%B2%E5%81%88%E5%90%9B/index.xml" rel="self" type="application/rss+xml" />
+    <description>史偈君</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sat, 22 Aug 1970 16:05:01 +0800</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>史偈君</title>
+      <link>https://wukong.tongji.edu.cn/author/%E5%8F%B2%E5%81%88%E5%90%9B/</link>
+    </image>
+    
+    <item>
+      <title>Chromatin remodeling during in vivo neural stem cells differentiating to neurons in early Drosophila embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.ye_youqiong/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2017.cell_death_and_differentiation.ye_youqiong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chromatin remodeling during the in vivo glial differentiation in early Drosophila embryos</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.ye_youqiong/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.ye_youqiong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distinct response of the hepatic transcriptome to Aflatoxin B-1 induced hepatocellular carcinogenesis and resistance in rats</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.shi_jiejun/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.scientific_reports.shi_jiejun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Profiling Analysis of Histone Modifications and Gene Expression in Lewis Lung Carcinoma Murine Cells Resistant to Anti-VEGF Treatment</title>
+      <link>https://wukong.tongji.edu.cn/publication/2016.plos_one.li_dong/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2016.plos_one.li_dong/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dynamically reorganized chromatin is the key for the reprogramming of somatic cells to pluripotent cells</title>
+      <link>https://wukong.tongji.edu.cn/publication/2015.scientific_reports.huang_kaimeng/</link>
+      <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2015.scientific_reports.huang_kaimeng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Drosophila Brahma complex remodels nucleosome organizations in multiple aspects</title>
+      <link>https://wukong.tongji.edu.cn/publication/2014.nucleic_acids_research.shi_jiejun/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2014.nucleic_acids_research.shi_jiejun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PEpiD: A Prostate Epigenetic Database in Mammals</title>
+      <link>https://wukong.tongji.edu.cn/publication/2013.plos_one.shi_jiejun/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2013.plos_one.shi_jiejun/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

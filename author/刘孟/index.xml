@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>刘孟 | JiangLab</title>
+    <link>https://wukong.tongji.edu.cn/author/%E5%88%98%E5%AD%9F/</link>
+      <atom:link href="https://wukong.tongji.edu.cn/author/%E5%88%98%E5%AD%9F/index.xml" rel="self" type="application/rss+xml" />
+    <description>刘孟</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sun, 23 Aug 1970 08:50:01 +0800</lastBuildDate>
+    <image>
+      <url>https://wukong.tongji.edu.cn/images/logo_hu9e034b45a7d5e2bc1af5b58f309a8548_109997_300x300_fit_lanczos_3.png</url>
+      <title>刘孟</title>
+      <link>https://wukong.tongji.edu.cn/author/%E5%88%98%E5%AD%9F/</link>
+    </image>
+    
+    <item>
+      <title>BMP4可调控下游靶基因Ube2s和Chmp4b来维持小鼠胚胎干细胞发育潜能</title>
+      <link>https://wukong.tongji.edu.cn/post/2022.protein_cell.liumeng/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2022.protein_cell.liumeng/</guid>
+      <description>&lt;p&gt;胚胎干细胞(embryonic stem cell, ESC) 是在体外建立起来的一种具备自我更新和三胚层分化能力的一类干细胞。良好的体外培养条件对于干细胞特性的维持至关重要，不仅显著影响细胞的转录组学和表观组，还进一步影响细胞基因组稳定性，增殖以及体内外分化能力。传统的小鼠胚胎干细胞培养在基于血清（FBS）的体系中，但由于血清批次不稳定和成分信息不明确等因素，可造成不同实验室或同一实验室不同阶段进行的胚胎干细胞体外培养存在差异，且血清体系中不明确的成分可引起冲突的细胞信号刺激，使得该条件下的胚胎干细胞呈现显著的异质性。因此，成分明确的无血清培养体系被建立并广泛用于人或小鼠胚胎干细胞培养。目前，对于小鼠胚胎干细胞而言，应用最广泛的是2008年Austin Smith实验室建立的基于N2/B27+2i（GSK3bi，CHIR99021和MEKi，PD0325901）培养体系（NB/2i），一般认为该条件下的胚胎干细胞呈现出 “ground state” 状态，具备良好的发育潜能【1】。然而，近年来无血清培养体系被揭露会引起DNA甲基化异常擦除，损害细胞端粒的稳定性并最终损伤细胞发育潜能。在该体系下，细胞仅10代左右的培养即不能通过胚胎干细胞分化潜能验证金标准的考核（四倍体补偿实验：即体外培养的胚胎干细胞可通过该实验形成一只完整的小鼠，小鼠中所有的细胞均由培养的细胞分化而来）【2,3】。&lt;/p&gt;
+&lt;p&gt;无血清体系中的MEKi引起的基因组不稳定及不可逆的DNA低甲基化状态被认为是造成该缺陷的主要原因，通过降低MEKi浓度至1/5，或改用MEKi为SRCi（CGP77675）可较为有效地维持胚胎干细胞的多能性。然而，这些缺陷并未在传统的血清培养体系中被观测到，提示无血清培养体系仍然有待改进。此外，上述研究认为MEKi是主要“背锅侠”，却有意或无意地忽略了血清与无血清体系中其他多个差异要素（如血清及基础培养基（前者采用DMEM，后者采用DMEM/F12、Neurobasal、N2和B27））。因此，找到造成胚胎干细胞发育潜能缺陷的原因，不仅将有助于优化胚胎干细胞的体外培养条件，还将有效提高或维持干细胞的质量从而助力于干细胞治疗等临床应用领域。&lt;/p&gt;
+&lt;p&gt;2022年2月11日，同济大学生命科学与技术学院高绍荣、陈嘉瑜和江赐忠课题组于Protein &amp;amp; Cell 在线发表了题为BMP4 preserves the developmental potential of mESCs through Ube2s- and Chmp4b- mediated chromosomal stability safeguarding 的研究论文。这项工作揭示了骨形态发生蛋白BMP4对于小鼠胚胎干细胞多能性的维持有显著的促进作用，在无血清培养体系中添加BMP4 可以适当激活 BMP 信号通路，进而上调无血清体系中受损的下游靶基因Ube2s和Chmp4b表达，来保障小鼠胚胎干细胞的染色体完整性和增殖能力，并进一步提高并长期维持小鼠胚胎干细胞的体内发育潜能。&lt;/p&gt;
+&lt;img src=&#34;fig1.png&#34;/&gt;  
+&lt;p&gt;在本研究中，作者将同一株细胞系分别培养在血清（S），血清/2i（S/2i）和无血清（N/2i）体系中，检测同一代数下不同培养条件对同一株细胞多能性的影响。研究发现，血清体系下2i的使用可以极大提升细胞的多能性，表现为极佳的体内发育潜能（高嵌合率），而无血清体系却严重削弱了2i的这一作用。无血清N/2i相较于血清体系S/2i下的胚胎干细胞表现出增殖慢，核型异常，低皮肤嵌合率和低生殖系嵌合率等表型，且不能通过四倍体补偿实验获得发育至成年的小鼠。通过比较两种体系下的细胞转录组，发现BMP，TGFβ和AKT等信号通路在无血清体系中呈现显著下调。为明确哪条信号通路与表现出的细胞多能性缺陷有重要关联，作者进行了筛选试验，将可激活相应通路的重要分子分别添加在无血清N/2i体系中，从而检测该通路的激活对胚胎干细胞染色体稳定性、细胞增殖及发育潜能的影响。研究结果表明，BMP通路的激活具有显著效果，其中BMP4最优并显著提高了无血清体系下胚胎干细胞的分化潜能，细胞可通过金标准的检验，这揭示了BMP信号通路在无血清培养体系中对维持细胞的发育潜能和保障染色体的完整性发挥了重要作用。&lt;/p&gt;
+&lt;p&gt;为了深入探究BMP4改善细胞缺陷的内在机制，作者通过聚焦核型和增殖异常表型的转录差异分析发现了Ube2s和Chmp4b两个靶基因，并发现BMP4的添加可引起两者基因调控区域组蛋白修饰的改变从而激活基因的表达。敲降或短期的诱导敲降Ube2s或Chmp4b均可以引起细胞增殖速度减慢，核型异常率增加及体内发育潜能受损，表现为三胚层分化异常和极低的嵌合率。此时，BMP4的添加已不能恢复该受损表型。此外，过表达实验也证实无血清体系下两者的过表达均可修复相关受损表型。值得注意的是，BMP4对无血清体系中的胚胎干细胞多能性的改善作用，不同于已报道的通过操纵ERK通路来实现（降低MEKi浓度或采用SRCi），也不影响2i条件下的DNA低甲基化状态，但其对胚胎干细胞发育潜能的提升最优。&lt;/p&gt;
+&lt;img src=&#34;fig2.png&#34;/&gt;  
+&lt;p&gt;同济大学博士研究生王明珠，赵堃和刘孟为本文的共同第一作者。同济大学江赐忠教授，高绍荣教授及陈嘉瑜教授为本文的共同通讯作者。&lt;/p&gt;
+&lt;p&gt;【附课题组手记】&lt;/p&gt;
+&lt;p&gt;如何在体外条件下维持细胞多能性，是一个老生常谈的话题。2017年起多篇研究指出了2i中MEKi对细胞多能性的损伤作用，然而在这一缺陷在我们的长期2i应用中并未被显著观察到。由于2i的正向作用大家已经很明确了，因此指出他们的side effect确实很能抓人眼球，我们想指出2i不是背锅侠，反而会落入“nothing new”的窘境。因此，在要不要开展这个研究之初，我们是有纠结的。我们不仅要考虑研究的前沿性和新颖性，也要考虑更实际一点的问题，似乎这个课题“做不大”，学生能不能毕业？而且，彼时我们已经展开了2C和扩展多能性的研究，做这些热点不“香”吗？但是，我们实验室长期从事胚胎干细胞多能性的调控研究，对胚胎干细胞的体外培养及分化潜能检测具有深刻理解，应有责任告诉大家我们的观点，该如何更好地维持细胞多能性，2i到底是不是该背这个锅。有时候，总得做点“傻事”，不是吗？最后，感谢合作者和学生们的努力最终完成了一个较为系统的研究，也感谢Protein &amp;amp; Cell杂志给了我们审稿和发表的机会。&lt;/p&gt;
+&lt;p&gt;【招聘和招生小广告】&lt;/p&gt;
+&lt;p&gt;同济大学生命科学与技术学院历史悠久，曾在战火中历尽艰险仍展开发育生物学的教学与科研工作。目前，学院生物学是教育部的“双一流”重点建设学科，其中“干细胞生物学”、“表观遗传学”和“生物信息学”已逐渐成为学院的优势与特色发展方向。我们热忱欢迎海内外优秀学者或学生来我们这里一起品品茶，喝喝咖啡，聊聊科学，共同探索生命的奥秘。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>揭示表观转录组调控疟疾传播的新机制</title>
+      <link>https://wukong.tongji.edu.cn/post/2022.pnas.liumeng/</link>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2022.pnas.liumeng/</guid>
+      <description>&lt;p&gt;疟疾（malaria）是由疟原虫感染引起的寄生虫病，与艾滋病、结核病并列全球三大传染病之一，全球有近90个国家和地区存在疟疾流行，每年约2.4亿人感染，导致约60多万人死亡。我国虽然实现了消除疟疾目标，但目前仍有大量境外输入病例，如何防止输入再传播是巩固我国消除疟疾成果的关键。疟原虫的生活史需要经历人和按蚊两个宿主，只有成熟的配子体才能通过按蚊传播。因此，疟原虫的配子生殖过程，即在人体内红细胞寄生阶段的无性体（asexual forms）向配子体（gametocytes）的性分化和发育（sexual commitment and development），是疟原虫感染按蚊的关键，也是疟疾传播的决定性环节。在之前的研究中，张青锋课题组已从转录水平和转录后水平分别揭示了两条调控疟原虫配子生殖的表观遗传调控途径：(i) 转录抑制因子AP2-G5与转录激活AP2-G协同调控整个配子生殖过程，包括性分化与性发育，直至成熟配子体的产生【1】（详见BioArt报道: NAR ǀ 张青锋等发现疟疾传播的核心调控因子）；(ii) RNA降解酶（Exosome-associated RNases）如RNase II和Rrp6等通过实时降解靶基因的新生RNA（nsRNA），调控配子生殖过程的启动（性分化）【2,3】。但是，对于表观转录组是否参与调控疟原虫配子生殖，目前尚不清楚。&lt;/p&gt;
+&lt;p&gt;2022年2月25日，同济大学医学院张青锋课题组联合生科院江赐忠、厦门大学袁晶及美国国立卫生院Thomas Wellems等团队在美国科学院院刊PNAS上发表了题为5-methylcytosine modification by Plasmodium NSUN2 stabilizes mRNA and mediates the development of gametocytes的研究性论著，首次揭示了表观转录组调控疟原虫配子生殖的表观遗传调控新机制，鉴定了新调控因子NSUN2并阐明其作用机制，为疟疾传播阻断新措施的研发提供了新靶点【4】。&lt;/p&gt;
+&lt;img src=&#34;fig1.png&#34;/&gt;
+&lt;p&gt;在本研究中，作者首先利用定量质谱、BisSeq等技术，在单核苷酸水平上绘制了鼠疟原虫（约氏疟原虫P. yoelii）与人疟原虫（恶性疟原虫P. falciparum）不同发育阶段（无性期和配子体期）的mRNA m5C甲基化修饰的全基因组图谱。相对于丰富较高的m6A甲基化修饰，疟原虫转录组中的m5C修饰水平较低，靶基因也相对较少，提示这种修饰可能具有更为特异的生物学功能。随后，通过转录组和蛋白表达组分析发现，m5C修饰的mRNA具有更长的半衰期，其蛋白质水平也更高。这表明m5C修饰与疟原虫转录本的稳定性及翻译水平具有正相关性，能够在转录后水平上对疟原虫的基因表达水平进行矫正，从而实现不同基因的阶段特异性表达。&lt;/p&gt;
+&lt;p&gt;值得关注的是，作者通过对m5C靶向基因的功能聚类分析，发现m5C修饰的生物学功能指向疟原虫的有性生殖过程。在约氏疟原虫和恶性疟原虫基因组中，各有4个m5C甲基转移酶候选基因，即Pynsun1~4及Pfnsun1~4，但是不清楚谁是负责催化mRNA m5C甲基化修饰的关键基因。为此，作者通过CRISPR-Cas9基因编辑技术对这些候选酶基因展开了基因敲除工作，最终获得了Pynsun1、Pynsun2及Pfnsun2等基因敲除虫株。通过表型分析发现，Pynsun2_KO与Pfnsun2_KO皆基本丧失了配子生殖能力，而且这种功能缺陷能够通过基因修复而得以恢复。进一步的机制研究发现：NSUN2蛋白是疟原虫中负责mRNA m5C修饰的关键甲基转移酶，它的缺失直接影响疟原虫配子体发育相关的靶基因转录本m5C修饰水平，使疟原虫产生成熟配子体的能力明显下降；并在感染蚊子后，各个有性期发育阶段的虫体数量也显著下降，包括最终能够感染人的子孢子阶段，最终严重影响了疟疾传播的效率。&lt;/p&gt;
+&lt;img src=&#34;fig2.png&#34;/&gt;
+&lt;p&gt;综上，该研究通过表观转录组组学分析，结合疟原虫基因功能研究，首次绘制了疟原虫m5C甲基化修饰为标志的表观转录组图谱，并揭示了这种转录后修饰对疟原虫有性生殖的调控作用及机制，不仅为全面理解疟原虫有性生殖调控机制提供了新的理论（见模式图），而且为阻断疟疾阻断的新药或疫苗研制提供一个新靶点。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>5-methylcytosine modification by Plasmodium NSUN2 stabilizes mRNA and mediates the development of gametocytes</title>
+      <link>https://wukong.tongji.edu.cn/publication/2022.proceedings_of_the_national_academy_of_sciences_of_the_united_states_of_america.liu_meng/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2022.proceedings_of_the_national_academy_of_sciences_of_the_united_states_of_america.liu_meng/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BMP4 preserves the developmental potential of mESCs through Ube2s- and Chmp4b-mediated chromosomal stability safeguarding</title>
+      <link>https://wukong.tongji.edu.cn/publication/2022.protein_cell.wang_mingzhu/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2022.protein_cell.wang_mingzhu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>疟疾传播的核心调控因子</title>
+      <link>https://wukong.tongji.edu.cn/post/2021.nar.sjshen/</link>
+      <pubDate>Mon, 29 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/post/2021.nar.sjshen/</guid>
+      <description>&lt;p&gt;  疟疾（malaria）是由疟原虫感染人体引起的、通过蚊媒传播的寄生虫病。世界卫生组织于2021年6月30日正式宣布我国消除疟疾，但目前全球仍有近90个国家有疟疾流行，每年2亿多人感染，导致约40万死亡，是全球最严重的公共卫生问题之一。而且，我国目前仍有大量的境外输入病例，如何防止输入再传播是巩固我国无疟状态的关键。疟原虫的生活史需要经历人和按蚊两个宿主，只有成熟的配子体才能通过按蚊传播。因此，疟原虫的配子生殖（gametocytogenesis）过程，即在人体内红细胞寄生阶段的无性体（asexual forms）向配子体（gametocytes）的性转换和发育（sexual commitment and development）是疟原虫感染按蚊的关键，也是疟疾传播的决定性环节。迄今为止，人们已经陆续发现了一些参与疟原虫配子生殖的重要调控因子如AP2-G, GDV1,等等（Kafsack et al. 2014. Nature; Poran et al. 2017. Nature; Filarsky et al. 2018. Science），但是对于该过程的核心调控网络仍所知甚少。&lt;/p&gt;
+&lt;p&gt;  2021年8月8日，同济大学医学院/附属东方医院张青锋团队联合生命科学院江赐忠团队及江苏省寄生虫病防治研究所曹俊团队在Nucleic Acids Research杂志在线发表了题为&lt;b&gt;&lt;font color=&#34;#006666&#34;&gt;A cascade of transcriptional repression determines sexual commitment and development in Plasmodium falciparum&lt;/font&gt;&lt;/b&gt; 的研究性论著，&lt;b&gt;&lt;font color=&#34;#660000&#34;&gt;首次揭示了恶性疟原虫配子生殖的多重表观遗传调控网络，发现了核心调控因子PfAP2-G5并阐明其作用机制，为疟疾传播阻断新措施的研发提供了关键靶点。&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;  在本研究中，作者首先利用CRISPR-Cas9基因编辑技术对恶性疟原虫ApiAp2转录调控因子家族开展了系统的基因敲除和配子体生成能力的筛选。发现在恶性疟原虫的27个ApiAP2成员中，有6个与配子生殖有关。令人惊奇的是，其中一个成员PfAP2-G5的敲除虽然能显著促进疟原虫无性体向配子体的性转换，但是不能产生成熟的配子体，提示该蛋白在配子生殖的不同阶段具有双重调控作用。于是，作者利用染色质免疫共沉淀（ChIP-seq）和差异转录组（RNA-seq）分析，并结合基因突变和生化实验，在全基因组水平上鉴定了PfAP2-G5的靶基因及调控机制。结果表明：PfAP2-G5是一个转录抑制因子，能够通过直接结合靶基因的上游调控区域，例如疟原虫性转换关键基因pfap2-g，抑制靶基因启动子的转录活性；同时，该蛋白也是异染色质（Heterochromatin）结构的相关因子，能够参与靶基因位点处的局部异染色质形成，抑制靶基因的表达。因此，PfAP2-G5可以抑制pfap2-g等基因的表达，从而阻止疟原虫性转换的开启，在没有合适的传播机会时，继续滞留在人体内进行无性繁殖。&lt;/p&gt;
+&lt;p&gt;  为进一步探索PfAP2-G5在配子生殖过程中的下游调控机制，作者首先利用配子体产生和成熟过程中的动态转录组分析和虫体发育过程（G0-GV）分析，揭示了该蛋白对于早期配子体（GI）的发育具有不可或缺的作用。染色质免疫共沉淀和差异转录组分析表明：在疟原虫性转换阶段，PfAP2-G能够上调PfAP2-G5以及其他靶基因，促进早期配子体G0的发育；但是，当疟原虫发育到GI阶段时，PfAP2-G5能够联合PfAP2-G2，迅速抑制PfAP2-G及其靶基因，而这些早期配子体发育相关基因的快速关闭是配子体成熟的关键。因此，这些ApiAP2蛋白组成的表观遗传调控网络决定了配子体的发生和发育成熟（见以下模式图）。&lt;/p&gt;
+&lt;img src=&#34;fig1.png&#34;/&gt;  
+&lt;p&gt;  综上所述，&lt;b&gt;&lt;font color=&#34;#660000&#34;&gt;PfAP2-G5介导的转录调控网络是疟原虫配子生殖过程的决定因素，决定着疟原虫生活史中两种生理状态的抉择：滞留在人体内进行无性循环繁殖，或进入性转换发育成配子体，从而感染按蚊继续传播。该蛋白的鉴定将为阻断疟疾阻断的新药或疫苗研制提供一个关键的靶点。&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;  同济大学医学院博士研究生尚晓敏、生科院博士研究生沈仕君、江苏省寄生虫病防治研究所唐建霞副研究员为本文的共同第一作者。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Architectural Factor HMGB1 Is Involved in Genome Organization in the Human Malaria Parasite Plasmodium falciparum.</title>
+      <link>https://wukong.tongji.edu.cn/publication/2021.mbio.lu_binbin/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2021.mbio.lu_binbin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TRIBE Uncovers the Role of Dis3 in Shaping the Dynamic Transcriptome in Malaria Parasites</title>
+      <link>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_cell_and_developmental_biology.liu_meng/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://wukong.tongji.edu.cn/publication/2019.frontiers_in_cell_and_developmental_biology.liu_meng/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
